@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{137E6BEF-898E-4571-902D-65B73A977EEB}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "IndignaFwk.Models", "IndignaFwk.Models\IndignaFwk.Models.modelproj", "{F93D73FC-77A8-4CB4-85CC-A4D0DF8F4726}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{23A7E2C2-405F-4B85-99B9-8191F605783E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{AA0A6066-D7E2-4232-B582-D303FD56FB2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{03573069-F769-4D97-A2E3-75BA3EBFBE5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{943DD69C-3BC0-46A7-B033-E2CD2765541A}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F93D73FC-77A8-4CB4-85CC-A4D0DF8F4726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93D73FC-77A8-4CB4-85CC-A4D0DF8F4726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93D73FC-77A8-4CB4-85CC-A4D0DF8F4726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93D73FC-77A8-4CB4-85CC-A4D0DF8F4726}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F93D73FC-77A8-4CB4-85CC-A4D0DF8F4726} = {137E6BEF-898E-4571-902D-65B73A977EEB}
+	EndGlobalSection
+EndGlobal
