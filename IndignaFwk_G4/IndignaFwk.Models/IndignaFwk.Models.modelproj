@@ -18,6 +18,13 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
   <ItemGroup>
     <Folder Include="ModelDefinition\" />
+    <Content Include="DiagramaClases.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DiagramaClases.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>DiagramaClases.classdiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\IndignaFwk.Models.uml">
       <SubType>Content</SubType>
     </Content>
