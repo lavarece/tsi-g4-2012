@@ -325,6 +325,50 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="867da877-e91b-4031-aa53-d689652e37cd" name="Grupo" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="d2d49235-1e3c-4de0-8564-76820ad57220" />
+        <targetEnds>
+          <association Id="966a070b-8e15-49e5-87b2-46d70847c278" isDerived="false" sourceEndRoleName="Grupo" targetEndRoleName="Usuario" isLeaf="false" isAbstract="false">
+            <classMoniker Id="89d62af6-7dca-4163-a851-89b75c027991" LastKnownName="Usuario" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="26b595e3-ddea-47fb-a89e-ec3a01cfb89b" name="Grupo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cb19beb6-e11f-47e6-90c5-ef8f3626a76c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e47a57de-7d54-43ee-bc0c-cfb84123c43b" name="Usuario" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c0aad00f-fd0c-4829-8a3b-b28c09ab3b5c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0d3aaefd-eaad-4971-a7b1-ae94051224f7" />
+          </association>
+          <association Id="c6dfbf03-7b5f-4a06-903b-00a08a2dceab" isDerived="false" sourceEndRoleName="Grupo" targetEndRoleName="Template" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d3d9e522-9518-4908-b0ef-c79b54da3a30" LastKnownName="Template" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="40b9fecd-014a-434f-9e4b-d1ca0e54741e" name="Grupo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="0a9d2b73-6d3d-4252-9b1b-367a26c50d32" name="Lower" value="*">
+                      <elementDefinition Id="34f44387-3289-430e-86cc-4164c8a08e50" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f44a1633-8b91-4967-8f90-fffd61229045" name="Upper" value="*">
+                      <elementDefinition Id="bf034e88-9e32-4fe1-972a-a44d6ed2fdab" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="b588f641-d84b-446f-a1e9-eddd24263dc5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bffc829c-9b3b-4a3f-ba55-585f87731fa8" name="Template" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5fc84a90-bd76-4cf1-9f87-6c65d1f7e36c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a9fb1e43-6a71-4436-83c2-6997d94b05e9" />
+          </association>
+        </targetEnds>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -341,6 +385,16 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd Id="7ed302ae-0c72-403c-b069-332d036a1f4c" name="Usuario" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="f120ae14-b63c-4308-89b2-2e7ee661678a" name="Lower" value="*">
+                      <elementDefinition Id="bb67d46b-bb04-4342-b8d1-77ca8b7ddf60" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="3b962930-dd48-4b1b-b35e-f2a85af1b1a7" name="Upper" value="*">
+                      <elementDefinition Id="7b01281e-cebd-4fe1-b6f4-a13212918a0e" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="a24584dd-25fa-45bd-afd4-7b21282075c5" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -396,6 +450,16 @@
           </enumerationLiteral>
         </ownedLiterals>
       </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f043308f-0045-41e5-97aa-e9819e08ad66" name="VariableSistema" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="88fb209c-97e8-44e4-8d5d-08fef44310b5" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d3d9e522-9518-4908-b0ef-c79b54da3a30" name="Template" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="238a9ce4-772f-4028-9bc2-ebe2ae8a8c48" />
+      </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="7c5aadb2-824a-4373-8b39-e3ab4e5a672c" name="IndignaFwk.Models">
