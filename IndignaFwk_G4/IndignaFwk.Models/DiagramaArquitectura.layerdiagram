@@ -3,8 +3,11 @@
   <layers>
     <layer Id="f39367fa-e649-4b45-b6fd-6fe79a375b50" name="Presentation Layer">
       <dependencyToLayers>
-        <dependencyFromLayerToLayer Id="1b968f72-3667-4aaa-9835-67aa705b0535" direction="Forward">
-          <layerMoniker Id="8bbfd6bd-5249-4e72-b087-5e825766eeb0" />
+        <dependencyFromLayerToLayer Id="272bdafd-e559-487a-b946-11be1758d35c" direction="Forward">
+          <layerMoniker Id="18cb0a01-9cf3-42c9-b88c-cfdb0ad32741" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="249850d9-8a35-4277-896f-0f3c23f28c08" direction="Forward">
+          <layerMoniker Id="79550431-0756-4c15-a382-700fea3f84a3" />
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
       <childLayers>
@@ -24,31 +27,11 @@
         </layer>
         <layer Id="3ffae124-8111-4f8d-9450-eb37b9e55c6a" name="IndignaFwk.UI.Process">
           <dependencyToLayers>
-            <dependencyFromLayerToLayer Id="15924697-7517-4a88-a09f-c73ea66d8efd" direction="Forward">
+            <dependencyFromLayerToLayer Id="069be5d4-a61a-4461-8659-eb98d7a2fa3a" direction="Forward">
               <layerMoniker Id="1aa44e4e-f617-4d9f-b853-be4bacd405a0" />
             </dependencyFromLayerToLayer>
-            <dependencyFromLayerToLayer Id="b998733f-f5af-40e6-aae5-68747ee27002" direction="Forward">
-              <layerMoniker Id="79550431-0756-4c15-a382-700fea3f84a3" />
-            </dependencyFromLayerToLayer>
           </dependencyToLayers>
         </layer>
-      </childLayers>
-    </layer>
-    <layer Id="8bbfd6bd-5249-4e72-b087-5e825766eeb0" name="Services Layer">
-      <dependencyToLayers>
-        <dependencyFromLayerToLayer Id="2cdf7124-1219-47c1-9158-e7b9f94f42c0" direction="Forward">
-          <layerMoniker Id="18cb0a01-9cf3-42c9-b88c-cfdb0ad32741" />
-        </dependencyFromLayerToLayer>
-      </dependencyToLayers>
-      <childLayers>
-        <layer Id="1aa44e4e-f617-4d9f-b853-be4bacd405a0" name="IndignaFwk.Services.Facade">
-          <dependencyToLayers>
-            <dependencyFromLayerToLayer Id="168534dc-c6dd-4c38-b91b-18b5551027c0" direction="Forward">
-              <layerMoniker Id="8120819d-00e2-4f13-a135-02253b4bd563" />
-            </dependencyFromLayerToLayer>
-          </dependencyToLayers>
-        </layer>
-        <layer Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" name="IndignaFwk.Services.Agent" />
       </childLayers>
     </layer>
     <layer Id="18cb0a01-9cf3-42c9-b88c-cfdb0ad32741" name="Business Layer">
@@ -56,32 +39,66 @@
         <dependencyFromLayerToLayer Id="53321b9a-d6a0-4ab5-ad71-b9ab22d65ac2" direction="Forward">
           <layerMoniker Id="498d3fce-e85c-4621-887b-1d59c03e5f5e" />
         </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c5500574-e62d-457f-a7fd-a3d652887c46" direction="Forward">
+          <layerMoniker Id="79550431-0756-4c15-a382-700fea3f84a3" />
+        </dependencyFromLayerToLayer>
       </dependencyToLayers>
       <childLayers>
-        <layer Id="8120819d-00e2-4f13-a135-02253b4bd563" name="IndignaFwk.Business.Manager&#xD;&#xA;">
+        <layer Id="8120819d-00e2-4f13-a135-02253b4bd563" name="UserManager">
           <dependencyToLayers>
-            <dependencyFromLayerToLayer Id="8199d951-8729-43fa-9ddf-c5c0ce00e31c" direction="Forward">
+            <dependencyFromLayerToLayer Id="826e995e-00ef-4c80-9773-959541122621" direction="Forward">
               <layerMoniker Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" />
             </dependencyFromLayerToLayer>
-            <dependencyFromLayerToLayer Id="4e815dae-bb57-4524-b725-f6441229798b" direction="Forward">
-              <layerMoniker Id="3e8c1ccb-aa71-4155-bfe9-f08d3af0527a" />
+          </dependencyToLayers>
+        </layer>
+        <layer Id="1aa44e4e-f617-4d9f-b853-be4bacd405a0" name="IndignaFwk.Business.ServiceFacade">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="5940948b-0e77-4847-b0bf-cb4a9dc56565" direction="Forward">
+              <layerMoniker Id="8120819d-00e2-4f13-a135-02253b4bd563" />
             </dependencyFromLayerToLayer>
-            <dependencyFromLayerToLayer Id="1708352b-0023-455e-817f-20505cd86c1c" direction="Forward">
-              <layerMoniker Id="79550431-0756-4c15-a382-700fea3f84a3" />
+            <dependencyFromLayerToLayer Id="27777aeb-168c-420a-9741-ac10396821a9" direction="Forward">
+              <layerMoniker Id="dd51c496-1a7b-49ed-8546-a352dbd3b9e2" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="e129417a-b77e-479f-91d6-d92f2e275a27" direction="Forward">
+              <layerMoniker Id="9f2efe7a-1ed8-4c9d-8a7f-8786d6de7da2" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="1e16771a-1af8-46ab-a3a8-f070c78c1fc6" direction="Forward">
+              <layerMoniker Id="cb41eb39-1331-4308-9414-28b256e079af" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" name="IndignaFwk.Business.Agent" />
+        <layer Id="cb41eb39-1331-4308-9414-28b256e079af" name="ConvocatoryManager">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="b5bb4059-1fc1-4d53-8a16-5a8349d429fd" direction="Forward">
+              <layerMoniker Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="9f2efe7a-1ed8-4c9d-8a7f-8786d6de7da2" name="GrupoManager">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="7ea5262a-b08a-4af8-8cba-85b67c7db3c8" direction="Forward">
+              <layerMoniker Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="dd51c496-1a7b-49ed-8546-a352dbd3b9e2" name="GroupManager">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="8bf35774-bc75-4d28-8c46-e911b0065b0f" direction="Forward">
+              <layerMoniker Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" />
             </dependencyFromLayerToLayer>
           </dependencyToLayers>
         </layer>
       </childLayers>
     </layer>
     <layer Id="498d3fce-e85c-4621-887b-1d59c03e5f5e" name="Persistence Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="22ce717e-b500-47bd-9cf6-5a3fc72aec0e" direction="Forward">
+          <layerMoniker Id="79550431-0756-4c15-a382-700fea3f84a3" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
       <childLayers>
-        <layer Id="3e8c1ccb-aa71-4155-bfe9-f08d3af0527a" name="IndignaFwk.Persistence.Ado">
-          <dependencyToLayers>
-            <dependencyFromLayerToLayer Id="1cf70d87-a4c5-4362-878a-bcb98d1a658a" direction="Forward">
-              <layerMoniker Id="79550431-0756-4c15-a382-700fea3f84a3" />
-            </dependencyFromLayerToLayer>
-          </dependencyToLayers>
-        </layer>
+        <layer Id="3e8c1ccb-aa71-4155-bfe9-f08d3af0527a" name="IndignaFwk.Persistence.Ado" />
       </childLayers>
     </layer>
     <layer Id="79550431-0756-4c15-a382-700fea3f84a3" name="IndignaFwk.Business.Entities" />
