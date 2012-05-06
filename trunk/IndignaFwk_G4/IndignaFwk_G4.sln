@@ -15,6 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{94
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.UI.FrontOffice", "IndignaFwk.UI.FrontOffice\IndignaFwk.UI.FrontOffice.csproj", "{113FF6C2-3DA6-4C0D-8CB1-DCF6EF3B9EE9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{22640F77-04E6-49B0-92C6-543752C6E343}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\DocumentoArquitectura.doc = ..\..\..\..\Desktop\DocumentoArquitectura.doc
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
