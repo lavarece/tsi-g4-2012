@@ -75,7 +75,7 @@
             </dependencyFromLayerToLayer>
           </dependencyToLayers>
         </layer>
-        <layer Id="9f2efe7a-1ed8-4c9d-8a7f-8786d6de7da2" name="GrupoManager">
+        <layer Id="9f2efe7a-1ed8-4c9d-8a7f-8786d6de7da2" name="SystemManager">
           <dependencyToLayers>
             <dependencyFromLayerToLayer Id="7ea5262a-b08a-4af8-8cba-85b67c7db3c8" direction="Forward">
               <layerMoniker Id="c66442c9-1cd2-4e00-8310-a5d750a4e765" />
