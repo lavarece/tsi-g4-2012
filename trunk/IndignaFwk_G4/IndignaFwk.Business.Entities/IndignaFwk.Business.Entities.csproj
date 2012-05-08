@@ -33,6 +33,23 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AsistenciaConvocatoria.cs" />
+    <Compile Include="Contenido.cs" />
+    <Compile Include="Convocatoria.cs" />
+    <Compile Include="Grupo.cs" />
+    <Compile Include="Imagen.cs" />
+    <Compile Include="MarcaContenido.cs" />
+    <Compile Include="Notificacion.cs" />
+    <Compile Include="Tematica.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuTematica.cs" />
+    <Compile Include="VariableSistema.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

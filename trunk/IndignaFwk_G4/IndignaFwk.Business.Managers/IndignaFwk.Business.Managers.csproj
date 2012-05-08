@@ -33,6 +33,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ConvocatoryManager.cs" />
+    <Compile Include="GroupManager.cs" />
+    <Compile Include="IConvocatoryManager.cs" />
+    <Compile Include="IGroupManager.cs" />
+    <Compile Include="ISystemManager.cs" />
+    <Compile Include="IUserManager.cs" />
+    <Compile Include="SystemManager.cs" />
+    <Compile Include="UserManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
