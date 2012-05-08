@@ -7,5 +7,8 @@ namespace IndignaFwk.Business.Entities
 {
     public class Usuario
     {
+        public Usuario()
+        {
+        }
     }
 }
