@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Managers
 {
-    class ConvocatoryManager : IConvocatoryManager
+    public class ConvocatoryManager : IConvocatoryManager
     {
     }
 }

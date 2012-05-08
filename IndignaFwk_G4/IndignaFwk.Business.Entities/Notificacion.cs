@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Entities
 {
-    class Notificacion
+    public class Notificacion
     {
     }
 }
