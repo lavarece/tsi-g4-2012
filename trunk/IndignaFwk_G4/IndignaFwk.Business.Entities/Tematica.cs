@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Entities
 {
-    class Tematica
+    public class Tematica
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Managers
 {
-    class GroupManager : IGroupManager
+    public class GroupManager : IGroupManager
     {
     }
 }

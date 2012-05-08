@@ -9,7 +9,7 @@ using System.Text;
 namespace IndignaFwk.Business.Services
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    public class Service1 : IUserService
+    public class UserService : IUserService
     {
         public string GetData(int value)
         {

@@ -12,7 +12,6 @@ namespace IndignaFwk.Business.Services
     [ServiceContract]
     public interface IUserService
     {
-
         [OperationContract]
         string GetData(int value);
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Managers
 {
-    class UserManager : IUserManager
+    public class UserManager : IUserManager
     {
     }
 }
