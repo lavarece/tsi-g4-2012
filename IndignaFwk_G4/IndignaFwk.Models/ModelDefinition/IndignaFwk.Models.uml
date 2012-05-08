@@ -172,7 +172,7 @@
           </property>
           <property
             Id="8d271645-04d6-457f-bb40-013da263310a"
-            name="estado"
+            name="conectado"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -183,8 +183,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="9a00b69a-623a-4244-9233-ccb7158118a8"
-                LastKnownName="EstadoConectadoUsuario"
+                Id="70bd9e8c-2ba5-48a4-ab4b-12a93109a9a0"
+                LastKnownName="boolean"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -846,7 +846,7 @@
             isAbstract="false">
             <classMoniker
               Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c"
-              LastKnownName="ContenidoGrupo"
+              LastKnownName="Contenido"
               LastKnownLocation="IndignaFwk.Models.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -967,7 +967,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c"
-                LastKnownName="ContenidoGrupo"
+                LastKnownName="Contenido"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -995,7 +995,7 @@
     <packageHasNamedElement>
       <class
         Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c"
-        name="ContenidoGrupo"
+        name="Contenido"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1229,7 +1229,7 @@
             isAbstract="false">
             <classMoniker
               Id="3ce34af6-a98f-4ed7-be94-9588753db9c0"
-              LastKnownName="Imagenes"
+              LastKnownName="Imagen"
               LastKnownLocation="IndignaFwk.Models.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1396,7 +1396,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c"
-                LastKnownName="ContenidoGrupo"
+                LastKnownName="Contenido"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -1432,7 +1432,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="3ce34af6-a98f-4ed7-be94-9588753db9c0"
-                LastKnownName="Imagenes"
+                LastKnownName="Imagen"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -1806,7 +1806,7 @@
     <packageHasNamedElement>
       <class
         Id="3ce34af6-a98f-4ed7-be94-9588753db9c0"
-        name="Imagenes"
+        name="Imagen"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1890,7 +1890,7 @@
             name="Me gusta" />
           <enumerationLiteral
             Id="72dedec7-74a9-41dd-8f4b-222e63ce2e9e"
-            name="Contenido Inadecuado" />
+            name="Inadecuado" />
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>
