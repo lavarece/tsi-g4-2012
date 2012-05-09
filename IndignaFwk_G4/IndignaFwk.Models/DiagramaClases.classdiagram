@@ -193,12 +193,6 @@
               <referencedTypeMoniker Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" LastKnownName="long" />
             </type_NamedElement>
           </property>
-          <property Id="af9f61e5-0d54-4e4d-8747-1bd2586f8eae" name="idUsuario" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="22bcef75-c49d-4c37-ade6-ab7764a330b3" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="39a001f0-f261-4bb8-bbe7-4fc712292146" LastKnownName="Usuario" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -291,6 +285,16 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="329d1a98-2f8f-48f9-8274-c92ccac439d4" name="AsistenciaConvocatoria" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="95317d3d-7a23-47f1-b07a-61fa9ea90c83" name="Lower" value="*">
+                      <elementDefinition Id="462759be-f218-4061-833d-83404c966f20" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="7b022bf5-af53-4d55-8f69-6fc8b65bbcaf" name="Upper" value="*">
+                      <elementDefinition Id="753a5bf9-70be-4833-8be5-8c51272b1851" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="f18bf7bb-3935-4e1a-ba0f-e74aa8d632f2" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -307,6 +311,16 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="f834eb49-6571-42de-82d1-632396dcc3b7" name="AsistenciaConvocatoria" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="d7ae4c51-51e9-4079-bf47-ce0b49d26a6b" name="Lower" value="*">
+                      <elementDefinition Id="cc062f70-8bac-47fa-a03b-568fec1118a9" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="0273ff74-1c8a-4966-ac37-0b2dcf782d6a" name="Upper" value="*">
+                      <elementDefinition Id="e6de845d-01f1-431d-847f-3ca0accfa226" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="e29ca413-2f84-4aeb-8f65-d07d7c83d332" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -324,18 +338,6 @@
             <elementDefinition Id="8dd1e581-110d-4562-8f47-c4a90dd8c4a3" />
             <type_NamedElement>
               <referencedTypeMoniker Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" LastKnownName="long" />
-            </type_NamedElement>
-          </property>
-          <property Id="da08f953-011b-4bea-ac72-c4365d4f7182" name="idUsuario" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="6ad3965f-eea8-4295-8bc2-c497049d4571" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="39a001f0-f261-4bb8-bbe7-4fc712292146" LastKnownName="Usuario" />
-            </type_NamedElement>
-          </property>
-          <property Id="90f182e5-9f59-4f4e-a84b-f812496a4ec0" name="idConvocatoria" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="1c46c9b1-f8e5-44a6-8921-091cc9dc470f" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="2ed17281-b4e9-426c-9bf2-baa97e04c6c0" LastKnownName="Convocatoria" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -640,18 +642,6 @@
               <referencedTypeMoniker Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" LastKnownName="long" />
             </type_NamedElement>
           </property>
-          <property Id="764313f6-c7d5-4f39-86f7-a3be30eb5e09" name="idUsuario" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="00492f57-883c-46e6-ba88-403ed2afebee" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="39a001f0-f261-4bb8-bbe7-4fc712292146" LastKnownName="Usuario" />
-            </type_NamedElement>
-          </property>
-          <property Id="c3bcccfc-60ef-46af-89e9-c35a37c5e43c" name="idTematica" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="6f830fc4-0852-41b5-97e3-9554d9d71d66" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="484e25d9-78f3-436c-8c7c-f277c9751b5f" LastKnownName="Tematica" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -802,11 +792,6 @@
     <packageHasNamedElement>
       <referencedType Id="91997baf-0110-45fc-b10b-648e8f8287ec" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="484e25d9-78f3-436c-8c7c-f277c9751b5f" name="Tematica" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Tematica">
-        <elementDefinition Id="d4680720-01a8-45e2-92f1-6741f36ece0d" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>

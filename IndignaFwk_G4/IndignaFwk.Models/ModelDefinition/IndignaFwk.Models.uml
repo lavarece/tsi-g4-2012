@@ -493,24 +493,6 @@
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="22bcef75-c49d-4c37-ade6-ab7764a330b3"
-            name="idUsuario"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="a7765ac5-4522-490e-ab1a-29f77a467409"
-                LastKnownName="Usuario"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -715,7 +697,20 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="462759be-f218-4061-833d-83404c966f20"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="753a5bf9-70be-4833-8be5-8c51272b1851"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -754,7 +749,20 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="cc062f70-8bac-47fa-a03b-568fec1118a9"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e6de845d-01f1-431d-847f-3ca0accfa226"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -787,42 +795,6 @@
               <undefinedTypeMoniker
                 Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd"
                 LastKnownName="long"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="6ad3965f-eea8-4295-8bc2-c497049d4571"
-            name="idUsuario"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="a7765ac5-4522-490e-ab1a-29f77a467409"
-                LastKnownName="Usuario"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="1c46c9b1-f8e5-44a6-8921-091cc9dc470f"
-            name="idConvocatoria"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="f0e04dc2-b57c-4960-a3f7-917c8c26f9e5"
-                LastKnownName="Convocatoria"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -1555,42 +1527,6 @@
               <undefinedTypeMoniker
                 Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd"
                 LastKnownName="long"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="00492f57-883c-46e6-ba88-403ed2afebee"
-            name="idUsuario"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="a7765ac5-4522-490e-ab1a-29f77a467409"
-                LastKnownName="Usuario"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="6f830fc4-0852-41b5-97e3-9554d9d71d66"
-            name="idTematica"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="d4680720-01a8-45e2-92f1-6741f36ece0d"
-                LastKnownName="Tematica"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>

@@ -37,13 +37,30 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IAsistenciaConvocatoriaADO.cs" />
-    <Compile Include="IContenidoADO.cs" />
-    <Compile Include="IConvocatoriaADO.cs" />
-    <Compile Include="IGrupoADO.cs" />
-    <Compile Include="IImagenADO.cs" />
-    <Compile Include="IUsuarioADO.cs" />
+    <Compile Include="AsistenciaConvocatoriaADO.cs" />
+    <Compile Include="ContenidoADO.cs" />
+    <Compile Include="ConvocatoriaADO.cs" />
+    <Compile Include="GrupoADO.cs" />
+    <Compile Include="Interface\IAsistenciaConvocatoriaADO.cs" />
+    <Compile Include="Interface\IContenidoADO.cs" />
+    <Compile Include="Interface\IConvocatoriaADO.cs" />
+    <Compile Include="Interface\IGrupoADO.cs" />
+    <Compile Include="Interface\IImagenADO.cs" />
+    <Compile Include="ImagenADO.cs" />
+    <Compile Include="Interface\IMarcaContenidoADO.cs" />
+    <Compile Include="Interface\INotificacionADO.cs" />
+    <Compile Include="Interface\ITematicaADO.cs" />
+    <Compile Include="Interface\ITemplateADO.cs" />
+    <Compile Include="Interface\IUsuarioADO.cs" />
+    <Compile Include="Interface\IUsuTematicaADO.cs" />
+    <Compile Include="Interface\IVariableSistemaADO.cs" />
+    <Compile Include="MarcaContenidoADO.cs" />
+    <Compile Include="NotifiacionADO.cs" />
+    <Compile Include="TematicaADO.cs" />
+    <Compile Include="TemplateADO.cs" />
     <Compile Include="UsuarioADO.cs" />
+    <Compile Include="UsuTematicaADO.cs" />
+    <Compile Include="VariableSistemaADO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

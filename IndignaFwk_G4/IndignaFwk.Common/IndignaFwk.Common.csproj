@@ -37,7 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Exceptions\" />
+    <Folder Include="Exception\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumeration\EstadoContenidoEnum.cs" />
