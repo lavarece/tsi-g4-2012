@@ -7,5 +7,10 @@ namespace IndignaFwk.Business.Entities
 {
     public class UsuTematica
     {
+        public Int32 Id { get; set; }
+
+        public Usuario Usuario { get; set; }
+
+        public Tematica Tematica { get; set; }
     }
 }
