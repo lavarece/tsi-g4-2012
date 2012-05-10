@@ -37,21 +37,20 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ConvocatoryManager.cs" />
-    <Compile Include="GroupManager.cs" />
-    <Compile Include="IConvocatoryManager.cs" />
-    <Compile Include="IGroupManager.cs" />
-    <Compile Include="ISystemManager.cs" />
-    <Compile Include="IUserManager.cs" />
-    <Compile Include="SystemManager.cs" />
-    <Compile Include="UserManager.cs" />
+    <Compile Include="ConvocatoriaManager.cs" />
+    <Compile Include="GrupoManager.cs" />
+    <Compile Include="Interface\IConvocatoriaManager.cs" />
+    <Compile Include="Interface\IGrupoManager.cs" />
+    <Compile Include="Interface\ISistemaManager.cs" />
+    <Compile Include="Interface\IUsuarioManager.cs" />
+    <Compile Include="ManagerFactory.cs" />
+    <Compile Include="SistemaManager.cs" />
+    <Compile Include="UsuarioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

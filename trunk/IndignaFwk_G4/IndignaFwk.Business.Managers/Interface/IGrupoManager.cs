@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Managers
 {
-    public interface ISystemManager
+    public interface IGrupoManager
     {
     }
 }
