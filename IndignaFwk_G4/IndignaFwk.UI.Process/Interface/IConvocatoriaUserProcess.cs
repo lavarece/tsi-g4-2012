@@ -8,6 +8,6 @@ namespace IndignaFwk.UI.Process
 {
     public interface IConvocatoriaUserProcess
     {
-        Int32 crearUsuario(Usuario usuario);
+        Int32 crearConvocatoria(Usuario usuario);
     }
 }
