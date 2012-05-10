@@ -7,6 +7,7 @@ namespace IndignaFwk.Business.Managers
 {
     public class ManagerFactory
     {
+        // PROPERTIES MANAGERS
         private IConvocatoriaManager convocatoriaManager;
 
         private IGrupoManager grupoManager;
@@ -15,7 +16,23 @@ namespace IndignaFwk.Business.Managers
 
         private IUsuarioManager usuarioManager;
 
-        public IConvocatoriaManager getConvocatoryManager()
+        // SINGLETON FACTORY
+        private ManagerFactory() { }
+
+        private static ManagerFactory instance;
+
+        public static ManagerFactory Instance()
+        {
+            if (instance == null)
+            {
+                instance = new ManagerFactory();
+            }
+
+            return instance;
+        }
+
+        // GETTERS MANAGERS
+        public IConvocatoriaManager GetConvocatoriaManager()
         {
             if (convocatoriaManager == null)
             {
@@ -25,7 +42,7 @@ namespace IndignaFwk.Business.Managers
             return convocatoriaManager;
         }
 
-        public IGrupoManager getGrupoManager()
+        public IGrupoManager GetGrupoManager()
         {
             if (grupoManager == null)
             {
@@ -35,7 +52,7 @@ namespace IndignaFwk.Business.Managers
             return grupoManager;
         }
 
-        public ISistemaManager getSistemaManager()
+        public ISistemaManager GetSistemaManager()
         {
             if (sistemaManager == null)
             {
@@ -45,14 +62,14 @@ namespace IndignaFwk.Business.Managers
             return sistemaManager;
         }
 
-        public IUsuarioManager getUsuarioManager()
+        public IUsuarioManager GetUsuarioManager()
         {
-            if(usuarioManager == null)
+            if (usuarioManager == null)
             {
                 usuarioManager = new UsuarioManager();
             }
 
             return usuarioManager;
-
+        }
     }
 }
