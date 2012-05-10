@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class UsuarioADO : IUsuarioADO
     {
-        public long crear(Usuario usuario)
+        public Int32 Crear(Usuario usuario)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Usuario usuario)
+        public void Editar(Usuario usuario)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Usuario obtener(long id)
+        public Usuario Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Usuario> obtenerListado()
+        public List<Usuario> ObtenerListado()
         {
             throw new NotImplementedException();
         }

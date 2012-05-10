@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IContenidoADO
     {
-        long crear(Contenido contenido);
+        Int32 Crear(Contenido contenido);
 
-        void editar(Contenido contenido);
+        void Editar(Contenido contenido);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        Contenido obtener(long id);
+        Contenido Obtener(long id);
 
-        List<Contenido> obtenerListado();
+        List<Contenido> ObtenerListado();
     }
 }

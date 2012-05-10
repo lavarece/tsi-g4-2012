@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface INotificacionADO
     {
-        long crear(Notificacion notificacion);
+        Int32 Crear(Notificacion notificacion);
 
-        void editar(Notificacion notificacion);
+        void Editar(Notificacion notificacion);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        Notificacion obtener(long id);
+        Notificacion Obtener(long id);
 
-        List<Notificacion> obtenerListado();
+        List<Notificacion> ObtenerListado();
     }
 }

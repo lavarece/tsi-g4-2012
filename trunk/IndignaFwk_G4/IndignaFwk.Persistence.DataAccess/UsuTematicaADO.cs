@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class UsuTematicaADO : IUsuTematicaADO
     {
-        public long crear(UsuTematica usuTematica)
+        public Int32 Crear(UsuTematica usuTematica)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(UsuTematica usuTematica)
+        public void Editar(UsuTematica usuTematica)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public UsuTematica obtener(long id)
+        public UsuTematica Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<UsuTematica> obtenerListado()
+        public List<UsuTematica> ObtenerListado()
         {
             throw new NotImplementedException();
         }

@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface ITemplateADO
     {
-        long crear(Template template);
+        Int32 Crear(Template template);
 
-        void editar(Template template);
+        void Editar(Template template);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        Template obtener(long id);
+        Template Obtener(long id);
 
-        List<Template> obtenerListado();
+        List<Template> ObtenerListado();
     }
 }

@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class VariableSistemaADO : IVariableSistemaADO
     {
-        public long crear(VariableSistema variableSistema)
+        public Int32 Crear(VariableSistema variableSistema)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(VariableSistema variableSistema)
+        public void Editar(VariableSistema variableSistema)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public VariableSistema obtener(long id)
+        public VariableSistema Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<VariableSistema> obtenerListado()
+        public List<VariableSistema> ObtenerListado()
         {
             throw new NotImplementedException();
         }

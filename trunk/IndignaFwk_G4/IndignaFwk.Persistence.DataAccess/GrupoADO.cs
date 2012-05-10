@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class GrupoADO : IGrupoADO
     {
-        public long crear(Grupo grupo)
+        public Int32 Crear(Grupo grupo)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Grupo grupo)
+        public void Editar(Grupo grupo)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Grupo obtener(long id)
+        public Grupo Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Grupo> obtenerListado()
+        public List<Grupo> ObtenerListado()
         {
             throw new NotImplementedException();
         }
