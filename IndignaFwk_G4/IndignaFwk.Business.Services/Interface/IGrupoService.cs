@@ -4,14 +4,16 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using IndignaFwk.Business.Entities;
 
 namespace IndignaFwk.Business.Services
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IGroupService" in both code and config file together.
-    [ServiceContract]
-    public interface IGroupService
+    [ServiceContract(
+    Namespace = "http://localhost//IndignaFwk//2012",
+    SessionMode = SessionMode.Allowed)] 
+    public interface IGrupoService
     {
         [OperationContract]
-        void DoWork();
+        Int32 crearGrupo(Grupo grupo);
     }
 }
