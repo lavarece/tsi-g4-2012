@@ -14,7 +14,7 @@ namespace IndignaFwk.Business.Services
     {
         public Int32 crearUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

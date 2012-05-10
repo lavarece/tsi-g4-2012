@@ -13,7 +13,7 @@ namespace IndignaFwk.Business.Services
     {
         public Int32 crearGrupo(Grupo grupo)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

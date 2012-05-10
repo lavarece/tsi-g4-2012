@@ -11,9 +11,9 @@ namespace IndignaFwk.Business.Services
 {
     public class ConvocatoriaService : IConvocatoriaService
     {
-        public Int32 CrearConvocatoria(Convocatoria convocatoria)
+        public Int32 crearConvocatoria(Convocatoria convocatoria)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

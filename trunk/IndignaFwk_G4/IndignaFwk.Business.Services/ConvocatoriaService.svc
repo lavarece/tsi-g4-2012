@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="IndignaFwk.Business.Services.ConvocatoryService" CodeBehind="ConvocatoriaService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="IndignaFwk.Business.Services.ConvocatoriaService" CodeBehind="ConvocatoriaService.svc.cs" %>
