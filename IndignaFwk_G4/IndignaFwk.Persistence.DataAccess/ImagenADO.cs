@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class ImagenADO : IImagenADO
     {
-        public long crear(Imagen imagen)
+        public Int32 Crear(Imagen imagen)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Imagen imagen)
+        public void Editar(Imagen imagen)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Imagen obtener(long id)
+        public Imagen Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Imagen> obtenerListado()
+        public List<Imagen> ObtenerListado()
         {
             throw new NotImplementedException();
         }

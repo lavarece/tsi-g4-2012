@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class ContenidoADO : IContenidoADO
     {
-        public long crear(Contenido contenido)
+        public Int32 Crear(Contenido contenido)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Contenido contenido)
+        public void Editar(Contenido contenido)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Contenido obtener(long id)
+        public Contenido Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Contenido> obtenerListado()
+        public List<Contenido> ObtenerListado()
         {
             throw new NotImplementedException();
         }

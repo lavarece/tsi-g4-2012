@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class ConvocatoriaADO : IConvocatoriaADO
     {
-        public long crear(Convocatoria convocatoria)
+        public Int32 Crear(Convocatoria convocatoria)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Convocatoria convocatoria)
+        public void Editar(Convocatoria convocatoria)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Contenido obtener(long id)
+        public Contenido Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Contenido> obtenerListado()
+        public List<Contenido> ObtenerListado()
         {
             throw new NotImplementedException();
         }

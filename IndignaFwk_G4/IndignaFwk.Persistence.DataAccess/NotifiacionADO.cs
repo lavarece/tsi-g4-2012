@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class NotifiacionADO : INotificacionADO
     {
-        public long crear(Notificacion notificacion)
+        public Int32 Crear(Notificacion notificacion)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Notificacion notificacion)
+        public void Editar(Notificacion notificacion)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Notificacion obtener(long id)
+        public Notificacion Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Notificacion> obtenerListado()
+        public List<Notificacion> ObtenerListado()
         {
             throw new NotImplementedException();
         }

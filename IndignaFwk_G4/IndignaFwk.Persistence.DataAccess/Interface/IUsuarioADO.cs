@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IUsuarioADO
     {
-        long crear(Usuario usuario);
+        Int32 Crear(Usuario usuario);
 
-        void editar(Usuario usuario);
+        void Editar(Usuario usuario);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        Usuario obtener(long id);
+        Usuario Obtener(long id);
 
-        List<Usuario> obtenerListado();
+        List<Usuario> ObtenerListado();
     }
 }

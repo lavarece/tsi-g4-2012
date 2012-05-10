@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface ITematicaADO
     {
-        long crear(Tematica tematica);
+        Int32 Crear(Tematica tematica);
 
-        void editar(Tematica tematica);
+        void Editar(Tematica tematica);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        Tematica obtener(long id);
+        Tematica Obtener(long id);
 
-        List<Tematica> obtenerListado();
+        List<Tematica> ObtenerListado();
     }
 }

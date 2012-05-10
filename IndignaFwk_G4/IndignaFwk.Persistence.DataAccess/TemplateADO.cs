@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class TemplateADO : ITemplateADO
     {
-        public long crear(Template template)
+        public Int32 Crear(Template template)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(Template template)
+        public void Editar(Template template)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Template obtener(long id)
+        public Template Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Template> obtenerListado()
+        public List<Template> ObtenerListado()
         {
             throw new NotImplementedException();
         }

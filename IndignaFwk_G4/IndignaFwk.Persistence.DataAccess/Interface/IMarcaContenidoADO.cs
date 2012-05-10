@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IMarcaContenidoADO
     {
-        long crear(MarcaContenido marcaContenido);
+        Int32 Crear(MarcaContenido marcaContenido);
 
-        void editar(MarcaContenido marcaContenido);
+        void Editar(MarcaContenido marcaContenido);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        MarcaContenido obtener(long id);
+        MarcaContenido Obtener(long id);
 
-        List<MarcaContenido> obtenerListado();
+        List<MarcaContenido> ObtenerListado();
     }
 }

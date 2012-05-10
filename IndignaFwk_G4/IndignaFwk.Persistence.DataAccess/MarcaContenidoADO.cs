@@ -8,27 +8,27 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class MarcaContenidoADO : IMarcaContenidoADO
     {
-        public long crear(MarcaContenido marcaContenido)
+        public Int32 Crear(MarcaContenido marcaContenido)
         {
             throw new NotImplementedException();
         }
 
-        public void editar(MarcaContenido marcaContenido)
+        public void Editar(MarcaContenido marcaContenido)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminar(long id)
+        public void Eliminar(long id)
         {
             throw new NotImplementedException();
         }
 
-        public MarcaContenido obtener(long id)
+        public MarcaContenido Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<MarcaContenido> obtenerListado()
+        public List<MarcaContenido> ObtenerListado()
         {
             throw new NotImplementedException();
         }

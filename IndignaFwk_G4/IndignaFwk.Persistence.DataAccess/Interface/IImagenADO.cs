@@ -8,14 +8,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IImagenADO
     {
-        long crear(Imagen imagen);
+        Int32 Crear(Imagen imagen);
 
-        void editar(Imagen imagen);
+        void Editar(Imagen imagen);
 
-        void eliminar(long id);
+        void Eliminar(long id);
 
-        Imagen obtener(long id);
+        Imagen Obtener(long id);
 
-        List<Imagen> obtenerListado();
+        List<Imagen> ObtenerListado();
     }
 }
