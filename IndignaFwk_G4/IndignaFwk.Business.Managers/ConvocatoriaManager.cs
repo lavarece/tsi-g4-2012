@@ -6,7 +6,6 @@ using System.Text;
 namespace IndignaFwk.Business.Managers
 {
     public class ConvocatoriaManager : IConvocatoriaManager
-
     {
     }
 }
