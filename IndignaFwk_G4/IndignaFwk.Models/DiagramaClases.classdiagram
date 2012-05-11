@@ -5,10 +5,10 @@
       <class Id="89d62af6-7dca-4163-a851-89b75c027991" name="Usuario" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a7765ac5-4522-490e-ab1a-29f77a467409" />
         <ownedAttributesInternal>
-          <property Id="b7e49174-d960-48cb-8b98-c120432401c1" name="categorias" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="b7e49174-d960-48cb-8b98-c120432401c1" name="Categoria" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7b718160-a73a-4f35-8cdc-fa2799a59789" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="2f722edc-9724-4c31-9967-0daf3dd495f1" LastKnownName="Tematica" />
+              <referencedTypeMoniker Id="d739c321-9586-4878-aca2-bb05b66ccd02" LastKnownName="Tematica" />
             </type_NamedElement>
           </property>
           <property Id="3640ebe0-7cac-4e07-b089-6086be770857" name="email" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -59,6 +59,12 @@
               <referencedTypeMoniker Id="cccf0b8e-a87b-4e96-ae67-c8a45a51764c" LastKnownName="boolean" />
             </type_NamedElement>
           </property>
+          <property Id="d1b8bcd1-ed1f-470c-851c-e6cd8c01babc" name="FK_Id_Sitio" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="57d9c3d6-e1b1-4866-828c-564642451f42" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6f08a3ec-6670-41fa-aaa8-be464e87def0" LastKnownName="Sitio" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -98,7 +104,7 @@
             <elementDefinition Id="cdc50fe6-68ea-4431-9bd3-803a719e8dfb" />
           </association>
           <association Id="d23b453a-4cc9-4ec0-bb13-5cfce46f61e2" isDerived="false" sourceEndRoleName="Convocatoria" targetEndRoleName="Grupo" isLeaf="false" isAbstract="false">
-            <classMoniker Id="867da877-e91b-4031-aa53-d689652e37cd" LastKnownName="Grupo" />
+            <classMoniker Id="867da877-e91b-4031-aa53-d689652e37cd" LastKnownName="Sitio" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="44f55823-f793-4397-8c98-8f7b9d261540" name="Convocatoria" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -151,61 +157,51 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="449182d5-2be1-4c2c-83bd-6a7b11a94898" name="categoria" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="449182d5-2be1-4c2c-83bd-6a7b11a94898" name="Categoria" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="d7b367f6-3730-4bf5-8c47-976792fad15c" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="2f722edc-9724-4c31-9967-0daf3dd495f1" LastKnownName="Tematica" />
+              <referencedTypeMoniker Id="577eabe9-6412-48b1-898e-b85f3938610b" LastKnownName="Tematica" />
             </type_NamedElement>
           </property>
-          <property Id="cc1f794d-d069-479f-9774-0022dda9e6ab" name="coordenadas" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="cc1f794d-d069-479f-9774-0022dda9e6ab" name="Coordenadas" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="ca3e63d2-0daf-4ee8-985e-eff054db7f5d" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="83bbac8a-fefe-47f6-8ca9-4f0ffe57448c" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="2a31b12e-e597-4f19-aee2-6c51a19f6a88" name="descripcion" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="2a31b12e-e597-4f19-aee2-6c51a19f6a88" name="Descripcion" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="67123812-73b9-4133-a9ba-122228688ed3" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="047f4d58-59a6-4506-b705-db8fa41e0216" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="8115f4f0-598c-4956-a175-350d8d7174d8" name="logo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="8115f4f0-598c-4956-a175-350d8d7174d8" name="LogoUrl" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="3b99d9f2-d17d-4c20-8d1a-4ef10f2af5f6" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="33fcf62b-b7b6-4ed8-bc69-ea4b0134024e" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="08a5c739-5235-4830-a7d8-9275448616aa" name="quorum" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="08a5c739-5235-4830-a7d8-9275448616aa" name="Quorum" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="11a834a6-8234-4a17-b68c-f4f02bcff9f5" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="7bca2798-4f59-4541-af2d-db9cabf72325" LastKnownName="int" />
+              <referencedTypeMoniker Id="3c627fb1-2699-43b1-a5cb-5f7961b42d2c" LastKnownName="int" />
             </type_NamedElement>
           </property>
-          <property Id="88db9cdc-ca0a-4475-a291-aaf1c94acc02" name="titulo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="88db9cdc-ca0a-4475-a291-aaf1c94acc02" name="Titulo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="eeaa9d6e-1d24-4b13-a9dc-9358cfedd5ad" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="10faf02b-6361-4ae6-a8d4-5698a1f3fd33" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="b7b5e081-7138-4d43-8b92-046a141c02f6" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="b7b5e081-7138-4d43-8b92-046a141c02f6" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0e60d109-5433-4400-99c6-c15d392fa54c" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" LastKnownName="long" />
+              <referencedTypeMoniker Id="80e276fc-2dae-4a0b-83bd-737a4daaef9a" LastKnownName="long" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="2f722edc-9724-4c31-9967-0daf3dd495f1" name="Tematica" isAbstract="false" isLeaf="false" cachedFullName="Tematica">
-        <elementDefinition Id="18fa4ba3-de37-4cad-a830-07f4944724b0" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="7bca2798-4f59-4541-af2d-db9cabf72325" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
-        <elementDefinition Id="7df7a02f-6846-405c-8918-f4a1bc6166b5" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <class Id="05522d5f-3510-4116-b37f-77b7cd2e0410" name="Notificacion" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="82edb62b-e647-4069-bc65-634d66df0bdf" />
@@ -413,7 +409,7 @@
         <elementDefinition Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c" />
         <targetEnds>
           <association Id="03dc43f8-98c8-4816-9aa6-358ece9dba11" isDerived="false" sourceEndRoleName="ContenidoGrupo" targetEndRoleName="Grupo" isLeaf="false" isAbstract="false">
-            <classMoniker Id="867da877-e91b-4031-aa53-d689652e37cd" LastKnownName="Grupo" />
+            <classMoniker Id="867da877-e91b-4031-aa53-d689652e37cd" LastKnownName="Sitio" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="527c167c-21dd-45aa-9e89-21b0e23816f4" name="ContenidoGrupo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -458,7 +454,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="867da877-e91b-4031-aa53-d689652e37cd" name="Grupo" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="867da877-e91b-4031-aa53-d689652e37cd" name="Sitio" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="d2d49235-1e3c-4de0-8564-76820ad57220" />
         <targetEnds>
           <association Id="966a070b-8e15-49e5-87b2-46d70847c278" isDerived="false" sourceEndRoleName="Grupo" targetEndRoleName="Usuario" isLeaf="false" isAbstract="false">
@@ -531,58 +527,52 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="e3005eb5-c37d-4b7f-8d8d-7268eae30577" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="e3005eb5-c37d-4b7f-8d8d-7268eae30577" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="abceece3-21b0-460c-9794-c059ee6f6e6d" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" LastKnownName="long" />
+              <referencedTypeMoniker Id="19907ba2-0183-4845-a66e-c90fafa1996a" LastKnownName="long" />
             </type_NamedElement>
           </property>
-          <property Id="b4ceb9c7-78fc-4075-a1b7-4ae391c5052e" name="url" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="b4ceb9c7-78fc-4075-a1b7-4ae391c5052e" name="Url" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f373bf1a-0549-4115-be2d-d6b958400cc1" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="cfaaf6c7-3604-48c5-a26d-ff3899d197f5" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="a4c2e9a8-ec32-4a20-bcb4-0b75144b906b" name="logo" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="a4c2e9a8-ec32-4a20-bcb4-0b75144b906b" name="LogoUrl" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8aa55015-7866-4273-901c-fb5055cec718" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="c42a2097-5f88-4bd0-b9d2-45564d042791" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="a05e58ee-2f4e-4724-910b-04486f5e102e" name="nombre" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="a05e58ee-2f4e-4724-910b-04486f5e102e" name="Nombre" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="164fa75a-56d8-4c86-b345-f4b633f85617" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="9c250b88-c56f-41e8-8e80-8d4d740ee251" LastKnownName="string" />
+              <referencedTypeMoniker Id="d428b0bc-6ae9-4281-a849-e9ebbb4a3118" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="a5fed31b-4978-4717-b5ee-20fe092923bf" name="descripcion" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="a5fed31b-4978-4717-b5ee-20fe092923bf" name="Descripcion" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="92200591-82bf-435c-8181-a44d28a56a01" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="ef9fff89-6256-477f-a450-cfb864b095a8" LastKnownName="string" />
+              <referencedTypeMoniker Id="0a9daacb-ad4b-40b4-86a9-6711e2d42a3f" LastKnownName="string" />
             </type_NamedElement>
           </property>
-          <property Id="38c7ba4d-49c5-4316-ae9c-a81fab5f521b" name="idUsuario" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="184f883b-7e88-4d1e-a327-34100d02d2d7" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="39a001f0-f261-4bb8-bbe7-4fc712292146" LastKnownName="Usuario" />
-            </type_NamedElement>
-          </property>
-          <property Id="a181d43b-b1e1-46a5-9db7-26427fc0492b" name="contenido" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="a181d43b-b1e1-46a5-9db7-26427fc0492b" name="FK_Id_Contenido" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5e6d4998-8223-4063-a6ae-204c524b5149" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="056214c4-a84f-4cd5-9dce-812c96b3a0f9" LastKnownName="Contenido" />
+              <referencedTypeMoniker Id="58878d49-d71d-4f4f-86b3-2c0ad67fd269" LastKnownName="Contenido" />
             </type_NamedElement>
           </property>
-          <property Id="5f0a4050-a449-44a3-a004-1648b19fdef8" name="idTemplate" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="5f0a4050-a449-44a3-a004-1648b19fdef8" name="FK_Id_Template" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="2808dfeb-081e-49a6-b935-e11ece486d28" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="9ec9da0d-692d-466e-8d8a-1c94bb1bf5b7" LastKnownName="Template" />
+              <referencedTypeMoniker Id="07e87a81-ae42-4f3c-bef0-2b1c93c5e1be" LastKnownName="Template" />
             </type_NamedElement>
           </property>
-          <property Id="9fe3f91a-63b9-405a-ac0f-0b559c30acca" name="imagenes" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="9fe3f91a-63b9-405a-ac0f-0b559c30acca" name="FK_Id_Imagen" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="dc6c8531-931c-4742-b584-02c0a9160772" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="2b4cdb17-ce6f-4c25-b286-bdd849ff0f85" LastKnownName="Imagen" />
+              <referencedTypeMoniker Id="fa385b86-51a7-4a6b-9c93-cfbc8bd8f802" LastKnownName="Imagen" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -719,10 +709,10 @@
       <class Id="d3d9e522-9518-4908-b0ef-c79b54da3a30" name="Template" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="238a9ce4-772f-4028-9bc2-ebe2ae8a8c48" />
         <ownedAttributesInternal>
-          <property Id="50445ad8-f553-4bb1-ac00-7245ab02fe02" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="50445ad8-f553-4bb1-ac00-7245ab02fe02" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c90479c5-14f0-4501-8f67-b85d9e90f558" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" LastKnownName="long" />
+              <referencedTypeMoniker Id="15346770-41a4-44b3-b15a-718ac44b2bdb" LastKnownName="long" />
             </type_NamedElement>
           </property>
           <property Id="4b231f07-1d36-4fd8-b964-26db211f1e86" name="nombreCSS" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -747,11 +737,6 @@
     <packageHasNamedElement>
       <referencedType Id="3d66255e-2432-4a07-8fb8-f8f4a9aa65c4" name="long" isAbstract="false" isLeaf="false" cachedFullName="long">
         <elementDefinition Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="9c250b88-c56f-41e8-8e80-8d4d740ee251" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
-        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
@@ -800,16 +785,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="9ec9da0d-692d-466e-8d8a-1c94bb1bf5b7" name="Template" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Template">
-        <elementDefinition Id="238a9ce4-772f-4028-9bc2-ebe2ae8a8c48" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="2b4cdb17-ce6f-4c25-b286-bdd849ff0f85" name="Imagen" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Imagen">
-        <elementDefinition Id="3ce34af6-a98f-4ed7-be94-9588753db9c0" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="6f6ea8c5-7989-43c4-b93b-b0feae001f8a" name="TipoMarcaContenido" isAbstract="false" isLeaf="false" cachedFullName="TipoMarcaContenido">
         <elementDefinition Id="0c6f0be9-d8a1-4c45-88ed-184f5524ff05" />
       </referencedType>
@@ -830,6 +805,155 @@
     <packageHasNamedElement>
       <referencedType Id="cccf0b8e-a87b-4e96-ae67-c8a45a51764c" name="boolean" isAbstract="false" isLeaf="false" cachedFullName="boolean">
         <elementDefinition Id="70bd9e8c-2ba5-48a4-ab4b-12a93109a9a0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d739c321-9586-4878-aca2-bb05b66ccd02" name="Tematica" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Tematica">
+        <elementDefinition Id="d4680720-01a8-45e2-92f1-6741f36ece0d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="10faf02b-6361-4ae6-a8d4-5698a1f3fd33" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="33fcf62b-b7b6-4ed8-bc69-ea4b0134024e" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="047f4d58-59a6-4506-b705-db8fa41e0216" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3c627fb1-2699-43b1-a5cb-5f7961b42d2c" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="7df7a02f-6846-405c-8918-f4a1bc6166b5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="577eabe9-6412-48b1-898e-b85f3938610b" name="Tematica" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Tematica">
+        <elementDefinition Id="d4680720-01a8-45e2-92f1-6741f36ece0d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="80e276fc-2dae-4a0b-83bd-737a4daaef9a" name="long" isAbstract="false" isLeaf="false" cachedFullName="long">
+        <elementDefinition Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="83bbac8a-fefe-47f6-8ca9-4f0ffe57448c" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5fcb1851-14ea-483c-84da-3a6f7dbf6f5c" name="long" isAbstract="false" isLeaf="false" cachedFullName="long">
+        <elementDefinition Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f16e6027-4089-410f-a954-d5745ff13d42" name="Administrador" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5b3f0bd1-7d46-40a4-bfe1-10f5636f3b61" />
+        <ownedAttributesInternal>
+          <property Id="346c54b6-697e-47b0-ab51-60545d71c1f8" name="email" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5c3fe015-c25b-4cdd-b0a9-b896ef138ab7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="ff3d2a6b-055c-4c24-a056-e7d8e3e0cdf7" name="nombre" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="634ee6f9-48ed-4eca-bd59-4a2a64bda759" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="9809c3c7-25a9-47db-bb7e-034d7ac3708a" name="password" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="52014645-7b4a-4431-80ac-061b3539c761" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="8b93eec3-76c3-41eb-adec-e1cd24ea9dac" name="region" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6883ebbf-0d31-422d-9fc4-20a178b4fc6b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="a1f32696-84a8-415f-b6f5-847d4bc960d2" name="pregunta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f72763a2-0e58-4481-9a58-bd4c7bf44816" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="eed73f97-1d42-49d5-b1ec-6143a58701ee" name="respuesta" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="776991f3-e383-4921-a091-dbe8b6484423" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ffa62a8f-5788-4f42-b860-4ebd2b5f7277" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="f0185841-1ede-41fa-981b-d624f3c0dfe5" name="id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8315d943-5745-4158-82d4-f7331b71f71f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5fcb1851-14ea-483c-84da-3a6f7dbf6f5c" LastKnownName="long" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="19907ba2-0183-4845-a66e-c90fafa1996a" name="long" isAbstract="false" isLeaf="false" cachedFullName="long">
+        <elementDefinition Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d428b0bc-6ae9-4281-a849-e9ebbb4a3118" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c42a2097-5f88-4bd0-b9d2-45564d042791" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0a9daacb-ad4b-40b4-86a9-6711e2d42a3f" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="07e87a81-ae42-4f3c-bef0-2b1c93c5e1be" name="Template" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Template">
+        <elementDefinition Id="238a9ce4-772f-4028-9bc2-ebe2ae8a8c48" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="58878d49-d71d-4f4f-86b3-2c0ad67fd269" name="Contenido" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Contenido">
+        <elementDefinition Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="15346770-41a4-44b3-b15a-718ac44b2bdb" name="long" isAbstract="false" isLeaf="false" cachedFullName="long">
+        <elementDefinition Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fa385b86-51a7-4a6b-9c93-cfbc8bd8f802" name="Imagen" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Imagen">
+        <elementDefinition Id="3ce34af6-a98f-4ed7-be94-9588753db9c0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cfaaf6c7-3604-48c5-a26d-ff3899d197f5" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="ed1babbc-ec7e-4405-87a2-19958898215c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6f08a3ec-6670-41fa-aaa8-be464e87def0" name="Sitio" isAbstract="false" isLeaf="false" cachedFullName="IndignaFwk.Models::Sitio">
+        <elementDefinition Id="d2d49235-1e3c-4de0-8564-76820ad57220" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
