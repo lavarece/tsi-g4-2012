@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Common", "Indign
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Persistence.DataAccess", "IndignaFwk.Persistence.DataAccess\IndignaFwk.Persistence.DataAccess.csproj", "{939458C8-1768-48C3-BB7F-CCAAEF6327CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.WPF.BackOffice", "..\..\..\..\Expression\Blend 4\Projects\IndignaFwk.WPF.BackOffice\IndignaFwk.WPF.BackOffice\IndignaFwk.WPF.BackOffice.csproj", "{C4A2D18F-40EF-412D-B682-873BAC227758}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -142,6 +144,16 @@ Global
 		{939458C8-1768-48C3-BB7F-CCAAEF6327CC}.Release|Mixed Platforms.Build.0 = Release|x86
 		{939458C8-1768-48C3-BB7F-CCAAEF6327CC}.Release|x86.ActiveCfg = Release|x86
 		{939458C8-1768-48C3-BB7F-CCAAEF6327CC}.Release|x86.Build.0 = Release|x86
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C4A2D18F-40EF-412D-B682-873BAC227758}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +171,7 @@ Global
 		{113FF6C2-3DA6-4C0D-8CB1-DCF6EF3B9EE9} = {23A7E2C2-405F-4B85-99B9-8191F605783E}
 		{0DEB72AA-8A30-4E48-809A-AA64F0A84839} = {23A7E2C2-405F-4B85-99B9-8191F605783E}
 		{E00590F0-59B7-47B4-8D13-F46651195D52} = {23A7E2C2-405F-4B85-99B9-8191F605783E}
+		{C4A2D18F-40EF-412D-B682-873BAC227758} = {23A7E2C2-405F-4B85-99B9-8191F605783E}
 		{5F064A68-3309-4F03-882F-7E43C3147A27} = {D4AF9EBE-0F04-4182-8F5B-BE4C658143F4}
 		{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380} = {E2EE9F62-80C1-40C8-83B2-90174C670BE0}
 	EndGlobalSection
