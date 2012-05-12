@@ -38,7 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Common", "Indign
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Persistence.DataAccess", "IndignaFwk.Persistence.DataAccess\IndignaFwk.Persistence.DataAccess.csproj", "{939458C8-1768-48C3-BB7F-CCAAEF6327CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.WPF.BackOffice", "..\..\..\..\Expression\Blend 4\Projects\IndignaFwk.WPF.BackOffice\IndignaFwk.WPF.BackOffice\IndignaFwk.WPF.BackOffice.csproj", "{C4A2D18F-40EF-412D-B682-873BAC227758}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.WPF.BackOffice", "IndignaFwk.WPF.BackOffice\IndignaFwk.WPF.BackOffice\IndignaFwk.WPF.BackOffice.csproj", "{C4A2D18F-40EF-412D-B682-873BAC227758}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
