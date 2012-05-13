@@ -18,6 +18,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{D4AF9EBE-0F04-4182-8F5B-BE4C658143F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{5F064A68-3309-4F03-882F-7E43C3147A27}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\Desktop\CreateDatabaseVR.sql = ..\..\..\..\..\Desktop\CreateDatabaseVR.sql
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.UI.BackOffice", "IndignaFwk.UI.BackOffice\IndignaFwk.UI.BackOffice.csproj", "{0DEB72AA-8A30-4E48-809A-AA64F0A84839}"
 EndProject
