@@ -28,10 +28,13 @@ namespace IndignaFwk_WPF_BackOffice
 		{
 			// TODO: Add event handler implementation here.
 			e.Handled = true;
-		
-			CrearGrupo cg = new CrearGrupo(this);
-			cg.Show();
 			
+			//Si las Credenciales son Correcas entonces Accedera
+			//al Menú principal
+			
+			Home homeWindow = new Home(textBox_Usuario.Text);
+			homeWindow.Show();
+			this.Hide();		
 		}
 	}
 }
