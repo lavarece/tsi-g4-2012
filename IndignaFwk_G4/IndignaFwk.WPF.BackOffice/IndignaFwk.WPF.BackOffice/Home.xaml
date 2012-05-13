@@ -22,7 +22,7 @@
 				<DropShadowEffect/>
 			</Rectangle.Effect>
 		</Rectangle>
-		<Button x:Name="boton_gestionAdmin" Content="Gestión de Administradores" Grid.Column="1" Height="28" Margin="22.129,139,17.089,0" VerticalAlignment="Top">
+		<Button x:Name="boton_gestionAdmin" Content="Gestión de Administradores" Grid.Column="1" Height="28" Margin="22.129,139,17.089,0" VerticalAlignment="Top" Click="boton_gestionAdmin_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -66,7 +66,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionRep" Content="Gestión de Reportes" Grid.Column="1" Height="28" Margin="22.129,0,17.089,32" VerticalAlignment="Bottom">
+		<Button x:Name="boton_gestionRep" Content="Gestión de Reportes" Grid.Column="1" Height="28" Margin="22.129,0,17.089,32" VerticalAlignment="Bottom" Click="boton_gestionRep_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
