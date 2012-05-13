@@ -27,26 +27,8 @@
         isActiveClass="false">
         <ownedAttributesInternal>
           <property
-            Id="7b718160-a73a-4f35-8cdc-fa2799a59789"
-            name="categorias"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="18fa4ba3-de37-4cad-a830-07f4944724b0"
-                LastKnownName="Tematica"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="058087ee-17fe-401f-9e88-0f9daa2975a6"
-            name="email"
+            name="Email"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -64,7 +46,7 @@
           </property>
           <property
             Id="d0be517e-abab-4122-a114-57ee470c6c26"
-            name="nombre"
+            name="Nombre"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -82,7 +64,7 @@
           </property>
           <property
             Id="2c0fcfd1-ba1b-45e9-b557-844d4b85b4be"
-            name="password"
+            name="Password"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -100,7 +82,7 @@
           </property>
           <property
             Id="e33354d0-816f-423b-88d1-add9bb049e85"
-            name="region"
+            name="Region"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -118,7 +100,7 @@
           </property>
           <property
             Id="17396eaf-c463-4a6c-9fcf-ad623e196186"
-            name="pregunta"
+            name="Pregunta"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -136,7 +118,7 @@
           </property>
           <property
             Id="07ff540b-8af0-4c3d-ab82-1b085dba7ab9"
-            name="respuesta"
+            name="Respuesta"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -154,7 +136,7 @@
           </property>
           <property
             Id="2bc93b84-ea33-4238-ae28-32406a8b7f49"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -172,7 +154,7 @@
           </property>
           <property
             Id="8d271645-04d6-457f-bb40-013da263310a"
-            name="conectado"
+            name="Conectado"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -185,6 +167,24 @@
               <undefinedTypeMoniker
                 Id="70bd9e8c-2ba5-48a4-ab4b-12a93109a9a0"
                 LastKnownName="boolean"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="57d9c3d6-e1b1-4866-828c-564642451f42"
+            name="FK_Id_Sitio"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="d2d49235-1e3c-4de0-8564-76820ad57220"
+                LastKnownName="Sitio"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -270,7 +270,7 @@
             isAbstract="false">
             <classMoniker
               Id="d2d49235-1e3c-4de0-8564-76820ad57220"
-              LastKnownName="Grupo"
+              LastKnownName="Sitio"
               LastKnownLocation="IndignaFwk.Models.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -369,7 +369,7 @@
         <ownedAttributesInternal>
           <property
             Id="d7b367f6-3730-4bf5-8c47-976792fad15c"
-            name="categoria"
+            name="Categoria"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -379,15 +379,15 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="18fa4ba3-de37-4cad-a830-07f4944724b0"
+              <classMoniker
+                Id="d4680720-01a8-45e2-92f1-6741f36ece0d"
                 LastKnownName="Tematica"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
           <property
             Id="ca3e63d2-0daf-4ee8-985e-eff054db7f5d"
-            name="coordenadas"
+            name="Coordenadas"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -405,7 +405,7 @@
           </property>
           <property
             Id="67123812-73b9-4133-a9ba-122228688ed3"
-            name="descripcion"
+            name="Descripcion"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -423,7 +423,7 @@
           </property>
           <property
             Id="3b99d9f2-d17d-4c20-8d1a-4ef10f2af5f6"
-            name="logo"
+            name="LogoUrl"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -441,7 +441,7 @@
           </property>
           <property
             Id="11a834a6-8234-4a17-b68c-f4f02bcff9f5"
-            name="quorum"
+            name="Quorum"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -459,7 +459,7 @@
           </property>
           <property
             Id="eeaa9d6e-1d24-4b13-a9dc-9358cfedd5ad"
-            name="titulo"
+            name="Titulo"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -477,7 +477,7 @@
           </property>
           <property
             Id="0e60d109-5433-4400-99c6-c15d392fa54c"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -570,7 +570,7 @@
         <ownedAttributesInternal>
           <property
             Id="73742388-4e33-4792-93b6-df40f2b18616"
-            name="visto"
+            name="Visto"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -588,7 +588,7 @@
           </property>
           <property
             Id="cff66e6a-b1ad-4677-ba87-123ab1787e23"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -606,7 +606,7 @@
           </property>
           <property
             Id="cf5571e6-f74f-42d2-87ba-a8377d8fa598"
-            name="idUsuario"
+            name="FK_Id_Usuario"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -624,7 +624,7 @@
           </property>
           <property
             Id="33b49844-789d-4fe7-9907-108e06486e22"
-            name="idConvocatoria"
+            name="FK_Id_Convocatoria"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -642,7 +642,7 @@
           </property>
           <property
             Id="0dc38d20-93ca-47f0-9cfa-e390adc16e41"
-            name="contenido"
+            name="Contenido"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -798,6 +798,42 @@
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="e667efa7-83e4-4683-89d4-c7778f77484d"
+            name="FK_Id_Usuario"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="a7765ac5-4522-490e-ab1a-29f77a467409"
+                LastKnownName="Usuario"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9d184ea1-fb42-417a-9d3d-6be74e18ac88"
+            name="FK_Id_Convocatoria"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="f0e04dc2-b57c-4960-a3f7-917c8c26f9e5"
+                LastKnownName="Convocatoria"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -891,7 +927,7 @@
         <ownedAttributesInternal>
           <property
             Id="35f8b6c0-e982-4528-a819-c19961e035bb"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -909,7 +945,7 @@
           </property>
           <property
             Id="e479f773-e15c-4362-98a1-188f7ce59f23"
-            name="idUsuario"
+            name="FK_Id_Usuario"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -927,7 +963,7 @@
           </property>
           <property
             Id="f9dafe55-3aea-4bd3-93c1-672c1a6bad23"
-            name="idContenido"
+            name="FK_Id_Contenido"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -945,7 +981,7 @@
           </property>
           <property
             Id="0deecb6c-28ad-4700-b53b-6c3da3e1bae1"
-            name="tipomarca"
+            name="FK_Id_TipoMarca"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -955,8 +991,8 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="0c6f0be9-d8a1-4c45-88ed-184f5524ff05"
+              <enumerationMoniker
+                Id="ac97c84b-6f61-4c5f-a27d-843538421c28"
                 LastKnownName="TipoMarcaContenido"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
@@ -981,7 +1017,7 @@
             isAbstract="false">
             <classMoniker
               Id="d2d49235-1e3c-4de0-8564-76820ad57220"
-              LastKnownName="Grupo"
+              LastKnownName="Sitio"
               LastKnownLocation="IndignaFwk.Models.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1015,7 +1051,7 @@
         <ownedAttributesInternal>
           <property
             Id="bbc38fba-441f-45ce-9133-ac71644f3dbc"
-            name="estado"
+            name="FK_Id_EstadoContenido"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1025,15 +1061,15 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="b1dde468-670d-485d-9851-d9f203617517"
+              <enumerationMoniker
+                Id="57526f77-b8e7-46b5-aa3c-7a8443e3da8b"
                 LastKnownName="EstadoContenido"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
           <property
             Id="473e6bad-fab2-4123-9dd2-7d29df62f229"
-            name="tipo"
+            name="FK_Id_TipoContenido"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1043,15 +1079,15 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f22e20e2-4def-4d45-8ef4-a9bc1c41e42a"
+              <enumerationMoniker
+                Id="d5f7cc91-eaa3-4c70-adbf-2784c514a0ee"
                 LastKnownName="TipoContenido"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
           <property
             Id="4bff9772-5f1c-4cf1-8c79-8bacd8f78685"
-            name="url"
+            name="Url"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1069,7 +1105,7 @@
           </property>
           <property
             Id="e8cfc9cb-e2f9-4027-ae51-3dbd3312f0b0"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1096,7 +1132,7 @@
     <packageHasNamedElement>
       <class
         Id="d2d49235-1e3c-4de0-8564-76820ad57220"
-        name="Grupo"
+        name="Sitio"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -1248,7 +1284,7 @@
         <ownedAttributesInternal>
           <property
             Id="abceece3-21b0-460c-9794-c059ee6f6e6d"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1266,7 +1302,7 @@
           </property>
           <property
             Id="f373bf1a-0549-4115-be2d-d6b958400cc1"
-            name="url"
+            name="Url"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1284,7 +1320,7 @@
           </property>
           <property
             Id="8aa55015-7866-4273-901c-fb5055cec718"
-            name="logo"
+            name="LogoUrl"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1302,7 +1338,7 @@
           </property>
           <property
             Id="164fa75a-56d8-4c86-b345-f4b633f85617"
-            name="nombre"
+            name="Nombre"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1320,7 +1356,7 @@
           </property>
           <property
             Id="92200591-82bf-435c-8181-a44d28a56a01"
-            name="descripcion"
+            name="Descripcion"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1337,26 +1373,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="184f883b-7e88-4d1e-a327-34100d02d2d7"
-            name="idUsuario"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="a7765ac5-4522-490e-ab1a-29f77a467409"
-                LastKnownName="Usuario"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="5e6d4998-8223-4063-a6ae-204c524b5149"
-            name="contenido"
+            name="FK_Id_Contenido"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1374,7 +1392,7 @@
           </property>
           <property
             Id="2808dfeb-081e-49a6-b935-e11ece486d28"
-            name="idTemplate"
+            name="FK_Id_Template"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1392,7 +1410,7 @@
           </property>
           <property
             Id="dc6c8531-931c-4742-b584-02c0a9160772"
-            name="imagenes"
+            name="FK_Id_Imagen"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1514,7 +1532,7 @@
         <ownedAttributesInternal>
           <property
             Id="037818f2-89e5-4d15-9405-0443a92f7ced"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1527,6 +1545,42 @@
               <undefinedTypeMoniker
                 Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd"
                 LastKnownName="long"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="58ad9a9f-90b7-48ea-a0fc-85a157fa539b"
+            name="FK_Id_Tematica"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="d4680720-01a8-45e2-92f1-6741f36ece0d"
+                LastKnownName="Tematica"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="af96da72-0f88-473a-99de-0bfdfaf79390"
+            name="FK_Id_Usuario"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="a7765ac5-4522-490e-ab1a-29f77a467409"
+                LastKnownName="Usuario"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -1543,7 +1597,7 @@
         <ownedAttributesInternal>
           <property
             Id="74b9be29-cedc-466e-b506-5663997bec16"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1561,7 +1615,7 @@
           </property>
           <property
             Id="7f08f368-e1a3-4e8c-a686-6ef718daac46"
-            name="nombre"
+            name="Nombre"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1622,7 +1676,7 @@
         <ownedAttributesInternal>
           <property
             Id="9001ea6d-8643-43db-8958-2ab80254fc37"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1640,7 +1694,7 @@
           </property>
           <property
             Id="399fb2da-f9cd-44e0-a0b7-19d5c120b112"
-            name="nombre"
+            name="Nombre"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1658,7 +1712,7 @@
           </property>
           <property
             Id="39dcce4b-1875-41db-9e92-930d08625b49"
-            name="valor"
+            name="Valor"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1687,7 +1741,7 @@
         <ownedAttributesInternal>
           <property
             Id="c90479c5-14f0-4501-8f67-b85d9e90f558"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1705,7 +1759,7 @@
           </property>
           <property
             Id="4bc26ea8-8533-4cde-9e4f-4de0c64548aa"
-            name="nombreCSS"
+            name="NombreCSS"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1749,7 +1803,7 @@
         <ownedAttributesInternal>
           <property
             Id="6a0e1981-4f71-4c9d-a6a8-b0ae6257729b"
-            name="id"
+            name="Id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1767,7 +1821,7 @@
           </property>
           <property
             Id="185f12a2-3d6f-47dd-97a7-2e74349c6c2c"
-            name="nombre"
+            name="Nombre"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1785,7 +1839,7 @@
           </property>
           <property
             Id="0206db38-970c-44f0-b40d-1c7995c76345"
-            name="referencia"
+            name="Referencia"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1855,6 +1909,212 @@
             name="No Conectado" />
         </ownedLiterals>
       </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6333411e-b433-4b77-a75d-bbd90a6a6e91"
+        name="Administrador"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="13aa81dc-4e83-4e58-844e-5be01b13e5a6"
+            name="email"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="32b64f54-63b9-48e5-b217-9fc8273579c2"
+            name="password"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d2f302aa-6358-4206-968a-9a5ae66f30d0"
+            name="nombre"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="61269997-8396-40b1-8412-e2bbf7f45a9a"
+            name="apellido"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5b3f0bd1-7d46-40a4-bfe1-10f5636f3b61"
+        name="Administrador"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="5c3fe015-c25b-4cdd-b0a9-b896ef138ab7"
+            name="Email"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="634ee6f9-48ed-4eca-bd59-4a2a64bda759"
+            name="Nombre"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="52014645-7b4a-4431-80ac-061b3539c761"
+            name="Password"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6883ebbf-0d31-422d-9fc4-20a178b4fc6b"
+            name="Region"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f72763a2-0e58-4481-9a58-bd4c7bf44816"
+            name="Pregunta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="776991f3-e383-4921-a091-dbe8b6484423"
+            name="Respuesta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8315d943-5745-4158-82d4-f7331b71f71f"
+            name="Id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b8cfd403-8396-4b5c-a0ac-a127eccf0fdd"
+                LastKnownName="long"
+                LastKnownLocation="IndignaFwk.Models.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
