@@ -76,6 +76,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GestionUsuarios.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GestionVariables.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Home.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,6 +125,12 @@
     </Compile>
     <Compile Include="GestionReportes.xaml.cs">
       <DependentUpon>GestionReportes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuarios.xaml.cs">
+      <DependentUpon>GestionUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionVariables.xaml.cs">
+      <DependentUpon>GestionVariables.xaml</DependentUpon>
     </Compile>
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>

@@ -7,7 +7,7 @@
 	Width="426" Height="210">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
-		<Label Content="Gestión de REPORTES" Height="39" Margin="1,41,-30,0" VerticalAlignment="Top" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667">
+		<Label Content="Gestión de REPORTES" Height="39" Margin="1,41,2,0" VerticalAlignment="Top" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
