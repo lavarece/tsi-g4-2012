@@ -2,35 +2,35 @@
 	x:Class="IndignaFwk_WPF_BackOffice.CrearGrupo"
 	x:Name="Window"
 	Title="CrearGrupo"
-	Width="763" Height="681">
+	Width="749.5" Height="607.5">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="0.537*"/>
-			<RowDefinition Height="0.463*"/>
+			<RowDefinition Height="345.291"/>
+			<RowDefinition Height="297.709"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="239.91"/>
 			<ColumnDefinition Width="7.675"/>
 			<ColumnDefinition Width="253.082"/>
-			<ColumnDefinition/>
+			<ColumnDefinition Width="232.833"/>
 		</Grid.ColumnDefinitions>
-		<TextBox x:Name="textBox_nombreDeSitio" Margin="1,82,1,238" TextWrapping="Wrap" Grid.Column="2">
+		<TextBox x:Name="textBox_nombreDeSitio" Margin="-46.825,83.5,56.5,236.5" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<Label Content="Nombre de Sitio:" Height="28" Margin="-97.323,80,-3,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9" Grid.Column="1"/>
-		<Label Content="Estilo CSS:" Margin="87,168,69,148" Foreground="#FF00FFF9" Grid.Column="3"/>
-		<ComboBox x:Name="comboEstilosCSS" Height="19" Margin="92.333,0,19,125" VerticalAlignment="Bottom" Grid.Column="3"/>
-		<Label Content="Ubicación geográfica Central:" Margin="79,148,-2.72,165" Foreground="#FF00FFF9"/>
-		<Label Content="Adjuntar Imagen:" Margin="-98.656,0,2.656,11" Foreground="#FF00FFF9" Grid.Column="1" Height="32" VerticalAlignment="Bottom"/>
-		<TextBox x:Name="textBox_urlArchivoAdjunto" Margin="2,0,0,16.667" TextWrapping="Wrap" Grid.Column="2" Height="25" VerticalAlignment="Bottom">
+		<Label Content="Nombre de Sitio:" Height="28" Margin="87.087,81.5,44.825,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9"/>
+		<Label Content="Estilo CSS:" Margin="31.5,169.5,0,146.5" Foreground="#FF00FFF9" Grid.Column="3" HorizontalAlignment="Left" Width="90.333"/>
+		<ComboBox x:Name="comboEstilosCSS" Height="19" Margin="36.833,0,74.5,123.5" VerticalAlignment="Bottom" Grid.Column="3"/>
+		<Label Content="Ubicación geográfica Central:" Margin="23.5,149.5,52.78,163.5" Foreground="#FF00FFF9"/>
+		<Label Content="Adjuntar Imagen:" Margin="85.754,0,50.481,9.5" Foreground="#FF00FFF9" Height="32" VerticalAlignment="Bottom"/>
+		<TextBox x:Name="textBox_urlArchivoAdjunto" Margin="-45.825,0,55.5,15.167" TextWrapping="Wrap" Grid.Column="1" Height="25" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<Button x:Name="boton_buscar_imagen" Content="Buscar" Grid.Column="3" HorizontalAlignment="Left" Margin="13.995,0,0,17" Width="106" Height="24" VerticalAlignment="Bottom">
+		<Button x:Name="boton_buscar_imagen" Content="Buscar" Grid.Column="3" HorizontalAlignment="Left" Margin="-41.505,0,0,15.5" Width="106" Height="24" VerticalAlignment="Bottom">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
@@ -38,7 +38,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_eliminar_imagen" Content="Eliminar" Grid.Column="3" HorizontalAlignment="Left" Margin="12.995,0,0,101" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="1">
+		<Button x:Name="boton_eliminar_imagen" Content="Eliminar" Grid.Column="3" HorizontalAlignment="Left" Margin="-42.505,0,0,99.5" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="1">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
@@ -47,8 +47,8 @@
 			</Button.Background>
 		</Button>
 		<DataGrid x:Name="grilla_imagenesAdjuntas" 
-				Grid.ColumnSpan="2" Margin="-93.91,0.709,-119.021,140" 
-				Grid.Row="1" Grid.Column="1"  AutoGenerateColumns="False" d:LayoutOverrides="HorizontalAlignment, GridBox">
+				Grid.ColumnSpan="3" Margin="90.5,2.209,-63.521,138.5" 
+				Grid.Row="1"  AutoGenerateColumns="False" d:LayoutOverrides="HorizontalAlignment">
 			<DataGrid.Columns>
 				<DataGridCheckBoxColumn Width="20"/>
 				<DataGridTextColumn Header="Imagen" Width="250"/>

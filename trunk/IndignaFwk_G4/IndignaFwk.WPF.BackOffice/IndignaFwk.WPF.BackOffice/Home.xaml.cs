@@ -24,8 +24,20 @@ namespace IndignaFwk_WPF_BackOffice
 
 		private void boton_gestionGrupo_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			CrearGrupo crearGrupoWindow = new CrearGrupo();
-			crearGrupoWindow.Show();
+			GestionGrupos gestionGruposWindow = new GestionGrupos();
+			gestionGruposWindow.Show();
+		}
+
+		private void boton_gestionRep_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			GestionReportes gestionReportesWindow = new GestionReportes();
+			gestionReportesWindow.Show();
+		}
+
+		private void boton_gestionAdmin_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			GestionAdministradores gestionAdminWindow = new GestionAdministradores();
+			gestionAdminWindow.Show();
 		}
 	}
 }

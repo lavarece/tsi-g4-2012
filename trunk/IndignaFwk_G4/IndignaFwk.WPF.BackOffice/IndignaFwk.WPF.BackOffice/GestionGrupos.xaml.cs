@@ -13,28 +13,23 @@ using System.Windows.Shapes;
 namespace IndignaFwk_WPF_BackOffice
 {
 	/// <summary>
-	/// Interaction logic for Login.xaml
+	/// Interaction logic for GestionGrupos.xaml
 	/// </summary>
-	public partial class Login : Window
+	public partial class GestionGrupos : Window
 	{
-		public Login()
+		public GestionGrupos()
 		{
 			this.InitializeComponent();
-
+			
 			// Insert code required on object creation below this point.
 		}
 
-		private void botonLogin_Click(object sender, System.Windows.RoutedEventArgs e)
+		private void boton_nuevoGrupo_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			// TODO: Add event handler implementation here.
 			e.Handled = true;
 			
-			//Si las Credenciales son Correcas entonces Accedera
-			//al Menú principal
-			
-			Home homeWindow = new Home(textBox_Usuario.Text);
-			homeWindow.Show();
-			this.Close();
+			CrearGrupo crearGrupoWindow = new CrearGrupo();
+			crearGrupoWindow.Show();
 		}
 	}
 }

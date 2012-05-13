@@ -13,28 +13,21 @@ using System.Windows.Shapes;
 namespace IndignaFwk_WPF_BackOffice
 {
 	/// <summary>
-	/// Interaction logic for Login.xaml
+	/// Interaction logic for GestionAdministradores.xaml
 	/// </summary>
-	public partial class Login : Window
+	public partial class GestionAdministradores : Window
 	{
-		public Login()
+		public GestionAdministradores()
 		{
 			this.InitializeComponent();
-
+			
 			// Insert code required on object creation below this point.
 		}
 
-		private void botonLogin_Click(object sender, System.Windows.RoutedEventArgs e)
+		private void boton_nuevoAdministrador_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			// TODO: Add event handler implementation here.
-			e.Handled = true;
-			
-			//Si las Credenciales son Correcas entonces Accedera
-			//al Menú principal
-			
-			Home homeWindow = new Home(textBox_Usuario.Text);
-			homeWindow.Show();
-			this.Close();
+			CrearAdministrador crearAdminWindow = new CrearAdministrador();
+			crearAdminWindow.Show();
 		}
 	}
 }

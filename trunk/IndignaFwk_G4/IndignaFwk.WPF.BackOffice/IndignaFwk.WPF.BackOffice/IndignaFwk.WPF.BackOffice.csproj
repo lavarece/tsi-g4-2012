@@ -56,7 +56,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CrearAdministrador.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CrearGrupo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GestionAdministradores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GestionGrupos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GestionReportes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -76,6 +92,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CrearAdministrador.xaml.cs">
+      <DependentUpon>CrearAdministrador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrearGrupo.xaml.cs">
       <DependentUpon>CrearGrupo.xaml</DependentUpon>
     </Compile>
@@ -90,6 +109,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionAdministradores.xaml.cs">
+      <DependentUpon>GestionAdministradores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionGrupos.xaml.cs">
+      <DependentUpon>GestionGrupos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionReportes.xaml.cs">
+      <DependentUpon>GestionReportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
