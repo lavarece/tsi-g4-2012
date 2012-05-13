@@ -33,7 +33,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionUsu" Content="Gestión de Usuarios" Grid.Column="1" Height="28" Margin="22.129,0,17.089,140" VerticalAlignment="Bottom">
+		<Button x:Name="boton_gestionUsu" Content="Gestión de Usuarios" Grid.Column="1" Height="28" Margin="22.129,0,17.089,140" VerticalAlignment="Bottom" Click="boton_gestionUsu_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -55,7 +55,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionVar" Content="Gestión de Variables" Grid.Column="1" Height="28" Margin="22.129,0,17.089,68" VerticalAlignment="Bottom">
+		<Button x:Name="boton_gestionVar" Content="Gestión de Variables" Grid.Column="1" Height="28" Margin="22.129,0,17.089,68" VerticalAlignment="Bottom" Click="boton_gestionVar_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>

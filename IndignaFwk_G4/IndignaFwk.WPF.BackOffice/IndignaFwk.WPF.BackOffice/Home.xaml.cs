@@ -39,5 +39,17 @@ namespace IndignaFwk_WPF_BackOffice
 			GestionAdministradores gestionAdminWindow = new GestionAdministradores();
 			gestionAdminWindow.Show();
 		}
+
+		private void boton_gestionUsu_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			GestionUsuarios gestionUsuariosWindow = new GestionUsuarios();
+			gestionUsuariosWindow.Show();
+		}
+
+		private void boton_gestionVar_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			GestionVariables gestionVarWindow = new GestionVariables();
+			gestionVarWindow.Show();
+		}
 	}
 }
