@@ -5,28 +5,32 @@
 	Width="763" Height="681">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.537*"/>
+			<RowDefinition Height="0.463*"/>
+		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="239.91"/>
 			<ColumnDefinition Width="7.675"/>
-			<ColumnDefinition Width="254.312"/>
+			<ColumnDefinition Width="253.082"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<TextBox x:Name="textBox_nombreDeSitio" Margin="1,82,1,536" TextWrapping="Wrap" Grid.Column="2">
+		<TextBox x:Name="textBox_nombreDeSitio" Margin="1,82,1,238" TextWrapping="Wrap" Grid.Column="2">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
 		<Label Content="Nombre de Sitio:" Height="28" Margin="-97.323,80,-3,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9" Grid.Column="1"/>
-		<Label Content="Estilo CSS:" Height="29" Margin="87,168,69,0" VerticalAlignment="Top" Foreground="#FF00FFF9" Grid.Column="3"/>
-		<ComboBox x:Name="comboEstilosCSS" Height="19" Margin="92.333,201,19,0" VerticalAlignment="Top" Grid.Column="3"/>
-		<Label Content="Ubicación geográfica Central:" Height="32" Margin="79,148,-2.72,0" VerticalAlignment="Top" Foreground="#FF00FFF9"/>
-		<Label Content="Adjuntar Imagen:" Margin="-98.656,302,2.656,309" Foreground="#FF00FFF9" Grid.Column="1"/>
-		<TextBox x:Name="textBox_urlArchivoAdjunto" Margin="2,303.333,0,314.667" TextWrapping="Wrap" Grid.Column="2">
+		<Label Content="Estilo CSS:" Margin="87,168,69,148" Foreground="#FF00FFF9" Grid.Column="3"/>
+		<ComboBox x:Name="comboEstilosCSS" Height="19" Margin="92.333,0,19,125" VerticalAlignment="Bottom" Grid.Column="3"/>
+		<Label Content="Ubicación geográfica Central:" Margin="79,148,-2.72,165" Foreground="#FF00FFF9"/>
+		<Label Content="Adjuntar Imagen:" Margin="-98.656,0,2.656,11" Foreground="#FF00FFF9" Grid.Column="1" Height="32" VerticalAlignment="Bottom"/>
+		<TextBox x:Name="textBox_urlArchivoAdjunto" Margin="2,0,0,16.667" TextWrapping="Wrap" Grid.Column="2" Height="25" VerticalAlignment="Bottom">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<Button x:Name="boton_buscar_imagen" Content="Buscar" Grid.Column="3" HorizontalAlignment="Left" Margin="13.995,304,0,315" Width="106">
+		<Button x:Name="boton_buscar_imagen" Content="Buscar" Grid.Column="3" HorizontalAlignment="Left" Margin="13.995,0,0,17" Width="106" Height="24" VerticalAlignment="Bottom">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
@@ -34,7 +38,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_buscar_imagen_Copy" Content="Eliminar" Grid.Column="3" HorizontalAlignment="Left" Margin="11.995,0,0,87" Width="106" Height="24" VerticalAlignment="Bottom">
+		<Button x:Name="boton_eliminar_imagen" Content="Eliminar" Grid.Column="3" HorizontalAlignment="Left" Margin="12.995,0,0,101" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="1">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
@@ -42,5 +46,14 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
+		<DataGrid x:Name="grilla_imagenesAdjuntas" 
+				Grid.ColumnSpan="2" Margin="-93.91,0.709,-119.021,140" 
+				Grid.Row="1" Grid.Column="1"  AutoGenerateColumns="False" d:LayoutOverrides="HorizontalAlignment, GridBox">
+			<DataGrid.Columns>
+				<DataGridCheckBoxColumn Width="20"/>
+				<DataGridTextColumn Header="Imagen" Width="250"/>
+				<DataGridTextColumn Width="200"/>
+			</DataGrid.Columns>
+		</DataGrid>
 	</Grid>
 </Window>

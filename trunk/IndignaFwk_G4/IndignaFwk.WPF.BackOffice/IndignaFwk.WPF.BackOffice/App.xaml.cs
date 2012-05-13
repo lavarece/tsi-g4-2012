@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Windows;
 
+
 namespace IndignaFwk_WPF_BackOffice
 {
 	/// <summary>

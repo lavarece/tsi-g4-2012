@@ -9,6 +9,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using IndignaFwk.UI.Process;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -17,11 +22,11 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class CrearGrupo : Window
 	{
+        IGrupoUserProcess interfazGrupo = null;
+
 		public CrearGrupo(Login formLogin)
-		{			
-			this.InitializeComponent();
-			
-			textBox_nombreDeSitio.Text ="Hola!" + formLogin.textBox_Usuario.Text; 
-		}
+		{
+            this.InitializeComponent();
+        }
 	}
 }
