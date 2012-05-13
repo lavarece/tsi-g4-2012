@@ -1,0 +1,101 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="IndignaFwk_WPF_BackOffice.Home"
+	x:Name="Window"
+	Title="Home"
+	Width="480" Height="389">
+
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="343.876"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="17.871"/>
+			<ColumnDefinition Width="214.218"/>
+			<ColumnDefinition Width="214.154"/>
+			<ColumnDefinition Width="17.757"/>
+		</Grid.ColumnDefinitions>
+		<Rectangle Grid.Column="1" Margin="9.129,116,5.089,11" Stroke="#FF00FFF9">
+			<Rectangle.Effect>
+				<DropShadowEffect/>
+			</Rectangle.Effect>
+		</Rectangle>
+		<Button x:Name="boton_gestionAdmin" Content="Gestión de Administradores" Grid.Column="1" Height="28" Margin="22.129,139,17.089,0" VerticalAlignment="Top">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionUsu" Content="Gestión de Usuarios" Grid.Column="1" Height="28" Margin="22.129,0,17.089,140" VerticalAlignment="Bottom">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionGrupos" Content="Gestión de Grupos" Grid.Column="1" Margin="22.129,0,17.089,104" Click="boton_gestionGrupo_Click" Height="28" VerticalAlignment="Bottom">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionVar" Content="Gestión de Variables" Grid.Column="1" Height="28" Margin="22.129,0,17.089,68" VerticalAlignment="Bottom">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionRep" Content="Gestión de Reportes" Grid.Column="1" Height="28" Margin="22.129,0,17.089,32" VerticalAlignment="Bottom">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Label x:Name="label_bienvenido" Content="Bienvenido, " Grid.Column="1" Height="53" Margin="10.129,58,4.089,0" VerticalAlignment="Top" Foreground="#FF00FFF9">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<Label Content="&quot;I have a dream...&quot;&#xd;&#xa;&#x9;&#x9;Martin Luther King" Grid.Column="2" Height="61" Margin="18.911,104,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontStyle="Italic" Grid.ColumnSpan="2">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Cerrar Sesión" Grid.Column="2" Height="29" Margin="0,1,-2.757,0" VerticalAlignment="Top" Foreground="#FF00FFF9" HorizontalAlignment="Right" Width="91">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Indignado Framework" Grid.Column="2" Height="46" Margin="6.911,0,5.243,-0.124" VerticalAlignment="Bottom" Foreground="#FF00FFF9" FontSize="32" FontFamily="Chiller">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+	</Grid>
+</Window>
