@@ -5,11 +5,10 @@ using System.Text;
 
 namespace IndignaFwk.Business.Entities
 {
-    public class Template
+    public class TipoMarcaContenido
     {
         public Int32 Id { get; set; }
 
-        public String NombreCSS { get; set; }
-        
+        public String Descripcion { get; set; }
     }
 }
