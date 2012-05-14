@@ -5,7 +5,10 @@ using System.Text;
 
 namespace IndignaFwk.Business.Entities
 {
-    public class Grupo
+    public class TipoContenido
     {
+        public Int32 Id { get; set; }
+
+        public String Descripcion { get; set; }
     }
 }
