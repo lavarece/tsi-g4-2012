@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Business.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public class GrupoADO : IGrupoADO
     {
-        public Int32 Crear(Grupo grupo)
+        public Int32 Crear(Sitio grupo, SqlConnection conexion)
         {
+            SqlCommand comando = new SqlCommand("Insert into Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)", conexion);
+         
+            comando.Parameters.AddWithValue("nombre", grupo.Nombre);
+            comando.Parameters.AddWithValue("logoUrl", grupo.LogoUrl);
+            comando.Parameters.AddWithValue("descripcion", grupo.Descripcion);
+            comando.Parameters.AddWithValue("url", grupo.Url);
+
+            comando.ExecuteNonQuery();
+
             throw new NotImplementedException();
         }
 
-        public void Editar(Grupo grupo)
+        public void Editar(Sitio grupo)
         {
             throw new NotImplementedException();
         }
@@ -23,12 +33,12 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public Grupo Obtener(long id)
+        public Sitio Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Grupo> ObtenerListado()
+        public List<Sitio> ObtenerListado()
         {
             throw new NotImplementedException();
         }

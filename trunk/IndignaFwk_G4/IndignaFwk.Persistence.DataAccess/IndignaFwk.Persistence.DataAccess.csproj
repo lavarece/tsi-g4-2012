@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IndignaFwk.Business.Entities\IndignaFwk.Business.Entities.csproj">
