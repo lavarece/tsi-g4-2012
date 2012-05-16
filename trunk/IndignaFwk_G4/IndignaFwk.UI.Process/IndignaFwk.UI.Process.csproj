@@ -90,6 +90,9 @@
     <None Include="Service References\GrupoReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\GrupoReference\GrupoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\GrupoReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
