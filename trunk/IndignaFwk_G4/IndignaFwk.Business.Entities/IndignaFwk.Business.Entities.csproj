@@ -40,7 +40,7 @@
     <Compile Include="AsistenciaConvocatoria.cs" />
     <Compile Include="Contenido.cs" />
     <Compile Include="Convocatoria.cs" />
-    <Compile Include="Sitio.cs" />
+    <Compile Include="Grupo.cs" />
     <Compile Include="Imagen.cs" />
     <Compile Include="MarcaContenido.cs" />
     <Compile Include="Notificacion.cs" />

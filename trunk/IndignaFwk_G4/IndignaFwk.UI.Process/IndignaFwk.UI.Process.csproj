@@ -38,24 +38,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ConvocatoriaUserProcess.cs" />
+    <Compile Include="GrupoUserProcess.cs" />
     <Compile Include="Interface\IConvocatoriaUserProcess.cs" />
     <Compile Include="Interface\IGrupoUserProcess.cs" />
     <Compile Include="Interface\IUsuarioUserProcess.cs" />
-    <Compile Include="Service References\ConvocatoriaService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\GrupoService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\UsuarioService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,39 +53,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.wsdl" />
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService1.wsdl" />
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\GrupoService.wsdl" />
-    <None Include="Service References\GrupoService\GrupoService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\GrupoService1.wsdl" />
-    <None Include="Service References\GrupoService\GrupoService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\GrupoService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
-    <None Include="Service References\UsuarioService\UsuarioService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UsuarioService\UsuarioService1.wsdl" />
-    <None Include="Service References\UsuarioService\UsuarioService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UsuarioService\UsuarioService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IndignaFwk.Business.Entities\IndignaFwk.Business.Entities.csproj">
@@ -109,56 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ConvocatoriaService\" />
-    <WCFMetadataStorage Include="Service References\GrupoService\" />
-    <WCFMetadataStorage Include="Service References\UsuarioService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConvocatoriaService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConvocatoriaService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConvocatoriaService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\GrupoService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UsuarioService\UsuarioService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UsuarioService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UsuarioService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UsuarioService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

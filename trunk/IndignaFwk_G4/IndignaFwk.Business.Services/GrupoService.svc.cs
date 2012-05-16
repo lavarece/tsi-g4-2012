@@ -11,9 +11,9 @@ namespace IndignaFwk.Business.Services
 {
     public class GrupoService : IGrupoService
     {
-        public Int32 crearGrupo(Grupo grupo)
+        public Int32 CrearGrupo(Grupo grupo)
         {
-            return 0;
+            return ManagerFactory.Instance.GrupoManager.CrearNuevoGrupo(grupo);
         }
     }
 }

@@ -15,6 +15,6 @@ namespace IndignaFwk.Business.Services
     public interface IUsuarioService
     {
         [OperationContract]
-        Int32 crearUsuario(Usuario usuario);
+        Int32 CrearUsuario(Usuario usuario);
     }
 }

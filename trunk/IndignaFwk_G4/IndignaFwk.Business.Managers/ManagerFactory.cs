@@ -7,69 +7,83 @@ namespace IndignaFwk.Business.Managers
 {
     public class ManagerFactory
     {
-        // PROPERTIES MANAGERS
-        private IConvocatoriaManager convocatoriaManager;
-
-        private IGrupoManager grupoManager;
-
-        private ISistemaManager sistemaManager;
-
-        private IUsuarioManager usuarioManager;
-
         // SINGLETON FACTORY
         private ManagerFactory() { }
 
-        private static ManagerFactory instance;
+        private static ManagerFactory _instance;
 
-        public static ManagerFactory Instance()
+        public static ManagerFactory Instance
         {
-            if (instance == null)
+            get
             {
-                instance = new ManagerFactory();
-            }
+                if (_instance == null)
+                {
+                    _instance = new ManagerFactory();
+                }
 
-            return instance;
+                return _instance;
+            }
         }
 
-        // GETTERS MANAGERS
-        public IConvocatoriaManager GetConvocatoriaManager()
-        {
-            if (convocatoriaManager == null)
-            {
-                convocatoriaManager = new ConvocatoriaManager();
-            }
+        // MANAGERS
+        private IConvocatoriaManager _convocatoriaManager;
 
-            return convocatoriaManager;
+        public IConvocatoriaManager ConvocatoriaManager
+        {
+            get
+            {
+                if (_convocatoriaManager == null)
+                {
+                    _convocatoriaManager = new ConvocatoriaManager();
+                }
+
+                return _convocatoriaManager;
+            }            
         }
 
-        public IGrupoManager GetGrupoManager()
-        {
-            if (grupoManager == null)
-            {
-                grupoManager = new GrupoManager();
-            }
+        private IGrupoManager _grupoManager;
 
-            return grupoManager;
+        public IGrupoManager GrupoManager
+        {
+            get
+            {
+                if (_grupoManager == null)
+                {
+                    _grupoManager = new GrupoManager();
+                }
+
+                return _grupoManager;
+            }            
         }
 
-        public ISistemaManager GetSistemaManager()
-        {
-            if (sistemaManager == null)
-            {
-                sistemaManager = new SistemaManager();
-            }
+        private ISistemaManager _sistemaManager;
 
-            return sistemaManager;
+        public ISistemaManager SistemaManager
+        {
+            get
+            {
+                if (_sistemaManager == null)
+                {
+                    _sistemaManager = new SistemaManager();
+                }
+
+                return _sistemaManager;
+            }            
         }
 
-        public IUsuarioManager GetUsuarioManager()
-        {
-            if (usuarioManager == null)
-            {
-                usuarioManager = new UsuarioManager();
-            }
+        private IUsuarioManager _usuarioManager;
 
-            return usuarioManager;
+        public IUsuarioManager UsuarioManager
+        {
+            get
+            {
+                if (_usuarioManager == null)
+                {
+                    _usuarioManager = new UsuarioManager();
+                }
+
+                return _usuarioManager;
+            }            
         }
     }
 }

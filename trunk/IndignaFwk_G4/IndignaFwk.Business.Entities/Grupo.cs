@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Entities
 {
-    public class Sitio
+    public class Grupo
     {
         private Int32 _id;
 
