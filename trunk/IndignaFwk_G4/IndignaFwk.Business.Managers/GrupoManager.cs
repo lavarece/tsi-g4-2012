@@ -127,6 +127,19 @@ namespace IndignaFwk.Business.Managers
         */
        public void EliminarImagenes(List<Imagen> imagenes)
        {
+           try
+           {
+
+           }
+           catch (Exception ex)
+           {
+               UtilesBD.RollbackTransaccion(transaccion);
+               throw ex;
+           }
+           finally
+           {
+               UtilesBD.CerrarConexion(conexion);
+           }
        
        }
 

@@ -24,12 +24,12 @@ namespace IndignaFwk.Persistence.DataAccess
             return 0;
         }
 
-        public void Editar(Grupo grupo)
+        public void Editar(Grupo grupo, SqlConnection conexion)
         {
             throw new NotImplementedException();
         }
 
-        public void Eliminar(Int32 id)
+        public void Eliminar(Int32 id, SqlConnection conexion)
         {
             throw new NotImplementedException();
         }
@@ -51,6 +51,15 @@ namespace IndignaFwk.Persistence.DataAccess
             command.Parameters.Add(param);
 
             reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                grupo.Id = ((Int32)reader["Id"]);
+                grupo.Nombre = ((String)reader["Nombre"]);
+                grupo.LogoUrl = ((String)reader["LogoUrl"]);
+                grupo.Descripcion = ((String)reader["Descripcion"]);
+                grupo.Url = ((String)reader["Url"]);    
+            }
 
             return grupo;
         }
@@ -77,7 +86,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 varGrupo.Nombre = ((String) reader["Nombre"]);
                 varGrupo.LogoUrl = ((String) reader["LogoUrl"]);
                 varGrupo.Descripcion = ((String) reader ["Descripcion"]);
-                varGrupo.LogoUrl = ((String) reader["Url"]);          
+                varGrupo.Url = ((String) reader["Url"]);          
 
                 _grupo.Add(varGrupo);
             }
