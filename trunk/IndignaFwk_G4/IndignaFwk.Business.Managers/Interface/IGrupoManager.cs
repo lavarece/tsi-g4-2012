@@ -8,17 +8,17 @@ namespace IndignaFwk.Business.Managers
 {
     public interface IGrupoManager
     {
-        public Int32 CrearNuevoGrupo(Grupo grupo);
+        Int32 CrearNuevoGrupo(Grupo grupo);
 
-        public List<Grupo> ObtenerTodosLosGrupos();
+        List<Grupo> ObtenerTodosLosGrupos();
         
-        public Grupo ObtenerGrupoPorId(Int32 idGrupo);
+        Grupo ObtenerGrupoPorId(Int32 idGrupo);
         
-        public void EditarGrupo(Grupo grupo);
+        void EditarGrupo(Grupo grupo);
         
-        public void EliminarImagenes(List<Imagen> imagenes);
+        void EliminarImagenes(List<Imagen> imagenes);
 
-        public void EliminarGrupo(Int32 idGrupo);
+        void EliminarGrupo(Int32 idGrupo);
 
     }
 }
