@@ -89,9 +89,10 @@ namespace IndignaFwk.Business.Managers
         */
        public Grupo ObtenerGrupoPorId(Int32 idGrupo)
        {
-            Grupo sitio = new Grupo();
+           
+           Grupo sitio = new Grupo();
 
-            return sitio;
+           return sitio;
        }
 
        /*

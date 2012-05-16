@@ -43,11 +43,27 @@ namespace IndignaFwk.Persistence.DataAccess
         {
             SqlDataReader reader = null;
 
+            List<Grupo> _grupo = new List<Grupo>();
+
             command = new SqlCommand("Select * from Sitio", conexion);
 
             reader = command.ExecuteReader();
 
-            throw new NotImplementedException();
+
+            while (reader.Read())
+            {
+                Grupo varGrupo = new Grupo();
+
+                varGrupo.Id = ((Int32) reader["Id"]);
+                varGrupo.Nombre = ((String) reader["Nombre"]);
+                varGrupo.LogoUrl = ((String) reader["LogoUrl"]);
+                varGrupo.Descripcion = ((String) reader ["Descripcion"]);
+                varGrupo.LogoUrl = ((String) reader["Url"]);          
+
+                _grupo.Add(varGrupo);
+            }
+
+            return _grupo;
         }
     }
 }
