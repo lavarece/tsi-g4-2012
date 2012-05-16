@@ -8,6 +8,6 @@ namespace IndignaFwk.Business.Managers
 {
     public interface IUsuarioManager
     {
-        Int32 CrearUsuario(Usuario usuario);
+        Int32 CrearNuevoUsuario(Usuario usuario);
     }
 }
