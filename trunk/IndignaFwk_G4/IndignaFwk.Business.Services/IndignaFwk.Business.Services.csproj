@@ -73,7 +73,6 @@
     </Compile>
     <Compile Include="Interface\IConvocatoriaService.cs" />
     <Compile Include="Interface\IGrupoService.cs" />
-    <Compile Include="Interface\ISistemaService.cs" />
     <Compile Include="UsuarioService.svc.cs">
       <DependentUpon>UsuarioService.svc</DependentUpon>
     </Compile>
