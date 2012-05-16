@@ -39,6 +39,10 @@
   <ItemGroup>
     <Compile Include="ConvocatoriaManager.cs" />
     <Compile Include="GrupoManager.cs" />
+    <Compile Include="Interface\IConvocatoriaManager.cs" />
+    <Compile Include="Interface\IGrupoManager.cs" />
+    <Compile Include="Interface\ISistemaManager.cs" />
+    <Compile Include="Interface\IUsuarioManager.cs" />
     <Compile Include="ManagerFactory.cs" />
     <Compile Include="SistemaManager.cs" />
     <Compile Include="UsuarioManager.cs" />
@@ -58,7 +62,6 @@
       <Name>IndignaFwk.Persistence.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
