@@ -17,6 +17,12 @@ namespace IndignaFwk.UI.Process.GrupoReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost//IndignaFwk//2012/IGrupoService/CrearGrupo", ReplyAction="http://localhost//IndignaFwk//2012/IGrupoService/CrearGrupoResponse")]
         int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerListadoGrupos", ReplyAction="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerListadoGruposResponse")]
+        IndignaFwk.Common.Entities.Grupo[] ObtenerListadoGrupos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerGrupoPorUrl", ReplyAction="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerGrupoPorUrlResponse")]
+        IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +54,14 @@ namespace IndignaFwk.UI.Process.GrupoReference {
         
         public int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo) {
             return base.Channel.CrearGrupo(grupo);
+        }
+        
+        public IndignaFwk.Common.Entities.Grupo[] ObtenerListadoGrupos() {
+            return base.Channel.ObtenerListadoGrupos();
+        }
+        
+        public IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url) {
+            return base.Channel.ObtenerGrupoPorUrl(url);
         }
     }
 }

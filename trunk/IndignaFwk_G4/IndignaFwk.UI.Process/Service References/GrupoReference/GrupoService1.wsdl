@@ -13,6 +13,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoGrupos">
+      <soap:operation soapAction="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerListadoGrupos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerGrupoPorUrl">
+      <soap:operation soapAction="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerGrupoPorUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="GrupoService">
     <wsdl:port name="BasicHttpBinding_IGrupoService" binding="tns:BasicHttpBinding_IGrupoService">

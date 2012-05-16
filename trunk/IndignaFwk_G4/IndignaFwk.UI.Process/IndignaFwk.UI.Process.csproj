@@ -47,6 +47,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="UserProcessFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Grupo.datasource" />
     <None Include="Service References\GrupoReference\GrupoService.wsdl" />
     <None Include="Service References\GrupoReference\GrupoService.xsd">
       <SubType>Designer</SubType>
