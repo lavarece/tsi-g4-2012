@@ -39,8 +39,14 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public List<Sitio> ObtenerListado()
+        public List<Sitio> ObtenerListado(SqlConnection conexion)
         {
+            SqlDataReader reader = null;
+
+            command = new SqlCommand("Select * from Sitio", conexion);
+
+            reader = command.ExecuteReader();
+
             throw new NotImplementedException();
         }
     }
