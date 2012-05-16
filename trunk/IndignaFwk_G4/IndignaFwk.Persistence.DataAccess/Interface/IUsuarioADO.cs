@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using IndignaFwk.Business.Entities;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IUsuarioADO
     {
-        Int32 Crear(Usuario usuario);
+        Int32 Crear(Usuario usuario, SqlConnection conexion);
 
         void Editar(Usuario usuario);
 

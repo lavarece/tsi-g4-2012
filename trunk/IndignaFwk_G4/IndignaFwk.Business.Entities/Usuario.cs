@@ -17,7 +17,7 @@ namespace IndignaFwk.Business.Entities
 
         public String Nombre { get; set; }
 
-        public Sitio Sitio { get; set; }
+        public Grupo Grupo { get; set; }
 
         public String Password { get; set; }
 

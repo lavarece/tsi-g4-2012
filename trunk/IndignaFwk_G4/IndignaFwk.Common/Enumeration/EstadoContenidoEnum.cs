@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Common.Enumeration
 {
-    enum EstadoContenidoEnum
+    public enum EstadoContenidoEnum
     {
     }
 }

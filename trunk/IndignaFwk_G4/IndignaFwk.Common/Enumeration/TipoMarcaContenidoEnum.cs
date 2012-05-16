@@ -5,10 +5,7 @@ using System.Text;
 
 namespace IndignaFwk.Business.Entities
 {
-    public class TipoMarcaContenido
+    public enum TipoMarcaContenidoEnum
     {
-        public Int32 Id { get; set; }
-
-        public String Descripcion { get; set; }
     }
 }

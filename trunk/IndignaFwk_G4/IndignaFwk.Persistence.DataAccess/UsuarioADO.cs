@@ -5,8 +5,6 @@ using System.Text;
 using IndignaFwk.Business.Entities;
 using System.Data.SqlClient;
 
-
-
 namespace IndignaFwk.Persistence.DataAccess
 {
     public class UsuarioADO : IUsuarioADO

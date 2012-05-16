@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Business.Entities
 {
@@ -11,7 +12,7 @@ namespace IndignaFwk.Business.Entities
 
         private Contenido Contenido { get; set; }
 
-        public TipoMarcaContenido TipoMarca { get; set; }
+        public TipoMarcaContenidoEnum TipoMarca { get; set; }
 
         public Usuario UsuarioMarca { get; set; }
 
