@@ -17,7 +17,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.Parameters.AddWithValue("Conectado", usuario.Conectado);
             command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
             command.Parameters.AddWithValue("Email", usuario.Email);
-            command.Parameters.AddWithValue("IdSitio", usuario.Sitio);
+            command.Parameters.AddWithValue("IdSitio", usuario.Grupo);
             command.Parameters.AddWithValue("Nombre", usuario.Nombre);
             command.Parameters.AddWithValue("Password", usuario.Password);
             command.Parameters.AddWithValue("Region", usuario.Region);
