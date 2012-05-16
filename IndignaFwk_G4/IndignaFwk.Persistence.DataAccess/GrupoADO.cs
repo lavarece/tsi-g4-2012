@@ -11,7 +11,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
         
-        public Int32 Crear(Grupo sitio, SqlConnection conexion)
+        public int Crear(Grupo sitio, SqlConnection conexion)
         {
             command = new SqlCommand("Insert into Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)", conexion);
             command.Parameters.AddWithValue("nombre", sitio.Nombre);
@@ -29,12 +29,12 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public void Eliminar(Int32 id, SqlConnection conexion)
+        public void Eliminar(int id, SqlConnection conexion)
         {
             throw new NotImplementedException();
         }
 
-        public Grupo Obtener(Int32 id, SqlConnection conexion)
+        public Grupo Obtener(int id, SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
@@ -54,19 +54,52 @@ namespace IndignaFwk.Persistence.DataAccess
 
             while (reader.Read())
             {
-                grupo.Id = ((Int32)reader["Id"]);
-                grupo.Nombre = ((String)reader["Nombre"]);
-                grupo.LogoUrl = ((String)reader["LogoUrl"]);
-                grupo.Descripcion = ((String)reader["Descripcion"]);
-                grupo.Url = ((String)reader["Url"]);    
+                grupo.Id = ((int)reader["Id"]);
+                grupo.Nombre = ((string)reader["Nombre"]);
+                grupo.LogoUrl = ((string)reader["LogoUrl"]);
+                grupo.Descripcion = ((string)reader["Descripcion"]);
+                grupo.Url = ((string)reader["Url"]);    
             }
 
             return grupo;
         }
 
 
+        /******** ADO que obtiene un grupo por su url ************/
+
+        public Grupo ObtenerPorUrl(string url, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            Grupo grupo = new Grupo();
+
+            command = new SqlCommand("Select * from Sitio where Url = @url", conexion);
+
+            SqlParameter param = new SqlParameter();
+
+            param.ParameterName = "@url";
+
+            param.Value = url;
+
+            command.Parameters.Add(param);
+
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                grupo.Id = ((int)reader["Id"]);
+                grupo.Nombre = ((string)reader["Nombre"]);
+                grupo.LogoUrl = ((string)reader["LogoUrl"]);
+                grupo.Descripcion = ((string)reader["Descripcion"]);
+                grupo.Url = ((string)reader["Url"]);  
+            }
+
+            return grupo;
+        }
+
 
         /*****  ADO que obtiene el listado de todos los usuarios *******/
+
         public List<Grupo> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
@@ -82,11 +115,11 @@ namespace IndignaFwk.Persistence.DataAccess
             {
                 Grupo varGrupo = new Grupo();
 
-                varGrupo.Id = ((Int32) reader["Id"]);
-                varGrupo.Nombre = ((String) reader["Nombre"]);
-                varGrupo.LogoUrl = ((String) reader["LogoUrl"]);
-                varGrupo.Descripcion = ((String) reader ["Descripcion"]);
-                varGrupo.Url = ((String) reader["Url"]);          
+                varGrupo.Id = ((int) reader["Id"]);
+                varGrupo.Nombre = ((string) reader["Nombre"]);
+                varGrupo.LogoUrl = ((string) reader["LogoUrl"]);
+                varGrupo.Descripcion = ((string) reader ["Descripcion"]);
+                varGrupo.Url = ((string) reader["Url"]);          
 
                 _grupo.Add(varGrupo);
             }
