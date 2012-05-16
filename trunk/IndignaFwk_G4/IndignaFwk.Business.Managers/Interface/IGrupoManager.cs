@@ -12,7 +12,9 @@ namespace IndignaFwk.Business.Managers
 
         List<Grupo> ObtenerTodosLosGrupos();
         
-        Grupo ObtenerGrupoPorId(Int32 idGrupo);
+        Grupo ObtenerGrupoPorId(int idGrupo);
+
+        Grupo ObtenerGrupoPorUrl(string url);
         
         void EditarGrupo(Grupo grupo);
         

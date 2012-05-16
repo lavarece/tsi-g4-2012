@@ -113,6 +113,35 @@ namespace IndignaFwk.Business.Managers
        }
 
        /*
+        * Obtiene un grupo por su Url
+        */
+       public Grupo ObtenerGrupoPorUrl(string url)
+       {
+           try
+           {
+               conexion = UtilesBD.ObtenerConexion(true);
+
+               transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+               Grupo grupo = new Grupo();
+
+               grupo = GrupoAdo.ObtenerPorUrl(url, conexion);
+
+               return grupo;
+           }
+           catch (Exception ex)
+           {
+               UtilesBD.RollbackTransaccion(transaccion);
+
+               throw ex;
+           }
+           finally 
+           {
+               UtilesBD.CerrarConexion(conexion);
+           }
+       }
+
+       /*
         * Método que guarda un sitio pasado
         * como parámetro
         */

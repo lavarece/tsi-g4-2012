@@ -7,9 +7,9 @@ namespace IndignaFwk.Common.Entities
 {
     public class Grupo
     {
-        private Int32 _id;
+        private int _id;
 
-        public Int32 Id 
+        public int Id 
         {
             get   
             {
@@ -21,9 +21,9 @@ namespace IndignaFwk.Common.Entities
             }
         }
 
-        private String _nombre;
+        private string _nombre;
 
-        public String Nombre
+        public string Nombre
         {
             get
             {
@@ -36,9 +36,9 @@ namespace IndignaFwk.Common.Entities
         }
 
 
-        public String LogoUrl { get; set; }
+        public string LogoUrl { get; set; }
 
-        public String Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         public List<Contenido> ListaContenido { get; set; }
 
@@ -46,7 +46,7 @@ namespace IndignaFwk.Common.Entities
 
         public List<Imagen> ListaImagen { get; set; }
 
-        public String Url { get; set; }
+        public string Url { get; set; }
 
 
 

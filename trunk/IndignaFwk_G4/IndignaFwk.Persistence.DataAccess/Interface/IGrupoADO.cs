@@ -13,9 +13,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
         void Editar(Grupo grupo, SqlConnection conexion);
 
-        void Eliminar(Int32 id, SqlConnection conexion);
+        void Eliminar(int id, SqlConnection conexion);
 
-        Grupo Obtener(Int32 id, SqlConnection conexion);
+        Grupo Obtener(int id, SqlConnection conexion);
+
+        Grupo ObtenerPorUrl(string url, SqlConnection conexion);
 
         List<Grupo> ObtenerListado(SqlConnection conexion);
     }
