@@ -5,7 +5,10 @@ using System.Text;
 
 namespace IndignaFwk.Common.Enumeration
 {
-    public enum TipoMarcaContenidoEnum
+    public class TipoMarcaContenidoEnum
     {
+        public const String INADECUADO = "INADECUADO";
+
+        public const String ME_GUSTA = "ME_GUSTA";
     }
 }

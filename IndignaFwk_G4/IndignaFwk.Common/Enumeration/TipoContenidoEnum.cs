@@ -5,7 +5,10 @@ using System.Text;
 
 namespace IndignaFwk.Common.Enumeration
 {
-    public enum TipoContenidoEnum
+    public class TipoContenidoEnum
     {
+        public const String IMAGEN = "IMAGEN";
+
+        public const String VIDEO = "VIDEO";
     }
 }

@@ -40,11 +40,11 @@ namespace IndignaFwk.Common.Entities
 
         public String Descripcion { get; set; }
 
-      //  public List<Contenido> ListaContenido { get; set; }
+        public List<Contenido> ListaContenido { get; set; }
 
-      //  public Template Template { get; set; }
+        public Template Template { get; set; }
 
-      //  public List<Imagen> ListaImagen { get; set; }
+        public List<Imagen> ListaImagen { get; set; }
 
         public String Url { get; set; }
 
