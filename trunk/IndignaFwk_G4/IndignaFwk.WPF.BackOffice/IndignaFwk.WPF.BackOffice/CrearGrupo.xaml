@@ -2,7 +2,7 @@
 	x:Class="IndignaFwk_WPF_BackOffice.CrearGrupo"
 	x:Name="Window"
 	Title="CrearGrupo"
-	Width="749.5" Height="607.5">
+	Width="749.5" Height="644.5">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
 		<Grid.RowDefinitions>
@@ -23,7 +23,7 @@
 		</TextBox>
 		<Label Content="Nombre de Sitio:" Height="28" Margin="87.087,17,44.825,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9" Grid.Row="1"/>
 		<Label Content="Estilo CSS:" Margin="31.5,105,0,0" Foreground="#FF00FFF9" Grid.Column="3" HorizontalAlignment="Left" Width="90.333" Height="29.291" Grid.Row="1" VerticalAlignment="Top"/>
-		<ComboBox x:Name="comboEstilosCSS" Margin="36.833,138.291,74.5,123.5" Grid.Column="3" Grid.Row="1"/>
+		<ComboBox x:Name="combo_estilosCSS" Margin="36.833,138.291,74.5,123.5" Grid.Column="3" Grid.Row="1"/>
 		<Label Content="Ubicación geográfica Central:" Margin="23.5,85,52.78,0" Foreground="#FF00FFF9" Height="32.291" Grid.Row="1" VerticalAlignment="Top"/>
 		<Label Content="Adjuntar Imagen:" Margin="85.754,0,50.481,9.5" Foreground="#FF00FFF9" Height="32" VerticalAlignment="Bottom" Grid.Row="1"/>
 		<TextBox x:Name="textBox_urlArchivoAdjunto" Margin="-45.825,0,55.5,15.167" TextWrapping="Wrap" Grid.Column="1" Height="25" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="1">
@@ -61,5 +61,21 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
+		<Button x:Name="boton_guardar" Content="Guardar" Grid.Column="3" Margin="110.495,0,16.338,50.5" Height="24" VerticalAlignment="Bottom" Grid.Row="2" Click="boton_guardar_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
+					<GradientStop Color="#FF00F9FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_cancelar" Content="Cancelar" Grid.Column="3" HorizontalAlignment="Left" Margin="-7.838,0,0,50.833" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="2" Click="boton_cancelar_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
+					<GradientStop Color="#FF00F9FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
 	</Grid>
 </Window>

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -19,9 +20,24 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class CrearGrupo : Window
 	{
-		public CrearGrupo()
+        private IGrupoUserProcess _GrupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+		
+        public CrearGrupo()
 		{
             this.InitializeComponent();
         }
+
+        private void boton_guardar_Click(object sender, RoutedEventArgs e)
+        {
+            Grupo grupo = new Grupo();
+            grupo.Nombre = textBox_nombreDeSitio.Text;
+            _GrupoUserProcess.CrearGrupo(grupo);
+        }
+
+        private void boton_cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
 	}
 }

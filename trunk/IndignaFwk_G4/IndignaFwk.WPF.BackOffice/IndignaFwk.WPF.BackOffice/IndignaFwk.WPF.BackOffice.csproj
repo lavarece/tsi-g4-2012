@@ -169,9 +169,29 @@
     </BlendEmbeddedFont>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\IndignaFwk.Business.Managers\IndignaFwk.Business.Managers.csproj">
+      <Project>{E7CB92AC-8983-43B1-A679-20467B2EE5DB}</Project>
+      <Name>IndignaFwk.Business.Managers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IndignaFwk.Business.Services\IndignaFwk.Business.Services.csproj">
+      <Project>{E1175273-AF17-491D-A622-BB1C8B021F9B}</Project>
+      <Name>IndignaFwk.Business.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IndignaFwk.Persistence.DataAccess\IndignaFwk.Persistence.DataAccess.csproj">
+      <Project>{939458C8-1768-48C3-BB7F-CCAAEF6327CC}</Project>
+      <Name>IndignaFwk.Persistence.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\IndignaFwk.UI.Process\IndignaFwk.UI.Process.csproj">
       <Project>{E00590F0-59B7-47B4-8D13-F46651195D52}</Project>
       <Name>IndignaFwk.UI.Process</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IndignaFwk.Web.FrontOffice\IndignaFwk.Web.FrontOffice.csproj">
+      <Project>{4F2311FC-DD3E-4C05-BE34-BA01409FC013}</Project>
+      <Name>IndignaFwk.Web.FrontOffice</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath32)\Microsoft.CSharp.targets" />
