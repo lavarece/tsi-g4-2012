@@ -13,9 +13,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
         void Editar(Grupo grupo);
 
-        void Eliminar(long id);
+        void Eliminar(Int32 id);
 
-        Grupo Obtener(long id);
+        Grupo Obtener(Int32 id, SqlConnection conexion);
 
         List<Grupo> ObtenerListado(SqlConnection conexion);
     }
