@@ -40,6 +40,18 @@
     <Folder Include="Exception\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AsistenciaConvocatoria.cs" />
+    <Compile Include="Entities\Contenido.cs" />
+    <Compile Include="Entities\Convocatoria.cs" />
+    <Compile Include="Entities\Grupo.cs" />
+    <Compile Include="Entities\Imagen.cs" />
+    <Compile Include="Entities\MarcaContenido.cs" />
+    <Compile Include="Entities\Notificacion.cs" />
+    <Compile Include="Entities\Tematica.cs" />
+    <Compile Include="Entities\Template.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Entities\UsuTematica.cs" />
+    <Compile Include="Entities\VariableSistema.cs" />
     <Compile Include="Enumeration\EstadoContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoMarcaContenidoEnum.cs" />
