@@ -34,6 +34,7 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
+        //to do
         public Grupo Obtener(int id, SqlConnection conexion)
         {
             SqlDataReader reader = null;
@@ -72,34 +73,44 @@ namespace IndignaFwk.Persistence.DataAccess
             SqlDataReader reader = null;
 
             Grupo grupo = new Grupo();
-
-            command = new SqlCommand("Select * from Sitio where Url = @url", conexion);
-
-            SqlParameter param = new SqlParameter();
-
-            param.ParameterName = "@url";
-
-            param.Value = url;
-
-            command.Parameters.Add(param);
-
-            reader = command.ExecuteReader();
-
-            while (reader.Read())
+            
+            try
             {
-                grupo.Id = ((int)reader["Id"]);
-                grupo.Nombre = ((string)reader["Nombre"]);
-                grupo.LogoUrl = ((string)reader["LogoUrl"]);
-                grupo.Descripcion = ((string)reader["Descripcion"]);
-                grupo.Url = ((string)reader["Url"]);  
-            }
+                command = new SqlCommand("Select * from Sitio where Url = @url", conexion);
 
-            return grupo;
+                SqlParameter param = new SqlParameter();
+
+                param.ParameterName = "@url";
+
+                param.Value = url;
+
+                command.Parameters.Add(param);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    grupo.Id = ((int)reader["Id"]);
+                    grupo.Nombre = ((string)reader["Nombre"]);
+                    grupo.LogoUrl = ((string)reader["LogoUrl"]);
+                    grupo.Descripcion = ((string)reader["Descripcion"]);
+                    grupo.Url = ((string)reader["Url"]);
+                }
+
+                return grupo;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
         }
 
 
         /*****  ADO que obtiene el listado de todos los usuarios *******/
-
+        // to do
         public List<Grupo> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
