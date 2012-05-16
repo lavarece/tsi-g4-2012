@@ -36,9 +36,29 @@ namespace IndignaFwk.Persistence.DataAccess
 
         public Grupo Obtener(Int32 id, SqlConnection conexion)
         {
-            throw new NotImplementedException();
+            SqlDataReader reader = null;
+
+            Grupo grupo = new Grupo();
+
+            command = new SqlCommand("Select * from Sitio where Id = @id", conexion);
+
+            SqlParameter param = new SqlParameter();
+
+            param.ParameterName = "@id";
+
+            param.Value = id;
+
+            command.Parameters.Add(param);
+
+            reader = command.ExecuteReader();
+
+
+
         }
 
+
+
+        /*****  ADO que obtiene el listado de todos los usuarios *******/
         public List<Grupo> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
