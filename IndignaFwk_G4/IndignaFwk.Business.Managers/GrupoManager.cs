@@ -25,7 +25,7 @@ namespace IndignaFwk.Business.Managers
         * conexiones, ademas llama las AccessDataObject para
         * persistir el nuevo objeto.
        */
-       public Int32 CrearNuevoGrupo(Grupo grupo)
+       public int CrearNuevoGrupo(Grupo grupo)
        {
            try
            {
@@ -86,7 +86,7 @@ namespace IndignaFwk.Business.Managers
         * Método que obtiene un sitio dado
         * por su identificador
         */
-       public Grupo ObtenerGrupoPorId(Int32 idGrupo)
+       public Grupo ObtenerGrupoPorId(int idGrupo)
        {
            try
            {
@@ -177,7 +177,7 @@ namespace IndignaFwk.Business.Managers
         * Método que elimina un sitio dado
         * por su identificador.
         */
-       public void EliminarGrupo(Int32 idGrupo)
+       public void EliminarGrupo(int idGrupo)
        { 
        
        }
