@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using IndignadoFramework.Models;
+using IndignaFwk.Web.FrontOffice.Models;
 
-namespace IndignadoFramework.Controllers
+namespace IndignaFwk.Web.FrontOffice.Controllers
 {
     public class AccountController : Controller
     {
