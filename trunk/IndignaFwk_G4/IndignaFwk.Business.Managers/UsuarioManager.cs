@@ -9,7 +9,7 @@ using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Business.Managers
 {
-    public class UsuarioManager : IUsuarioManager
+    public class UsuarioManager
     {
         /* DEPENDENCIAS */
         private UsuarioADO _UsuarioAdo;

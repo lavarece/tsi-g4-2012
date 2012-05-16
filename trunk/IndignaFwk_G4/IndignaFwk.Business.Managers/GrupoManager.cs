@@ -9,7 +9,7 @@ using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Managers
 {
-   public class GrupoManager : IGrupoManager
+   public class GrupoManager
    {
        /* DEPENDENCIAS */
        private GrupoADO _grupoAdo;
