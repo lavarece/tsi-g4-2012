@@ -9,9 +9,15 @@ namespace IndignaFwk.Business.Entities
     {
         public Int32 Id { get; set; }
 
-        private String Email { get; set; }
+        public String Descripcion { get; set; }
+
+        public bool Conectado { get; set; }
+
+        public String Email { get; set; }
 
         public String Nombre { get; set; }
+
+        public Sitio Sitio { get; set; }
 
         public String Password { get; set; }
 
@@ -21,6 +27,6 @@ namespace IndignaFwk.Business.Entities
 
         public String Region { get; set; }
 
-        public List<Tematica> ListaTematicas { get; set; }
+    //    public List<Tematica> ListaTematicas { get; set; }
     }
 }
