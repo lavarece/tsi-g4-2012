@@ -29,12 +29,12 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public void Eliminar(long id)
+        public void Eliminar(Int32 id)
         {
             throw new NotImplementedException();
         }
 
-        public Grupo Obtener(long id)
+        public Grupo Obtener(Int32 id, SqlConnection conexion)
         {
             throw new NotImplementedException();
         }

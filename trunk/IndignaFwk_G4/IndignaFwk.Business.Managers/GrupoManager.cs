@@ -64,11 +64,11 @@ namespace IndignaFwk.Business.Managers
 
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-               List<Grupo> sitios = new List<Grupo>();
+               List<Grupo> grupos = new List<Grupo>();
 
-               sitios = GrupoAdo.ObtenerListado(conexion);
+               grupos = GrupoAdo.ObtenerListado(conexion);
 
-               return sitios;
+               return grupos;
            }
            catch (Exception ex)
            {
@@ -89,10 +89,28 @@ namespace IndignaFwk.Business.Managers
         */
        public Grupo ObtenerGrupoPorId(Int32 idGrupo)
        {
-           
-           Grupo sitio = new Grupo();
+           try
+           {
+               conexion = UtilesBD.ObtenerConexion(true);
 
-           return sitio;
+               transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+               Grupo grupo = new Grupo();
+
+               grupo = GrupoAdo.Obtener(idGrupo, conexion);
+
+               return grupo;
+           }
+           catch (Exception ex)
+           {
+               UtilesBD.RollbackTransaccion(transaccion);
+
+               throw ex;
+           }
+           finally
+           {
+               UtilesBD.CerrarConexion(conexion);
+           }
        }
 
        /*
