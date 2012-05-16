@@ -13,7 +13,7 @@ namespace IndignaFwk.Business.Managers
    public class GrupoManager : IGrupoManager
    {
        /* DEPENDENCIAS */
-       private GrupoADO grupoAdo;
+       private GrupoADO _grupoAdo;
 
        /* DATOS CONEXION Y TRANSACCION */
        private SqlConnection conexion;
@@ -34,7 +34,7 @@ namespace IndignaFwk.Business.Managers
                
                transaccion = UtilesBD.IniciarTransaccion(conexion); 
 
-               GetGrupoAdo().Crear(grupo, conexion);
+               GrupoAdo.Crear(grupo, conexion);
 
                UtilesBD.CommitTransaccion(transaccion);
            }
@@ -55,10 +55,30 @@ namespace IndignaFwk.Business.Managers
         * la base de datos.
         */
        public List<Sitio> ObtenerTodosLosSitios()
-       {    
-            List<Sitio> sitios = new List<Sitio>();
+       {
+           try
+           {
+               conexion = UtilesBD.ObtenerConexion(true);
 
-            return sitios;
+               transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+               List<Sitio> sitios = new List<Sitio>();
+
+               sitios = GrupoAdo.ObtenerListado(conexion);
+
+               return sitios;
+           }
+           catch (Exception ex)
+           {
+               UtilesBD.RollbackTransaccion(transaccion);
+
+               throw ex;
+           }
+           finally 
+           {
+               UtilesBD.CerrarConexion(conexion);
+           }
+
        }
 
        /*
@@ -100,13 +120,17 @@ namespace IndignaFwk.Business.Managers
        
        }
 
-       public GrupoADO GetGrupoAdo()
+       protected GrupoADO GrupoAdo
        {
-           if (grupoAdo == null)
-           { 
-                grupoAdo = new GrupoADO();
+           get 
+           {    
+               if (_grupoAdo == null)
+               {
+                    _grupoAdo = new GrupoADO();
+               }
+           
+               return _grupoAdo;
            }
-           return grupoAdo;
        }
 
    }
