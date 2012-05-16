@@ -54,7 +54,7 @@ namespace IndignaFwk.Business.Managers
             * Método que obtiene la lista de sitios de 
             * la base de datos.
         */
-         public List<Grupo> ObtenerTodosLosGrupos()
+         public List<Usuario> ObtenerTodosLosUsuarios()
          {
              try
              {
@@ -62,11 +62,11 @@ namespace IndignaFwk.Business.Managers
 
                  transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                 List<Grupo> sitios = new List<Grupo>();
+                 List<Usuario> usuarios = new List<Usuario>();
 
-                 sitios = GrupoAdo.ObtenerListado(conexion);
+                 usuarios = UsuarioAdo.ObtenerListado(conexion);
 
-                 return sitios;
+                 return usuarios;
              }
              catch (Exception ex)
              {

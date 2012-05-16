@@ -43,6 +43,37 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
+        public List<Usuario> ObtenerListado(SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            List<Usuario> _usuario = new List<Usuario>();
+
+            command = new SqlCommand("Select * from Usuario", conexion);
+
+            reader = command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                Usuario varUsuario = new Usuario();
+
+                varUsuario.Id = ((Int32)reader["Id"]);
+                varUsuario.Conectado = ((bool)reader["Conectado"]);
+                varUsuario.Descripcion = ((String)reader["Descripcion"]);
+                varUsuario.Email = ((String)reader["Email"]);
+                varUsuario.Grupo = ((Grupo)reader["Grupo"]);
+                varUsuario.Nombre = ((String)reader["Nombre"]);
+                varUsuario.Password = ((String)reader["Password"]);
+                varUsuario.PreguntaSeguridad = ((String)reader["Pregunta"]);
+                varUsuario.Region = ((String)reader["Region"]);
+                varUsuario.RespuestaSeguridad = ((String)reader["Respuesta"]);
+                _usuario.Add(varUsuario);
+            }
+
+            return _usuario;
+        }
+
         public List<Usuario> ObtenerListado()
         {
             throw new NotImplementedException();
