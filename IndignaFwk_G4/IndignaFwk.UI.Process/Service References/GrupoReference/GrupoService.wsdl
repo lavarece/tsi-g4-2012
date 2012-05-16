@@ -14,10 +14,30 @@
   <wsdl:message name="IGrupoService_CrearGrupo_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearGrupoResponse" />
   </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerListadoGrupos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoGrupos" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerListadoGrupos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoGruposResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrl" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrlResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGrupoService">
     <wsdl:operation name="CrearGrupo">
       <wsdl:input wsaw:Action="http://localhost//IndignaFwk//2012/IGrupoService/CrearGrupo" message="tns:IGrupoService_CrearGrupo_InputMessage" />
       <wsdl:output wsaw:Action="http://localhost//IndignaFwk//2012/IGrupoService/CrearGrupoResponse" message="tns:IGrupoService_CrearGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoGrupos">
+      <wsdl:input wsaw:Action="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerListadoGrupos" message="tns:IGrupoService_ObtenerListadoGrupos_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerListadoGruposResponse" message="tns:IGrupoService_ObtenerListadoGrupos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerGrupoPorUrl">
+      <wsdl:input wsaw:Action="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerGrupoPorUrl" message="tns:IGrupoService_ObtenerGrupoPorUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost//IndignaFwk//2012/IGrupoService/ObtenerGrupoPorUrlResponse" message="tns:IGrupoService_ObtenerGrupoPorUrl_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

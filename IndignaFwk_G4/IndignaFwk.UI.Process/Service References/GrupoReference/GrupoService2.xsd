@@ -50,4 +50,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Template" nillable="true" type="tns:Template" />
+  <xs:complexType name="ArrayOfGrupo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Grupo" nillable="true" type="tns:Grupo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrupo" nillable="true" type="tns:ArrayOfGrupo" />
 </xs:schema>

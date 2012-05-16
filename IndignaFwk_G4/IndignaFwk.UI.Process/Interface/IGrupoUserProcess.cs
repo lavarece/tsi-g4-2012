@@ -8,6 +8,10 @@ namespace IndignaFwk.UI.Process
 {
     public interface IGrupoUserProcess
     {
-        Int32 CrearGrupo(Grupo grupo);
+        int CrearGrupo(Grupo grupo);
+
+        List<Grupo> ObtenerListadoGrupos();
+
+        Grupo ObtenerGrupoPorUrl(string url);        
     }
 }

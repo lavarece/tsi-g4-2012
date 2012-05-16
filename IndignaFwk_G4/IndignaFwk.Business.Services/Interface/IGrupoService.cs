@@ -14,6 +14,12 @@ namespace IndignaFwk.Business.Services
     public interface IGrupoService
     {
         [OperationContract]
-        Int32 CrearGrupo(Grupo grupo);
+        int CrearGrupo(Grupo grupo);
+
+        [OperationContract]
+        List<Grupo> ObtenerListadoGrupos();
+
+        [OperationContract]
+        Grupo ObtenerGrupoPorUrl(string url);
     }
 }

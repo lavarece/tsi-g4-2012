@@ -9,15 +9,49 @@ namespace IndignaFwk.UI.Process
 {
     public class GrupoUserProcess : IGrupoUserProcess
     {
-        public Int32 CrearGrupo(Grupo grupo)
+        public int CrearGrupo(Grupo grupo)
         {
-            GrupoServiceClient grupoServiceProxy = new GrupoServiceClient();
+            GrupoServiceClient grupoProxy = new GrupoServiceClient();
 
-            Int32 idGrupo = grupoServiceProxy.CrearGrupo(new Grupo());
+            int idGrupo = grupoProxy.CrearGrupo(new Grupo());
 
-            grupoServiceProxy.Close();
+            grupoProxy.Close();
 
             return idGrupo;
+        }
+
+
+        public List<Grupo> ObtenerListadoGrupos()
+        {
+            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+
+            Grupo[] arrayGrupos = grupoProxy.ObtenerListadoGrupos();
+
+            grupoProxy.Close();
+
+            // Transformo a una List<Grupo>
+            List<Grupo> listaGrupos = new List<Grupo>();
+
+            if (arrayGrupos != null)
+            {
+                foreach (Grupo itemGrupo in arrayGrupos)
+                {
+                    listaGrupos.Add(itemGrupo);
+                }
+            }
+
+            return listaGrupos;
+        }
+
+        public Grupo ObtenerGrupoPorUrl(string url)
+        {
+            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+
+            Grupo grupo = grupoProxy.ObtenerGrupoPorUrl(url);
+
+            grupoProxy.Close();
+
+            return grupo;
         }
     }
 }
