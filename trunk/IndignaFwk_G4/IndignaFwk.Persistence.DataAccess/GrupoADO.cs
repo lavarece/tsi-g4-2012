@@ -9,18 +9,19 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class GrupoADO : IGrupoADO
     {
-        public Int32 Crear(Sitio grupo, SqlConnection conexion)
+        private SqlCommand command;    
+        
+        public Int32 Crear(Sitio sitio, SqlConnection conexion)
         {
-            SqlCommand comando = new SqlCommand("Insert into Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)", conexion);
-         
-            comando.Parameters.AddWithValue("nombre", grupo.Nombre);
-            comando.Parameters.AddWithValue("logoUrl", grupo.LogoUrl);
-            comando.Parameters.AddWithValue("descripcion", grupo.Descripcion);
-            comando.Parameters.AddWithValue("url", grupo.Url);
+            command = new SqlCommand("Insert into Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)", conexion);
+            command.Parameters.AddWithValue("nombre", sitio.Nombre);
+            command.Parameters.AddWithValue("logoUrl", sitio.LogoUrl);
+            command.Parameters.AddWithValue("descripcion", sitio.Descripcion);
+            command.Parameters.AddWithValue("url", sitio.Url);
 
-            comando.ExecuteNonQuery();
+            command.ExecuteNonQuery();
 
-            throw new NotImplementedException();
+            return 0;
         }
 
         public void Editar(Sitio grupo)
