@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using IndignaFwk.Business.Entities;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Services
 {

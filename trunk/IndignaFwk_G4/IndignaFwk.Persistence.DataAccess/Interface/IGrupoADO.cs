@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IndignaFwk.Business.Entities;
+using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess

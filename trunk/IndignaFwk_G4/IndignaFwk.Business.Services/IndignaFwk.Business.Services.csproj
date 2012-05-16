@@ -92,6 +92,10 @@
       <Project>{E7CB92AC-8983-43B1-A679-20467B2EE5DB}</Project>
       <Name>IndignaFwk.Business.Managers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
