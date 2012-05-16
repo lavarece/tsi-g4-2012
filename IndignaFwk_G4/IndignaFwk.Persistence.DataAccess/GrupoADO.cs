@@ -11,7 +11,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
         
-        public Int32 Crear(Sitio sitio, SqlConnection conexion)
+        public Int32 Crear(Grupo sitio, SqlConnection conexion)
         {
             command = new SqlCommand("Insert into Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)", conexion);
             command.Parameters.AddWithValue("nombre", sitio.Nombre);
@@ -24,7 +24,7 @@ namespace IndignaFwk.Persistence.DataAccess
             return 0;
         }
 
-        public void Editar(Sitio grupo)
+        public void Editar(Grupo grupo)
         {
             throw new NotImplementedException();
         }
@@ -34,12 +34,12 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public Sitio Obtener(long id)
+        public Grupo Obtener(long id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Sitio> ObtenerListado(SqlConnection conexion)
+        public List<Grupo> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 

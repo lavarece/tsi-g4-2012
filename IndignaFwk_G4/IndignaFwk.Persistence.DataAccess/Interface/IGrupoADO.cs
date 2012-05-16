@@ -9,14 +9,14 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IGrupoADO
     {
-        Int32 Crear(Sitio grupo, SqlConnection conexion);
+        Int32 Crear(Grupo grupo, SqlConnection conexion);
 
-        void Editar(Sitio grupo);
+        void Editar(Grupo grupo);
 
         void Eliminar(long id);
 
-        Sitio Obtener(long id);
+        Grupo Obtener(long id);
 
-        List<Sitio> ObtenerListado();
+        List<Grupo> ObtenerListado();
     }
 }

@@ -14,6 +14,6 @@ namespace IndignaFwk.Business.Services
     public interface IConvocatoriaService
     {
         [OperationContract]
-        Int32 crearConvocatoria(Convocatoria convocatoria);
+        Int32 CrearConvocatoria(Convocatoria convocatoria);
     }
 }

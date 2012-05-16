@@ -26,7 +26,7 @@ namespace IndignaFwk.Business.Managers
         * conexiones, ademas llama las AccessDataObject para
         * persistir el nuevo objeto.
        */
-       public void CrearNuevoSitio(Sitio grupo)
+       public Int32 CrearNuevoGrupo(Grupo grupo)
        {
            try
            {
@@ -37,6 +37,8 @@ namespace IndignaFwk.Business.Managers
                GrupoAdo.Crear(grupo, conexion);
 
                UtilesBD.CommitTransaccion(transaccion);
+
+               return 0;
            }
            catch (Exception ex)
            {
@@ -54,7 +56,7 @@ namespace IndignaFwk.Business.Managers
         * Método que obtiene la lista de sitios de 
         * la base de datos.
         */
-       public List<Sitio> ObtenerTodosLosSitios()
+       public List<Grupo> ObtenerTodosLosGrupos()
        {
            try
            {
@@ -62,7 +64,7 @@ namespace IndignaFwk.Business.Managers
 
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-               List<Sitio> sitios = new List<Sitio>();
+               List<Grupo> sitios = new List<Grupo>();
 
                sitios = GrupoAdo.ObtenerListado(conexion);
 
@@ -85,9 +87,9 @@ namespace IndignaFwk.Business.Managers
         * Método que obtiene un sitio dado
         * por su identificador
         */
-       public Sitio ObtenerSitioPorId(long id)
+       public Grupo ObtenerGrupoPorId(Int32 idGrupo)
        {
-            Sitio sitio = new Sitio();
+            Grupo sitio = new Grupo();
 
             return sitio;
        }
@@ -96,7 +98,7 @@ namespace IndignaFwk.Business.Managers
         * Método que guarda un sitio pasado
         * como parámetro
         */
-       public void GuardarSitio(Sitio grupo)
+       public void GuardarGrupo(Grupo grupo)
        {
         
        }
@@ -115,7 +117,7 @@ namespace IndignaFwk.Business.Managers
         * Método que elimina un sitio dado
         * por su identificador.
         */
-       public void EliminarSitio(long idSitio)
+       public void EliminarGrupo(Int32 idGrupo)
        { 
        
        }
@@ -130,7 +132,7 @@ namespace IndignaFwk.Business.Managers
                }
            
                return _grupoAdo;
-           }
+           }           
        }
 
    }
