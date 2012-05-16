@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Enumeration\EstadoContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoContenidoEnum.cs" />
+    <Compile Include="Enumeration\TipoMarcaContenidoEnum.cs" />
     <Compile Include="Util\UtilesBD.cs" />
   </ItemGroup>
   <ItemGroup>
