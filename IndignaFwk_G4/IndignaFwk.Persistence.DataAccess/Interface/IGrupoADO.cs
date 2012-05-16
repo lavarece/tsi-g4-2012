@@ -17,6 +17,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         Grupo Obtener(long id);
 
-        List<Grupo> ObtenerListado();
+        List<Grupo> ObtenerListado(SqlConnection conexion);
     }
 }
