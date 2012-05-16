@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1281/GrupoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Enumeration" />
+  <xs:complexType name="Grupo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ListaContenido" nillable="true" type="tns:ArrayOfContenido" />
+      <xs:element minOccurs="0" name="ListaImagen" nillable="true" type="tns:ArrayOfImagen" />
+      <xs:element minOccurs="0" name="LogoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Template" nillable="true" type="tns:Template" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Grupo" nillable="true" type="tns:Grupo" />
+  <xs:complexType name="ArrayOfContenido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contenido" nillable="true" type="tns:Contenido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContenido" nillable="true" type="tns:ArrayOfContenido" />
+  <xs:complexType name="Contenido">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Enumeration" minOccurs="0" name="EstadoContenido" type="q1:EstadoContenidoEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Enumeration" minOccurs="0" name="TipoContenido" type="q2:TipoContenidoEnum" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contenido" nillable="true" type="tns:Contenido" />
+  <xs:complexType name="ArrayOfImagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Imagen" nillable="true" type="tns:Imagen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImagen" nillable="true" type="tns:ArrayOfImagen" />
+  <xs:complexType name="Imagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Referencia" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Imagen" nillable="true" type="tns:Imagen" />
+  <xs:complexType name="Template">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreCSS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Template" nillable="true" type="tns:Template" />
+</xs:schema>
