@@ -42,6 +42,11 @@
     <Compile Include="Interface\IConvocatoriaUserProcess.cs" />
     <Compile Include="Interface\IGrupoUserProcess.cs" />
     <Compile Include="Interface\IUsuarioUserProcess.cs" />
+    <Compile Include="Service References\GrupoReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,6 +58,20 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\GrupoReference\GrupoService.wsdl" />
+    <None Include="Service References\GrupoReference\GrupoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrupoReference\GrupoService1.wsdl" />
+    <None Include="Service References\GrupoReference\GrupoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrupoReference\GrupoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrupoReference\GrupoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -62,6 +81,25 @@
       <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
       <Name>IndignaFwk.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GrupoReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoReference\GrupoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
