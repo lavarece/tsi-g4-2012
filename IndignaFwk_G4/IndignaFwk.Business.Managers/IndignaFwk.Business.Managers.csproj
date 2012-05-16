@@ -57,6 +57,10 @@
       <Project>{CB1A7184-2686-4CE9-B46C-15330FE7FDCF}</Project>
       <Name>IndignaFwk.Business.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IndignaFwk.Persistence.DataAccess\IndignaFwk.Persistence.DataAccess.csproj">
       <Project>{939458C8-1768-48C3-BB7F-CCAAEF6327CC}</Project>
       <Name>IndignaFwk.Persistence.DataAccess</Name>

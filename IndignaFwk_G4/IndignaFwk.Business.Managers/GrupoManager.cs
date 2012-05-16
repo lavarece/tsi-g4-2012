@@ -6,14 +6,19 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
 using IndignaFwk.Business.Entities;
-using System.Windows.Forms;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Business.Managers
 {
    public class GrupoManager : IGrupoManager
    {
-       private static GrupoADO grupoAdo;
+       /* DEPENDENCIAS */
+       private GrupoADO grupoAdo;
+
+       /* DATOS CONEXION Y TRANSACCION */
        private SqlConnection conexion;
+
+       private SqlTransaction transaccion;
 
        /*
         * Metodo que se llama desde la capa de servicio para
@@ -25,26 +30,24 @@ namespace IndignaFwk.Business.Managers
        {
            try
            {
-               conexion = GetConection();
-               conexion.Open();
-               grupoAdo = ObtenerGrupoADO();
-               grupoAdo.Crear(grupo, conexion);
-           }
+               conexion = UtilesBD.ObtenerConexion(true);
+               
+               transaccion = UtilesBD.IniciarTransaccion(conexion); 
 
+               GetGrupoAdo().Crear(grupo, conexion);
+
+               UtilesBD.CommitTransaccion(transaccion);
+           }
            catch (Exception ex)
            {
-               MessageBox.Show(ex.Message);
-           }
+               UtilesBD.RollbackTransaccion(transaccion);
 
+               throw ex;
+           }
            finally
            {
-               if (conexion != null)
-               {
-                   conexion.Close();
-                   conexion.Dispose();
-               }
+               UtilesBD.CerrarConexion(conexion);
            }
-
        } 
 
        /*
@@ -53,12 +56,8 @@ namespace IndignaFwk.Business.Managers
         */
        public List<Sitio> ObtenerTodosLosSitios()
        {    
-
-
-
-
-
             List<Sitio> sitios = new List<Sitio>();
+
             return sitios;
        }
 
@@ -68,11 +67,8 @@ namespace IndignaFwk.Business.Managers
         */
        public Sitio ObtenerSitioPorId(long id)
        {
-
-
-
-
             Sitio sitio = new Sitio();
+
             return sitio;
        }
 
@@ -104,13 +100,7 @@ namespace IndignaFwk.Business.Managers
        
        }
 
-       public SqlConnection GetConection()
-       {
-           SqlConnection conection = new SqlConnection("Data Source=JuanMa\SQLEXPRESS;Initial Catalog=IndignadoFDb;Persist Security Info=True;User ID=jmg216;Password=enano20");
-           return conection;
-       }
-
-       public GrupoADO ObtenerGrupoADO()
+       public GrupoADO GetGrupoAdo()
        {
            if (grupoAdo == null)
            { 

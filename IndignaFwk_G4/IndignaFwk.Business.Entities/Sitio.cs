@@ -7,9 +7,34 @@ namespace IndignaFwk.Business.Entities
 {
     public class Sitio
     {
-        public Int32 Id { get; set; }
+        private Int32 _id;
 
-        public String Nombre { get; set; }
+        public Int32 Id 
+        {
+            get   
+            {
+                return this._id;
+            }
+            set
+            {
+                this._id = value;
+            }
+        }
+
+        private String _nombre;
+
+        public String Nombre
+        {
+            get
+            {
+                return this._nombre;
+            }
+            set
+            {
+                this._nombre = value;
+            }
+        }
+
 
         public String LogoUrl { get; set; }
 
@@ -22,6 +47,8 @@ namespace IndignaFwk.Business.Entities
         public List<Imagen> ListaImagen { get; set; }
 
         public String Url { get; set; }
+
+
 
     }
 }
