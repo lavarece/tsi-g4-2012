@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
-using IndignaFwk.Business.Entities;
 using IndignaFwk.Common.Util;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Managers
 {

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IndignaFwk.Business.Entities;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.UI.Process
 {
     public class ConvocatoriaUserProcess : IConvocatoriaUserProcess
     {
-        public Int32 CrearConvocatoria(Business.Entities.Usuario usuario)
+        public Int32 CrearConvocatoria(Usuario usuario)
         {
             return 0;
         }

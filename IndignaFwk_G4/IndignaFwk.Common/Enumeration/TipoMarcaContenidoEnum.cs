@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace IndignaFwk.Business.Entities
+namespace IndignaFwk.Common.Enumeration
 {
     public enum TipoMarcaContenidoEnum
     {

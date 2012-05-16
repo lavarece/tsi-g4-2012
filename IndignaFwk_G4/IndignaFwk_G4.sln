@@ -30,6 +30,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Business.Managers", "IndignaFwk.Business.Managers\IndignaFwk.Business.Managers.csproj", "{E7CB92AC-8983-43B1-A679-20467B2EE5DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Business.Services", "IndignaFwk.Business.Services\IndignaFwk.Business.Services.csproj", "{E1175273-AF17-491D-A622-BB1C8B021F9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380} = {86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndignaFwk.Common", "IndignaFwk.Common\IndignaFwk.Common.csproj", "{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}"
 EndProject
