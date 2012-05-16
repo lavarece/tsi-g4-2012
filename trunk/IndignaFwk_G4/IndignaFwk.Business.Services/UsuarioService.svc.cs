@@ -12,7 +12,7 @@ namespace IndignaFwk.Business.Services
 {
     public class UsuarioService : IUsuarioService
     {
-        public Int32 crearUsuario(Usuario usuario)
+        public Int32 CrearUsuario(Usuario usuario)
         {
             return 0;
         }

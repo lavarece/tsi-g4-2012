@@ -55,6 +55,7 @@
   <ItemGroup>
     <Content Include="ConvocatoriaService.svc" />
     <Content Include="GrupoService.svc" />
+    <Content Include="SistemaService.svc" />
     <Content Include="UsuarioService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -73,6 +74,10 @@
     </Compile>
     <Compile Include="Interface\IConvocatoriaService.cs" />
     <Compile Include="Interface\IGrupoService.cs" />
+    <Compile Include="Interface\ISistemaService.cs" />
+    <Compile Include="SistemaService.svc.cs">
+      <DependentUpon>SistemaService.svc</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioService.svc.cs">
       <DependentUpon>UsuarioService.svc</DependentUpon>
     </Compile>
