@@ -40,9 +40,6 @@
     <Compile Include="AsistenciaConvocatoria.cs" />
     <Compile Include="Contenido.cs" />
     <Compile Include="Convocatoria.cs" />
-    <Compile Include="TipoMarcaContenido.cs" />
-    <Compile Include="TipoContenido.cs" />
-    <Compile Include="EstadoContenido.cs" />
     <Compile Include="Sitio.cs" />
     <Compile Include="Imagen.cs" />
     <Compile Include="MarcaContenido.cs" />
