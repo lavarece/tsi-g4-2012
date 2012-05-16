@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="IndignaFwk.Web.FrontOffice.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="IndignaFwk.Web.FrontOffice.WebFrontOffice" Language="C#" %>
