@@ -25,6 +25,8 @@ namespace IndignaFwk.Common.Util
             }
             catch (Exception e)
             {
+                Console.Write(e.Message);
+
                 return null;
             }
         }

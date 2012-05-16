@@ -8,3 +8,46 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+namespace IndignaFwk.UI.Process.GrupoReference {
+    
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost//IndignaFwk//2012", ConfigurationName="GrupoReference.IGrupoService")]
+    public interface IGrupoService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost//IndignaFwk//2012/IGrupoService/CrearGrupo", ReplyAction="http://localhost//IndignaFwk//2012/IGrupoService/CrearGrupoResponse")]
+        int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGrupoServiceChannel : IndignaFwk.UI.Process.GrupoReference.IGrupoService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GrupoServiceClient : System.ServiceModel.ClientBase<IndignaFwk.UI.Process.GrupoReference.IGrupoService>, IndignaFwk.UI.Process.GrupoReference.IGrupoService {
+        
+        public GrupoServiceClient() {
+        }
+        
+        public GrupoServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public GrupoServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GrupoServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GrupoServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo) {
+            return base.Channel.CrearGrupo(grupo);
+        }
+    }
+}

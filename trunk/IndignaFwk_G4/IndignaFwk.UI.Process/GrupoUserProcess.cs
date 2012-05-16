@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process.GrupoReference;
 
 namespace IndignaFwk.UI.Process
 {
@@ -10,13 +11,13 @@ namespace IndignaFwk.UI.Process
     {
         public Int32 CrearGrupo(Grupo grupo)
         {
-           // ConvocatoriaServiceClient convocatoriaServiceProxy = new ConvocatoriaServiceClient();
+            GrupoServiceClient grupoServiceProxy = new GrupoServiceClient();
 
-           // convocatoriaServiceProxy.crearConvocatoria(new Convocatoria());
+            Int32 idGrupo = grupoServiceProxy.CrearGrupo(new Grupo());
 
-           // convocatoriaServiceProxy.Close();
+            grupoServiceProxy.Close();
 
-            return 0;
+            return idGrupo;
         }
     }
 }
