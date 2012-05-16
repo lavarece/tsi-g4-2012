@@ -11,9 +11,9 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         Int32 Crear(Grupo grupo, SqlConnection conexion);
 
-        void Editar(Grupo grupo);
+        void Editar(Grupo grupo, SqlConnection conexion);
 
-        void Eliminar(Int32 id);
+        void Eliminar(Int32 id, SqlConnection conexion);
 
         Grupo Obtener(Int32 id, SqlConnection conexion);
 
