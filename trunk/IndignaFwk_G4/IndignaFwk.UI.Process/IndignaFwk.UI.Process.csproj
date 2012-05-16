@@ -55,12 +55,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IndignaFwk.Business.Entities\IndignaFwk.Business.Entities.csproj">
-      <Project>{CB1A7184-2686-4CE9-B46C-15330FE7FDCF}</Project>
-      <Name>IndignaFwk.Business.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
