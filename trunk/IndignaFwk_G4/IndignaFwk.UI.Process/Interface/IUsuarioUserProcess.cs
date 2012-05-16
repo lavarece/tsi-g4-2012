@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using IndignaFwk.Business.Entities;
 
 namespace IndignaFwk.UI.Process
 {
-    interface IUsuarioUserProcess
+    public interface IUsuarioUserProcess
     {
+        Int32 CrearUsuario(Usuario usuario);
     }
 }
