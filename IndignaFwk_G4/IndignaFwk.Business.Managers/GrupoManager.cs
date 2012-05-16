@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
 using IndignaFwk.Business.Entities;
@@ -117,7 +116,7 @@ namespace IndignaFwk.Business.Managers
         * Método que guarda un sitio pasado
         * como parámetro
         */
-       public void GuardarGrupo(Grupo grupo)
+       public void EditarGrupo(Grupo grupo)
        {
         
        }
@@ -126,7 +125,7 @@ namespace IndignaFwk.Business.Managers
         * Método que elimina una o varias imágenes
         * pasadas por parámetro en una lista.
         */
-       public void EliminarImagenes(List<long> imagenes)
+       public void EliminarImagenes(List<Imagen> imagenes)
        {
        
        }
