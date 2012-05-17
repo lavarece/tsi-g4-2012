@@ -10,7 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IndignaFwk.UI.Process;
+using IndignaFwk.UI.Process.GrupoReference;
+using IndignaFwk.UI;
 using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk_WPF_BackOffice
@@ -20,7 +21,7 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class CrearGrupo : Window
 	{
-        private IGrupoUserProcess _GrupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+        private IndignaFwk.UI.Process.IGrupoUserProcess _GrupoUserProcess = IndignaFwk.UI.Process.UserProcessFactory.Instance.GrupoUserProcess;
 		
         public CrearGrupo()
 		{
