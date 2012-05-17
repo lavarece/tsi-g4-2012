@@ -35,18 +35,91 @@ namespace IndignaFwk.Common.Entities
             }
         }
 
+        private string _logoUrl;
 
-        public string LogoUrl { get; set; }
+        public string LogoUrl 
+        {
+            get
+            {
+                return this._logoUrl;
+            }
+            set
+            {
+                this._logoUrl = value;
+            }
+        }
 
-        public string Descripcion { get; set; }
+        private string _descripcion;
 
-        public List<Contenido> ListaContenido { get; set; }
+        public string Descripcion 
+        {
 
-        public Template Template { get; set; }
+            get
+            {
+                return this._descripcion;
+            }
+            set
+            {
+                this._descripcion = value;
+            }
+        }
 
-        public List<Imagen> ListaImagen { get; set; }
+        private List<Contenido> _listaContenido;
 
-        public string Url { get; set; }
+        public List<Contenido> ListaContenido
+        {
+
+            get
+            {
+                return this._listaContenido;
+            }
+            set
+            {
+                this._listaContenido = value;
+            }
+        }
+
+        private Template _template;
+
+        public Template Template 
+        {
+            get
+            {
+                return this._template;
+            }
+            set
+            {
+                this._template = value;
+            }
+        }
+
+        private List<Imagen> _imagen;
+
+        public List<Imagen> ListaImagen 
+        {
+            get
+            {
+                return this._imagen;
+            }
+            set
+            {
+                this._imagen = value;
+            }
+        }
+
+        private String _url;
+
+        public string Url 
+        {
+            get
+            {
+                return this._url;
+            }
+            set
+            {
+                this._url = value;
+            }   
+        }
 
 
 
