@@ -33,7 +33,7 @@ namespace IndignaFwk.Business.Managers
                
                transaccion = UtilesBD.IniciarTransaccion(conexion); 
 
-               GrupoAdo.Crear(grupo, conexion);
+               GrupoAdo.Crear(grupo, conexion, transaccion);
 
                UtilesBD.CommitTransaccion(transaccion);
 
@@ -65,7 +65,7 @@ namespace IndignaFwk.Business.Managers
 
                List<Grupo> grupos = new List<Grupo>();
 
-               grupos = GrupoAdo.ObtenerListado(conexion);
+               grupos = GrupoAdo.ObtenerListado(conexion, transaccion);
 
                return grupos;
            }
@@ -96,7 +96,7 @@ namespace IndignaFwk.Business.Managers
 
                Grupo grupo = new Grupo();
 
-               grupo = GrupoAdo.Obtener(idGrupo, conexion);
+               grupo = GrupoAdo.Obtener(idGrupo, conexion, transaccion);
 
                return grupo;
            }
@@ -125,7 +125,7 @@ namespace IndignaFwk.Business.Managers
 
                Grupo grupo = new Grupo();
 
-               grupo = GrupoAdo.ObtenerPorUrl(url, conexion);
+               grupo = GrupoAdo.ObtenerPorUrl(url, conexion, transaccion);
 
                return grupo;
            }
@@ -147,22 +147,42 @@ namespace IndignaFwk.Business.Managers
         */
        public void EditarGrupo(Grupo grupo)
        {
-        
+           try
+           {
+               conexion = UtilesBD.ObtenerConexion(true);
+
+               transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+               GrupoAdo.Editar(grupo, conexion, transaccion);
+           }
+           catch (Exception ex)
+           {
+               UtilesBD.RollbackTransaccion(transaccion);
+
+               throw ex;
+           }
+           finally
+           {
+               UtilesBD.CerrarConexion(conexion);
+           }
        }
        
        /*
         * Método que elimina una o varias imágenes
         * pasadas por parámetro en una lista.
         */
+       //to do
        public void EliminarImagenes(List<Imagen> imagenes)
        {
            try
            {
-
+               
+              
            }
            catch (Exception ex)
            {
                UtilesBD.RollbackTransaccion(transaccion);
+
                throw ex;
            }
            finally
@@ -177,10 +197,33 @@ namespace IndignaFwk.Business.Managers
         * Método que elimina un sitio dado
         * por su identificador.
         */
+       //to do
        public void EliminarGrupo(int idGrupo)
-       { 
-       
+       {
+           try
+           {
+               conexion = UtilesBD.ObtenerConexion(true);
+
+               transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+               GrupoAdo.Eliminar(idGrupo, conexion, transaccion);
+
+
+
+           }
+           catch (Exception ex)
+           {
+               UtilesBD.RollbackTransaccion(transaccion);
+
+               throw ex;
+           }
+           finally
+           {
+               UtilesBD.CerrarConexion(conexion);
+           }
        }
+
+
 
        protected GrupoADO GrupoAdo
        {

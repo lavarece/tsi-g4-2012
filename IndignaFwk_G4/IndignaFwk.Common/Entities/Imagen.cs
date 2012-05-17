@@ -7,10 +7,10 @@ namespace IndignaFwk.Common.Entities
 {
     public class Imagen
     {
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
-        public String Nombre { get; set; }
+        public string Nombre { get; set; }
 
-        public String Referencia { get; set; }
+        public string Referencia { get; set; }
     }
 }

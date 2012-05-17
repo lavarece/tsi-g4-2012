@@ -11,9 +11,14 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
         
-        public int Crear(Grupo sitio, SqlConnection conexion)
+        public int Crear(Grupo sitio, SqlConnection conexion, SqlTransaction transaccion)
         {
-            command = new SqlCommand("Insert into Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)", conexion);
+            command = conexion.CreateCommand();
+            command.Transaction = transaccion;
+            command.Connection = conexion;
+            
+            command.CommandText = "INSERT INTO Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)";
+            
             command.Parameters.AddWithValue("nombre", sitio.Nombre);
             command.Parameters.AddWithValue("logoUrl", sitio.LogoUrl);
             command.Parameters.AddWithValue("descripcion", sitio.Descripcion);
@@ -24,51 +29,101 @@ namespace IndignaFwk.Persistence.DataAccess
             return 0;
         }
 
-        public void Editar(Grupo grupo, SqlConnection conexion)
+        /*************************************************************************************/
+        /*************************************************************************************/
+
+        public void Editar(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
         {
-            throw new NotImplementedException();
+            command = conexion.CreateCommand();
+            command.Transaction = transaccion;
+            command.Connection = conexion;
+            
+            command.CommandText = " UPDATE Sitio SET Nombre = @nombre, LogoUrl = @logoUrl, Descripcion = @descripcion, Url = @url WHERE Id = @id ";
+
+            command.Parameters.AddWithValue("id", grupo.Id);
+            command.Parameters.AddWithValue("nombre", grupo.Nombre);
+            command.Parameters.AddWithValue("logoUrl", grupo.LogoUrl);
+            command.Parameters.AddWithValue("descripcion", grupo.Descripcion);
+            command.Parameters.AddWithValue("url", grupo.Url);
+
+            command.ExecuteNonQuery();
         }
 
-        public void Eliminar(int id, SqlConnection conexion)
+        /*************************************************************************************/
+        /*************************************************************************************/
+
+        public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
-            throw new NotImplementedException();
+            command = conexion.CreateCommand();
+            command.Transaction = transaccion;
+            command.Connection = conexion;
+            
+            command.CommandText = "DELETE FROM Sitio WHERE Id = @id";
+            
+            command.Parameters.AddWithValue("id", id);
+            
+            command.ExecuteNonQuery();
         }
 
-        //to do
-        public Grupo Obtener(int id, SqlConnection conexion)
+        /*************************************************************************************/
+        /*************************************************************************************/
+
+        public Grupo Obtener(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             SqlDataReader reader = null;
-
+       
             Grupo grupo = new Grupo();
 
-            command = new SqlCommand("Select * from Sitio where Id = @id", conexion);
-
-            SqlParameter param = new SqlParameter();
-
-            param.ParameterName = "@id";
-
-            param.Value = id;
-
-            command.Parameters.Add(param);
-
-            reader = command.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                grupo.Id = ((int)reader["Id"]);
-                grupo.Nombre = ((string)reader["Nombre"]);
-                grupo.LogoUrl = ((string)reader["LogoUrl"]);
-                grupo.Descripcion = ((string)reader["Descripcion"]);
-                grupo.Url = ((string)reader["Url"]);    
-            }
+                command = conexion.CreateCommand();
+                command.Transaction = transaccion;
+                command.Connection = conexion;
+                
+                command.CommandText ="SELECT * FROM Sitio WHERE Id = @id";
 
-            return grupo;
+                SqlParameter param = new SqlParameter();
+
+                param.ParameterName = "@id";
+
+                param.Value = id;
+
+                command.Parameters.Add(param);
+
+                reader = command.ExecuteReader();
+
+                bool encontrado = false;
+
+                while ((reader.Read()) && (!encontrado))
+                {
+                    grupo.Id = ((int)reader["Id"]);
+                    grupo.Nombre = ((string)reader["Nombre"]);
+                    grupo.LogoUrl = ((string)reader["LogoUrl"]);
+                    grupo.Descripcion = ((string)reader["Descripcion"]);
+                    grupo.Url = ((string)reader["Url"]);
+
+                    if (((int)reader["Id"]) == id)
+                    {
+                        encontrado = true;
+                    }
+                }
+
+                return grupo;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }            
+            }
         }
 
 
-        /******** ADO que obtiene un grupo por su url ************/
+        /*************************************************************************************/
+        /*************************************************************************************/
 
-        public Grupo ObtenerPorUrl(string url, SqlConnection conexion)
+        public Grupo ObtenerPorUrl(string url, SqlConnection conexion, SqlTransaction transaccion)
         {
             SqlDataReader reader = null;
 
@@ -76,7 +131,11 @@ namespace IndignaFwk.Persistence.DataAccess
             
             try
             {
-                command = new SqlCommand("Select * from Sitio where Url = @url", conexion);
+                command = conexion.CreateCommand();
+                command.Transaction = transaccion;
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM Sitio WHERE Url = @url";
 
                 SqlParameter param = new SqlParameter();
 
@@ -88,13 +147,20 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 reader = command.ExecuteReader();
 
-                while (reader.Read())
+                bool encontrado = false;
+
+                while ((reader.Read()) && (!encontrado))
                 {
                     grupo.Id = ((int)reader["Id"]);
                     grupo.Nombre = ((string)reader["Nombre"]);
                     grupo.LogoUrl = ((string)reader["LogoUrl"]);
                     grupo.Descripcion = ((string)reader["Descripcion"]);
                     grupo.Url = ((string)reader["Url"]);
+
+                    if ((string)reader["Url"] == url)
+                    {
+                        encontrado = true;
+                    }
                 }
 
                 return grupo;
@@ -108,34 +174,47 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-
-        /*****  ADO que obtiene el listado de todos los usuarios *******/
-        // to do
-        public List<Grupo> ObtenerListado(SqlConnection conexion)
+        /*************************************************************************************/
+        /*************************************************************************************/
+        
+        public List<Grupo> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
         {
             SqlDataReader reader = null;
 
             List<Grupo> _grupo = new List<Grupo>();
 
-            command = new SqlCommand("Select * from Sitio", conexion);
-
-            reader = command.ExecuteReader();
-
-
-            while (reader.Read())
+            try
             {
-                Grupo varGrupo = new Grupo();
+                command = conexion.CreateCommand();
+                command.Transaction = transaccion;
+                command.Connection = conexion;
 
-                varGrupo.Id = ((int) reader["Id"]);
-                varGrupo.Nombre = ((string) reader["Nombre"]);
-                varGrupo.LogoUrl = ((string) reader["LogoUrl"]);
-                varGrupo.Descripcion = ((string) reader ["Descripcion"]);
-                varGrupo.Url = ((string) reader["Url"]);          
+                command.CommandText = "SELECT * FROM Sitio";
 
-                _grupo.Add(varGrupo);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Grupo varGrupo = new Grupo();
+
+                    varGrupo.Id = ((int)reader["Id"]);
+                    varGrupo.Nombre = ((string)reader["Nombre"]);
+                    varGrupo.LogoUrl = ((string)reader["LogoUrl"]);
+                    varGrupo.Descripcion = ((string)reader["Descripcion"]);
+                    varGrupo.Url = ((string)reader["Url"]);
+
+                    _grupo.Add(varGrupo);
+                }
+
+                return _grupo;
             }
-
-            return _grupo;
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }   
+            }
         }
     }
 }

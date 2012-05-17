@@ -8,7 +8,7 @@ namespace IndignaFwk.Business.Managers
 {
     public interface IGrupoManager
     {
-        Int32 CrearNuevoGrupo(Grupo grupo);
+        int CrearNuevoGrupo(Grupo grupo);
 
         List<Grupo> ObtenerTodosLosGrupos();
         

@@ -9,16 +9,16 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IGrupoADO
     {
-        Int32 Crear(Grupo grupo, SqlConnection conexion);
+        int Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(Grupo grupo, SqlConnection conexion);
+        void Editar(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(int id, SqlConnection conexion);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Grupo Obtener(int id, SqlConnection conexion);
+        Grupo Obtener(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Grupo ObtenerPorUrl(string url, SqlConnection conexion);
+        Grupo ObtenerPorUrl(string url, SqlConnection conexion, SqlTransaction transaccion);
 
-        List<Grupo> ObtenerListado(SqlConnection conexion);
+        List<Grupo> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
     }
 }
