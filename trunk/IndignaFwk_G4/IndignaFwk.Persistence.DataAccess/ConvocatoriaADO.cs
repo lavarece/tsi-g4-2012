@@ -8,7 +8,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public class ConvocatoriaADO : IConvocatoriaADO
     {
-        public Int32 Crear(Convocatoria convocatoria)
+        public int Crear(Convocatoria convocatoria)
         {
             throw new NotImplementedException();
         }
@@ -18,12 +18,12 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public void Eliminar(long id)
+        public void Eliminar(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Contenido Obtener(long id)
+        public Contenido Obtener(int id)
         {
             throw new NotImplementedException();
         }

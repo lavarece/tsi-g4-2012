@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IContenidoADO
     {
-        Int32 Crear(Contenido contenido);
+        int Crear(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(Contenido contenido);
+        void Editar(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(long id);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Contenido Obtener(long id);
+        Contenido Obtener(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        List<Contenido> ObtenerListado();
+        List<Contenido> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
     }
 }

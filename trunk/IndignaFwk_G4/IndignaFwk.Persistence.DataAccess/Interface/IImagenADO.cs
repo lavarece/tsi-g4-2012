@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IImagenADO
     {
-        Int32 Crear(Imagen imagen);
+        int Crear(Imagen imagen, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(Imagen imagen);
+        void Editar(Imagen imagen, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(long id);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Imagen Obtener(long id);
+        Imagen Obtener(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        List<Imagen> ObtenerListado();
+        List<Imagen> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
     }
 }

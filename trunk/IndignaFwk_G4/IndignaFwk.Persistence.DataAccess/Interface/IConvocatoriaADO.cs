@@ -8,13 +8,13 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IConvocatoriaADO
     {
-        Int32 Crear(Convocatoria convocatoria);
+       int Crear(Convocatoria convocatoria);
 
         void Editar(Convocatoria convocatoria);
 
-        void Eliminar(long id);
+        void Eliminar(int id);
 
-        Contenido Obtener(long id);
+        Contenido Obtener(int id);
 
         List<Contenido> ObtenerListado();
     }

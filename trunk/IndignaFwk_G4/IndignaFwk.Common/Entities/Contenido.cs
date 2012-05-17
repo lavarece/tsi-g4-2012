@@ -8,13 +8,13 @@ namespace IndignaFwk.Common.Entities
 {
     public class Contenido
     {
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         public EstadoContenidoEnum EstadoContenido { get; set; }
 
         public TipoContenidoEnum TipoContenido { get; set; }
 
-        public String Url { get; set; }
+        public string Url { get; set; }
     }
 
 }
