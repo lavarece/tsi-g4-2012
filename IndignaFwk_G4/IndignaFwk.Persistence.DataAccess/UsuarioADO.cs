@@ -11,9 +11,14 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        public Int32 Crear(Usuario usuario, SqlConnection conexion)
+        public int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
-            command = new SqlCommand("Insert into Usuario(Conectado, Descripcion, Email, IdSitio, Nombre, Password, Pregunta, Region, Respuesta) values(@Conectado, @Descripcion, @Email, @IdSitio, @Nombre, @Password, @Pregunta, @Region, @Respuesta)", conexion);
+            command = conexion.CreateCommand();
+            command.Transaction = transaccion;
+            command.Connection = conexion;
+
+            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, IdSitio, Nombre, Password, Pregunta, Region, Respuesta) values(@Conectado, @Descripcion, @Email, @IdSitio, @Nombre, @Password, @Pregunta, @Region, @Respuesta)";
+
             command.Parameters.AddWithValue("Conectado", usuario.Conectado);
             command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
             command.Parameters.AddWithValue("Email", usuario.Email);
@@ -28,14 +33,39 @@ namespace IndignaFwk.Persistence.DataAccess
             return 0;
         }
 
-        public void Editar(Usuario usuario)
+        public void Editar(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
-            throw new NotImplementedException();
+
+            command = conexion.CreateCommand();
+            command.Transaction = transaccion;
+            command.Connection = conexion;
+
+            command.CommandText = "UPDATE Usuario SET Conectado = @conectado, Descripcion = @descripcion, Email = @email, IdSitio = @sitio, Nombre=@nombre, Password = @password, Region = @region, Respuesta = @respuesta WHERE Id = @id";
+
+            command.Parameters.AddWithValue("Id", usuario.Id);
+            command.Parameters.AddWithValue("Conectado", usuario.Conectado);
+            command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
+            command.Parameters.AddWithValue("Email", usuario.Email);
+            command.Parameters.AddWithValue("IdSitio", usuario.Grupo);
+            command.Parameters.AddWithValue("Nombre", usuario.Nombre);
+            command.Parameters.AddWithValue("Password", usuario.Password);
+            command.Parameters.AddWithValue("Region", usuario.Region);
+            command.Parameters.AddWithValue("Respuesta", usuario.RespuestaSeguridad);
+
+            command.ExecuteNonQuery();          
         }
 
-        public void Eliminar(long id)
+        public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
-            throw new NotImplementedException();
+            command = conexion.CreateCommand();
+            command.Transaction = transaccion;
+            command.Connection = conexion;
+
+            command.CommandText = "DELETE FROM Usuario WHERE Id = @id";
+
+            command.Parameters.AddWithValue("id", id);
+
+            command.ExecuteNonQuery();
         }
 
         public Usuario Obtener(int id, SqlConnection conexion)
