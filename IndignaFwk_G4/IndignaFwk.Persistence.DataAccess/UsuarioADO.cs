@@ -96,7 +96,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 grupo.Url = ((string)reader["Url"]); */   
             }
 
-            return grupo;
+            return usuario;
         
         }
 
