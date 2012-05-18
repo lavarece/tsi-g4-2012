@@ -115,7 +115,7 @@ namespace IndignaFwk.Persistence.DataAccess
             {
                 Usuario varUsuario = new Usuario();
 
-                varUsuario.Id = ((Int32)reader["Id"]);
+                varUsuario.Id = ((int)reader["Id"]);
                 varUsuario.Conectado = ((bool)reader["Conectado"]);
                 varUsuario.Descripcion = ((String)reader["Descripcion"]);
                 varUsuario.Email = ((String)reader["Email"]);
@@ -131,9 +131,6 @@ namespace IndignaFwk.Persistence.DataAccess
             return _usuario;
         }
 
-        public List<Usuario> ObtenerListado()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
