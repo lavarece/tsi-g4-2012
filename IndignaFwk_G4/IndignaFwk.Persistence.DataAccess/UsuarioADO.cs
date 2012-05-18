@@ -38,9 +38,36 @@ namespace IndignaFwk.Persistence.DataAccess
             throw new NotImplementedException();
         }
 
-        public Usuario Obtener(long id)
+        public Usuario Obtener(int id, SqlConnection conexion)
         {
-            throw new NotImplementedException();
+              
+            SqlDataReader reader = null;
+
+            Usuario usuario = new Usuario();
+
+            command = new SqlCommand("Select * from Usuario where Id = @id", conexion);
+
+            SqlParameter param = new SqlParameter();
+
+            param.ParameterName = "@id";
+
+            param.Value = id;
+
+            command.Parameters.Add(param);
+
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+               /* grupo.Id = ((int)reader["Id"]);
+                grupo.Nombre = ((string)reader["Nombre"]);
+                grupo.LogoUrl = ((string)reader["LogoUrl"]);
+                grupo.Descripcion = ((string)reader["Descripcion"]);
+                grupo.Url = ((string)reader["Url"]); */   
+            }
+
+            return grupo;
+        
         }
 
         public List<Usuario> ObtenerListado(SqlConnection conexion)
