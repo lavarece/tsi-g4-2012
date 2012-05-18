@@ -9,9 +9,9 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IUsuarioADO
     {
-        public int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
+        int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
 
-        public void Editar(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
+        void Editar(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
 
         void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
