@@ -23,17 +23,14 @@ namespace IndignaFwk.Core.MultiTenant
             
             if (controllerType != null) 
             {
-                var container = this.ContainerResolver.Resolve(requestContext);
-
                 try 
                 {
-                    result = container.GetInstance(controllerType) as Controller;
+                    var container = this.ContainerResolver.Resolve(requestContext);
 
+                    result = container.GetInstance(controllerType) as Controller;
                 } 
                 catch (StructureMapException) 
                 {
-                    Console.WriteLine(container.WhatDoIHave());
-
                     throw;
                 }
             }
