@@ -13,7 +13,7 @@ namespace IndignaFwk.UI.Process
         {
             GrupoServiceClient grupoProxy = new GrupoServiceClient();
 
-            int idGrupo = grupoProxy.CrearGrupo(new Grupo());
+            int idGrupo = grupoProxy.CrearGrupo(grupo);
 
             grupoProxy.Close();
 

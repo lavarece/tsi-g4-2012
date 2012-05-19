@@ -4,19 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IndignaFwk.Web.FrontOffice.Models;
+using IndignaFwk.Core.MultiTenant;
 
 namespace IndignadoFramework.Controllers
 {
     public class HomeController : Controller
     {
-        public MarkerRepository _markerRepository = new MarkerRepository();
+        private IApplicationTenant _site;
+
+        public HomeController(IApplicationTenant site)
+        {
+            this._site = site;
+        }
 
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to Indigna FrameWork!";
+            ViewBag.NombreGrupo = _site.Name;
 
-            return View(_markerRepository.GetMarkers());
+            return View();
         }
 
         public ActionResult About()
