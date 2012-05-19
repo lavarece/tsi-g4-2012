@@ -17,7 +17,7 @@ namespace IndignaFwk.Common.Entities
 
         public String Nombre { get; set; }
 
-        public Grupo Grupo { get; set; }
+        public int IdSitio { get; set; }
 
         public String Password { get; set; }
 
@@ -27,6 +27,6 @@ namespace IndignaFwk.Common.Entities
 
         public String Region { get; set; }
 
-    //    public List<Tematica> ListaTematicas { get; set; }
+        public List<Tematica> ListaTematicas { get; set; }
     }
 }
