@@ -42,11 +42,6 @@
     <Compile Include="Interface\IConvocatoriaUserProcess.cs" />
     <Compile Include="Interface\IGrupoUserProcess.cs" />
     <Compile Include="Interface\IUsuarioUserProcess.cs" />
-    <Compile Include="Service References\GrupoService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="UserProcessFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,29 +53,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Grupo.datasource" />
-    <None Include="Service References\GrupoService\GrupoService.wsdl" />
-    <None Include="Service References\GrupoService\GrupoService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\GrupoService1.wsdl" />
-    <None Include="Service References\GrupoService\GrupoService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\GrupoService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\GrupoService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GrupoService\IndignaFwk.UI.Process.GrupoService.CrearGrupoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\GrupoService\IndignaFwk.UI.Process.GrupoService.ObtenerGrupoPorUrlResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\GrupoService\IndignaFwk.UI.Process.GrupoService.ObtenerListadoGruposResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -90,24 +62,6 @@
       <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
       <Name>IndignaFwk.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GrupoService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\GrupoService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GrupoService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
