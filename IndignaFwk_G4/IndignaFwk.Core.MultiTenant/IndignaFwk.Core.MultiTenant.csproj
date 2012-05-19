@@ -60,6 +60,12 @@
   <ItemGroup>
     <Content Include="Library\StructureMap.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IndignaFwk.UI.Process\IndignaFwk.UI.Process.csproj">
+      <Project>{E00590F0-59B7-47B4-8D13-F46651195D52}</Project>
+      <Name>IndignaFwk.UI.Process</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

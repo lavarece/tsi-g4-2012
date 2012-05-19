@@ -11,9 +11,6 @@ namespace IndignaFwk.Business.Managers
 {
    public class GrupoManager : IGrupoManager
    {
-       /* DEPENDENCIAS */
-       private GrupoADO _grupoAdo;
-
        /* DATOS CONEXION Y TRANSACCION */
        private SqlConnection conexion;
 
@@ -92,13 +89,7 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               transaccion = UtilesBD.IniciarTransaccion(conexion);
-
-               Grupo grupo = new Grupo();
-
-               grupo = GrupoAdo.Obtener(idGrupo, conexion, transaccion);
-
-               return grupo;
+               return GrupoAdo.Obtener(idGrupo, conexion);
            }
            catch (Exception ex)
            {
@@ -123,11 +114,7 @@ namespace IndignaFwk.Business.Managers
 
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-               Grupo grupo = new Grupo();
-
-               grupo = GrupoAdo.ObtenerPorUrl(url, conexion, transaccion);
-
-               return grupo;
+               return GrupoAdo.ObtenerPorUrl(url, conexion);
            }
            catch (Exception ex)
            {
@@ -207,9 +194,6 @@ namespace IndignaFwk.Business.Managers
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                GrupoAdo.Eliminar(idGrupo, conexion, transaccion);
-
-
-
            }
            catch (Exception ex)
            {
@@ -223,7 +207,8 @@ namespace IndignaFwk.Business.Managers
            }
        }
 
-
+       /* DEPENDENCIAS */
+       private GrupoADO _grupoAdo;
 
        protected GrupoADO GrupoAdo
        {

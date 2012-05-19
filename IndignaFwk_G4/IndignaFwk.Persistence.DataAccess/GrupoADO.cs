@@ -65,10 +65,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteNonQuery();
         }
 
-        /*************************************************************************************/
-        /*************************************************************************************/
-
-        public Grupo Obtener(int id, SqlConnection conexion, SqlTransaction transaccion)
+        public Grupo Obtener(int id, SqlConnection conexion)
         {
             SqlDataReader reader = null;
        
@@ -77,7 +74,6 @@ namespace IndignaFwk.Persistence.DataAccess
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
                 command.Connection = conexion;
                 
                 command.CommandText ="SELECT * FROM Sitio WHERE Id = @id";
@@ -119,51 +115,42 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-
-        /*************************************************************************************/
-        /*************************************************************************************/
-
-        public Grupo ObtenerPorUrl(string url, SqlConnection conexion, SqlTransaction transaccion)
+        public Grupo ObtenerPorUrl(string url, SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            Grupo grupo = new Grupo();
-            
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Sitio WHERE Url = @url";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@url";
-
-                param.Value = url;
-
-                command.Parameters.Add(param);
+                command.Parameters.Add(new SqlParameter("@url", url));
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if (reader.NextResult())
                 {
+                    Grupo grupo = new Grupo();
+
                     grupo.Id = ((int)reader["Id"]);
+
                     grupo.Nombre = ((string)reader["Nombre"]);
+
                     grupo.LogoUrl = ((string)reader["LogoUrl"]);
+
                     grupo.Descripcion = ((string)reader["Descripcion"]);
+
                     grupo.Url = ((string)reader["Url"]);
 
-                    if ((string)reader["Url"] == url)
-                    {
-                        encontrado = true;
-                    }
+                    return grupo;
                 }
-
-                return grupo;
+                else
+                {
+                    return else;
+                }
             }
             finally
             {
