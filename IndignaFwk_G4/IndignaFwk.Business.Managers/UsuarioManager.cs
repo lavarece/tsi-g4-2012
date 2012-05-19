@@ -33,7 +33,7 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                UsuarioAdo.Crear(usuario, conexion);
+                UsuarioAdo.Crear(usuario, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
