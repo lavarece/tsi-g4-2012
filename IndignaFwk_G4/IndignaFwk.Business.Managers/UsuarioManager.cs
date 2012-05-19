@@ -11,9 +11,6 @@ namespace IndignaFwk.Business.Managers
 {
     public class UsuarioManager : IUsuarioManager
     {
-        /* DEPENDENCIAS */
-        private UsuarioADO _UsuarioAdo;
-
         /* DATOS CONEXION Y TRANSACCION */
         private SqlConnection conexion;
 
@@ -25,7 +22,7 @@ namespace IndignaFwk.Business.Managers
             * conexiones, ademas llama las AccessDataObject para
             * persistir el nuevo objeto.
         */
-         public Int32 CrearNuevoUsuario(Usuario usuario)
+         public int CrearNuevoUsuario(Usuario usuario)
          {
             try
             {
@@ -64,7 +61,7 @@ namespace IndignaFwk.Business.Managers
 
                  List<Usuario> usuarios = new List<Usuario>();
 
-                 usuarios = UsuarioAdo.ObtenerListado(conexion);
+                 usuarios = UsuarioAdo.ObtenerListado(conexion, transaccion);
 
                  return usuarios;
              }
@@ -80,20 +77,43 @@ namespace IndignaFwk.Business.Managers
              }
 
          }
-    
 
-            protected UsuarioADO UsuarioAdo
+
+         public Usuario ObtenerUsuarioPorId(int idUsuario)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return UsuarioAdo.Obtener(idUsuario, conexion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
+         /* DEPENDENCIAS */
+        private IUsuarioADO _usuarioAdo;
+
+        protected IUsuarioADO UsuarioAdo
+        {
+            get
             {
-                get
+                if (_usuarioAdo == null)
                 {
-                    if (_UsuarioAdo == null)
-                    {
-                        _UsuarioAdo = new UsuarioADO();
-                    }
-
-                    return _UsuarioAdo;
+                    _usuarioAdo = new UsuarioADO();
                 }
+
+                return _usuarioAdo;
             }
+        }
 
         
     }
