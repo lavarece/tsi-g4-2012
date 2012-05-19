@@ -149,7 +149,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 }
                 else
                 {
-                    return else;
+                    return null;
                 }
             }
             finally
