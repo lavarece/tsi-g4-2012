@@ -8,7 +8,7 @@ using IndignaFwk.Common.Entities;
 using IndignaFwk.Business.Managers;
 
 namespace IndignaFwk.Business.Services
-{
+{    
     public class GrupoService : IGrupoService
     {
         public int CrearGrupo(Grupo grupo)

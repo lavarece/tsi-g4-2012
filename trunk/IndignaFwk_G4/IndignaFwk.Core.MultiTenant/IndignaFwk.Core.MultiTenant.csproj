@@ -61,6 +61,10 @@
     <Content Include="Library\StructureMap.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IndignaFwk.UI.Process\IndignaFwk.UI.Process.csproj">
       <Project>{E00590F0-59B7-47B4-8D13-F46651195D52}</Project>
       <Name>IndignaFwk.UI.Process</Name>

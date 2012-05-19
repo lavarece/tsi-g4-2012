@@ -20,7 +20,7 @@ namespace IndignadoFramework.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.NombreGrupo = _site.Name;
+            ViewBag.NombreGrupo = _site.Nombre;
 
             return View();
         }
