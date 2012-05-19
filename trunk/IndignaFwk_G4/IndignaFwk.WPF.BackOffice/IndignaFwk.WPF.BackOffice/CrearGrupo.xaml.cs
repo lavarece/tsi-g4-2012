@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IndignaFwk.UI.Process.GrupoReference;
+using IndignaFwk.UI.Process.GrupoService;
 using IndignaFwk.UI;
 using IndignaFwk.Common.Entities;
 

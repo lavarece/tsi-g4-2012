@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
-using IndignaFwk.UI.Process.GrupoReference;
+using IndignaFwk.UI.Process.GrupoService;
 
 namespace IndignaFwk.UI.Process
 {
@@ -19,13 +19,12 @@ namespace IndignaFwk.UI.Process
 
             return idGrupo;
         }
-
-
+        
         public List<Grupo> ObtenerListadoGrupos()
         {
             GrupoServiceClient grupoProxy = new GrupoServiceClient();
 
-            Grupo[] arrayGrupos = grupoProxy.ObtenerListadoGrupos();
+            List<Grupo> arrayGrupos = grupoProxy.ObtenerListadoGrupos();
 
             grupoProxy.Close();
 
