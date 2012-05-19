@@ -236,7 +236,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Si
 BEGIN
 CREATE TABLE [dbo].[Sitio](
 	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
 	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Contenido] [int],
