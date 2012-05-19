@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
-using IndignaFwk.UI.Process.GrupoService;
+using IndignaFwk.UI.Process.GrupoService;   
 
 namespace IndignaFwk.UI.Process
 {
@@ -29,6 +29,7 @@ namespace IndignaFwk.UI.Process
             grupoProxy.Close();
 
             // Transformo a una List<Grupo>
+            
             List<Grupo> listaGrupos = new List<Grupo>();
 
             if (arrayGrupos != null)
@@ -50,7 +51,7 @@ namespace IndignaFwk.UI.Process
 
             grupoProxy.Close();
 
-            return grupo;
+            return null;
         }
     }
 }
