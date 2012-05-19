@@ -72,6 +72,15 @@
     <None Include="Service References\GrupoService\GrupoService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\GrupoService\IndignaFwk.UI.Process.GrupoService.CrearGrupoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GrupoService\IndignaFwk.UI.Process.GrupoService.ObtenerGrupoPorUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GrupoService\IndignaFwk.UI.Process.GrupoService.ObtenerListadoGruposResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
