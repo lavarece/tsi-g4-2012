@@ -11,9 +11,11 @@ namespace IndignaFwk.Core.MultiTenant
     {
         int Id { get; set; }
 
-        string Name { get; set; }
+        string Nombre { get; set; }
 
-        string Theme { get; set; }
+        string Descripcion { get; set; }
+
+        string Template { get; set; }
 
         string Url { get; set; }
 

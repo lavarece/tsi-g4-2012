@@ -4,6 +4,8 @@ using System.Linq;
 using StructureMap;
 using System.Web;
 using System.Web.Routing;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Core.MultiTenant
 {
@@ -18,28 +20,22 @@ namespace IndignaFwk.Core.MultiTenant
             //string baseurl = _context.HttpContext.BaseUrl().TrimEnd('/');
             string url = requestContext.HttpContext.Request.ServerVariables["HTTP_HOST"];
 
-            string host = url.Split(':')[0];
+            url = url.Split(':')[0];
 
             IApplicationTenant tenant = null;
 
-            if (host.Equals("grupo1.misitio"))
+            // Obtengo el grupo de la BD
+            Grupo grupo = UserProcessFactory.Instance.GrupoUserProcess.ObtenerGrupoPorUrl(url);
+
+            // Creo el SiteTenant con la info del grupo
+            IApplicationTenant site = new SiteTenant
             {
-                tenant = new SiteTenant
-                {
-                    Name = "Grupo1",
-                    Theme = "Default",
-                    Url = "http://grupo1.misitio:1390/"
-                };
-            }
-            else if (host.Equals("grupo2.misitio"))
-            {
-                tenant = new SiteTenant
-                {
-                    Name = "Grupo2",
-                    Theme = "Default",
-                    Url = "http://grupo2.misitio:1390/"
-                };
-            }
+                Id = grupo.Id,
+                Nombre = grupo.Nombre,
+                Descripcion = grupo.Descripcion,
+                Template = grupo.Template,
+                Url = grupo.Url
+            };
 
             if(tenant == null)
                 throw new TenantNotFoundException();
