@@ -23,7 +23,7 @@ namespace IndignaFwk.Business.Services
 
         public Grupo ObtenerGrupoPorUrl(string url)
         {
-            return null;
+            return GrupoManager.ObtenerGrupoPorUrl(url);
         }
 
         // DEPENDENCIAS MANAGERS

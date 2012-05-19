@@ -15,7 +15,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
         void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Grupo Obtener(int id, SqlConnection conexion, SqlTransaction transaccion);
+        Grupo Obtener(int id, SqlConnection conexion);
 
         Grupo ObtenerPorUrl(string url, SqlConnection conexion);
 
