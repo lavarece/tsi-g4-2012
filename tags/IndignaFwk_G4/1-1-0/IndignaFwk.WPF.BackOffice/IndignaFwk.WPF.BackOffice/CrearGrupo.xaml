@@ -1,0 +1,81 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="IndignaFwk_WPF_BackOffice.CrearGrupo"
+	x:Name="Window"
+	Title="CrearGrupo"
+	Width="749.5" Height="644.5">
+
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="97.5"/>
+			<RowDefinition Height="283.5"/>
+			<RowDefinition Height="262"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="239.91"/>
+			<ColumnDefinition Width="7.675"/>
+			<ColumnDefinition Width="253.082"/>
+			<ColumnDefinition Width="232.833"/>
+		</Grid.ColumnDefinitions>
+		<TextBox x:Name="textBox_nombreDeSitio" Margin="-46.825,19,56.5,236.5" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+			<TextBox.Effect>
+				<DropShadowEffect/>
+			</TextBox.Effect>
+		</TextBox>
+		<Label Content="Nombre de Sitio:" Height="28" Margin="87.087,17,44.825,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9" Grid.Row="1"/>
+		<Label Content="Estilo CSS:" Margin="31.5,105,0,0" Foreground="#FF00FFF9" Grid.Column="3" HorizontalAlignment="Left" Width="90.333" Height="29.291" Grid.Row="1" VerticalAlignment="Top"/>
+		<ComboBox x:Name="combo_estilosCSS" Margin="36.833,138.291,74.5,123.5" Grid.Column="3" Grid.Row="1"/>
+		<Label Content="Ubicación geográfica Central:" Margin="23.5,85,52.78,0" Foreground="#FF00FFF9" Height="32.291" Grid.Row="1" VerticalAlignment="Top"/>
+		<Label Content="Adjuntar Imagen:" Margin="85.754,0,50.481,9.5" Foreground="#FF00FFF9" Height="32" VerticalAlignment="Bottom" Grid.Row="1"/>
+		<TextBox x:Name="textBox_urlArchivoAdjunto" Margin="-45.825,0,55.5,15.167" TextWrapping="Wrap" Grid.Column="1" Height="25" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="1">
+			<TextBox.Effect>
+				<DropShadowEffect/>
+			</TextBox.Effect>
+		</TextBox>
+		<Button x:Name="boton_buscar_imagen" Content="Buscar" Grid.Column="3" HorizontalAlignment="Left" Margin="-41.505,0,0,15.5" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="1">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
+					<GradientStop Color="#FF00F9FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_eliminar_imagen" Content="Eliminar" Grid.Column="3" HorizontalAlignment="Left" Margin="-42.505,0,0,99.5" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="2">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
+					<GradientStop Color="#FF00F9FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<DataGrid x:Name="grilla_imagenesAdjuntas" 
+				Grid.ColumnSpan="3" Margin="90.5,2.209,-63.521,138.5" 
+				Grid.Row="2"  AutoGenerateColumns="False" d:LayoutOverrides="HorizontalAlignment">
+			<DataGrid.Columns>
+				<DataGridCheckBoxColumn Width="20"/>
+				<DataGridTextColumn Header="Imagen" Width="250"/>
+				<DataGridTextColumn Width="200"/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<Label Content="Crear Grupo" Margin="-0.585,0,-87.11,-3.5" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667" Grid.ColumnSpan="2" Height="39" VerticalAlignment="Bottom" Grid.Column="2">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<Button x:Name="boton_guardar" Content="Guardar" Grid.Column="3" Margin="110.495,0,16.338,50.5" Height="24" VerticalAlignment="Bottom" Grid.Row="2" Click="boton_guardar_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
+					<GradientStop Color="#FF00F9FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_cancelar" Content="Cancelar" Grid.Column="3" HorizontalAlignment="Left" Margin="-7.838,0,0,50.833" Width="106" Height="24" VerticalAlignment="Bottom" Grid.Row="2" Click="boton_cancelar_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FFF3F3F3" Offset="0.296"/>
+					<GradientStop Color="#FF00F9FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+	</Grid>
+</Window>
