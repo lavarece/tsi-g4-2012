@@ -31,6 +31,12 @@ namespace IndignaFwk_WPF_BackOffice
         {
             Grupo grupo = new Grupo();
             grupo.Nombre = textBox_nombreDeSitio.Text;
+            grupo.Descripcion = "NO CORRESPONDE";
+            grupo.LogoUrl = "NO CORRESPONDE";
+            grupo.Url = "NO CORRESPONDE";
+            grupo.ListaContenido = "123";
+            grupo.ListaImagen = "123";
+
             _GrupoUserProcess.CrearGrupo(grupo);
         }
 
