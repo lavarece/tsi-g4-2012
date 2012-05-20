@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Services
 {
-    [ServiceContract]
-    public interface IGrupoService
+    [ServiceContract(
+    Namespace = "http://localhost//IndignaFwk//admin//2012",
+    SessionMode = SessionMode.Allowed)]
+    public interface IUsuarioService
     {
         [OperationContract]
-        int CrearGrupo(Grupo grupo);
-
-        [OperationContract]
-        List<Grupo> ObtenerListadoGrupos();
-
-        [OperationContract]
-        Grupo ObtenerGrupoPorUrl(string url);
+        Int32 CrearUsuario(Usuario usuario);
     }
 }

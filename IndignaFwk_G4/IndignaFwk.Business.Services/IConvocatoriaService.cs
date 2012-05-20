@@ -8,16 +8,12 @@ using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Services
 {
-    [ServiceContract]
-    public interface IGrupoService
+    [ServiceContract(
+    Namespace = "http://localhost//IndignaFwk//2012",
+    SessionMode = SessionMode.Allowed)] 
+    public interface IConvocatoriaService
     {
         [OperationContract]
-        int CrearGrupo(Grupo grupo);
-
-        [OperationContract]
-        List<Grupo> ObtenerListadoGrupos();
-
-        [OperationContract]
-        Grupo ObtenerGrupoPorUrl(string url);
+        Int32 CrearConvocatoria(Convocatoria convocatoria);
     }
 }

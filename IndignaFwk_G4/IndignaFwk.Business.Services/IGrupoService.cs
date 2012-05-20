@@ -8,7 +8,9 @@ using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Services
 {
-    [ServiceContract]
+    [ServiceContract(
+    Namespace = "http://IndignaFwk//G4",
+    SessionMode = SessionMode.Allowed)] 
     public interface IGrupoService
     {
         [OperationContract]

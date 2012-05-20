@@ -17,7 +17,6 @@ namespace IndignaFwk.Core.MultiTenant
         {
             Ensure.Argument.NotNull(requestContext);
 
-            //string baseurl = _context.HttpContext.BaseUrl().TrimEnd('/');
             string url = requestContext.HttpContext.Request.ServerVariables["HTTP_HOST"];
 
             url = url.Split(':')[0];

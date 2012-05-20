@@ -19,7 +19,7 @@ namespace IndignaFwk.UI.Process.GrupoService {
         int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerListadoGrupos", ReplyAction="http://tempuri.org/IGrupoService/ObtenerListadoGruposResponse")]
-        IndignaFwk.Common.Entities.Grupo[] ObtenerListadoGrupos();
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Grupo> ObtenerListadoGrupos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse")]
         IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url);
@@ -56,7 +56,7 @@ namespace IndignaFwk.UI.Process.GrupoService {
             return base.Channel.CrearGrupo(grupo);
         }
         
-        public IndignaFwk.Common.Entities.Grupo[] ObtenerListadoGrupos() {
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Grupo> ObtenerListadoGrupos() {
             return base.Channel.ObtenerListadoGrupos();
         }
         

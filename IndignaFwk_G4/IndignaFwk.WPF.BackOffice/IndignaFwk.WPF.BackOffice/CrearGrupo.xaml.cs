@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.UI;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -20,7 +21,7 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class CrearGrupo : Window
 	{
-        private IndignaFwk.UI.Process.IGrupoUserProcess _GrupoUserProcess = IndignaFwk.UI.Process.UserProcessFactory.Instance.GrupoUserProcess;
+        private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
 		
         public CrearGrupo()
 		{
@@ -34,10 +35,10 @@ namespace IndignaFwk_WPF_BackOffice
             grupo.Descripcion = "NO CORRESPONDE";
             grupo.LogoUrl = "NO CORRESPONDE";
             grupo.Url = "NO CORRESPONDE";
-            grupo.ListaContenido = "123";
-            grupo.ListaImagen = "123";
+            //grupo.ListaContenido = "123";
+            //grupo.ListaImagen = "123";
 
-            _GrupoUserProcess.CrearGrupo(grupo);
+            grupoUserProcess.CrearGrupo(grupo);
         }
 
         private void boton_cancelar_Click(object sender, RoutedEventArgs e)
