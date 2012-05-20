@@ -1,116 +1,116 @@
 ﻿USE [master]
 GO
 
-/****** Object:  Database [IndignadoFDb]    Script Date: 04/16/2012 19:12:11 ******/
-IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'IndignadoFDb')
-DROP DATABASE [IndignadoFDb]
+/****** Object:  Database [IndignadoFDb2]    Script Date: 04/16/2012 19:12:11 ******/
+IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'IndignadoFDb2')
+DROP DATABASE [IndignadoFDb2]
 GO
 
 USE [master]
 GO
 
-/****** Object:  Database [IndignadoFDb]    Script Date: 04/16/2012 19:12:11 ******/
-CREATE DATABASE [IndignadoFDb] ON  PRIMARY 
-( NAME = N'IndignadoFDb', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\IndignadoFDb.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+/****** Object:  Database [IndignadoFDb2]    Script Date: 04/16/2012 19:12:11 ******/
+CREATE DATABASE [IndignadoFDb2] ON  PRIMARY 
+( NAME = N'IndignadoFDb2', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\IndignadoFDb2.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'IndignadoFDb_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\IndignadoFDb_log.ldf' , SIZE = 4096KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+( NAME = N'IndignadoFDb2_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\IndignadoFDb2_log.ldf' , SIZE = 4096KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 
-ALTER DATABASE [IndignadoFDb] SET COMPATIBILITY_LEVEL = 100
+ALTER DATABASE [IndignadoFDb2] SET COMPATIBILITY_LEVEL = 100
 GO
 
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
-EXEC [IndignadoFDb].[dbo].[sp_fulltext_database] @action = 'enable'
+EXEC [IndignadoFDb2].[dbo].[sp_fulltext_database] @action = 'enable'
 end
 GO
 
-ALTER DATABASE [IndignadoFDb] SET ANSI_NULL_DEFAULT OFF 
+ALTER DATABASE [IndignadoFDb2] SET ANSI_NULL_DEFAULT OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET ANSI_NULLS OFF 
+ALTER DATABASE [IndignadoFDb2] SET ANSI_NULLS OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET ANSI_PADDING OFF 
+ALTER DATABASE [IndignadoFDb2] SET ANSI_PADDING OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET ANSI_WARNINGS OFF 
+ALTER DATABASE [IndignadoFDb2] SET ANSI_WARNINGS OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET ARITHABORT OFF 
+ALTER DATABASE [IndignadoFDb2] SET ARITHABORT OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET AUTO_CLOSE OFF 
+ALTER DATABASE [IndignadoFDb2] SET AUTO_CLOSE OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET AUTO_CREATE_STATISTICS ON 
+ALTER DATABASE [IndignadoFDb2] SET AUTO_CREATE_STATISTICS ON 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET AUTO_SHRINK OFF 
+ALTER DATABASE [IndignadoFDb2] SET AUTO_SHRINK OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET AUTO_UPDATE_STATISTICS ON 
+ALTER DATABASE [IndignadoFDb2] SET AUTO_UPDATE_STATISTICS ON 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET CURSOR_CLOSE_ON_COMMIT OFF 
+ALTER DATABASE [IndignadoFDb2] SET CURSOR_CLOSE_ON_COMMIT OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET CURSOR_DEFAULT  GLOBAL 
+ALTER DATABASE [IndignadoFDb2] SET CURSOR_DEFAULT  GLOBAL 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET CONCAT_NULL_YIELDS_NULL OFF 
+ALTER DATABASE [IndignadoFDb2] SET CONCAT_NULL_YIELDS_NULL OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET NUMERIC_ROUNDABORT OFF 
+ALTER DATABASE [IndignadoFDb2] SET NUMERIC_ROUNDABORT OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET QUOTED_IDENTIFIER OFF 
+ALTER DATABASE [IndignadoFDb2] SET QUOTED_IDENTIFIER OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET RECURSIVE_TRIGGERS OFF 
+ALTER DATABASE [IndignadoFDb2] SET RECURSIVE_TRIGGERS OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET  DISABLE_BROKER 
+ALTER DATABASE [IndignadoFDb2] SET  DISABLE_BROKER 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+ALTER DATABASE [IndignadoFDb2] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET DATE_CORRELATION_OPTIMIZATION OFF 
+ALTER DATABASE [IndignadoFDb2] SET DATE_CORRELATION_OPTIMIZATION OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET TRUSTWORTHY OFF 
+ALTER DATABASE [IndignadoFDb2] SET TRUSTWORTHY OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+ALTER DATABASE [IndignadoFDb2] SET ALLOW_SNAPSHOT_ISOLATION OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET PARAMETERIZATION SIMPLE 
+ALTER DATABASE [IndignadoFDb2] SET PARAMETERIZATION SIMPLE 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET READ_COMMITTED_SNAPSHOT OFF 
+ALTER DATABASE [IndignadoFDb2] SET READ_COMMITTED_SNAPSHOT OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET HONOR_BROKER_PRIORITY OFF 
+ALTER DATABASE [IndignadoFDb2] SET HONOR_BROKER_PRIORITY OFF 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET  READ_WRITE 
+ALTER DATABASE [IndignadoFDb2] SET  READ_WRITE 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET RECOVERY SIMPLE 
+ALTER DATABASE [IndignadoFDb2] SET RECOVERY SIMPLE 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET  MULTI_USER 
+ALTER DATABASE [IndignadoFDb2] SET  MULTI_USER 
 GO
 
-ALTER DATABASE [IndignadoFDb] SET PAGE_VERIFY CHECKSUM  
+ALTER DATABASE [IndignadoFDb2] SET PAGE_VERIFY CHECKSUM  
 GO
 
-ALTER DATABASE [IndignadoFDb] SET DB_CHAINING OFF 
+ALTER DATABASE [IndignadoFDb2] SET DB_CHAINING OFF 
 GO
 
 --TipoContenido
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[TipoContenido]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoContenido]') AND type in (N'U'))
@@ -131,7 +131,7 @@ END
 GO
 
 --EstadoContenido
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[EstadoContenido]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[EstadoContenido]') AND type in (N'U'))
@@ -152,7 +152,7 @@ END
 GO
 
 --TipoMarcaContenido
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[TipoMarcaContenido]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoMarcaContenido]') AND type in (N'U'))
@@ -173,7 +173,7 @@ END
 GO
 
 --Contenido
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Contenido]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Contenido]') AND type in (N'U'))
@@ -199,7 +199,7 @@ GO
 
 
 --Imagen
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Imagen]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Imagen]') AND type in (N'U'))
@@ -221,7 +221,7 @@ END
 GO
 
 --SITIO
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Sitio]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sitio]') AND type in (N'U'))
@@ -240,7 +240,7 @@ CREATE TABLE [dbo].[Sitio](
 	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Contenido] [int],
-	[Template] [string],
+	[Template] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int] ,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
  CONSTRAINT FK_Sitio_FK_Contenido FOREIGN KEY (FK_Id_Contenido) REFERENCES Contenido(Id),
@@ -252,7 +252,7 @@ GO
 
 
 --Convocatoria
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Convocatoria]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Convocatoria]') AND type in (N'U'))
@@ -290,7 +290,7 @@ SET IDENTITY_INSERT [dbo].[Convocatoria] OFF
 
 
 --Usuario
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuario]') AND type in (N'U'))
@@ -326,7 +326,7 @@ GO
 
 
 --Asistencia Convocatoria
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AsistenciaConvocatoria]') AND type in (N'U'))
@@ -352,7 +352,7 @@ GO
 
 
 --Notificacion
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Notificacion]') AND type in (N'U'))
@@ -379,7 +379,7 @@ GO
 
 
 --Marca contenido
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MarcaContenido]') AND type in (N'U'))
@@ -406,7 +406,7 @@ GO
 
 
 --Tematica
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Tematica]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tematica]') AND type in (N'U'))
@@ -428,7 +428,7 @@ GO
 
 
 --UsuTematica
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[UsuTematica]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UsuTematica]') AND type in (N'U'))
@@ -454,7 +454,7 @@ GO
 
 
 --VariableSistema
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[VariableSistema]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[VariableSistema]') AND type in (N'U'))
@@ -476,7 +476,7 @@ END
 GO
 
 --Administrador
-USE [IndignadoFDb]
+USE [IndignadoFDb2]
 GO
 /****** Object:  Table [dbo].[Administrador]    Script Date: 04/16/2012 19:10:17 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Administrador]') AND type in (N'U'))
