@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IndignaFwk.Web.FrontOffice.Models;
-using IndignaFwk.Core.MultiTenant;
+using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignadoFramework.Controllers
 {

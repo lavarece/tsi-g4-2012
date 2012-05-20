@@ -58,11 +58,9 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               transaccion = UtilesBD.IniciarTransaccion(conexion);
-
                List<Grupo> grupos = new List<Grupo>();
 
-               grupos = GrupoAdo.ObtenerListado(conexion, transaccion);
+               grupos = GrupoAdo.ObtenerListado(conexion);
 
                return grupos;
            }

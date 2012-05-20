@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using IndignaFwk.Core.MultiTenant;
 using System.Runtime.Caching;
 using StructureMap;
+using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignaFwk.Web.FrontOffice
 {    
