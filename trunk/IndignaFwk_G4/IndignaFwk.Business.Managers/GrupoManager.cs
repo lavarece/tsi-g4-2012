@@ -112,8 +112,6 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               transaccion = UtilesBD.IniciarTransaccion(conexion);
-
                return GrupoAdo.ObtenerPorUrl(url, conexion);
            }
            catch (Exception ex)
@@ -208,9 +206,9 @@ namespace IndignaFwk.Business.Managers
        }
 
        /* DEPENDENCIAS */
-       private GrupoADO _grupoAdo;
+       private IGrupoADO _grupoAdo;
 
-       protected GrupoADO GrupoAdo
+       protected IGrupoADO GrupoAdo
        {
            get 
            {    

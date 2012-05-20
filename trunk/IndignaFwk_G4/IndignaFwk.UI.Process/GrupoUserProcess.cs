@@ -7,7 +7,7 @@ using IndignaFwk.UI.Process.GrupoService;
 
 namespace IndignaFwk.UI.Process
 {
-    public class GrupoUserProcess : IGrupoUserProcess
+    public class GrupoUserProcess
     {
         public int CrearGrupo(Grupo grupo)
         {

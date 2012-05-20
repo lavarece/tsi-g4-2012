@@ -26,9 +26,9 @@ namespace IndignaFwk.UI.Process
         }
 
         // USER PROCESSES
-        private IGrupoUserProcess _grupoUserProcess;
+        private GrupoUserProcess _grupoUserProcess;
 
-        public IGrupoUserProcess GrupoUserProcess
+        public GrupoUserProcess GrupoUserProcess
         {
             get
             {
