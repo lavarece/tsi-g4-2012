@@ -12,16 +12,16 @@ namespace IndignaFwk.UI.Process.GrupoService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://IndignaFwk//G4", ConfigurationName="GrupoService.IGrupoService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GrupoService.IGrupoService")]
     public interface IGrupoService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://IndignaFwk//G4/IGrupoService/CrearGrupo", ReplyAction="http://IndignaFwk//G4/IGrupoService/CrearGrupoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/CrearGrupo", ReplyAction="http://tempuri.org/IGrupoService/CrearGrupoResponse")]
         int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://IndignaFwk//G4/IGrupoService/ObtenerListadoGrupos", ReplyAction="http://IndignaFwk//G4/IGrupoService/ObtenerListadoGruposResponse")]
-        System.Collections.Generic.List<IndignaFwk.Common.Entities.Grupo> ObtenerListadoGrupos();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerListadoGrupos", ReplyAction="http://tempuri.org/IGrupoService/ObtenerListadoGruposResponse")]
+        IndignaFwk.Common.Entities.Grupo[] ObtenerListadoGrupos();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://IndignaFwk//G4/IGrupoService/ObtenerGrupoPorUrl", ReplyAction="http://IndignaFwk//G4/IGrupoService/ObtenerGrupoPorUrlResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse")]
         IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url);
     }
     
@@ -56,7 +56,7 @@ namespace IndignaFwk.UI.Process.GrupoService {
             return base.Channel.CrearGrupo(grupo);
         }
         
-        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Grupo> ObtenerListadoGrupos() {
+        public IndignaFwk.Common.Entities.Grupo[] ObtenerListadoGrupos() {
             return base.Channel.ObtenerListadoGrupos();
         }
         
