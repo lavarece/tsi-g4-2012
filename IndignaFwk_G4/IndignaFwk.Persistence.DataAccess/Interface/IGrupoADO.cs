@@ -19,6 +19,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         Grupo ObtenerPorUrl(string url, SqlConnection conexion);
 
-        List<Grupo> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
+        List<Grupo> ObtenerListado(SqlConnection conexion);
     }
 }

@@ -164,7 +164,7 @@ namespace IndignaFwk.Persistence.DataAccess
         /*************************************************************************************/
         /*************************************************************************************/
         
-        public List<Grupo> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
+        public List<Grupo> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
@@ -173,7 +173,6 @@ namespace IndignaFwk.Persistence.DataAccess
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Sitio";
