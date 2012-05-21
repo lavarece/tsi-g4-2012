@@ -1,0 +1,129 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Free Radicals
+Description: A two-column, fixed-width design with dark color scheme background.
+Version    : 1.0
+Released   : 20081230
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>INDIGNADO FRAMEWORK</title>
+<link href="@Url.Content("~/Content/freeradicals/style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="wrapper">
+
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">INDIGNADO FRAMEWORK</a></h1>
+        <!--
+		<p>Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></p>
+        -->
+	</div>
+	<!-- end #logo -->
+	<div id="menu">
+		<ul>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="@Url.Action("About", "Home")">About us</a></li>
+            <li><a href="@Url.Action("LogOn","Account")">Login/Registrarse</a></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+</div>
+<!-- end #header -->
+<div id="page">
+	<div id="content">
+        @RenderBody()		
+	</div>
+	<!-- end #content -->
+	<div id="sidebar">
+		<div id="sidebar-bgtop"></div>
+		<div id="sidebar-content">
+			<div id="sidebar-bgbtm">
+			<ul>
+				<li id="search">
+					<h2>Buscar:</h2>
+					<form method="get" action="">
+						<fieldset>
+						<input type="text" id="s" name="s" value="" />
+						<input type="submit" id="x" value="Search" />
+						</fieldset>
+					</form>
+				</li>
+				<li>
+					<h2>Convocatorias:</h2>
+					<ul>
+						<li><a href="#">Crear</a></li>
+						<li><a href="#">Listar</a></li>
+						<li><a href="#">Aceptar</a></li>
+@*						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>
+						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Eget tempor eget nonummy</a></li>*@
+					</ul>
+				</li>
+				<li>
+					<h2>Informacion:</h2>
+					<ul>
+						<li><a href="#">Compartir</a></li>
+						<li><a href="#">Etiquetar</a></li>
+@*						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Eget tempor eget nonummy</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>
+						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>*@
+					</ul>
+				</li>
+				<li>
+					<h2>Chat:</h2>
+					<ul>
+						<li><a href="#">Abrir Chat</a></li>
+@*						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Eget tempor eget nonummy</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>
+						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>*@
+					</ul>
+				</li>
+				<li>
+					<h2>Ranking Convocatorias:</h2>
+					<ul>
+						<li><a href="#">Ranking1</a></li>
+						<li><a href="#">Ranking2</a></li>
+						<li><a href="#">Ranking3</a></li>
+@*						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>
+						<li><a href="#">Velit semper nisi molestie</a></li>
+						<li><a href="#">Nec metus sed donec</a></li>
+						<li><a href="#">Magna lacus bibendum mauris</a></li>*@
+					</ul>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear:both; margin:0;"></div>
+</div>
+<!-- end #page -->
+
+</div>
+
+<div id="footer">
+	<p>&copy; 2012. All Rights Reserved. Design by Grupo 4.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

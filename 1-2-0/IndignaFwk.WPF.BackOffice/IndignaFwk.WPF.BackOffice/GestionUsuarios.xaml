@@ -1,0 +1,40 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="IndignaFwk_WPF_BackOffice.GestionUsuarios"
+	x:Name="Window"
+	Title="GestionUsuarios"
+	Width="524" Height="441">
+
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="508"/>
+			<ColumnDefinition Width="Auto" MinWidth="90"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="400.84"/>
+			<RowDefinition Height="Auto" MinHeight="39.16"/>
+		</Grid.RowDefinitions>
+		<Label Content="Gestión de uSUARIOS" Height="39" Margin="43.5,71,37.5,0" VerticalAlignment="Top" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667" Grid.Column="1">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<ComboBox Height="18" Margin="10.5,145.5,200.5,0" VerticalAlignment="Top" Grid.Column="1"/>
+		<Label Content="Sitio:" HorizontalAlignment="Left" Height="28.5" Margin="7.5,120,0,0" VerticalAlignment="Top" Width="73.5" Foreground="#FF00FFF9" Grid.Column="1">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<DataGrid x:Name="datagrid_usuarios" Margin="12,188,13,55" Grid.Column="1">
+			<DataGrid.Columns>
+				<DataGridCheckBoxColumn/>
+				<DataGridTextColumn Header="Sitio"/>
+				<DataGridTextColumn Header="Email"/>
+				<DataGridHyperlinkColumn/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<Button Content="Eliminar" HorizontalAlignment="Right" Height="23" Margin="0,0,15,11" VerticalAlignment="Bottom" Width="85" Grid.Column="1"/>
+	</Grid>
+</Window>
