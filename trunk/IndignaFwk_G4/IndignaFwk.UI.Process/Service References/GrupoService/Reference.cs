@@ -23,6 +23,9 @@ namespace IndignaFwk.UI.Process.GrupoService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse")]
         IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorId", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorIdResponse")]
+        IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorId(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -62,6 +65,10 @@ namespace IndignaFwk.UI.Process.GrupoService {
         
         public IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url) {
             return base.Channel.ObtenerGrupoPorUrl(url);
+        }
+        
+        public IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorId(int id) {
+            return base.Channel.ObtenerGrupoPorId(id);
         }
     }
 }

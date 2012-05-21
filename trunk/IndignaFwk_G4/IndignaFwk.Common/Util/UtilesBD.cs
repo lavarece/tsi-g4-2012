@@ -66,5 +66,25 @@ namespace IndignaFwk.Common.Util
                 conexion.Dispose();
             }
         }
+
+        public static string GetStringFromReader(string key, SqlDataReader reader)
+        {
+            if (reader != null && reader[key].ToString().Length > 0)
+            {
+                return (string)reader[key];
+            }
+
+            return null;
+        }
+
+        public static int GetIntFromReader(string key, SqlDataReader reader)
+        {
+            if (reader != null && reader[key] != null)
+            {
+                return (int)reader[key];
+            }
+
+            return 0;
+        }
     }
 }

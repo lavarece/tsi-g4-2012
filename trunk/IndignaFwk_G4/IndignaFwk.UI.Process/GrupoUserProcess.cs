@@ -51,7 +51,18 @@ namespace IndignaFwk.UI.Process
 
             grupoProxy.Close();
 
-            return null;
+            return grupo;
+        }
+
+        public Grupo ObtenerGrupoPorId(int id)
+        {
+            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+
+            Grupo grupo = grupoProxy.ObtenerGrupoPorId(id);
+
+            grupoProxy.Close();
+
+            return grupo; ;
         }
     }
 }

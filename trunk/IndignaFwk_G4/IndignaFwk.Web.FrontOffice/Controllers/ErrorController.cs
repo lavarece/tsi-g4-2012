@@ -10,16 +10,20 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
     {
         private Exception exception;
 
-        public ErrorController(Exception e)
+        public ErrorController(Exception exception)
         {
-            this.exception = e;
+            this.exception = exception;
         }
 
         public ActionResult Index()
         {
+            ViewBag.TipoError = exception.GetType().ToString();
+
             ViewBag.MensajeError = exception.Message;
 
-            return View();
+            this.exception = null;
+
+            return View("~/Views/Shared/Error.cshtml");
         }
 
     }

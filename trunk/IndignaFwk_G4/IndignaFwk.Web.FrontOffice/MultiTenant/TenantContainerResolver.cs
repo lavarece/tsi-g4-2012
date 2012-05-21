@@ -19,29 +19,35 @@ namespace IndignaFwk.Web.FrontOffice.MultiTenant
 
             string url = requestContext.HttpContext.Request.ServerVariables["HTTP_HOST"];
 
-            url = url.Split(':')[0];
-
-            IApplicationTenant tenant = null;
+            string host = url.Split(':')[0];
 
             // Obtengo el grupo de la BD
-            Grupo grupo = UserProcessFactory.Instance.GrupoUserProcess.ObtenerGrupoPorUrl(url);
+            Grupo grupo = UserProcessFactory.Instance.GrupoUserProcess.ObtenerGrupoPorUrl(host);
 
             if (grupo == null)
-                throw new TenantNotFoundException("URL no especificada: '" + url + "'");
+                throw new TenantNotFoundException("El host '" + host + "' especificado por la URL ingresada no corresponde a ningún grupo.");
 
-            // Creo el SiteTenant con la info del grupo
-            IApplicationTenant site = new SiteTenant
+            try
             {
-                Id = grupo.Id,
-                Nombre = grupo.Nombre,
-                Descripcion = grupo.Descripcion,
-                Template = grupo.Template,
-                Url = grupo.Url
-            };
+                // Creo el SiteTenant con la info del grupo
+                IApplicationTenant site = new SiteTenant
+                {
+                    Id = grupo.Id,
+                    Nombre = grupo.Nombre,
+                    Descripcion = grupo.Descripcion,
+                    Template = grupo.Template,
+                    Url = grupo.Url
+                };
 
-            tenant.InitializeContainer();
+                site.InitializeContainer();
 
-            return tenant.DependencyContainer;            
+                return site.DependencyContainer;     
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+                   
         }
     }
 }

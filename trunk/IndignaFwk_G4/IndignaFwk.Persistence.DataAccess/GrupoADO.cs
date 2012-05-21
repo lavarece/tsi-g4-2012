@@ -5,6 +5,7 @@ using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
 using System.Data;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -81,42 +82,36 @@ namespace IndignaFwk.Persistence.DataAccess
         {
             SqlDataReader reader = null;
        
-            Grupo grupo = new Grupo();
-
             try
             {
                 command = conexion.CreateCommand();
+
                 command.Connection = conexion;
                 
-                command.CommandText ="SELECT * FROM Sitio WHERE Id = @id";
+                command.CommandText ="select * from Sitio where Id = @id";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@id";
-
-                param.Value = id;
-
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("id", id);
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if (reader.Read())
                 {
-                    grupo.Id = ((int)reader["Id"]);
-                    grupo.Nombre = ((string)reader["Nombre"]);
-                    grupo.LogoUrl = ((string)reader["LogoUrl"]);
-                    grupo.Descripcion = ((string)reader["Descripcion"]);
-                    grupo.Url = ((string)reader["Url"]);
+                    Grupo grupo = new Grupo();
 
-                    if (((int)reader["Id"]) == id)
-                    {
-                        encontrado = true;
-                    }
+                    grupo.Id = UtilesBD.GetIntFromReader("id", reader);
+
+                    grupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    grupo.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
+
+                    grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    return grupo;
                 }
 
-                return grupo;
+                return null;
             }
             finally
             {
@@ -137,32 +132,30 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Sitio WHERE Url = @url";
+                command.CommandText = "select * from Sitio where Url = @url";
 
-                command.Parameters.Add(new SqlParameter("@url", url));
+                command.Parameters.AddWithValue("url", url);
 
                 reader = command.ExecuteReader();
 
-                if (reader.NextResult())
+                if (reader.Read())
                 {
                     Grupo grupo = new Grupo();
 
-                    grupo.Id = ((int)reader["Id"]);
+                    grupo.Id = UtilesBD.GetIntFromReader("id", reader);
 
-                    grupo.Nombre = ((string)reader["Nombre"]);
+                    grupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    grupo.LogoUrl = ((string)reader["LogoUrl"]);
+                    grupo.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
 
-                    grupo.Descripcion = ((string)reader["Descripcion"]);
+                    grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
-                    grupo.Url = ((string)reader["Url"]);
+                    grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
                     return grupo;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return null;
             }
             finally
             {

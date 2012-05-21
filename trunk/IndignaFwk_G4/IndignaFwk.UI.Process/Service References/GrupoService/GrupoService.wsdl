@@ -26,6 +26,12 @@
   <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrlResponse" />
   </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerGrupoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerGrupoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGrupoService">
     <wsdl:operation name="CrearGrupo">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/CrearGrupo" message="tns:IGrupoService_CrearGrupo_InputMessage" />
@@ -38,6 +44,10 @@
     <wsdl:operation name="ObtenerGrupoPorUrl">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl" message="tns:IGrupoService_ObtenerGrupoPorUrl_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse" message="tns:IGrupoService_ObtenerGrupoPorUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerGrupoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorId" message="tns:IGrupoService_ObtenerGrupoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorIdResponse" message="tns:IGrupoService_ObtenerGrupoPorId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGrupoService" type="tns:IGrupoService">
@@ -62,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerGrupoPorUrl">
       <soap:operation soapAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerGrupoPorId">
+      <soap:operation soapAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

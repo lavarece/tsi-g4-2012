@@ -19,5 +19,8 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         Grupo ObtenerGrupoPorUrl(string url);
+        
+        [OperationContract]
+        Grupo ObtenerGrupoPorId(int id);
     }
 }

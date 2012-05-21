@@ -2,8 +2,8 @@
 @using System.Threading;
 @using System.Globalization;
 @{
-    ViewBag.Title = "Home Page";
-    //Layout = "~/Content/freeradicals/layout.cshtml";
+    ViewBag.Title = "Indignado Framework";
+    Layout = "~/Content/freeradicals/layout.cshtml";
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
 }
 
@@ -13,6 +13,10 @@
 <div>
    <fieldset>
        <legend>Eventos</legend>
+       <p style="font-weight:bold;">
+           Ha ingresado al grupo @ViewBag.Grupo.Nombre, el id del mismo es 
+           @ViewBag.Grupo.Id y la url es: @ViewBag.Grupo.Url
+       </p>
 
             <iframe width="550" height="350"
                 src="http://maps.google.es/maps?f=q&amp;source=s_q&amp;
@@ -25,7 +29,7 @@
     </fieldset>
 
  </div>
- <br />
+ <br/>
   <div>
    <fieldset>
     <legend><u><b>Noticias</b></u></legend>
