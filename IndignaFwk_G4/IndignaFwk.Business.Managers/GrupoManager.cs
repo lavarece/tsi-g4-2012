@@ -30,11 +30,11 @@ namespace IndignaFwk.Business.Managers
                
                transaccion = UtilesBD.IniciarTransaccion(conexion); 
 
-               GrupoAdo.Crear(grupo, conexion, transaccion);
+               int ret = GrupoAdo.Crear(grupo, conexion, transaccion);
 
                UtilesBD.CommitTransaccion(transaccion);
 
-               return 0;
+               return ret;
            }
            catch (Exception ex)
            {

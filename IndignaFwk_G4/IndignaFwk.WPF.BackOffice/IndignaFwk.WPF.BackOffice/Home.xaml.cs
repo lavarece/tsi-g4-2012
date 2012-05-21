@@ -19,7 +19,7 @@ namespace IndignaFwk_WPF_BackOffice
 		public Home(string nombreUsuario)
 		{
 			this.InitializeComponent();
-			label_bienvenido.Content = label_bienvenido.Content + nombreUsuario;
+			label_bienvenido.Content += nombreUsuario;
 		}
 
 		private void boton_gestionGrupo_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -3,24 +3,34 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	x:Class="IndignaFwk_WPF_BackOffice.Login"
 	x:Name="Window"
-	Title="Login"
-	Width="619" Height="468">
+	Title="Iniciar sesión"
+	Width="386" Height="224">
 
-	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
-		<TextBox x:Name="textBox_Usuario" HorizontalAlignment="Left" Height="32" Margin="29,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" >
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Height="449" Width="618">
+		<TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="30" Margin="111,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" >
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<PasswordBox x:Name="textBox_Password" HorizontalAlignment="Left" Height="33" Margin="29,76,0,0" VerticalAlignment="Top" Width="210" >
+		<PasswordBox x:Name="txt_password" HorizontalAlignment="Left" Height="33" Margin="111,96,0,0" VerticalAlignment="Top" Width="210" >
 			<PasswordBox.Effect>
 				<DropShadowEffect/>
 			</PasswordBox.Effect>
 		</PasswordBox>
-		<Button x:Name="boton_Login" Content="" HorizontalAlignment="Left" Height="31" Margin="113,133,0,0" VerticalAlignment="Top" Width="125" Click="botonLogin_Click" >
-			<Button.Effect>
-				<DropShadowEffect/>
-			</Button.Effect>
-		</Button>
-	</Grid>
+        <Label Content="Iniciar sesión" FontFamily="Goudy Stout" FontSize="18.667" Foreground="#FF00FFF9" Height="39" HorizontalAlignment="Left" Margin="9,0,0,395" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="330">
+            <Label.Effect>
+                <DropShadowEffect />
+            </Label.Effect>
+        </Label>
+        <Button Content="Iniciar sesión" Height="24" Margin="86,0,337,281" Name="btn_iniciarSesion" VerticalAlignment="Bottom" Click="btn_iniciarSesion_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0.296" />
+                    <GradientStop Color="#FF00F9FF" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Background="#00000000" Content="Usuario:" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,63,513,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="56" />
+        <Label Background="#00000000" Content="Contraseña:" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Stretch" Margin="30,99,510,0" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+    </Grid>
 </Window>

@@ -1031,7 +1031,20 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3e3bf8de-cf45-424b-bdd4-a30e4a718cd8"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b82ef6ba-aea0-49a5-bf5e-b4942ee485e6"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -1373,26 +1386,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="5e6d4998-8223-4063-a6ae-204c524b5149"
-            name="FK_Id_Contenido"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="cfc1fef6-6fe1-4145-ab47-6229a4c2342c"
-                LastKnownName="Contenido"
-                LastKnownLocation="IndignaFwk.Models.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="2808dfeb-081e-49a6-b935-e11ece486d28"
-            name="FK_Id_Template"
+            name="Template"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1402,9 +1397,9 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <classMoniker
-                Id="238a9ce4-772f-4028-9bc2-ebe2ae8a8c48"
-                LastKnownName="Template"
+              <undefinedTypeMoniker
+                Id="ed1babbc-ec7e-4405-87a2-19958898215c"
+                LastKnownName="string"
                 LastKnownLocation="IndignaFwk.Models.uml" />
             </type_NamedElement>
           </property>
@@ -2115,6 +2110,11 @@
           </property>
         </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="07eedc88-a532-481f-8a0d-533582909f82"
+        name="st" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

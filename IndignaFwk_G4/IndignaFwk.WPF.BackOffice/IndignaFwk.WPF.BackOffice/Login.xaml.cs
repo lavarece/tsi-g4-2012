@@ -20,21 +20,15 @@ namespace IndignaFwk_WPF_BackOffice
 		public Login()
 		{
 			this.InitializeComponent();
-
-			// Insert code required on object creation below this point.
 		}
 
-		private void botonLogin_Click(object sender, System.Windows.RoutedEventArgs e)
-		{
-			// TODO: Add event handler implementation here.
-			e.Handled = true;
-			
-			//Si las Credenciales son Correcas entonces Accedera
-			//al Menú principal
-			
-			Home homeWindow = new Home(textBox_Usuario.Text);
-			homeWindow.Show();
-			this.Close();
-		}
+        private void btn_iniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            Home homeWindow = new Home(txt_usuario.Text);
+
+            homeWindow.Show();
+
+            this.Close();
+        }
 	}
 }

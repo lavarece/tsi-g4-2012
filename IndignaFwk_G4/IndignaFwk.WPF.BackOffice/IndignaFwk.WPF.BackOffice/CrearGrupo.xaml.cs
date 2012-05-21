@@ -13,38 +13,49 @@ using System.Text;
 using IndignaFwk.UI;
 using IndignaFwk.Common.Entities;
 using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk_WPF_BackOffice
 {
 	/// <summary>
 	/// Interaction logic for CrearGrupo.xaml
 	/// </summary>
-	public partial class CrearGrupo : Window
-	{
+    public partial class CrearGrupo : Window
+    {
         private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
-		
+
         public CrearGrupo()
-		{
+        {
             this.InitializeComponent();
         }
 
-        private void boton_guardar_Click(object sender, RoutedEventArgs e)
+        private void btn_guardar_Click(object sender, RoutedEventArgs e)
         {
-            Grupo grupo = new Grupo();
-            grupo.Nombre = textBox_nombreDeSitio.Text;
-            grupo.Descripcion = "NO CORRESPONDE";
-            grupo.LogoUrl = "NO CORRESPONDE";
-            grupo.Url = "localhost";
-            //grupo.ListaContenido = "123";
-            //grupo.ListaImagen = "123";
+            if (UtilesGenerales.isNullOrEmpty(txt_nombre.Text))
+            {
+                MessageBox.Show("El campo nombre es obligatorio");
+            }
+            else if (UtilesGenerales.isNullOrEmpty(txt_url.Text))
+            {
+                MessageBox.Show("El campo URL es obligatorio");
+            }
+            else
+            {
+                Grupo grupo = new Grupo();
 
-            grupoUserProcess.CrearGrupo(grupo);
+                grupo.Nombre = txt_nombre.Text;
+
+                grupo.Descripcion = txt_descripcion.Text;
+
+                grupo.Url = txt_url.Text;
+
+                grupoUserProcess.CrearGrupo(grupo);
+            }
         }
 
-        private void boton_cancelar_Click(object sender, RoutedEventArgs e)
+        private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
-	}
+    }
 }
