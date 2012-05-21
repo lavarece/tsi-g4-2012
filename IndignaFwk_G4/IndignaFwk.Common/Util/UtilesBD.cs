@@ -8,7 +8,7 @@ namespace IndignaFwk.Common.Util
 {
     public class UtilesBD
     {
-        private const String STR_CONEXION_BD = "Data Source=W7_NET_TI-MAXI;Initial Catalog=IndignadoFDb;Persist Security Info=True;User ID=indigna_usr;Password=indigna_usr";
+        private const String STR_CONEXION_BD = "Data Source=(local);Initial Catalog=IndignadoFDb2;Persist Security Info=True;User ID=indigna_usr;Password=indigna_usr";
 
         public static SqlConnection ObtenerConexion(bool abrir)
         {
