@@ -34,7 +34,7 @@ namespace IndignaFwk_WPF_BackOffice
             grupo.Nombre = textBox_nombreDeSitio.Text;
             grupo.Descripcion = "NO CORRESPONDE";
             grupo.LogoUrl = "NO CORRESPONDE";
-            grupo.Url = "NO CORRESPONDE";
+            grupo.Url = "localhost";
             //grupo.ListaContenido = "123";
             //grupo.ListaImagen = "123";
 
