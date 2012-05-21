@@ -110,7 +110,9 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               return GrupoAdo.ObtenerPorUrl(url, conexion);
+               Grupo grupo = GrupoAdo.ObtenerPorUrl(url, conexion);
+
+               return grupo;
            }
            catch (Exception ex)
            {

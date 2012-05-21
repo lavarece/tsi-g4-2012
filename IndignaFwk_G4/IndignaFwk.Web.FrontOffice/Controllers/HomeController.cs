@@ -5,22 +5,28 @@ using System.Web;
 using System.Web.Mvc;
 using IndignaFwk.Web.FrontOffice.Models;
 using IndignaFwk.Web.FrontOffice.MultiTenant;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Entities;
 
 namespace IndignadoFramework.Controllers
 {
     public class HomeController : Controller
     {
-        private IApplicationTenant _site;
+        private IApplicationTenant site;
+
+        private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
 
         public HomeController(IApplicationTenant site)
         {
-            this._site = site;
+            this.site = site;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.NombreGrupo = _site.Nombre;
+            Grupo grupo = grupoUserProcess.ObtenerGrupoPorId(site.Id);
+
+            ViewBag.Grupo = grupo;
 
             return View();
         }

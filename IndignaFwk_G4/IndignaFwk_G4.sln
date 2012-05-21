@@ -14,6 +14,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{1F4A4AC3-73EE-4F2E-89DD-8BB9C7BFD7D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{D4AF9EBE-0F04-4182-8F5B-BE4C658143F4}"
+	ProjectSection(SolutionItems) = preProject
+		Leeme.txt = Leeme.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{5F064A68-3309-4F03-882F-7E43C3147A27}"
 	ProjectSection(SolutionItems) = preProject

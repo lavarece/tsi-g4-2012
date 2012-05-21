@@ -26,6 +26,11 @@ namespace IndignaFwk.Business.Services
             return GrupoManager.ObtenerGrupoPorUrl(url);
         }
 
+        public Grupo ObtenerGrupoPorId(int id)
+        {
+            return GrupoManager.ObtenerGrupoPorId(id);
+        }
+
         // DEPENDENCIAS MANAGERS
         private IGrupoManager GrupoManager
         {

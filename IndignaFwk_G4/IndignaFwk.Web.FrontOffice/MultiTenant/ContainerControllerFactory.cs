@@ -30,18 +30,12 @@ namespace IndignaFwk.Web.FrontOffice.MultiTenant
 
                     result = container.GetInstance(controllerType) as Controller;
                 }
-                catch (StructureMapException e)
+                catch (Exception e)
                 {
                     Console.Write(e);
 
                     result = new ErrorController(e);
-                }
-                catch (TenantNotFoundException e)
-                {
-                    Console.Write(e);
-
-                    result = new ErrorController(e);
-                }
+                }                
             }
 
             return result;
