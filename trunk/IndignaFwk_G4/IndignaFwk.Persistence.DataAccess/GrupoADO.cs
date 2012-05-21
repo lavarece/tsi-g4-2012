@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -11,22 +12,33 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
         
-        public int Crear(Grupo sitio, SqlConnection conexion, SqlTransaction transaccion)
+        public int Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
             
-            command.CommandText = "INSERT INTO Sitio(Nombre, LogoUrl, Descripcion, Url) values(@nombre, @logoUrl, @descripcion, @url)";
+            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url) " +
+                                  " values(@nombre, @descripcion, @url) " + 
+                                  " select @idGen = SCOPE_IDENTITY() FROM Sitio ";
             
-            command.Parameters.AddWithValue("nombre", sitio.Nombre);
-            command.Parameters.AddWithValue("logoUrl", sitio.LogoUrl);
-            command.Parameters.AddWithValue("descripcion", sitio.Descripcion);
-            command.Parameters.AddWithValue("url", sitio.Url);
+            command.Parameters.AddWithValue("nombre", grupo.Nombre);
 
-            command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("descripcion", grupo.Descripcion);
 
-            return 0;
+            command.Parameters.AddWithValue("url", grupo.Url);
+
+            // indico que la query tiene un parámetro de salida thisId de tipo int
+            command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            command.ExecuteScalar();
+
+            // este es el identificador generado
+            int idNuevo = (int)command.Parameters["@idGen"].Value;
+
+            return idNuevo;
         }
 
         /*************************************************************************************/

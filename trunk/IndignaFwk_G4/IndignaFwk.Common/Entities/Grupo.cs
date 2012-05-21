@@ -22,17 +22,17 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public string Descripcion { get; set; }
+        
+        [DataMember]
+        public string Template { get; set; }
+
+        [DataMember]
+        public string Url { get; set; }
 
         [DataMember]
         public List<Contenido> ListaContenido { get; set; }
 
         [DataMember]
-        public string Template { get; set; }
-
-        [DataMember]
         public List<Imagen> ListaImagen { get; set; }
-        
-        [DataMember]
-        public string Url { get; set; }
     }
 }

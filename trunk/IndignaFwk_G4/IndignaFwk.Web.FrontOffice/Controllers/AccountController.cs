@@ -11,17 +11,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 {
     public class AccountController : Controller
     {
-
-        //
-        // GET: /Account/LogOn
-
         public ActionResult LogOn()
         {
             return View();
         }
-
-        //
-        // POST: /Account/LogOn
 
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
@@ -50,9 +43,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        //
-        // GET: /Account/LogOff
 
         public ActionResult LogOff()
         {

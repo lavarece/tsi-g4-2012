@@ -4,25 +4,19 @@
 	x:Class="IndignaFwk_WPF_BackOffice.Home"
 	x:Name="Window"
 	Title="Home"
-	Width="480" Height="389">
+	Width="480" Height="364">
 
-	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Height="550">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="343.876"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="17.871"/>
-			<ColumnDefinition Width="214.218"/>
-			<ColumnDefinition Width="214.154"/>
-			<ColumnDefinition Width="17.757"/>
-		</Grid.ColumnDefinitions>
-		<Rectangle Grid.Column="1" Margin="9.129,116,5.089,11" Stroke="#FF00FFF9">
+        <Rectangle Margin="22,108,236,34" Stroke="#FF00FFF9">
 			<Rectangle.Effect>
 				<DropShadowEffect/>
 			</Rectangle.Effect>
 		</Rectangle>
-		<Button x:Name="boton_gestionAdmin" Content="Gestión de Administradores" Grid.Column="1" Height="28" Margin="22.129,139,17.089,0" VerticalAlignment="Top" Click="boton_gestionAdmin_Click">
+		<Button x:Name="boton_gestionAdmin" Content="Gestión de Administradores" Height="28" Margin="36,120,247,0" VerticalAlignment="Top" Click="boton_gestionAdmin_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -33,7 +27,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionUsu" Content="Gestión de Usuarios" Grid.Column="1" Height="28" Margin="22.129,0,17.089,140" VerticalAlignment="Bottom" Click="boton_gestionUsu_Click">
+		<Button x:Name="boton_gestionUsu" Content="Gestión de Usuarios" Height="28" Margin="36,0,247,159" VerticalAlignment="Bottom" Click="boton_gestionUsu_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -44,7 +38,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionGrupos" Content="Gestión de Grupos" Grid.Column="1" Margin="22.129,0,17.089,104" Click="boton_gestionGrupo_Click" Height="28" VerticalAlignment="Bottom">
+		<Button x:Name="boton_gestionGrupos" Content="Gestión de Grupos" Margin="36,0,247,123" Click="boton_gestionGrupo_Click" Height="28" VerticalAlignment="Bottom">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -55,7 +49,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionVar" Content="Gestión de Variables" Grid.Column="1" Height="28" Margin="22.129,0,17.089,68" VerticalAlignment="Bottom" Click="boton_gestionVar_Click">
+		<Button x:Name="boton_gestionVar" Content="Gestión de Variables" Height="28" Margin="36,0,247,87" VerticalAlignment="Bottom" Click="boton_gestionVar_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -66,7 +60,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_gestionRep" Content="Gestión de Reportes" Grid.Column="1" Height="28" Margin="22.129,0,17.089,32" VerticalAlignment="Bottom" Click="boton_gestionRep_Click">
+		<Button x:Name="boton_gestionRep" Content="Gestión de Reportes" Height="28" Margin="36,0,247,51" VerticalAlignment="Bottom" Click="boton_gestionRep_Click">
 			<Button.Effect>
 				<DropShadowEffect/>
 			</Button.Effect>
@@ -77,25 +71,31 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Label x:Name="label_bienvenido" Content="Bienvenido, " Grid.Column="1" Height="53" Margin="10.129,58,4.089,0" VerticalAlignment="Top" Foreground="#FF00FFF9">
+		<Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework, " Margin="0,29,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontSize="14" UseLayoutRounding="False" DataContext="{Binding}" Height="39" FontStretch="Normal">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="&quot;I have a dream...&quot;&#xd;&#xa;&#x9;&#x9;Martin Luther King" Grid.Column="2" Height="61" Margin="18.911,104,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontStyle="Italic" Grid.ColumnSpan="2">
+		<Label Content="&quot;I have a dream...&quot;&#xd;&#xa;&#x9;&#x9;Martin Luther King" Height="61" Margin="232,249,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontStyle="Italic" HorizontalAlignment="Left" Width="214" AllowDrop="False">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="Cerrar Sesión" Grid.Column="2" Height="29" Margin="0,1,-2.757,0" VerticalAlignment="Top" Foreground="#FF00FFF9" HorizontalAlignment="Right" Width="91">
-			<Label.Effect>
-				<DropShadowEffect/>
-			</Label.Effect>
-		</Label>
-		<Label Content="Indignado Framework" Grid.Column="2" Height="46" Margin="6.911,0,5.243,-0.124" VerticalAlignment="Bottom" Foreground="#FF00FFF9" FontSize="32" FontFamily="Chiller">
-			<Label.Effect>
-				<DropShadowEffect/>
-			</Label.Effect>
-		</Label>
-	</Grid>
+        <Button Content="Salir" Height="28" Margin="395,0,0,0" Name="btn_salir" VerticalAlignment="Top">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1" />
+                    <GradientStop Color="#FF00FFF9" Offset="0.8" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect />
+            </Button.Effect>
+        </Button>
+        <Label Content="Seleccione una de las opciones para administrar." FontStyle="Italic" Foreground="#FF00FFF9" Height="29" HorizontalAlignment="Left" Margin="22,73,0,0" VerticalAlignment="Top" Width="424">
+            <Label.Effect>
+                <DropShadowEffect />
+            </Label.Effect>
+        </Label>
+    </Grid>
 </Window>
