@@ -125,7 +125,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Ti
 BEGIN
 CREATE TABLE [dbo].[TipoContenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS 
 ) ON [PRIMARY]
 END
 GO
@@ -146,7 +146,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Es
 BEGIN
 CREATE TABLE [dbo].[EstadoContenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS 
 ) ON [PRIMARY]
 END
 GO
@@ -167,7 +167,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Ti
 BEGIN
 CREATE TABLE [dbo].[TipoMarcaContenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
 END
 GO
@@ -188,9 +188,9 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Co
 BEGIN
 CREATE TABLE [dbo].[Contenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[FK_Id_EstadoContenido] [int] NOT NULL,
-	[FK_Id_TipoContenido] [int] NOT NULL,
-	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[FK_Id_EstadoContenido] [int],
+	[FK_Id_TipoContenido] [int],
+	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 CONSTRAINT FK_Contenido_FK_Id_EstadoContenido FOREIGN KEY (FK_Id_EstadoContenido) REFERENCES EstadoContenido(Id),
 CONSTRAINT FK_Contenido_FK_Id_TipoContenido FOREIGN KEY (FK_Id_TipoContenido) REFERENCES TipoContenido(Id)
 ) ON [PRIMARY]
@@ -214,8 +214,8 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Im
 BEGIN
 CREATE TABLE [dbo].[Imagen](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Referencia] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Referencia] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
 END
 GO
@@ -267,12 +267,12 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Co
 BEGIN
 CREATE TABLE [dbo].[Convocatoria](
 	[Id] [int] IDENTITY(4,1) NOT NULL,
-	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Quorum] [int] NOT NULL,
-	[Categoria] [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Coordenada] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Quorum] [int],
+	[Categoria] [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Coordenada] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
  CONSTRAINT [PK_Convocatoria] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -305,15 +305,15 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Us
 BEGIN
 CREATE TABLE [dbo].[Usuario](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Conectado] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[FK_Id_Sitio] [int] NOT NULL,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Conectado] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FK_Id_Sitio] [int],
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 --CONSTRAINT FK_USUARIO_idTipoUsuario FOREIGN KEY (idTipoUsuario) REFERENCES TIPO_USUARIO(idTipoUsuario)
   /* (
@@ -341,8 +341,8 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[As
 BEGIN
 CREATE TABLE [dbo].[AsistenciaConvocatoria](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[FK_Id_Convocatoria] [int] NOT NULL,
-	[FK_Id_Usuario] [int] NOT NULL,
+	[FK_Id_Convocatoria] [int],
+	[FK_Id_Usuario] [int],
 CONSTRAINT FK_AsistenciaConvocatoria_FK_Id_Convocatoria FOREIGN KEY (FK_Id_Convocatoria) REFERENCES Convocatoria(Id),
 CONSTRAINT FK_AsistenciaConvocatoria_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id)
 ) ON [PRIMARY]
@@ -367,10 +367,10 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[No
 BEGIN
 CREATE TABLE [dbo].[Notificacion](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Contenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Visto] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[FK_Id_Convocatoria] [int] NOT NULL,
-	[FK_Id_Usuario] [int] NOT NULL,
+	[Contenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Visto] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FK_Id_Convocatoria] [int],
+	[FK_Id_Usuario] [int],
 CONSTRAINT FK_Notificacion_FK_Id_Convocatoria FOREIGN KEY (FK_Id_Convocatoria) REFERENCES Convocatoria(Id),
 CONSTRAINT FK_Notificacion_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id)
 ) ON [PRIMARY]
@@ -394,9 +394,9 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Ma
 BEGIN
 CREATE TABLE [dbo].[MarcaContenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[FK_Id_Contenido] [int] NOT NULL,
-	[FK_Id_TipoMarca] [int] NOT NULL,
-	[FK_Id_Usuario] [int] NOT NULL,
+	[FK_Id_Contenido] [int],
+	[FK_Id_TipoMarca] [int],
+	[FK_Id_Usuario] [int],
 CONSTRAINT FK_MarcaContenido_FK_Id_Contenido FOREIGN KEY (FK_Id_Contenido) REFERENCES Contenido(Id),
 CONSTRAINT FK_MarcaContenido_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id),
 CONSTRAINT FK_MarcaContenido_FK_Id_TipoMarca FOREIGN KEY (FK_Id_TipoMarca) REFERENCES TipoMarcaContenido(Id)
@@ -421,7 +421,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Te
 BEGIN
 CREATE TABLE [dbo].[Tematica](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 ) ON [PRIMARY]
 END
 GO
@@ -443,8 +443,8 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Us
 BEGIN
 CREATE TABLE [dbo].[UsuTematica](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[FK_Id_Tematica] [int] NOT NULL,
-	[FK_Id_Usuario] [int] NOT NULL,
+	[FK_Id_Tematica] [int],
+	[FK_Id_Usuario] [int],
 CONSTRAINT FK_Contenido_FK_Id_Tematica FOREIGN KEY (FK_Id_Tematica) REFERENCES Tematica(Id),
 CONSTRAINT FK_Contenido_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id)
 ) ON [PRIMARY]
@@ -469,8 +469,8 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Va
 BEGIN
 CREATE TABLE [dbo].[VariableSistema](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Valor] [int] NOT NULL
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Valor] [int]
 ) ON [PRIMARY]
 END
 GO
@@ -491,12 +491,12 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Ad
 BEGIN
 CREATE TABLE [dbo].[Administrador](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
 END
 GO
