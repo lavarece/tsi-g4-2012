@@ -172,31 +172,6 @@ CREATE TABLE [dbo].[TipoMarcaContenido](
 END
 GO
 
---Contenido
-USE [IndignadoFDb]
-GO
-/****** Object:  Table [dbo].[Contenido]    Script Date: 04/16/2012 19:10:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Contenido]') AND type in (N'U'))
-DROP TABLE [dbo].[Contenido]
-GO
-/****** Object:  Table [dbo].[Contenido]    Script Date: 04/16/2012 19:10:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Contenido]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Contenido](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[FK_Id_EstadoContenido] [int],
-	[FK_Id_TipoContenido] [int],
-	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-CONSTRAINT FK_Contenido_FK_Id_EstadoContenido FOREIGN KEY (FK_Id_EstadoContenido) REFERENCES EstadoContenido(Id),
-CONSTRAINT FK_Contenido_FK_Id_TipoContenido FOREIGN KEY (FK_Id_TipoContenido) REFERENCES TipoContenido(Id)
-) ON [PRIMARY]
-END
-GO
-
 
 --Imagen
 USE [IndignadoFDb]
@@ -239,13 +214,40 @@ CREATE TABLE [dbo].[Sitio](
 	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
 	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[FK_Id_Contenido] [int],
 	[Template] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int] ,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
- CONSTRAINT FK_Sitio_FK_Contenido FOREIGN KEY (FK_Id_Contenido) REFERENCES Contenido(Id),
  CONSTRAINT FK_Sitio_FK_Imagen FOREIGN KEY (FK_Id_Imagen) REFERENCES Imagen(Id) 
 
+) ON [PRIMARY]
+END
+GO
+
+
+
+--Contenido
+USE [IndignadoFDb]
+GO
+/****** Object:  Table [dbo].[Contenido]    Script Date: 04/16/2012 19:10:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Contenido]') AND type in (N'U'))
+DROP TABLE [dbo].[Contenido]
+GO
+/****** Object:  Table [dbo].[Contenido]    Script Date: 04/16/2012 19:10:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Contenido]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Contenido](
+	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[FK_Id_EstadoContenido] [int],
+	[FK_Id_TipoContenido] [int],
+	[FK_Id_Sitio] [int],
+	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+CONSTRAINT FK_Contenido_FK_Id_EstadoContenido FOREIGN KEY (FK_Id_EstadoContenido) REFERENCES EstadoContenido(Id),
+CONSTRAINT FK_Contenido_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id),
+CONSTRAINT FK_Contenido_FK_Id_TipoContenido FOREIGN KEY (FK_Id_TipoContenido) REFERENCES TipoContenido(Id)
 ) ON [PRIMARY]
 END
 GO
