@@ -7,7 +7,7 @@ namespace IndignaFwk.Common.Entities
 {
     public class Convocatoria
     {
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         public String Titulo { get; set; }
 

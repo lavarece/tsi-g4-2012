@@ -7,7 +7,7 @@ namespace IndignaFwk.Common.Entities
 {
     public class AsistenciaConvocatoria
     {
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         public Usuario Usuario { get; set; }
 

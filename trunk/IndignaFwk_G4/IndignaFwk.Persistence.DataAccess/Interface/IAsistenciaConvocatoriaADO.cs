@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IAsistenciaConvocatoriaADO
     {
-        Int32 Crear(AsistenciaConvocatoria asistenciaConvocatoria);
+        int Crear(AsistenciaConvocatoria asistenciaC, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(AsistenciaConvocatoria asistenciaConvocatoria);
+        void Editar(AsistenciaConvocatoria asistenciaC, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(long id);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        AsistenciaConvocatoria Obtener(long id);
+        AsistenciaConvocatoria Obtener(int id, SqlConnection conexion);
 
-        List<AsistenciaConvocatoria> ObtenerListado();
+        List<AsistenciaConvocatoria> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
     }
 }
