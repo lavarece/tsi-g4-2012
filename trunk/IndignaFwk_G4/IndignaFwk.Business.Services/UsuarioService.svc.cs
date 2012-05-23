@@ -39,9 +39,9 @@ namespace IndignaFwk.Business.Services
             usuarioManager.EliminarUsuario(idUsuario);
         }
 
-        public Usuario ObtenerUsuarioPorEmail(string email)
+        public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
         {
-            return usuarioManager.ObtenerUsuarioPorEmail(email);
+            return usuarioManager.ObtenerUsuarioPorEmailYPass(email, pass);
         }
     }
 }

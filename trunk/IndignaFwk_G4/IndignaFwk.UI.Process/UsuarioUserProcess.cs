@@ -60,11 +60,11 @@ namespace IndignaFwk.UI.Process
             proxy.Close();
         }
 
-        public Usuario ObtenerUsuarioPorEmail(string email)
+        public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
         {
             UsuarioServiceClient proxy = new UsuarioServiceClient();
 
-            Usuario usuario = proxy.ObtenerUsuarioPorEmail(email);
+            Usuario usuario = proxy.ObtenerUsuarioPorEmailYPass(email, pass);
 
             proxy.Close();
 

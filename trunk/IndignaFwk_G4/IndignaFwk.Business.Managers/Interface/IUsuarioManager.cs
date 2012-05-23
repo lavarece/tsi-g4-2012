@@ -18,6 +18,6 @@ namespace IndignaFwk.Business.Managers
 
         void EliminarUsuario(int idUsuario);
 
-        Usuario ObtenerUsuarioPorEmail(string email);
+        Usuario ObtenerUsuarioPorEmailYPass(string email, string pass);
     }
 }

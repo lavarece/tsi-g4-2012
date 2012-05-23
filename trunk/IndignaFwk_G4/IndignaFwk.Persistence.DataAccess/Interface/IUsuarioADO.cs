@@ -17,7 +17,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
         Usuario Obtener(int id, SqlConnection conexion);
 
-        Usuario ObtenerPorEmail(string email, SqlConnection conexion);
+        Usuario ObtenerPorEmailYPass(string email, string pass, SqlConnection conexion);
 
         List<Usuario> ObtenerListado(SqlConnection conexion);
     }
