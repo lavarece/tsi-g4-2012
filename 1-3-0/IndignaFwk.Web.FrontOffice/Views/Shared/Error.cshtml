@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+</head>
+<body>
+    <h2 style="color: #FF0000; font-weight:bold;">
+        Error en el sistema, verifique los detalles para solucionarlo o contacte con el administrador.
+    </h2>
+
+    <hr /><br />
+
+    <table border="1" width="100%">
+        <tr>
+            <td><b>Tipo de error</b></td>
+            <td>@ViewBag.TipoError</td>
+        </tr>
+        <tr>
+            <td><b>Mensaje de error</b></td>
+            <td>@ViewBag.MensajeError</td>
+        </tr>
+    </table>
+</body>
+</html>
