@@ -33,10 +33,10 @@ namespace IndignaFwk.Common.Entities
         public string Password { get; set; }
 
         [DataMember]
-        public string PreguntaSeguridad { get; set; }
+        public string Pregunta { get; set; }
 
         [DataMember]
-        public string RespuestaSeguridad { get; set; }
+        public string Respuesta { get; set; }
 
         [DataMember]
         public string Region { get; set; }

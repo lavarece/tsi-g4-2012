@@ -32,6 +32,22 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        /* DEPENDENCIAS */
+        private IGrupoADO _grupoADO;
+
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
+            }
+        }
+
         /*
         * Metodo que se llama desde la capa de servicio para
         * crear un nuevo usuario. Este metodo abre y cierra las 
@@ -176,13 +192,13 @@ namespace IndignaFwk.Business.Managers
              }
          }
 
-         public Usuario ObtenerUsuarioPorEmail(string email)
+         public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
          {
              try
              {
                  conexion = UtilesBD.ObtenerConexion(true);
 
-                 return UsuarioADO.ObtenerPorEmail(email, conexion);
+                 return UsuarioADO.ObtenerPorEmailYPass(email, pass, conexion);
              }
              catch (Exception ex)
              {

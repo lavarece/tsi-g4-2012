@@ -34,12 +34,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmail(model.Correo);
-
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmailYPass(model.Correo, model.Contraseña);
                 
-                if (Membership.ValidateUser(model.Correo, model.Contraseña) && usuario.Grupo.Id.Equals(site.Grupo.Id))
+                if (usuario != null && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
-                    FormsAuthentication.SetAuthCookie(model.Correo, model.Recordarme);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -108,8 +106,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             usuario.Descripcion = model.Descripcion;
             usuario.Email = model.Correo;
             usuario.Password = model.Contraseña;
-            usuario.PreguntaSeguridad = model.PreguntaSecreta;
-            usuario.RespuestaSeguridad = "PEPE";
+            usuario.Pregunta = model.PreguntaSecreta;
+            usuario.Respuesta = "PEPE";
             usuario.Grupo = this.site.Grupo;
 
             usuarioUserProcess.CrearNuevoUsuario(usuario);

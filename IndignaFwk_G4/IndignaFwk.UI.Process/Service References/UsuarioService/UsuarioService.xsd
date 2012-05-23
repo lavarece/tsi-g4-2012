@@ -10,9 +10,9 @@
       <xs:element minOccurs="0" name="ListaTematicas" nillable="true" type="tns:ArrayOfTematica" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PreguntaSeguridad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pregunta" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RespuestaSeguridad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Respuesta" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Usuario" nillable="true" type="tns:Usuario" />

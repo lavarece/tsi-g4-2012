@@ -13,22 +13,6 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        /* DEPENDENCIAS */
-        private IGrupoADO _grupoADO;
-
-        protected IGrupoADO GrupoADO
-        {
-            get
-            {
-                if (_grupoADO == null)
-                {
-                    _grupoADO = new GrupoADO();
-                }
-
-                return _grupoADO;
-            }
-        }
-
         public int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -49,8 +33,8 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
             UtilesBD.SetParameter(command, "Region", usuario.Region);
-            UtilesBD.SetParameter(command, "Respuesta", usuario.RespuestaSeguridad);
-            UtilesBD.SetParameter(command, "Pregunta", usuario.PreguntaSeguridad);
+            UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
+            UtilesBD.SetParameter(command, "Pregunta", usuario.Pregunta);
             
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -89,8 +73,8 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
             UtilesBD.SetParameter(command, "Region", usuario.Region);
-            UtilesBD.SetParameter(command, "Respuesta", usuario.RespuestaSeguridad);
-            UtilesBD.SetParameter(command, "Pregunta", usuario.PreguntaSeguridad);
+            UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
+            UtilesBD.SetParameter(command, "Pregunta", usuario.Pregunta);
 
             command.ExecuteNonQuery();          
         }
@@ -142,9 +126,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
 
-                    usuario.PreguntaSeguridad = UtilesBD.GetStringFromReader("PreguntaSeguridad", reader);
+                    usuario.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
 
-                    usuario.RespuestaSeguridad = UtilesBD.GetStringFromReader("RespuestaSeguridad", reader);
+                    usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
                     usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
 
@@ -195,9 +179,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
 
-                    usuario.PreguntaSeguridad = UtilesBD.GetStringFromReader("PreguntaSeguridad", reader);
+                    usuario.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
 
-                    usuario.RespuestaSeguridad = UtilesBD.GetStringFromReader("RespuestaSeguridad", reader);
+                    usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
                     usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
 
@@ -216,7 +200,7 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        public Usuario ObtenerPorEmail(string email, SqlConnection conexion)
+        public Usuario ObtenerPorEmailYPass(string email, string pass, SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
@@ -226,9 +210,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email";
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Password = @pass";
 
                 UtilesBD.SetParameter(command, "email", email);
+
+                UtilesBD.SetParameter(command, "pass", pass);
 
                 reader = command.ExecuteReader();
 
@@ -248,13 +234,13 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
 
-                    usuario.PreguntaSeguridad = UtilesBD.GetStringFromReader("PreguntaSeguridad", reader);
+                    usuario.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
 
-                    usuario.RespuestaSeguridad = UtilesBD.GetStringFromReader("RespuestaSeguridad", reader);
+                    usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
                     usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
 
-                    usuario.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Grupo", reader), conexion);
+                    usuario.Grupo = new Grupo(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader));
                     
                     return usuario;
                 }

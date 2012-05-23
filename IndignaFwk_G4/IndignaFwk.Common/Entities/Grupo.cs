@@ -11,6 +11,13 @@ namespace IndignaFwk.Common.Entities
     [Serializable]
     public class Grupo
     {
+        public Grupo() { }
+
+        public Grupo(int id)
+        {
+            this.Id = id;
+        }
+
         [DataMember]
         public int Id { get; set; }
 
