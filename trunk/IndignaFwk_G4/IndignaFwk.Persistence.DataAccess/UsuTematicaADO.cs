@@ -28,8 +28,6 @@ namespace IndignaFwk.Persistence.DataAccess
             command.Parameters.AddWithValue("idTemarica", usuTem.Tematica.Id);
             command.Parameters.AddWithValue("idUsuario", usuTem.Usuario.Id);
          
-            command.ExecuteNonQuery();
-
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
 

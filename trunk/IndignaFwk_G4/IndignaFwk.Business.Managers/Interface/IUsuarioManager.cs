@@ -17,5 +17,7 @@ namespace IndignaFwk.Business.Managers
         void EditarUsuario(Usuario usuario);
 
         void EliminarUsuario(int idUsuario);
+
+        Usuario ObtenerUsuarioPorEmail(string email);
     }
 }

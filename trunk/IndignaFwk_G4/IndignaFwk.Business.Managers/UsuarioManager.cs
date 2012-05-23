@@ -175,5 +175,25 @@ namespace IndignaFwk.Business.Managers
                  UtilesBD.CerrarConexion(conexion);
              }
          }
+
+         public Usuario ObtenerUsuarioPorEmail(string email)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return UsuarioADO.ObtenerPorEmail(email, conexion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
     }
 }

@@ -86,5 +86,17 @@ namespace IndignaFwk.Common.Util
 
             return 0;
         }
+
+        public static void SetParameter(SqlCommand command, string key, object value)
+        {
+            if (value != null)
+            {
+                command.Parameters.AddWithValue(key, value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue(key, DBNull.Value);
+            }
+        }
     }
 }
