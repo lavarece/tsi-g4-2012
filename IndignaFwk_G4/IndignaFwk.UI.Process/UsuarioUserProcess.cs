@@ -59,5 +59,16 @@ namespace IndignaFwk.UI.Process
 
             proxy.Close();
         }
+
+        public Usuario ObtenerUsuarioPorEmail(string email)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            Usuario usuario = proxy.ObtenerUsuarioPorEmail(email);
+
+            proxy.Close();
+
+            return usuario;
+        }
     }
 }

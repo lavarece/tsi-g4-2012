@@ -13,6 +13,22 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
+        /* DEPENDENCIAS */
+        private IGrupoADO _grupoADO;
+
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
+            }
+        }
+
         public int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -25,18 +41,17 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@Conectado, @Descripcion, @Email, @IdSitio, @Nombre, @Password, @Pregunta, @Region, @Respuesta); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM Usuario; ";
 
-            command.Parameters.AddWithValue("Conectado", (usuario.Conectado == true ? "1" : "0"));
-            command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
-            command.Parameters.AddWithValue("Email", usuario.Email);
-            command.Parameters.AddWithValue("IdSitio", usuario.Grupo.Id);
-            command.Parameters.AddWithValue("Nombre", usuario.Nombre);
-            command.Parameters.AddWithValue("Password", usuario.Password);
-            command.Parameters.AddWithValue("Region", usuario.Region);
-            command.Parameters.AddWithValue("Respuesta", usuario.RespuestaSeguridad);
-            command.Parameters.AddWithValue("Pregunta", usuario.PreguntaSeguridad);
-
-            command.ExecuteNonQuery();
-
+            
+            UtilesBD.SetParameter(command, "Conectado", (usuario.Conectado == true ? "1" : "0"));
+            UtilesBD.SetParameter(command, "Descripcion", usuario.Descripcion);
+            UtilesBD.SetParameter(command, "Email", usuario.Email);
+            UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
+            UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
+            UtilesBD.SetParameter(command, "Password", usuario.Password);
+            UtilesBD.SetParameter(command, "Region", usuario.Region);
+            UtilesBD.SetParameter(command, "Respuesta", usuario.RespuestaSeguridad);
+            UtilesBD.SetParameter(command, "Pregunta", usuario.PreguntaSeguridad);
+            
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -66,16 +81,16 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "Pregunta = @Pregunta " + 
                                   "WHERE Id = @id";
 
-            command.Parameters.AddWithValue("Id", usuario.Id);
-            command.Parameters.AddWithValue("Conectado", (usuario.Conectado == true ? "1" : "0"));
-            command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
-            command.Parameters.AddWithValue("Email", usuario.Email);
-            command.Parameters.AddWithValue("IdSitio", usuario.Grupo.Id);
-            command.Parameters.AddWithValue("Nombre", usuario.Nombre);
-            command.Parameters.AddWithValue("Password", usuario.Password);
-            command.Parameters.AddWithValue("Region", usuario.Region);
-            command.Parameters.AddWithValue("Respuesta", usuario.RespuestaSeguridad);
-            command.Parameters.AddWithValue("Pregunta", usuario.PreguntaSeguridad);
+            UtilesBD.SetParameter(command, "Id", usuario.Id);
+            UtilesBD.SetParameter(command, "Conectado", (usuario.Conectado == true ? "1" : "0"));
+            UtilesBD.SetParameter(command, "Descripcion", usuario.Descripcion);
+            UtilesBD.SetParameter(command, "Email", usuario.Email);
+            UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
+            UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
+            UtilesBD.SetParameter(command, "Password", usuario.Password);
+            UtilesBD.SetParameter(command, "Region", usuario.Region);
+            UtilesBD.SetParameter(command, "Respuesta", usuario.RespuestaSeguridad);
+            UtilesBD.SetParameter(command, "Pregunta", usuario.PreguntaSeguridad);
 
             command.ExecuteNonQuery();          
         }
@@ -198,6 +213,60 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     reader.Close();
                 }   
+            }
+        }
+
+        public Usuario ObtenerPorEmail(string email, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email";
+
+                UtilesBD.SetParameter(command, "email", email);
+
+                reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
+
+                    usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    usuario.Email = UtilesBD.GetStringFromReader("Email", reader);
+
+                    usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
+
+                    usuario.PreguntaSeguridad = UtilesBD.GetStringFromReader("PreguntaSeguridad", reader);
+
+                    usuario.RespuestaSeguridad = UtilesBD.GetStringFromReader("RespuestaSeguridad", reader);
+
+                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+
+                    usuario.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Grupo", reader), conexion);
+                    
+                    return usuario;
+                }
+
+                return null;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
             }
         }
     }

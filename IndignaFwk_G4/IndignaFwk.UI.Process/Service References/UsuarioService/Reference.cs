@@ -29,6 +29,9 @@ namespace IndignaFwk.UI.Process.UsuarioService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/EliminarUsuario", ReplyAction="http://tempuri.org/IUsuarioService/EliminarUsuarioResponse")]
         void EliminarUsuario(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailResponse")]
+        IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmail(string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -76,6 +79,10 @@ namespace IndignaFwk.UI.Process.UsuarioService {
         
         public void EliminarUsuario(int idUsuario) {
             base.Channel.EliminarUsuario(idUsuario);
+        }
+        
+        public IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmail(string email) {
+            return base.Channel.ObtenerUsuarioPorEmail(email);
         }
     }
 }
