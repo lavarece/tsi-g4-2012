@@ -28,6 +28,33 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmail(model.Correo);
+
+                if (usuario.Grupo.Id.Equals(site.Grupo.Id))
+                {
+                    return RedirectToAction("Index", "Home");    
+                }
+                else
+                {
+                    ModelState.AddModelError("", "El e-mail or password es incorrecto.");
+                }
+                
+            }
+            else
+            {
+                //Si sucede cualquier otro error retorna la vista logOn
+                return View(model);
+            }
+            
+        }
+
+        /*
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
@@ -54,7 +81,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
+        }*/
 
         public ActionResult LogOff()
         {
@@ -77,7 +104,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            //Aca es donde creo el usuario a lo bruto!!!
             Usuario usuario = new Usuario();
             usuario.Nombre = model.Nombre;
             usuario.Descripcion = model.Descripcion;
@@ -89,7 +115,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             usuarioUserProcess.CrearNuevoUsuario(usuario);
 
-            return View("Detalle",model);
+            return View("Detalle", model);
         }
 
         public ActionResult Detalle()

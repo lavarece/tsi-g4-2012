@@ -30,8 +30,8 @@ namespace IndignaFwk.Web.FrontOffice.Models
     public class LogOnModel
     {
         [Required]
-        [Display(Name = "Usuario:")]
-        public string Usuario { get; set; }
+        [Display(Name = "Correo:")]
+        public string Correo { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
