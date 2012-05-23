@@ -30,14 +30,7 @@ namespace IndignaFwk.Web.FrontOffice.MultiTenant
             try
             {
                 // Creo el SiteTenant con la info del grupo
-                IApplicationTenant site = new SiteTenant
-                {
-                    Id = grupo.Id,
-                    Nombre = grupo.Nombre,
-                    Descripcion = grupo.Descripcion,
-                    Template = grupo.Template,
-                    Url = grupo.Url
-                };
+                IApplicationTenant site = new SiteTenant(grupo);
 
                 site.InitializeContainer();
 

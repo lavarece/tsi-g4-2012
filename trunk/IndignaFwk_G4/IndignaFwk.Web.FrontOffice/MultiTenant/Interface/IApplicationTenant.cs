@@ -4,20 +4,13 @@ using System.Linq;
 using System.Text;
 using StructureMap;
 using System.Web.Mvc;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Web.FrontOffice.MultiTenant
 {
     public interface IApplicationTenant
     {
-        int Id { get; set; }
-
-        string Nombre { get; set; }
-
-        string Descripcion { get; set; }
-
-        string Template { get; set; }
-
-        string Url { get; set; }
+        Grupo Grupo { get; set; } 
 
         IContainer DependencyContainer { get; }
 

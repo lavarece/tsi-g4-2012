@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using StructureMap;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Web.FrontOffice.MultiTenant
 {
     public class SiteTenant : IApplicationTenant
     {
+        public SiteTenant(Grupo grupo)
+        {
+            this.Grupo = grupo;
+        }
+
         IContainer _container;
 
-        public int Id { get; set; }
-
-        public string Nombre { get; set; }
-
-        public string Descripcion { get; set; }
-
-        public string Template { get; set; }
-
-        public string Url { get; set; }
+        public Grupo Grupo { get; set; }
 
         public IContainer DependencyContainer { get { return _container; } }
 
