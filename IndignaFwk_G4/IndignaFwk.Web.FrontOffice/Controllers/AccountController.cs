@@ -7,11 +7,22 @@ using System.Web.Routing;
 using System.Web.Security;
 using IndignaFwk.Web.FrontOffice.Models;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
     public class AccountController : Controller
     {
+        private IApplicationTenant site;
+
+        private UsuarioUserProcess usuarioUserProcess = UserProcessFactory.Instance.UsuarioUserProcess;
+
+        public AccountController(IApplicationTenant site)
+        {
+            this.site = site;
+        }
+
         public ActionResult LogOn()
         {
             return View();
@@ -73,7 +84,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             usuario.Email = model.Correo;
             usuario.Password = model.Contraseña;
             usuario.PreguntaSeguridad = model.PreguntaSecreta;
+            usuario.RespuestaSeguridad = "PEPE";
+            usuario.Grupo = this.site.Grupo;
 
+            usuarioUserProcess.CrearNuevoUsuario(usuario);
 
             return View("Detalle",model);
         }
