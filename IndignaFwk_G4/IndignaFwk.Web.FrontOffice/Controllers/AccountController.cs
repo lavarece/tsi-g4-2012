@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using IndignaFwk.Web.FrontOffice.Models;
+using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
@@ -65,7 +66,21 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            return View(model);
+            //Aca es donde creo el usuario a lo bruto!!!
+            Usuario usuario = new Usuario();
+            usuario.Nombre = model.Nombre;
+            usuario.Descripcion = model.Descripcion;
+            usuario.Email = model.Correo;
+            usuario.Password = model.Contraseña;
+            usuario.PreguntaSeguridad = model.PreguntaSecreta;
+
+
+            return View("Detalle",model);
+        }
+
+        public ActionResult Detalle()
+        {
+            return View();
         }
 
         

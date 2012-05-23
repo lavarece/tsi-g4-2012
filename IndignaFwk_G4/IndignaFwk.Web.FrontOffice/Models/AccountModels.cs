@@ -49,8 +49,8 @@ namespace IndignaFwk.Web.FrontOffice.Models
         public string Nombre { get; set; }
 
         [Required]
-        [Display(Name="Apellido")]
-        public string Apellido{get;set;}
+        [Display(Name="Descripción")]
+        public string Descripcion{get;set;}
 
         [Required]
         [Display(Name = "Region Geografica")]
