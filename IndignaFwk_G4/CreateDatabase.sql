@@ -183,6 +183,57 @@ CONSTRAINT FK_Contenido_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(I
 END
 GO
 
+--Usuario
+USE [IndignadoFDb]
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuario]') AND type in (N'U'))
+DROP TABLE [dbo].[Usuario]
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuario]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Usuario](
+	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Conectado] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FK_Id_Sitio] [int],
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
+) ON [PRIMARY]
+END
+GO
+
+--Tematica
+USE [IndignadoFDb]
+GO
+/****** Object:  Table [dbo].[Tematica]    Script Date: 04/16/2012 19:10:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tematica]') AND type in (N'U'))
+DROP TABLE [dbo].[Tematica]
+GO
+/****** Object:  Table [dbo].[Tematica]    Script Date: 04/16/2012 19:10:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tematica]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Tematica](
+	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+) ON [PRIMARY]
+END
+GO
+
 --Convocatoria
 USE [IndignadoFDb]
 GO
@@ -210,36 +261,6 @@ CREATE TABLE [dbo].[Convocatoria](
  CONSTRAINT FK_Convocatoria_FK_UsuarioCreacion FOREIGN KEY (FK_Id_UsuarioCreacion) REFERENCES Usuario(Id),
  CONSTRAINT FK_Convocatoria_FK_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id),
  CONSTRAINT FK_Convocatoria_FK_Tematica FOREIGN KEY (FK_Id_Tematica) REFERENCES Tematica(Id)
-) ON [PRIMARY]
-END
-GO
-
---Usuario
-USE [IndignadoFDb]
-GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuario]') AND type in (N'U'))
-DROP TABLE [dbo].[Usuario]
-GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 04/16/2012 19:10:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuario]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Usuario](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Conectado] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[FK_Id_Sitio] [int],
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
 GO
@@ -318,28 +339,6 @@ CONSTRAINT FK_MarcaContenido_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCE
 ) ON [PRIMARY]
 END
 GO
-
---Tematica
-USE [IndignadoFDb]
-GO
-/****** Object:  Table [dbo].[Tematica]    Script Date: 04/16/2012 19:10:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tematica]') AND type in (N'U'))
-DROP TABLE [dbo].[Tematica]
-GO
-/****** Object:  Table [dbo].[Tematica]    Script Date: 04/16/2012 19:10:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tematica]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Tematica](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-) ON [PRIMARY]
-END
-GO
-
 
 --UsuTematica
 USE [IndignadoFDb]
