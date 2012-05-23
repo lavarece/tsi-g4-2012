@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IndignaFwk.Common.Enumeration;
+using System.ServiceModel;
+using System.Runtime.Serialization;
 
 namespace IndignaFwk.Common.Entities
 {
+    [DataContract]
+    [Serializable]
     public class Contenido
     {
+        [DataMember]
         public int Id { get; set; }
 
-        public EstadoContenidoEnum EstadoContenido { get; set; }
-
-        public TipoContenidoEnum TipoContenido { get; set; }
-
+        [DataMember]
         public string Url { get; set; }
+
+        [DataMember]
+        public string EstadoContenido { get; set; }
+
+        [DataMember]
+        public string TipoContenido { get; set; }
     }
 
 }

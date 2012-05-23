@@ -9,60 +9,66 @@ namespace IndignaFwk.UI.Process
 {
     public class GrupoUserProcess
     {
-        public int CrearGrupo(Grupo grupo)
+        public int CrearNuevoGrupo(Grupo grupo)
         {
-            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+            GrupoServiceClient proxy = new GrupoServiceClient();
 
-            int idGrupo = grupoProxy.CrearGrupo(grupo);
+            int idGrupo = proxy.CrearNuevoGrupo(grupo);
 
-            grupoProxy.Close();
+            proxy.Close();
 
             return idGrupo;
         }
-        
+
         public List<Grupo> ObtenerListadoGrupos()
         {
-            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+            GrupoServiceClient proxy = new GrupoServiceClient();
 
-            List<Grupo> arrayGrupos = grupoProxy.ObtenerListadoGrupos();
+            List<Grupo> listaGrupos = proxy.ObtenerListadoGrupos();
 
-            grupoProxy.Close();
-
-            // Transformo a una List<Grupo>
-            
-            List<Grupo> listaGrupos = new List<Grupo>();
-
-            if (arrayGrupos != null)
-            {
-                foreach (Grupo itemGrupo in arrayGrupos)
-                {
-                    listaGrupos.Add(itemGrupo);
-                }
-            }
+            proxy.Close();
 
             return listaGrupos;
         }
 
-        public Grupo ObtenerGrupoPorUrl(string url)
+        public Grupo ObtenerGrupoPorId(int idGrupo)
         {
-            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+            GrupoServiceClient proxy = new GrupoServiceClient();
 
-            Grupo grupo = grupoProxy.ObtenerGrupoPorUrl(url);
+            Grupo grupo = proxy.ObtenerGrupoPorId(idGrupo);
 
-            grupoProxy.Close();
+            proxy.Close();
 
             return grupo;
         }
 
-        public Grupo ObtenerGrupoPorId(int id)
+        public Grupo ObtenerGrupoPorUrl(string url)
         {
-            GrupoServiceClient grupoProxy = new GrupoServiceClient();
+            GrupoServiceClient proxy = new GrupoServiceClient();
 
-            Grupo grupo = grupoProxy.ObtenerGrupoPorId(id);
+            Grupo grupo = proxy.ObtenerGrupoPorUrl(url);
 
-            grupoProxy.Close();
+            proxy.Close();
 
-            return grupo; ;
+            return grupo;
+        }
+
+        public void EditarGrupo(Grupo grupo)
+        {
+            GrupoServiceClient proxy = new GrupoServiceClient();
+
+            proxy.EditarGrupo(grupo);
+
+            proxy.Close();
+        }
+
+        public void EliminarGrupo(int idGrupo)
+        {
+            GrupoServiceClient proxy = new GrupoServiceClient();
+
+            proxy.EliminarGrupo(idGrupo);
+
+            proxy.Close();
         }
     }
 }

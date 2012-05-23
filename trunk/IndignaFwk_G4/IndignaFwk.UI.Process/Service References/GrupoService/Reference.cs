@@ -15,17 +15,23 @@ namespace IndignaFwk.UI.Process.GrupoService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GrupoService.IGrupoService")]
     public interface IGrupoService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/CrearGrupo", ReplyAction="http://tempuri.org/IGrupoService/CrearGrupoResponse")]
-        int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/CrearNuevoGrupo", ReplyAction="http://tempuri.org/IGrupoService/CrearNuevoGrupoResponse")]
+        int CrearNuevoGrupo(IndignaFwk.Common.Entities.Grupo grupo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerListadoGrupos", ReplyAction="http://tempuri.org/IGrupoService/ObtenerListadoGruposResponse")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.Grupo> ObtenerListadoGrupos();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorId", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorIdResponse")]
+        IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorId(int idGrupo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse")]
         IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorId", ReplyAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorIdResponse")]
-        IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorId(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/EditarGrupo", ReplyAction="http://tempuri.org/IGrupoService/EditarGrupoResponse")]
+        void EditarGrupo(IndignaFwk.Common.Entities.Grupo grupo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGrupoService/EliminarGrupo", ReplyAction="http://tempuri.org/IGrupoService/EliminarGrupoResponse")]
+        void EliminarGrupo(int idGrupo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,20 +61,28 @@ namespace IndignaFwk.UI.Process.GrupoService {
                 base(binding, remoteAddress) {
         }
         
-        public int CrearGrupo(IndignaFwk.Common.Entities.Grupo grupo) {
-            return base.Channel.CrearGrupo(grupo);
+        public int CrearNuevoGrupo(IndignaFwk.Common.Entities.Grupo grupo) {
+            return base.Channel.CrearNuevoGrupo(grupo);
         }
         
         public System.Collections.Generic.List<IndignaFwk.Common.Entities.Grupo> ObtenerListadoGrupos() {
             return base.Channel.ObtenerListadoGrupos();
         }
         
+        public IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorId(int idGrupo) {
+            return base.Channel.ObtenerGrupoPorId(idGrupo);
+        }
+        
         public IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorUrl(string url) {
             return base.Channel.ObtenerGrupoPorUrl(url);
         }
         
-        public IndignaFwk.Common.Entities.Grupo ObtenerGrupoPorId(int id) {
-            return base.Channel.ObtenerGrupoPorId(id);
+        public void EditarGrupo(IndignaFwk.Common.Entities.Grupo grupo) {
+            base.Channel.EditarGrupo(grupo);
+        }
+        
+        public void EliminarGrupo(int idGrupo) {
+            base.Channel.EliminarGrupo(idGrupo);
         }
     }
 }

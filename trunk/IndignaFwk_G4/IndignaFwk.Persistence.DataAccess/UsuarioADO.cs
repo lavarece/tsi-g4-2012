@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using System.Data;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -14,15 +16,19 @@ namespace IndignaFwk.Persistence.DataAccess
         public int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, IdSitio, Nombre, Password, Pregunta, Region, Respuesta) values(@Conectado, @Descripcion, @Email, @IdSitio, @Nombre, @Password, @Pregunta, @Region, @Respuesta)";
+            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Password, Pregunta, Region, Respuesta) " +
+                                  "values(@Conectado, @Descripcion, @Email, @IdSitio, @Nombre, @Password, @Pregunta, @Region, @Respuesta); " +
+                                  " select @idGen = SCOPE_IDENTITY() FROM Usuario; ";
 
-            command.Parameters.AddWithValue("Conectado", usuario.Conectado);
+            command.Parameters.AddWithValue("Conectado", (usuario.Conectado == true ? "1" : "0"));
             command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
             command.Parameters.AddWithValue("Email", usuario.Email);
-            command.Parameters.AddWithValue("IdSitio", usuario.IdSitio);
+            command.Parameters.AddWithValue("IdSitio", usuario.Grupo.Id);
             command.Parameters.AddWithValue("Nombre", usuario.Nombre);
             command.Parameters.AddWithValue("Password", usuario.Password);
             command.Parameters.AddWithValue("Region", usuario.Region);
@@ -31,23 +37,40 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.ExecuteNonQuery();
 
-            return 0;
+            // indico que la query tiene un parámetro de salida thisId de tipo int
+            command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            command.ExecuteScalar();
+
+            // este es el identificador generado
+            return (int)command.Parameters["@idGen"].Value;
         }
 
         public void Editar(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
-
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "UPDATE Usuario SET Conectado = @conectado, Descripcion = @descripcion, Email = @email, IdSitio = @sitio, Nombre=@nombre, Password = @password, Region = @region, Respuesta = @respuesta, Pregunta = @Pregunta WHERE Id = @id";
+            command.CommandText = "UPDATE Usuario SET " + 
+                                  "Conectado = @conectado, " + 
+                                  "Descripcion = @descripcion, " + 
+                                  "Email = @email, " + 
+                                  "FK_Id_Sitio = @sitio, " + 
+                                  "Nombre=@nombre, " + 
+                                  "Password = @password, " + 
+                                  "Region = @region, " + 
+                                  "Respuesta = @respuesta, " + 
+                                  "Pregunta = @Pregunta " + 
+                                  "WHERE Id = @id";
 
             command.Parameters.AddWithValue("Id", usuario.Id);
-            command.Parameters.AddWithValue("Conectado", usuario.Conectado);
+            command.Parameters.AddWithValue("Conectado", (usuario.Conectado == true ? "1" : "0"));
             command.Parameters.AddWithValue("Descripcion", usuario.Descripcion);
             command.Parameters.AddWithValue("Email", usuario.Email);
-            command.Parameters.AddWithValue("IdSitio", usuario.IdSitio);
+            command.Parameters.AddWithValue("IdSitio", usuario.Grupo.Id);
             command.Parameters.AddWithValue("Nombre", usuario.Nombre);
             command.Parameters.AddWithValue("Password", usuario.Password);
             command.Parameters.AddWithValue("Region", usuario.Region);
@@ -60,7 +83,9 @@ namespace IndignaFwk.Persistence.DataAccess
         public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
             command.CommandText = "DELETE FROM Usuario WHERE Id = @id";
@@ -72,50 +97,47 @@ namespace IndignaFwk.Persistence.DataAccess
 
         public Usuario Obtener(int id, SqlConnection conexion)
         {
-
             SqlDataReader reader = null;
-
-            Usuario usuario = new Usuario();
 
             try
             {
                 command = conexion.CreateCommand();
+
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Sitio WHERE Id = @id";
+                command.CommandText = "SELECT * FROM Usuario WHERE Id = @id";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@id";
-
-                param.Value = id;
-
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("id", id);
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if (reader.Read())
                 {
-                    usuario.Id = ((int)reader["Id"]);
-                    usuario.Nombre = ((string)reader["Nombre"]);
-                    usuario.Conectado = ((bool)reader["Conectado"]);
-                    usuario.Descripcion = ((string)reader["Descripcion"]);
-                    usuario.Email = ((string)reader["Email"]);
-                    usuario.IdSitio = ((int)reader["IdSitio"]);
-                    usuario.Password = ((string)reader["Password"]);
-                    usuario.PreguntaSeguridad = ((string)reader["PreguntaSeguridad"]);
-                    usuario.RespuestaSeguridad = ((string)reader["RespuestaSeguridad"]);
-                    usuario.Region = ((string)reader["Region"]);
+                    Usuario usuario = new Usuario();
 
-                    if (((int)reader["Id"]) == id)
-                    {
-                        encontrado = true;
-                    }
+                    usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
+
+                    usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    usuario.Email = UtilesBD.GetStringFromReader("Email", reader);
+
+                    usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
+
+                    usuario.PreguntaSeguridad = UtilesBD.GetStringFromReader("PreguntaSeguridad", reader);
+
+                    usuario.RespuestaSeguridad = UtilesBD.GetStringFromReader("RespuestaSeguridad", reader);
+
+                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+
+                    // Las referecias cargaras con los otros dao
+                    return usuario;
                 }
 
-                return usuario;
+                return null;
             }
             finally
             {
@@ -126,16 +148,16 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        public List<Usuario> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
+        public List<Usuario> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<Usuario> _usuario = new List<Usuario>();
+            List<Usuario> listaUsuarios = new List<Usuario>();
 
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Usuario";
@@ -144,23 +166,31 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 while (reader.Read())
                 {
-                    Usuario varUsuario = new Usuario();
+                    Usuario usuario = new Usuario();
 
-                    varUsuario.Id = ((int)reader["Id"]);
-                    varUsuario.Nombre = ((string)reader["Nombre"]);
-                    varUsuario.Conectado = ((bool)reader["Conectado"]);
-                    varUsuario.Descripcion = ((string)reader["Descripcion"]);
-                    varUsuario.Email = ((string)reader["Email"]);
-                    varUsuario.IdSitio = ((int)reader["IdSitio"]);
-                    varUsuario.Password = ((string)reader["Password"]);
-                    varUsuario.PreguntaSeguridad = ((string)reader["PreguntaSeguridad"]);
-                    varUsuario.RespuestaSeguridad = ((string)reader["RespuestaSeguridad"]);
-                    varUsuario.Region = ((string)reader["Region"]);
+                    usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    _usuario.Add(varUsuario);
+                    usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
+
+                    usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    usuario.Email = UtilesBD.GetStringFromReader("Email", reader);
+
+                    usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
+
+                    usuario.PreguntaSeguridad = UtilesBD.GetStringFromReader("PreguntaSeguridad", reader);
+
+                    usuario.RespuestaSeguridad = UtilesBD.GetStringFromReader("RespuestaSeguridad", reader);
+
+                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+
+                    // Las referecias cargaras con los otros dao
+                    listaUsuarios.Add(usuario);
                 }
 
-                return _usuario;
+                return listaUsuarios;
             }
             finally
             {

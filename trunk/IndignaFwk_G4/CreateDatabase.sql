@@ -2,7 +2,7 @@
 GO
 
 /****** Object:  Database [IndignadoFDb]    Script Date: 04/16/2012 19:12:11 ******/
-IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'IndignadoFDb2')
+IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'IndignadoFDb')
 DROP DATABASE [IndignadoFDb]
 GO
 
@@ -109,70 +109,6 @@ GO
 ALTER DATABASE [IndignadoFDb] SET DB_CHAINING OFF 
 GO
 
---TipoContenido
-USE [IndignadoFDb]
-GO
-/****** Object:  Table [dbo].[TipoContenido]    Script Date: 04/16/2012 19:10:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoContenido]') AND type in (N'U'))
-DROP TABLE [dbo].[TipoContenido]
-GO
-/****** Object:  Table [dbo].[TipoContenido]    Script Date: 04/16/2012 19:10:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoContenido]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[TipoContenido](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS 
-) ON [PRIMARY]
-END
-GO
-
---EstadoContenido
-USE [IndignadoFDb]
-GO
-/****** Object:  Table [dbo].[EstadoContenido]    Script Date: 04/16/2012 19:10:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[EstadoContenido]') AND type in (N'U'))
-DROP TABLE [dbo].[EstadoContenido]
-GO
-/****** Object:  Table [dbo].[EstadoContenido]    Script Date: 04/16/2012 19:10:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[EstadoContenido]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[EstadoContenido](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS 
-) ON [PRIMARY]
-END
-GO
-
---TipoMarcaContenido
-USE [IndignadoFDb]
-GO
-/****** Object:  Table [dbo].[TipoMarcaContenido]    Script Date: 04/16/2012 19:10:17 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoMarcaContenido]') AND type in (N'U'))
-DROP TABLE [dbo].[TipoMarcaContenido]
-GO
-/****** Object:  Table [dbo].[TipoMarcaContenido]    Script Date: 04/16/2012 19:10:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TipoMarcaContenido]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[TipoMarcaContenido](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Descripción] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
-) ON [PRIMARY]
-END
-GO
-
-
 --Imagen
 USE [IndignadoFDb]
 GO
@@ -218,12 +154,9 @@ CREATE TABLE [dbo].[Sitio](
 	[FK_Id_Imagen] [int] ,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
  CONSTRAINT FK_Sitio_FK_Imagen FOREIGN KEY (FK_Id_Imagen) REFERENCES Imagen(Id) 
-
 ) ON [PRIMARY]
 END
 GO
-
-
 
 --Contenido
 USE [IndignadoFDb]
@@ -241,17 +174,14 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Co
 BEGIN
 CREATE TABLE [dbo].[Contenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[FK_Id_EstadoContenido] [int],
-	[FK_Id_TipoContenido] [int],
+	[EstadoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[TipoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Sitio] [int],
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-CONSTRAINT FK_Contenido_FK_Id_EstadoContenido FOREIGN KEY (FK_Id_EstadoContenido) REFERENCES EstadoContenido(Id),
-CONSTRAINT FK_Contenido_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id),
-CONSTRAINT FK_Contenido_FK_Id_TipoContenido FOREIGN KEY (FK_Id_TipoContenido) REFERENCES TipoContenido(Id)
+CONSTRAINT FK_Contenido_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
 GO
-
 
 --Convocatoria
 USE [IndignadoFDb]
@@ -268,28 +198,21 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Convocatoria]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Convocatoria](
-	[Id] [int] IDENTITY(4,1) NOT NULL,
+	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Quorum] [int],
-	[Categoria] [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Coordenada] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
- CONSTRAINT [PK_Convocatoria] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FK_Id_UsuarioCreacion] [int],
+	[FK_Id_Sitio] [int],
+	[FK_Id_Tematica] [int],
+ CONSTRAINT FK_Convocatoria_FK_UsuarioCreacion FOREIGN KEY (FK_Id_UsuarioCreacion) REFERENCES Usuario(Id),
+ CONSTRAINT FK_Convocatoria_FK_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id),
+ CONSTRAINT FK_Convocatoria_FK_Tematica FOREIGN KEY (FK_Id_Tematica) REFERENCES Tematica(Id)
 ) ON [PRIMARY]
 END
 GO
-SET IDENTITY_INSERT [dbo].[Convocatoria] ON
-INSERT [dbo].[Convocatoria] ([Id], [Titulo], [LogoURL], [Descripcion], [Quorum], [Categoria], [Coordenada]) VALUES (5, N'Agua', N'http://api.ning.com/files/I1-Je2KZq7cH7I5FJj7ypOJ1BsKV4n4oVTO2dN9whwPJra9QW4o-z8J5wSMvmGAxaZsFimDo2EWtm4SbI2gG0esG1CtDgh8j/greenpeace2.jpg?crop=1%3A1&width=64', N'¿Hay algo más relajante que escuchar el agua correr? Pero... ¿qué llevan nuestros ríos al mar?, ¿cómo están nuestros mares y océanos?, y ¿nuestros acuíferos, importantes reservas de agua para nosotros y para las futuras generaciones?, y... ¿el agua que bebemos?', 200, N'Medio Ambiente', N'http://maps.google.com/?ll=36.588168,-88.841924&spn=0.00258,0.004823&t=h&z=18')
-INSERT [dbo].[Convocatoria] ([Id], [Titulo], [LogoURL], [Descripcion], [Quorum], [Categoria], [Coordenada]) VALUES (10, N'Atún', N'http://www.guiasnintendo.com/2a_WII/monster_hunter/monster_hunter_sp/imagenes/ilustraciones/enemigos/pez_atun.jpg', N'El atún es el pescado favorito en el mundo. Proporciona una parte importante de la dieta de millones de personas. También es la esencia del exclusivo mercado del sushi y el sashimi. Las 5 principales especies de atún que se consumen son: atún rabil, listado, patudo, rojo y bonito del norte.', 500, N'Medio ambiente', N'http://maps.google.com/?ll=36.588168,-88.841924&spn=0.00258,0.004823&t=h&z=18')
-SET IDENTITY_INSERT [dbo].[Convocatoria] OFF
-
-
-
-
 
 --Usuario
 USE [IndignadoFDb]
@@ -307,7 +230,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Us
 BEGIN
 CREATE TABLE [dbo].[Usuario](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
-	[Conectado] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Conectado] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Sitio] [int],
@@ -317,15 +240,9 @@ CREATE TABLE [dbo].[Usuario](
 	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
---CONSTRAINT FK_USUARIO_idTipoUsuario FOREIGN KEY (idTipoUsuario) REFERENCES TIPO_USUARIO(idTipoUsuario)
-  /* (
-	   [Id] ASC
-    )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-*/
 ) ON [PRIMARY]
 END
 GO
-
 
 --Asistencia Convocatoria
 USE [IndignadoFDb]
@@ -351,8 +268,6 @@ CONSTRAINT FK_AsistenciaConvocatoria_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) R
 END
 GO
 
-
-
 --Notificacion
 USE [IndignadoFDb]
 GO
@@ -370,7 +285,7 @@ BEGIN
 CREATE TABLE [dbo].[Notificacion](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Contenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Visto] [nvarchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Visto] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Convocatoria] [int],
 	[FK_Id_Usuario] [int],
 CONSTRAINT FK_Notificacion_FK_Id_Convocatoria FOREIGN KEY (FK_Id_Convocatoria) REFERENCES Convocatoria(Id),
@@ -378,7 +293,6 @@ CONSTRAINT FK_Notificacion_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES 
 ) ON [PRIMARY]
 END
 GO
-
 
 --Marca contenido
 USE [IndignadoFDb]
@@ -397,15 +311,13 @@ BEGIN
 CREATE TABLE [dbo].[MarcaContenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[FK_Id_Contenido] [int],
-	[FK_Id_TipoMarca] [int],
+	[TipoMarca] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Usuario] [int],
 CONSTRAINT FK_MarcaContenido_FK_Id_Contenido FOREIGN KEY (FK_Id_Contenido) REFERENCES Contenido(Id),
 CONSTRAINT FK_MarcaContenido_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id),
-CONSTRAINT FK_MarcaContenido_FK_Id_TipoMarca FOREIGN KEY (FK_Id_TipoMarca) REFERENCES TipoMarcaContenido(Id)
 ) ON [PRIMARY]
 END
 GO
-
 
 --Tematica
 USE [IndignadoFDb]
@@ -454,7 +366,6 @@ END
 GO
 
 
-
 --VariableSistema
 USE [IndignadoFDb]
 GO
@@ -472,7 +383,7 @@ BEGIN
 CREATE TABLE [dbo].[VariableSistema](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Valor] [int]
+	[Valor] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
 END
 GO

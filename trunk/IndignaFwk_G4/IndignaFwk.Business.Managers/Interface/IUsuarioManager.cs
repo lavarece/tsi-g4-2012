@@ -10,9 +10,12 @@ namespace IndignaFwk.Business.Managers
     {
         int CrearNuevoUsuario(Usuario usuario);
 
-        List<Usuario> ObtenerTodosLosUsuarios();
+        List<Usuario> ObtenerListadoUsuarios();
 
         Usuario ObtenerUsuarioPorId(int idUsuario);
 
+        void EditarUsuario(Usuario usuario);
+
+        void EliminarUsuario(int idUsuario);
     }
 }

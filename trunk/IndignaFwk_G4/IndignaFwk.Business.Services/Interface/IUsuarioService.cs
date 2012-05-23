@@ -9,12 +9,22 @@ using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Services
 {
-    [ServiceContract(
-    Namespace = "http://localhost//IndignaFwk//admin//2012",
-    SessionMode = SessionMode.Allowed)]
+    [ServiceContract]
     public interface IUsuarioService
     {
         [OperationContract]
-        Int32 CrearUsuario(Usuario usuario);
+        int CrearNuevoUsuario(Usuario usuario);
+
+        [OperationContract]
+        List<Usuario> ObtenerListadoUsuarios();
+
+        [OperationContract]
+        Usuario ObtenerUsuarioPorId(int idUsuario);
+
+        [OperationContract]
+        void EditarUsuario(Usuario usuario);
+
+        [OperationContract]
+        void EliminarUsuario(int idUsuario);
     }
 }

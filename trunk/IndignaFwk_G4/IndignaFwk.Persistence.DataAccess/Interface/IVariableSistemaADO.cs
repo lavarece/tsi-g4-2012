@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IVariableSistemaADO
     {
-        Int32 Crear(VariableSistema variableSistema);
+        int Crear(VariableSistema variableSistema, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(VariableSistema variableSistema);
+        void Editar(VariableSistema variableSistema, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(long id);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        VariableSistema Obtener(long id);
+        VariableSistema Obtener(int id, SqlConnection conexion);
 
-        List<VariableSistema> ObtenerListado();
+        List<VariableSistema> ObtenerListado(SqlConnection conexion);
     }
 }

@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface INotificacionADO
     {
-        Int32 Crear(Notificacion notificacion);
+        int Crear(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(Notificacion notificacion);
+        void Editar(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(long id);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Notificacion Obtener(long id);
+        Notificacion Obtener(int id, SqlConnection conexion);
 
-        List<Notificacion> ObtenerListado();
+        List<Notificacion> ObtenerListado(SqlConnection conexion);
     }
 }

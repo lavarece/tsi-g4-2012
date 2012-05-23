@@ -12,9 +12,31 @@ namespace IndignaFwk.Business.Services
 {
     public class UsuarioService : IUsuarioService
     {
-        public Int32 CrearUsuario(Usuario usuario)
+        private IUsuarioManager usuarioManager = ManagerFactory.Instance.UsuarioManager;
+
+        public int CrearNuevoUsuario(Usuario usuario)
         {
-            return 0;
+            return usuarioManager.CrearNuevoUsuario(usuario);
+        }
+
+        public List<Usuario> ObtenerListadoUsuarios()
+        {
+            return usuarioManager.ObtenerListadoUsuarios();
+        }
+
+        public Usuario ObtenerUsuarioPorId(int idUsuario)
+        {
+            return usuarioManager.ObtenerUsuarioPorId(idUsuario);
+        }
+
+        public void EditarUsuario(Usuario usuario)
+        {
+            usuarioManager.EditarUsuario(usuario);
+        }
+
+        public void EliminarUsuario(int idUsuario)
+        {
+            usuarioManager.EliminarUsuario(idUsuario);
         }
     }
 }

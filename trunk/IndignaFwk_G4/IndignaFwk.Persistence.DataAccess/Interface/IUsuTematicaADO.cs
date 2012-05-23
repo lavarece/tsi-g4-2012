@@ -17,6 +17,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         UsuTematica Obtener(int id, SqlConnection conexion);
 
-        List<UsuTematica> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
+        List<UsuTematica> ObtenerListado(SqlConnection conexion);
     }
 }

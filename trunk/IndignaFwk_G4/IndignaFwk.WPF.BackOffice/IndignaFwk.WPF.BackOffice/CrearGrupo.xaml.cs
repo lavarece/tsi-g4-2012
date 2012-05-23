@@ -49,7 +49,7 @@ namespace IndignaFwk_WPF_BackOffice
 
                 grupo.Url = txt_url.Text;
 
-                grupoUserProcess.CrearGrupo(grupo);
+                grupoUserProcess.CrearNuevoGrupo(grupo);
             }
         }
 

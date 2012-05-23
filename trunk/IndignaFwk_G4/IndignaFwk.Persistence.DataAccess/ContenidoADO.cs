@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using System.Data;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -14,42 +16,54 @@ namespace IndignaFwk.Persistence.DataAccess
         public int Crear(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
-            
-            command.CommandText = ("INSERT INTO Contenido(Url) values(@url)");
+
+            command.CommandText = "INSERT INTO Contenido(Url, EstadoContenido, TipoContenido) " +
+                                  "values(@url, @estadoContenido, @tipoContenido);" +
+                                  "select @idGen = SCOPE_IDENTITY() FROM Contenido;";
             
             command.Parameters.AddWithValue("url", contenido.Url);
-            
-            command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("estadoContenido", contenido.EstadoContenido);
+            command.Parameters.AddWithValue("tipoContenido", contenido.TipoContenido);
 
-            return 0;
+            command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            command.ExecuteScalar();
+
+            return (int)command.Parameters["@idGen"].Value;            
         }
-
-        /*************************************************************************************/
-        /*************************************************************************************/
 
         public void Editar(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
             
-            command.CommandText = ("UPDATE Contenido SET Url = @url WHERE Id = @id");
+            command.CommandText = ("UPDATE Contenido " + 
+                                   "SET Url = @url, " + 
+                                   "EstadoContenido = @estadoContenido, " + 
+                                   "TipoContenido = @tipoContenido " + 
+                                   "WHERE Id = @id");
 
             command.Parameters.AddWithValue("Id", contenido.Id);
             command.Parameters.AddWithValue("url", contenido.Url);
+            command.Parameters.AddWithValue("estadoContenido", contenido.EstadoContenido);
+            command.Parameters.AddWithValue("tipoContenido", contenido.TipoContenido);
 
             command.ExecuteNonQuery();
         }
 
-        /*************************************************************************************/
-        /*************************************************************************************/
-
         public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
             
             command.CommandText = "DELETE FROM Contenido WHERE Id = @id";
@@ -59,47 +73,38 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteNonQuery();            
         }
 
-        /*************************************************************************************/
-        /*************************************************************************************/
-
-        public Contenido Obtener(int id, SqlConnection conexion, SqlTransaction transaccion)
+        public Contenido Obtener(int id, SqlConnection conexion)
         {
             SqlDataReader reader = null;
-
-            Contenido contenido = new Contenido();
 
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
                 
                 command.CommandText = "SELECT * FROM Contenido WHERE Id = @id";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@id";
-
-                param.Value = id;
-
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("id", id);
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if(reader.Read())
                 {
-                    contenido.Id = ((int)reader["Id"]);
-                    contenido.Url = ((string)reader["Url"]);
+                    Contenido contenido = new Contenido();
 
-                    if (((int)reader["Id"]) == id)
-                    {
-                        encontrado = true;
-                    }
+                    contenido.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    contenido.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    contenido.EstadoContenido = UtilesBD.GetStringFromReader("EstadoContenido", reader);
+
+                    contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
+
+                    return contenido;
                 }
 
-                return contenido;
+                return null;
             }
             finally
             {
@@ -110,19 +115,16 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        /*************************************************************************************/
-        /*************************************************************************************/
-
-        public List<Contenido> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
+        public List<Contenido> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<Contenido> contenidoList = new List<Contenido>();
+            List<Contenido> listaContenido = new List<Contenido>();
 
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Contenido";
@@ -133,13 +135,18 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     Contenido contenido = new Contenido();
 
-                    contenido.Id = ((int)reader["Id"]);
-                    contenido.Url = ((string)reader["Url"]);
+                    contenido.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    contenidoList.Add(contenido);
+                    contenido.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    contenido.EstadoContenido = UtilesBD.GetStringFromReader("EstadoContenido", reader);
+
+                    contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
+
+                    listaContenido.Add(contenido);
                 }
 
-                return contenidoList;
+                return listaContenido;
             }
             finally
             {

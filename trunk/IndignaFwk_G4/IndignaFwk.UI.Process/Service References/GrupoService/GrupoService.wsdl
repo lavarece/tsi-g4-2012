@@ -5,14 +5,13 @@
       <xsd:import schemaLocation="http://localhost:1281/GrupoService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1281/GrupoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:1281/GrupoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
-      <xsd:import schemaLocation="http://localhost:1281/GrupoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Enumeration" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IGrupoService_CrearGrupo_InputMessage">
-    <wsdl:part name="parameters" element="tns:CrearGrupo" />
+  <wsdl:message name="IGrupoService_CrearNuevoGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoGrupo" />
   </wsdl:message>
-  <wsdl:message name="IGrupoService_CrearGrupo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CrearGrupoResponse" />
+  <wsdl:message name="IGrupoService_CrearNuevoGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoGrupoResponse" />
   </wsdl:message>
   <wsdl:message name="IGrupoService_ObtenerListadoGrupos_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerListadoGrupos" />
@@ -20,40 +19,60 @@
   <wsdl:message name="IGrupoService_ObtenerListadoGrupos_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerListadoGruposResponse" />
   </wsdl:message>
-  <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrl" />
-  </wsdl:message>
-  <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrlResponse" />
-  </wsdl:message>
   <wsdl:message name="IGrupoService_ObtenerGrupoPorId_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerGrupoPorId" />
   </wsdl:message>
   <wsdl:message name="IGrupoService_ObtenerGrupoPorId_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerGrupoPorIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrl" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_ObtenerGrupoPorUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerGrupoPorUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_EditarGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_EditarGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_EliminarGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IGrupoService_EliminarGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarGrupoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGrupoService">
-    <wsdl:operation name="CrearGrupo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/CrearGrupo" message="tns:IGrupoService_CrearGrupo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/CrearGrupoResponse" message="tns:IGrupoService_CrearGrupo_OutputMessage" />
+    <wsdl:operation name="CrearNuevoGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/CrearNuevoGrupo" message="tns:IGrupoService_CrearNuevoGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/CrearNuevoGrupoResponse" message="tns:IGrupoService_CrearNuevoGrupo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerListadoGrupos">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/ObtenerListadoGrupos" message="tns:IGrupoService_ObtenerListadoGrupos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/ObtenerListadoGruposResponse" message="tns:IGrupoService_ObtenerListadoGrupos_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerGrupoPorUrl">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl" message="tns:IGrupoService_ObtenerGrupoPorUrl_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse" message="tns:IGrupoService_ObtenerGrupoPorUrl_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ObtenerGrupoPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorId" message="tns:IGrupoService_ObtenerGrupoPorId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorIdResponse" message="tns:IGrupoService_ObtenerGrupoPorId_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerGrupoPorUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl" message="tns:IGrupoService_ObtenerGrupoPorUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrlResponse" message="tns:IGrupoService_ObtenerGrupoPorUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/EditarGrupo" message="tns:IGrupoService_EditarGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/EditarGrupoResponse" message="tns:IGrupoService_EditarGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGrupoService/EliminarGrupo" message="tns:IGrupoService_EliminarGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGrupoService/EliminarGrupoResponse" message="tns:IGrupoService_EliminarGrupo_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGrupoService" type="tns:IGrupoService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="CrearGrupo">
-      <soap:operation soapAction="http://tempuri.org/IGrupoService/CrearGrupo" style="document" />
+    <wsdl:operation name="CrearNuevoGrupo">
+      <soap:operation soapAction="http://tempuri.org/IGrupoService/CrearNuevoGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -70,6 +89,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerGrupoPorId">
+      <soap:operation soapAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerGrupoPorUrl">
       <soap:operation soapAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorUrl" style="document" />
       <wsdl:input>
@@ -79,8 +107,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerGrupoPorId">
-      <soap:operation soapAction="http://tempuri.org/IGrupoService/ObtenerGrupoPorId" style="document" />
+    <wsdl:operation name="EditarGrupo">
+      <soap:operation soapAction="http://tempuri.org/IGrupoService/EditarGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarGrupo">
+      <soap:operation soapAction="http://tempuri.org/IGrupoService/EliminarGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

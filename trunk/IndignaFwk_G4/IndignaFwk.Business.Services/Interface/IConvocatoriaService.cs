@@ -8,12 +8,22 @@ using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Business.Services
 {
-    [ServiceContract(
-    Namespace = "http://localhost//IndignaFwk//2012",
-    SessionMode = SessionMode.Allowed)] 
+    [ServiceContract]
     public interface IConvocatoriaService
     {
         [OperationContract]
-        Int32 CrearConvocatoria(Convocatoria convocatoria);
+        int CrearNuevaConvocatoria(Convocatoria convocatoria);
+
+        [OperationContract]
+        List<Convocatoria> ObtenerListadoConvocatorias();
+
+        [OperationContract]
+        Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria);
+
+        [OperationContract]
+        void EditarConvocatoria(Convocatoria convocatoria);
+
+        [OperationContract]
+        void EliminarConvocatoria(int idConvocatoria);
     }
 }
