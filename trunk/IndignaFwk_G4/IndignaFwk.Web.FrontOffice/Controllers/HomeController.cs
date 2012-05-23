@@ -24,7 +24,7 @@ namespace IndignadoFramework.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            Grupo grupo = grupoUserProcess.ObtenerGrupoPorId(site.Id);
+            Grupo grupo = grupoUserProcess.ObtenerGrupoPorId(site.Grupo.Id);
 
             ViewBag.Grupo = grupo;
 
