@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using IndignaFwk.Common.Enumeration;
+using System.ServiceModel;
+using System.Runtime.Serialization;
 
 namespace IndignaFwk.Common.Entities
 {
+    [DataContract]
+    [Serializable]
     public class MarcaContenido
     {
-        public Int32 Id { get; set; }
+        [DataMember]
+        public int Id { get; set; }
 
-        private Contenido Contenido { get; set; }
+        [DataMember]
+        public string TipoMarca { get; set; }
 
-        public TipoMarcaContenidoEnum TipoMarca { get; set; }
+        [DataMember]
+        public Contenido Contenido { get; set; }
 
+        [DataMember]
         public Usuario UsuarioMarca { get; set; }
 
     }

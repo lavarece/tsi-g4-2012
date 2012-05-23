@@ -25,7 +25,23 @@ namespace IndignaFwk.UI.Process
             }
         }
 
-        // USER PROCESSES
+        // ConvocatoriaUserProcess
+        private ConvocatoriaUserProcess _convocatoriaUserProcess;
+
+        public ConvocatoriaUserProcess ConvocatoriaUserProcess
+        {
+            get
+            {
+                if (_convocatoriaUserProcess == null)
+                {
+                    _convocatoriaUserProcess = new ConvocatoriaUserProcess();
+                }
+
+                return _convocatoriaUserProcess;
+            }
+        }
+
+        // GrupoUserProcess
         private GrupoUserProcess _grupoUserProcess;
 
         public GrupoUserProcess GrupoUserProcess
@@ -38,6 +54,22 @@ namespace IndignaFwk.UI.Process
                 }
 
                 return _grupoUserProcess;
+            }
+        }
+
+        //UsuarioUserProcess
+        private UsuarioUserProcess _usuarioUserProcess;
+
+        public UsuarioUserProcess UsuarioUserProcess
+        {
+            get
+            {
+                if (_usuarioUserProcess == null)
+                {
+                    _usuarioUserProcess = new UsuarioUserProcess();
+                }
+
+                return _usuarioUserProcess;
             }
         }
     }

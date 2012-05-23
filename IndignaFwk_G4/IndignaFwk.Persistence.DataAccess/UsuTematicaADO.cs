@@ -4,52 +4,52 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using System.Data;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public class UsuTematicaADO : IUsuTematicaADO
     {
-
         private SqlCommand command;
 
         public int Crear(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO UsuTematica (Tematica, Usuario) values(@Tematica, @Usuario)";
+            command.CommandText = "INSERT INTO UsuTematica (FK_Id_Tematica, FK_Id_Usuario) "+
+                                  "values(@idTematica, @idUsuario); " +
+                                  " select @idGen = SCOPE_IDENTITY() FROM UsuTematica; ";
 
-            command.Parameters.AddWithValue("Temarica", usuTem.Tematica);
-            command.Parameters.AddWithValue("Usuario", usuTem.Usuario);
+            command.Parameters.AddWithValue("idTemarica", usuTem.Tematica.Id);
+            command.Parameters.AddWithValue("idUsuario", usuTem.Usuario.Id);
          
             command.ExecuteNonQuery();
 
-            return 0;
-        }
+            // indico que la query tiene un parámetro de salida thisId de tipo int
+            command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
 
-        //----------------------------------------------------------------------------------------------
+            command.ExecuteScalar();
+
+            // este es el identificador generado
+            return (int)command.Parameters["@idGen"].Value;
+        }
+       
         public void Editar(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion)
         {
-
-            command = conexion.CreateCommand();
-            command.Transaction = transaccion;
-            command.Connection = conexion;
-
-            command.CommandText = "UPDATE UsuTematica SET Tematica = @tematica, Usuario = @usuario WHERE Id = @id";
-
-            command.Parameters.AddWithValue("Id", usuTem.Id);
-            command.Parameters.AddWithValue("Tematica", usuTem.Tematica);
-            command.Parameters.AddWithValue("Usuario", usuTem.Usuario);
-            
-            command.ExecuteNonQuery();
+            throw new NotImplementedException();
         }
 
-        //------------------------------------------------------------------------------------------------
         public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
             command.CommandText = "DELETE FROM UsuTematica WHERE Id = @id";
@@ -59,46 +59,33 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteNonQuery();
         }
 
-        //-------------------------------------------------------------------------------------------------
         public UsuTematica Obtener(int id, SqlConnection conexion)
         {
-
             SqlDataReader reader = null;
-
-            UsuTematica usuTem = new UsuTematica();
 
             try
             {
                 command = conexion.CreateCommand();
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM UsuTematica WHERE Id = @id";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@id";
-
-                param.Value = id;
-
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("id", id);
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if (reader.Read())
                 {
-                    usuTem.Id = ((int)reader["Id"]);
-                    usuTem.Usuario = ((Usuario)reader["Usuario"]);
-                    usuTem.Tematica = ((Tematica)reader["Tematica"]);
-                    
-                    if (((int)reader["Id"]) == id)
-                    {
-                        encontrado = true;
-                    }
+                    UsuTematica usuTematica = new UsuTematica();
+
+                    usuTematica.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    // las referencias como siempre del os otors ado
+                    return usuTematica;
                 }
 
-                return usuTem;
+                return null;
             }
             finally
             {
@@ -109,17 +96,16 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        //-----------------------------------------------------------------------------------------------
-        public List<UsuTematica> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
+        public List<UsuTematica> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<UsuTematica> _usuTem = new List<UsuTematica>();
+            List<UsuTematica> listaUsuTematica = new List<UsuTematica>();
 
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM UsuTematica";
@@ -128,16 +114,15 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 while (reader.Read())
                 {
-                    UsuTematica varUsuTem = new UsuTematica();
+                    UsuTematica usuTematica = new UsuTematica();
 
-                    varUsuTem.Id = ((int)reader["Id"]);
-                    varUsuTem.Usuario = ((Usuario)reader["Usuario"]);
-                    varUsuTem.Tematica = ((Tematica)reader["Tematica"]);
+                    usuTematica.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    _usuTem.Add(varUsuTem);
+                    // las referencias como siempre del os otors ado
+                    listaUsuTematica.Add(usuTematica);
                 }
 
-                return _usuTem;
+                return listaUsuTematica;
             }
             finally
             {

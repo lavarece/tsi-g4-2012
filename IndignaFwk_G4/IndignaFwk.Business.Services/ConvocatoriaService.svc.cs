@@ -11,9 +11,31 @@ namespace IndignaFwk.Business.Services
 {
     public class ConvocatoriaService : IConvocatoriaService
     {
-        public Int32 CrearConvocatoria(Convocatoria convocatoria)
+        private IConvocatoriaManager convocatoriaManager = ManagerFactory.Instance.ConvocatoriaManager;
+
+        public int CrearNuevaConvocatoria(Convocatoria convocatoria)
         {
-            return 0;
+            return convocatoriaManager.CrearNuevaConvocatoria(convocatoria);
+        }
+
+        public List<Convocatoria> ObtenerListadoConvocatorias()
+        {
+            return convocatoriaManager.ObtenerListadoConvocatorias();
+        }
+
+        public Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria)
+        {
+            return convocatoriaManager.ObtenerConvocatoriaPorId(idConvocatoria);
+        }
+
+        public void EditarConvocatoria(Convocatoria convocatoria)
+        {
+            convocatoriaManager.EditarConvocatoria(convocatoria);
+        }
+
+        public void EliminarConvocatoria(int idConvocatoria)
+        {
+            convocatoriaManager.EliminarConvocatoria(idConvocatoria);
         }
     }
 }

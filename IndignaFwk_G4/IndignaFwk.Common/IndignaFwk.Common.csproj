@@ -48,7 +48,6 @@
     <Compile Include="Entities\MarcaContenido.cs" />
     <Compile Include="Entities\Notificacion.cs" />
     <Compile Include="Entities\Tematica.cs" />
-    <Compile Include="Entities\Template.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UsuTematica.cs" />
     <Compile Include="Entities\VariableSistema.cs" />

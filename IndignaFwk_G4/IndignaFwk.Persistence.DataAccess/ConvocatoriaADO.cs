@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using System.Data;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -14,48 +16,67 @@ namespace IndignaFwk.Persistence.DataAccess
         public int Crear(Convocatoria convocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Convocatoria (Titulo, LogoUrl, Descripcion, Quorum, Categoria, Coordenada) values(@Titulo, @LogoUrl, @Descricpion, @Quorum, @Categoria, @Coordenada)";
+            command.CommandText = "INSERT INTO Convocatoria (Titulo, LogoUrl, Descripcion, Quorum, Coordenada, FK_Id_UsuarioCreacion, FK_Id_Sitio, FK_Id_Tematica) " +
+                                  "values(@Titulo, @LogoUrl, @Descripcion, @Quorum, @Coordenada, @IdUsuarioCreacion, @IdSitio, @IdTematica); " +
+                                  "select @idGen = SCOPE_IDENTITY() FROM Convocatoria ";
 
             command.Parameters.AddWithValue("Titulo", convocatoria.Titulo);
-            command.Parameters.AddWithValue("LogoUrl", convocatoria.Logo);
             command.Parameters.AddWithValue("Descripcion", convocatoria.Descripcion);
-            command.Parameters.AddWithValue("Quorum", convocatoria.Quorum);
-            command.Parameters.AddWithValue("Categoria", convocatoria.Categoria);
-            command.Parameters.AddWithValue("Coordenada", convocatoria.Coordenadas);
-            
-            command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("Quorum", convocatoria.Quorum);            
+            command.Parameters.AddWithValue("Coordenada", convocatoria.Coordenadas);            
+            command.Parameters.AddWithValue("LogoUrl", convocatoria.LogoUrl);
+            command.Parameters.AddWithValue("IdUsuarioCreacion", convocatoria.UsuarioCreacion.Id);
+            command.Parameters.AddWithValue("IdSitio", convocatoria.Grupo.Id);
+            command.Parameters.AddWithValue("IdTematica", convocatoria.Tematica.Id);
 
-            return 0;
+            // indico que la query tiene un parámetro de salida thisId de tipo int
+            command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            command.ExecuteScalar();
+
+            // este es el identificador generado
+            return (int)command.Parameters["@idGen"].Value;
         }
 
-        //-------------------------------------------------------------------------------------------------
         public void Editar(Convocatoria convocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
-
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "UPDATE Convocatoria SET Titulo = @titulo, LogoUrl = @logoUrl, Descripción = @descripcion, Quorum = @quorum, Categoria=@categoria, Coordenada = @coordenada WHERE Id = @id";
+            command.CommandText = "UPDATE Convocatoria SET " + 
+                                  "Titulo = @titulo, " + 
+                                  "LogoUrl = @logoUrl, " +
+                                  "Descripción = @descripcion, " +
+                                  "Quorum = @quorum, " +                                   
+                                  "Coordenada = @coordenada " +
+                                  "FK_Id_Tematica=@idTematica" +
+                                  "WHERE Id = @id";
 
-            command.Parameters.AddWithValue("Titulo", convocatoria.Titulo);
-            command.Parameters.AddWithValue("LogoUrl", convocatoria.Logo);
-            command.Parameters.AddWithValue("Descripcion", convocatoria.Descripcion);
-            command.Parameters.AddWithValue("Quorum", convocatoria.Quorum);
-            command.Parameters.AddWithValue("Categoria", convocatoria.Categoria);
-            command.Parameters.AddWithValue("Coordenada", convocatoria.Coordenadas);
+            command.Parameters.AddWithValue("titulo", convocatoria.Titulo);
+            command.Parameters.AddWithValue("logoUrl", convocatoria.LogoUrl);
+            command.Parameters.AddWithValue("descripcion", convocatoria.Descripcion);
+            command.Parameters.AddWithValue("quorum", convocatoria.Quorum);
+            command.Parameters.AddWithValue("coordenada", convocatoria.Coordenadas);
+            command.Parameters.AddWithValue("idTematica", convocatoria.Tematica.Id);
+            command.Parameters.AddWithValue("id", convocatoria.Id);
            
             command.ExecuteNonQuery();
         }
 
-        //-------------------------------------------------------------------------------------------------
         public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
             command.CommandText = "DELETE FROM Convocatoria WHERE Id = @id";
@@ -65,50 +86,39 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteNonQuery();
         }
 
-        //-------------------------------------------------------------------------------------------------
         public Convocatoria Obtener(int id, SqlConnection conexion)
         {
-
             SqlDataReader reader = null;
-
-            Convocatoria convocatoria = new Convocatoria();
 
             try
             {
                 command = conexion.CreateCommand();
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Convocatoria WHERE Id = @id";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@id";
-
-                param.Value = id;
-
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("id", id);
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if (reader.Read())
                 {
-                    convocatoria.Id = ((int)reader["Id"]);
-                    convocatoria.Titulo = ((string)reader["Titulo"]);
-                    convocatoria.Logo = ((string)reader["Logo"]);
-                    convocatoria.Descripcion = ((string)reader["Descripcion"]);
-                    convocatoria.Quorum = ((int)reader["Quorum"]);
-                    convocatoria.Categoria = ((Tematica)reader["Categoria"]);
-                    convocatoria.Coordenadas = ((string)reader["Coordenadas"]);
-                    
-                    if (((int)reader["Id"]) == id)
-                    {
-                        encontrado = true;
-                    }
+                    Convocatoria convocatoria = new Convocatoria();
+
+                    convocatoria.Id = UtilesBD.GetIntFromReader("Id", reader);
+                    convocatoria.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
+                    convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
+                    convocatoria.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    convocatoria.Quorum = UtilesBD.GetIntFromReader("Quorum", reader);
+                    convocatoria.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+
+                    // Si se desea la info del referencia invocar a lo obstener de los otros ADO con el ID correspondiente
+
+                    return convocatoria;
                 }
 
-                return convocatoria;
+                return null;
             }
             finally
             {
@@ -119,17 +129,16 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        //---------------------------------------------------------------------------------
-        public List<Convocatoria> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
+        public List<Convocatoria> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<Convocatoria> _convocatoria = new List<Convocatoria>();
+            List<Convocatoria> listaConvocatorias = new List<Convocatoria>();
 
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Convocatoria";
@@ -138,20 +147,19 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 while (reader.Read())
                 {
-                    Convocatoria varConvocatoria = new Convocatoria();
+                    Convocatoria convocatoria = new Convocatoria();
 
-                    varConvocatoria.Id = ((int)reader["Id"]);
-                    varConvocatoria.Titulo = ((string)reader["Titulo"]);
-                    varConvocatoria.Logo = ((string)reader["Logo"]);
-                    varConvocatoria.Descripcion = ((string)reader["Descripcion"]);
-                    varConvocatoria.Quorum = ((int)reader["Quorum"]);
-                    varConvocatoria.Categoria = ((Tematica)reader["Categoria"]);
-                    varConvocatoria.Coordenadas = ((string)reader["Coordenadas"]);
+                    convocatoria.Id = UtilesBD.GetIntFromReader("Id", reader);
+                    convocatoria.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
+                    convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
+                    convocatoria.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    convocatoria.Quorum = UtilesBD.GetIntFromReader("Quorum", reader);
+                    convocatoria.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    _convocatoria.Add(varConvocatoria);
+                    listaConvocatorias.Add(convocatoria);
                 }
 
-                return _convocatoria;
+                return listaConvocatorias;
             }
             finally
             {

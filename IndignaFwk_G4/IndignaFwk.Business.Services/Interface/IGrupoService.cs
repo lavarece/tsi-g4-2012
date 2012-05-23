@@ -10,17 +10,23 @@ namespace IndignaFwk.Business.Services
 {
     [ServiceContract]
     public interface IGrupoService
-    {
+    {    
         [OperationContract]
-        int CrearGrupo(Grupo grupo);
+        int CrearNuevoGrupo(Grupo grupo);
 
         [OperationContract]
         List<Grupo> ObtenerListadoGrupos();
 
         [OperationContract]
-        Grupo ObtenerGrupoPorUrl(string url);
-        
+        Grupo ObtenerGrupoPorId(int idGrupo);
+
         [OperationContract]
-        Grupo ObtenerGrupoPorId(int id);
+        Grupo ObtenerGrupoPorUrl(string url);
+
+        [OperationContract]
+        void EditarGrupo(Grupo grupo);
+
+        [OperationContract]
+        void EliminarGrupo(int idGrupo);
     }
 }

@@ -22,8 +22,8 @@ namespace IndignaFwk.Persistence.DataAccess
             command.Connection = conexion;
             
             command.CommandText = " insert into Sitio(Nombre, Descripcion, Url) " +
-                                  " values(@nombre, @descripcion, @url) " + 
-                                  " select @idGen = SCOPE_IDENTITY() FROM Sitio ";
+                                  " values(@nombre, @descripcion, @url); " + 
+                                  " select @idGen = SCOPE_IDENTITY() FROM Sitio; ";
             
             command.Parameters.AddWithValue("nombre", grupo.Nombre);
 
@@ -37,21 +37,23 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteScalar();
 
             // este es el identificador generado
-            int idNuevo = (int)command.Parameters["@idGen"].Value;
-
-            return idNuevo;
+            return (int)command.Parameters["@idGen"].Value;
         }
-
-        /*************************************************************************************/
-        /*************************************************************************************/
 
         public void Editar(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
             
-            command.CommandText = " UPDATE Sitio SET Nombre = @nombre, LogoUrl = @logoUrl, Descripcion = @descripcion, Url = @url WHERE Id = @id ";
+            command.CommandText = " UPDATE Sitio SET " +
+                                  " Nombre = @nombre, " + 
+                                  " LogoUrl = @logoUrl," + 
+                                  " Descripcion = @descripcion, " +
+                                  " Url = @url " + 
+                                  " WHERE Id = @id";
 
             command.Parameters.AddWithValue("id", grupo.Id);
             command.Parameters.AddWithValue("nombre", grupo.Nombre);
@@ -62,13 +64,12 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteNonQuery();
         }
 
-        /*************************************************************************************/
-        /*************************************************************************************/
-
         public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
             
             command.CommandText = "DELETE FROM Sitio WHERE Id = @id";
@@ -108,6 +109,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
+                    // Las referencias cargarlas con los ADO particulares
                     return grupo;
                 }
 
@@ -166,18 +168,16 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        /*************************************************************************************/
-        /*************************************************************************************/
-        
         public List<Grupo> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<Grupo> _grupo = new List<Grupo>();
+            List<Grupo> listaGrupos = new List<Grupo>();
 
             try
             {
                 command = conexion.CreateCommand();
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM Sitio";
@@ -188,16 +188,20 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     Grupo varGrupo = new Grupo();
 
-                    varGrupo.Id = ((int)reader["Id"]);
-                    varGrupo.Nombre = ((string)reader["Nombre"]);
-                    varGrupo.LogoUrl = ((string)reader["LogoUrl"]);
-                    varGrupo.Descripcion = ((string)reader["Descripcion"]);
-                    varGrupo.Url = ((string)reader["Url"]);
+                    varGrupo.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    _grupo.Add(varGrupo);
+                    varGrupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    varGrupo.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
+
+                    varGrupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    varGrupo.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    listaGrupos.Add(varGrupo);
                 }
 
-                return _grupo;
+                return listaGrupos;
             }
             finally
             {

@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IMarcaContenidoADO
     {
-        Int32 Crear(MarcaContenido marcaContenido);
+        int Crear(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Editar(MarcaContenido marcaContenido);
+        void Editar(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion);
 
-        void Eliminar(long id);
+        void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        MarcaContenido Obtener(long id);
+        MarcaContenido Obtener(int id, SqlConnection conexion);
 
-        List<MarcaContenido> ObtenerListado();
+        List<MarcaContenido> ObtenerListado(SqlConnection conexion);
     }
 }

@@ -10,7 +10,7 @@ namespace IndignaFwk.Business.Managers
     {
         int CrearNuevoGrupo(Grupo grupo);
 
-        List<Grupo> ObtenerTodosLosGrupos();
+        List<Grupo> ObtenerListadoGrupos();
         
         Grupo ObtenerGrupoPorId(int idGrupo);
 
@@ -18,9 +18,6 @@ namespace IndignaFwk.Business.Managers
         
         void EditarGrupo(Grupo grupo);
         
-        void EliminarImagenes(List<Imagen> imagenes);
-
-        void EliminarGrupo(Int32 idGrupo);
-
+        void EliminarGrupo(int idGrupo);
     }
 }

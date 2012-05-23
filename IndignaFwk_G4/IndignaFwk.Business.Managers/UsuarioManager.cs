@@ -16,11 +16,27 @@ namespace IndignaFwk.Business.Managers
 
         private SqlTransaction transaccion;
 
+        /* DEPENDENCIAS */
+        private IUsuarioADO _usuarioAdo;
+
+        protected IUsuarioADO UsuarioADO
+        {
+            get
+            {
+                if (_usuarioAdo == null)
+                {
+                    _usuarioAdo = new UsuarioADO();
+                }
+
+                return _usuarioAdo;
+            }
+        }
+
         /*
-            * Metodo que se llama desde la capa de servicio para
-            * crear un nuevo usuario. Este metodo abre y cierra las 
-            * conexiones, ademas llama las AccessDataObject para
-            * persistir el nuevo objeto.
+        * Metodo que se llama desde la capa de servicio para
+        * crear un nuevo usuario. Este metodo abre y cierra las 
+        * conexiones, ademas llama las AccessDataObject para
+        * persistir el nuevo objeto.
         */
          public int CrearNuevoUsuario(Usuario usuario)
          {
@@ -30,11 +46,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                UsuarioAdo.Crear(usuario, conexion, transaccion);
+                int id = UsuarioADO.Crear(usuario, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return 0;
+                return id;
             }
             catch (Exception ex)
             {
@@ -47,21 +63,20 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
+
         /*
-            * Método que obtiene la lista de sitios de 
-            * la base de datos.
-        */
+         * Método que obtiene la lista de sitios de 
+         * la base de datos.
+         */ 
          public List<Usuario> ObtenerTodosLosUsuarios()
          {
              try
              {
                  conexion = UtilesBD.ObtenerConexion(true);
 
-                 transaccion = UtilesBD.IniciarTransaccion(conexion);
-
                  List<Usuario> usuarios = new List<Usuario>();
 
-                 usuarios = UsuarioAdo.ObtenerListado(conexion, transaccion);
+                 usuarios = UsuarioADO.ObtenerListado(conexion);
 
                  return usuarios;
              }
@@ -75,9 +90,7 @@ namespace IndignaFwk.Business.Managers
              {
                  UtilesBD.CerrarConexion(conexion);
              }
-
          }
-
 
          public Usuario ObtenerUsuarioPorId(int idUsuario)
          {
@@ -85,7 +98,7 @@ namespace IndignaFwk.Business.Managers
              {
                  conexion = UtilesBD.ObtenerConexion(true);
 
-                 return UsuarioAdo.Obtener(idUsuario, conexion);
+                 return UsuarioADO.Obtener(idUsuario, conexion);
              }
              catch (Exception ex)
              {
@@ -99,22 +112,68 @@ namespace IndignaFwk.Business.Managers
              }
          }
 
-         /* DEPENDENCIAS */
-        private IUsuarioADO _usuarioAdo;
+         public List<Usuario> ObtenerListadoUsuarios()
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
 
-        protected IUsuarioADO UsuarioAdo
-        {
-            get
-            {
-                if (_usuarioAdo == null)
-                {
-                    _usuarioAdo = new UsuarioADO();
-                }
+                 return UsuarioADO.ObtenerListado(conexion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
 
-                return _usuarioAdo;
-            }
-        }
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
 
-        
+         public void EditarUsuario(Usuario usuario)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                 UsuarioADO.Editar(usuario, conexion, transaccion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
+         public void EliminarUsuario(int idUsuario)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                 UsuarioADO.Eliminar(idUsuario, conexion, transaccion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
     }
 }

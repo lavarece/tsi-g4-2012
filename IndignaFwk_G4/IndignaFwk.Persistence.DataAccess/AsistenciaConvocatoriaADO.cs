@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using System.Data;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -11,44 +13,57 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        public int Crear(AsistenciaConvocatoria asistenciaC, SqlConnection conexion, SqlTransaction transaccion)
+        public int Crear(AsistenciaConvocatoria asistenciaConvocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO AsistenciaConvocatoria (Convocatoria, Usuario) values(@Convocatoria, @Usuario)";
+            command.CommandText = "INSERT INTO AsistenciaConvocatoria (FK_Id_Convocatoria, Fk_Id_Usuario) " +
+                                  "values(@idConvocatoria, @idUsuario); " + 
+                                  "select @idGen = SCOPE_IDENTITY() FROM AsistenciaConvocatoria";
 
-            command.Parameters.AddWithValue("Convocatoria", asistenciaC.Convocatoria);
-            command.Parameters.AddWithValue("Usuario", asistenciaC.Usuario);
-          
-            command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("idConvocatoria", asistenciaConvocatoria.Convocatoria.Id);
 
-            return 0;
+            command.Parameters.AddWithValue("idUsuario", asistenciaConvocatoria.Usuario.Id);
+
+            command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            command.ExecuteScalar();
+
+            return (int) command.Parameters["@idGen"].Value;
         }
 
-
-        public void Editar(AsistenciaConvocatoria asistenciaC, SqlConnection conexion, SqlTransaction transaccion)
+        public void Editar(AsistenciaConvocatoria asistenciaConvocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
-
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
-            command.CommandText = "UPDATE AsistenciaConvocatoria SET Convocatoria = @convocatoria, Usuario = @usuario WHERE Id = @id";
+            command.CommandText = "UPDATE AsistenciaConvocatoria SET " + 
+                                  "FK_Id_Convocatoria = @idConvocatoria, " +
+                                  "FK_Id_Usuario = @idUsuario " + 
+                                  "WHERE Id = @id";
 
-            command.Parameters.AddWithValue("Id", asistenciaC.Id);
-            command.Parameters.AddWithValue("Convocatoria", asistenciaC.Convocatoria);
-            command.Parameters.AddWithValue("Usuario", asistenciaC.Usuario);
+            command.Parameters.AddWithValue("id", asistenciaConvocatoria.Id);
+
+            command.Parameters.AddWithValue("idConvocatoria", asistenciaConvocatoria.Convocatoria.Id);
+
+            command.Parameters.AddWithValue("idUsuario", asistenciaConvocatoria.Usuario.Id);
           
             command.ExecuteNonQuery();
         }
-
-
+    
         public void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
+
             command.Transaction = transaccion;
+
             command.Connection = conexion;
 
             command.CommandText = "DELETE FROM AsistenciaConvocatoria WHERE Id = @id";
@@ -58,46 +73,34 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteNonQuery();
         }
 
-
         public AsistenciaConvocatoria Obtener(int id, SqlConnection conexion)
         {
-
             SqlDataReader reader = null;
-
-            AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
 
             try
             {
                 command = conexion.CreateCommand();
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM AsistenciaConvocatoria WHERE Id = @id";
 
-                SqlParameter param = new SqlParameter();
-
-                param.ParameterName = "@id";
-
-                param.Value = id;
-
-                command.Parameters.Add(param);
+                command.Parameters.AddWithValue("id", id);
 
                 reader = command.ExecuteReader();
 
-                bool encontrado = false;
-
-                while ((reader.Read()) && (!encontrado))
+                if(reader.Read())
                 {
-                    asistenciaC.Id = ((int)reader["Id"]);
-                    asistenciaC.Convocatoria = ((Convocatoria)reader["Convocatoria"]);
-                    asistenciaC.Usuario = ((Usuario)reader["Usuario"]);
-                   
-                    if (((int)reader["Id"]) == id)
-                    {
-                        encontrado = true;
-                    }
+                    AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
+
+                    asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+
+                    // Si quiero cargar el usuario y convocatoria llamar al obtener del ADO correspondiente
+
+                    return asistenciaC;
                 }
 
-                return asistenciaC;
+                return null;
             }
             finally
             {
@@ -108,17 +111,16 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-
-        public List<AsistenciaConvocatoria> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion)
+        public List<AsistenciaConvocatoria> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<AsistenciaConvocatoria> _asistenciaC = new List<AsistenciaConvocatoria>();
+            List<AsistenciaConvocatoria> listaAsistenciaC = new List<AsistenciaConvocatoria>();
 
             try
             {
                 command = conexion.CreateCommand();
-                command.Transaction = transaccion;
+
                 command.Connection = conexion;
 
                 command.CommandText = "SELECT * FROM AsistenciaConvocatoria";
@@ -129,14 +131,12 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     AsistenciaConvocatoria varAsistenciaC = new AsistenciaConvocatoria();
 
-                    varAsistenciaC.Id = ((int)reader["Id"]);
-                    varAsistenciaC.Convocatoria = ((Convocatoria)reader["Convocatoria"]);
-                    varAsistenciaC.Usuario = ((Usuario)reader["Usuario"]);
+                    varAsistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
 
-                    _asistenciaC.Add(varAsistenciaC);
+                    listaAsistenciaC.Add(varAsistenciaC);
                 }
 
-                return _asistenciaC;
+                return listaAsistenciaC;
             }
             finally
             {

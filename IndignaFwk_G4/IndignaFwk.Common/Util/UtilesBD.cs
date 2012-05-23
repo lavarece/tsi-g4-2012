@@ -74,7 +74,7 @@ namespace IndignaFwk.Common.Util
                 return (string)reader[key];
             }
 
-            return null;
+            return "";
         }
 
         public static int GetIntFromReader(string key, SqlDataReader reader)

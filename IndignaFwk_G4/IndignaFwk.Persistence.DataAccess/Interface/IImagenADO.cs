@@ -15,8 +15,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
         void Eliminar(int id, SqlConnection conexion, SqlTransaction transaccion);
 
-        Imagen Obtener(int id, SqlConnection conexion, SqlTransaction transaccion);
+        Imagen Obtener(int id, SqlConnection conexion);
 
-        List<Imagen> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
+        List<Imagen> ObtenerListado(SqlConnection conexion);
     }
 }

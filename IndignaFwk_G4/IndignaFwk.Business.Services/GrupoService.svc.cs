@@ -11,33 +11,36 @@ namespace IndignaFwk.Business.Services
 {    
     public class GrupoService : IGrupoService
     {
-        public int CrearGrupo(Grupo grupo)
+        private IGrupoManager grupoManger = ManagerFactory.Instance.GrupoManager;
+
+        public int CrearNuevoGrupo(Grupo grupo)
         {
-            return GrupoManager.CrearNuevoGrupo(grupo);
+            return grupoManger.CrearNuevoGrupo(grupo);
         }
-        
+
         public List<Grupo> ObtenerListadoGrupos()
         {
-            return GrupoManager.ObtenerTodosLosGrupos();
+            return grupoManger.ObtenerListadoGrupos();
+        }
+
+        public Grupo ObtenerGrupoPorId(int idGrupo)
+        {
+            return grupoManger.ObtenerGrupoPorId(idGrupo);
         }
 
         public Grupo ObtenerGrupoPorUrl(string url)
         {
-            return GrupoManager.ObtenerGrupoPorUrl(url);
+            return grupoManger.ObtenerGrupoPorUrl(url);
         }
 
-        public Grupo ObtenerGrupoPorId(int id)
+        public void EditarGrupo(Grupo grupo)
         {
-            return GrupoManager.ObtenerGrupoPorId(id);
+            grupoManger.EditarGrupo(grupo);
         }
 
-        // DEPENDENCIAS MANAGERS
-        private IGrupoManager GrupoManager
+        public void EliminarGrupo(int idGrupo)
         {
-            get
-            {
-                return ManagerFactory.Instance.GrupoManager;
-            }
+            grupoManger.EliminarGrupo(idGrupo);
         }
     }
 }

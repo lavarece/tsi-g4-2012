@@ -17,6 +17,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         AsistenciaConvocatoria Obtener(int id, SqlConnection conexion);
 
-        List<AsistenciaConvocatoria> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
+        List<AsistenciaConvocatoria> ObtenerListado(SqlConnection conexion);
     }
 }

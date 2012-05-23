@@ -17,6 +17,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         Usuario Obtener(int id, SqlConnection conexion);
 
-        List<Usuario> ObtenerListado(SqlConnection conexion, SqlTransaction transaccion);
+        List<Usuario> ObtenerListado(SqlConnection conexion);
     }
 }
