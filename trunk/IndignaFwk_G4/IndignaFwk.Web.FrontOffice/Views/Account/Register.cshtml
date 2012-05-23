@@ -24,15 +24,19 @@
                 @Html.TextBoxFor(m => m.Nombre)
                 @Html.ValidationMessageFor(m => m.Nombre)
             </div>
-
+            
+            <br/>
+            
             <div class="editor-label">
-                @Html.LabelFor(m => m.Apellido)
+                @Html.LabelFor(m => m.Descripcion)
+            </div>
+            
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Descripcion, new { style = "width:150px" })
             </div>
 
-            <div class="editor-field">
-                @Html.TextBoxFor(m => m.Apellido)
-            </div>
-    
+            <br/>
+            
             <div class="editor-label">
                 @Html.LabelFor(m=>m.RegionGeografica)
             </div>
@@ -40,6 +44,8 @@
             @* to do.. va un array list con opciones de region geografica<div class="editor-label">
                 @Html.ListBox<>
             </div>*@
+
+            <br/>
 
             <div class="editor-label">
                 @Html.LabelFor(m => m.Correo)
@@ -49,6 +55,8 @@
                 @Html.TextBoxFor(m => m.Correo)
                 @Html.ValidationMessageFor(m => m.Correo)
             </div>
+            
+            <br/>
 
             <div class="editor-label">
                 @Html.LabelFor(m => m.Contraseña)
@@ -67,6 +75,8 @@
                 @Html.PasswordFor(m => m.ConfirmarContraseña)
                 @Html.ValidationMessageFor(m => m.ConfirmarContraseña)
             </div>
+
+            <br/>
 
             <div class="editor-label">
                 @Html.LabelFor(m => m.PreguntaSecreta)

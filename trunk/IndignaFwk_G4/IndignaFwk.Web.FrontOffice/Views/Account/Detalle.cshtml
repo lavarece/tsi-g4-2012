@@ -1,0 +1,37 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Content/freeradicals/layout.cshtml";
+}
+
+<h2>Usuario Registrado</h2>
+
+<fieldset>
+    <legend>Usuario Registrado</legend>
+    
+    <br/>
+    
+    <div class="display-label"><b>Nombre:</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <br/>
+
+    <div class="display-label"><b>Descripción:</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <br/>
+
+    <div class="display-label"><b>Correo:</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Correo)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Volver al Inicio","Index", "Home")
+</p>
