@@ -36,21 +36,20 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             {
                 Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmail(model.Correo);
 
-                if (usuario.Grupo.Id.Equals(site.Grupo.Id))
+                
+                if (Membership.ValidateUser(model.Correo, model.Contraseña) && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
-                    return RedirectToAction("Index", "Home");    
+                    FormsAuthentication.SetAuthCookie(model.Correo, model.Recordarme);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El e-mail or password es incorrecto.");
+                    ModelState.AddModelError("", "El correo or password es incorrecto.");
                 }
                 
             }
-            else
-            {
                 //Si sucede cualquier otro error retorna la vista logOn
                 return View(model);
-            }
             
         }
 
