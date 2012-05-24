@@ -4,19 +4,23 @@
 	x:Class="IndignaFwk_WPF_BackOffice.GestionReportes"
 	x:Name="Window"
 	Title="GestionReportes"
-	Width="426" Height="210">
+	Width="426" Height="176">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
-		<Label Content="Gestión de REPORTES" Height="39" Margin="1,41,2,0" VerticalAlignment="Top" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="131.999"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Label Content="Gestión de Reportes" Height="39" Margin="24,0,-21,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<ListBox x:Name="listbox_tipoReporte" Margin="52,89,57,0" Height="37" VerticalAlignment="Top">
+		<ListBox x:Name="listbox_tipoReporte" Margin="19,51,17,0" Height="37" VerticalAlignment="Top">
 			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Reporte de Registros en el Tiempo"/>
 			<ListBoxItem x:Name="listboxItem_contenidoInadecuado" Content="Reporte de Contenido Inadecuado"/>
 		</ListBox>
-		<Button x:Name="boton_generarReporte" Content="Generar Reporte" HorizontalAlignment="Right" Height="25" Margin="0,0,15,8" VerticalAlignment="Bottom" Width="139">
+		<Button x:Name="boton_generarReporte" Content="Generar Reporte" HorizontalAlignment="Right" Height="25" Margin="0,0,15,5" VerticalAlignment="Bottom" Width="139">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
