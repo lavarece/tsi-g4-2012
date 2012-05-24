@@ -25,9 +25,9 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@url, @estadoContenido, @tipoContenido);" +
                                   "select @idGen = SCOPE_IDENTITY() FROM Contenido;";
             
-            command.Parameters.AddWithValue("url", contenido.Url);
-            command.Parameters.AddWithValue("estadoContenido", contenido.EstadoContenido);
-            command.Parameters.AddWithValue("tipoContenido", contenido.TipoContenido);
+            UtilesBD.SetParameter(command, "url", contenido.Url);
+            UtilesBD.SetParameter(command, "estadoContenido", contenido.EstadoContenido);
+            UtilesBD.SetParameter(command, "tipoContenido", contenido.TipoContenido);
 
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -50,10 +50,10 @@ namespace IndignaFwk.Persistence.DataAccess
                                    "TipoContenido = @tipoContenido " + 
                                    "WHERE Id = @id");
 
-            command.Parameters.AddWithValue("Id", contenido.Id);
-            command.Parameters.AddWithValue("url", contenido.Url);
-            command.Parameters.AddWithValue("estadoContenido", contenido.EstadoContenido);
-            command.Parameters.AddWithValue("tipoContenido", contenido.TipoContenido);
+            UtilesBD.SetParameter(command, "Id", contenido.Id);
+            UtilesBD.SetParameter(command, "url", contenido.Url);
+            UtilesBD.SetParameter(command, "estadoContenido", contenido.EstadoContenido);
+            UtilesBD.SetParameter(command, "tipoContenido", contenido.TipoContenido);
 
             command.ExecuteNonQuery();
         }
@@ -68,7 +68,7 @@ namespace IndignaFwk.Persistence.DataAccess
             
             command.CommandText = "DELETE FROM Contenido WHERE Id = @id";
             
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();            
         }
@@ -85,7 +85,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 
                 command.CommandText = "SELECT * FROM Contenido WHERE Id = @id";
 
-                command.Parameters.AddWithValue("id", id);
+                UtilesBD.SetParameter(command, "id", id);
 
                 reader = command.ExecuteReader();
 

@@ -25,9 +25,9 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@idConvocatoria, @idUsuario); " + 
                                   "select @idGen = SCOPE_IDENTITY() FROM AsistenciaConvocatoria";
 
-            command.Parameters.AddWithValue("idConvocatoria", asistenciaConvocatoria.Convocatoria.Id);
+            UtilesBD.SetParameter(command, "idConvocatoria", asistenciaConvocatoria.Convocatoria.Id);
 
-            command.Parameters.AddWithValue("idUsuario", asistenciaConvocatoria.Usuario.Id);
+            UtilesBD.SetParameter(command, "idUsuario", asistenciaConvocatoria.Usuario.Id);
 
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -49,11 +49,11 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "FK_Id_Usuario = @idUsuario " + 
                                   "WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", asistenciaConvocatoria.Id);
+            UtilesBD.SetParameter(command, "id", asistenciaConvocatoria.Id);
 
-            command.Parameters.AddWithValue("idConvocatoria", asistenciaConvocatoria.Convocatoria.Id);
+            UtilesBD.SetParameter(command, "idConvocatoria", asistenciaConvocatoria.Convocatoria.Id);
 
-            command.Parameters.AddWithValue("idUsuario", asistenciaConvocatoria.Usuario.Id);
+            UtilesBD.SetParameter(command, "idUsuario", asistenciaConvocatoria.Usuario.Id);
           
             command.ExecuteNonQuery();
         }
@@ -68,7 +68,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM AsistenciaConvocatoria WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
@@ -85,7 +85,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "SELECT * FROM AsistenciaConvocatoria WHERE Id = @id";
 
-                command.Parameters.AddWithValue("id", id);
+                UtilesBD.SetParameter(command, "id", id);
 
                 reader = command.ExecuteReader();
 
