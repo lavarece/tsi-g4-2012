@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AdministradorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1281/AdministradorService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1281/AdministradorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1281/AdministradorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdministradorService_CrearNuevoAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_CrearNuevoAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_ObtenerListadoAdministradores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoAdministradores" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_ObtenerListadoAdministradores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoAdministradoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_ObtenerAdministradorPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorId" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_ObtenerAdministradorPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_EditarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_EditarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_EliminarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_EliminarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAdministradorService">
+    <wsdl:operation name="CrearNuevoAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/CrearNuevoAdministrador" message="tns:IAdministradorService_CrearNuevoAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/CrearNuevoAdministradorResponse" message="tns:IAdministradorService_CrearNuevoAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoAdministradores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerListadoAdministradores" message="tns:IAdministradorService_ObtenerListadoAdministradores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerListadoAdministradoresResponse" message="tns:IAdministradorService_ObtenerListadoAdministradores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAdministradorPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorId" message="tns:IAdministradorService_ObtenerAdministradorPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorIdResponse" message="tns:IAdministradorService_ObtenerAdministradorPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/EditarAdministrador" message="tns:IAdministradorService_EditarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/EditarAdministradorResponse" message="tns:IAdministradorService_EditarAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/EliminarAdministrador" message="tns:IAdministradorService_EliminarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/EliminarAdministradorResponse" message="tns:IAdministradorService_EliminarAdministrador_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAdministradorService" type="tns:IAdministradorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearNuevoAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdministradorService/CrearNuevoAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoAdministradores">
+      <soap:operation soapAction="http://tempuri.org/IAdministradorService/ObtenerListadoAdministradores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAdministradorPorId">
+      <soap:operation soapAction="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdministradorService/EditarAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdministradorService/EliminarAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdministradorService">
+    <wsdl:port name="BasicHttpBinding_IAdministradorService" binding="tns:BasicHttpBinding_IAdministradorService">
+      <soap:address location="http://localhost:1281/AdministradorService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

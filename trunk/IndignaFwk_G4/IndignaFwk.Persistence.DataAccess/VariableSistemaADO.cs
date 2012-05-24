@@ -25,9 +25,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@nombre, @valor); " +
                                   "select @idGen = SCOPE_IDENTITY() FROM VariableSistema";
 
-            command.Parameters.AddWithValue("nombre", variableSistema.Nombre);
-
-            command.Parameters.AddWithValue("valor", variableSistema.Valor);
+            UtilesBD.SetParameter(command, "nombre", variableSistema.Nombre);
+            UtilesBD.SetParameter(command, "valor", variableSistema.Valor);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -51,9 +50,9 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "Valor = @valor " +
                                   "WHERE Id = @id ";
 
-            command.Parameters.AddWithValue("id", variableSistema.Id);
-            command.Parameters.AddWithValue("nombre", variableSistema.Nombre);
-            command.Parameters.AddWithValue("valor", variableSistema.Valor);
+            UtilesBD.SetParameter(command, "id", variableSistema.Id);
+            UtilesBD.SetParameter(command, "nombre", variableSistema.Nombre);
+            UtilesBD.SetParameter(command, "valor", variableSistema.Valor);
 
             command.ExecuteNonQuery();
         }
@@ -68,7 +67,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM VariableSistema WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
@@ -85,7 +84,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "SELECT * FROM VariableSistema WHERE Id = @id";
 
-                command.Parameters.AddWithValue("id", id); ;
+                UtilesBD.SetParameter(command, "id", id); ;
 
                 reader = command.ExecuteReader();
 

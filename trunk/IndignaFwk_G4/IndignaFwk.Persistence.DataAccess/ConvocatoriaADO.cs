@@ -25,14 +25,14 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@Titulo, @LogoUrl, @Descripcion, @Quorum, @Coordenada, @IdUsuarioCreacion, @IdSitio, @IdTematica); " +
                                   "select @idGen = SCOPE_IDENTITY() FROM Convocatoria ";
 
-            command.Parameters.AddWithValue("Titulo", convocatoria.Titulo);
-            command.Parameters.AddWithValue("Descripcion", convocatoria.Descripcion);
-            command.Parameters.AddWithValue("Quorum", convocatoria.Quorum);            
-            command.Parameters.AddWithValue("Coordenada", convocatoria.Coordenadas);            
-            command.Parameters.AddWithValue("LogoUrl", convocatoria.LogoUrl);
-            command.Parameters.AddWithValue("IdUsuarioCreacion", convocatoria.UsuarioCreacion.Id);
-            command.Parameters.AddWithValue("IdSitio", convocatoria.Grupo.Id);
-            command.Parameters.AddWithValue("IdTematica", convocatoria.Tematica.Id);
+            UtilesBD.SetParameter(command, "Titulo", convocatoria.Titulo);
+            UtilesBD.SetParameter(command, "Descripcion", convocatoria.Descripcion);
+            UtilesBD.SetParameter(command, "Quorum", convocatoria.Quorum);            
+            UtilesBD.SetParameter(command, "Coordenada", convocatoria.Coordenadas);            
+            UtilesBD.SetParameter(command, "LogoUrl", convocatoria.LogoUrl);
+            UtilesBD.SetParameter(command, "IdUsuarioCreacion", convocatoria.UsuarioCreacion.Id);
+            UtilesBD.SetParameter(command, "IdSitio", convocatoria.Grupo.Id);
+            UtilesBD.SetParameter(command, "IdTematica", convocatoria.Tematica.Id);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -60,13 +60,13 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "FK_Id_Tematica=@idTematica" +
                                   "WHERE Id = @id";
 
-            command.Parameters.AddWithValue("titulo", convocatoria.Titulo);
-            command.Parameters.AddWithValue("logoUrl", convocatoria.LogoUrl);
-            command.Parameters.AddWithValue("descripcion", convocatoria.Descripcion);
-            command.Parameters.AddWithValue("quorum", convocatoria.Quorum);
-            command.Parameters.AddWithValue("coordenada", convocatoria.Coordenadas);
-            command.Parameters.AddWithValue("idTematica", convocatoria.Tematica.Id);
-            command.Parameters.AddWithValue("id", convocatoria.Id);
+            UtilesBD.SetParameter(command, "titulo", convocatoria.Titulo);
+            UtilesBD.SetParameter(command, "logoUrl", convocatoria.LogoUrl);
+            UtilesBD.SetParameter(command, "descripcion", convocatoria.Descripcion);
+            UtilesBD.SetParameter(command, "quorum", convocatoria.Quorum);
+            UtilesBD.SetParameter(command, "coordenada", convocatoria.Coordenadas);
+            UtilesBD.SetParameter(command, "idTematica", convocatoria.Tematica.Id);
+            UtilesBD.SetParameter(command, "id", convocatoria.Id);
            
             command.ExecuteNonQuery();
         }
@@ -81,7 +81,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM Convocatoria WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
@@ -98,7 +98,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "SELECT * FROM Convocatoria WHERE Id = @id";
 
-                command.Parameters.AddWithValue("id", id);
+                UtilesBD.SetParameter(command, "id", id);
 
                 reader = command.ExecuteReader();
 
@@ -114,7 +114,6 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     // Si se desea la info del referencia invocar a lo obstener de los otros ADO con el ID correspondiente
-
                     return convocatoria;
                 }
 

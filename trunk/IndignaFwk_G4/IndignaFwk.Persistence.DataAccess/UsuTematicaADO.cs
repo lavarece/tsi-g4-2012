@@ -25,8 +25,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@idTematica, @idUsuario); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM UsuTematica; ";
 
-            command.Parameters.AddWithValue("idTemarica", usuTem.Tematica.Id);
-            command.Parameters.AddWithValue("idUsuario", usuTem.Usuario.Id);
+            UtilesBD.SetParameter(command, "idTemarica", usuTem.Tematica.Id);
+            UtilesBD.SetParameter(command, "idUsuario", usuTem.Usuario.Id);
          
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -52,7 +52,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM UsuTematica WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
@@ -69,7 +69,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "SELECT * FROM UsuTematica WHERE Id = @id";
 
-                command.Parameters.AddWithValue("id", id);
+                UtilesBD.SetParameter(command, "id", id);
 
                 reader = command.ExecuteReader();
 

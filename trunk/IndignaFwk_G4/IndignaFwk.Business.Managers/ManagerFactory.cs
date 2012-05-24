@@ -85,5 +85,20 @@ namespace IndignaFwk.Business.Managers
                 return _usuarioManager;
             }            
         }
+
+        private IAdministradorManager _administradorManager;
+
+        public IAdministradorManager AdministradorManager
+        {
+            get
+            {
+                if (_administradorManager == null)
+                {
+                    _administradorManager = new AdministradorManager();
+                }
+
+                return _administradorManager;
+            }
+        }
     }
 }

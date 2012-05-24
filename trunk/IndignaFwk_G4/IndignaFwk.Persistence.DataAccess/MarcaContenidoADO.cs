@@ -25,11 +25,9 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " values(@idContenido, @idUsuario, @tipoMarca); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM MarcaContenido; ";
 
-            command.Parameters.AddWithValue("idContenido", marcaContenido.Contenido.Id);
-
-            command.Parameters.AddWithValue("idUsuario", marcaContenido.UsuarioMarca.Id);
-
-            command.Parameters.AddWithValue("tipoMarca", marcaContenido.TipoMarca);
+            UtilesBD.SetParameter(command, "idContenido", marcaContenido.Contenido.Id);
+            UtilesBD.SetParameter(command, "idUsuario", marcaContenido.UsuarioMarca.Id);
+            UtilesBD.SetParameter(command, "tipoMarca", marcaContenido.TipoMarca);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -52,8 +50,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " TipoMarca = @tipoMarca " +
                                   " WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", marcaContenido.Id);
-            command.Parameters.AddWithValue("tipoMarca", marcaContenido.TipoMarca);            
+            UtilesBD.SetParameter(command, "id", marcaContenido.Id);
+            UtilesBD.SetParameter(command, "tipoMarca", marcaContenido.TipoMarca);            
 
             command.ExecuteNonQuery();
         }
@@ -68,7 +66,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM MarcaContenido WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
@@ -85,7 +83,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "select * from MarcaContenido where Id = @id";
 
-                command.Parameters.AddWithValue("id", id);
+                UtilesBD.SetParameter(command, "id", id);
 
                 reader = command.ExecuteReader();
 

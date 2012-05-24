@@ -37,10 +37,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AdministradorADO.cs" />
     <Compile Include="AsistenciaConvocatoriaADO.cs" />
     <Compile Include="ContenidoADO.cs" />
     <Compile Include="ConvocatoriaADO.cs" />
     <Compile Include="GrupoADO.cs" />
+    <Compile Include="Interface\IAdministradoADO.cs" />
     <Compile Include="Interface\IAsistenciaConvocatoriaADO.cs" />
     <Compile Include="Interface\IContenidoADO.cs" />
     <Compile Include="Interface\IConvocatoriaADO.cs" />

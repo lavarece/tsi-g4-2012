@@ -25,11 +25,9 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " values(@nombre, @descripcion, @url); " + 
                                   " select @idGen = SCOPE_IDENTITY() FROM Sitio; ";
             
-            command.Parameters.AddWithValue("nombre", grupo.Nombre);
-
-            command.Parameters.AddWithValue("descripcion", grupo.Descripcion);
-
-            command.Parameters.AddWithValue("url", grupo.Url);
+            UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
+            UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
+            UtilesBD.SetParameter(command, "url", grupo.Url);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -55,11 +53,11 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " Url = @url " + 
                                   " WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", grupo.Id);
-            command.Parameters.AddWithValue("nombre", grupo.Nombre);
-            command.Parameters.AddWithValue("logoUrl", grupo.LogoUrl);
-            command.Parameters.AddWithValue("descripcion", grupo.Descripcion);
-            command.Parameters.AddWithValue("url", grupo.Url);
+            UtilesBD.SetParameter(command, "id", grupo.Id);
+            UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
+            UtilesBD.SetParameter(command, "logoUrl", grupo.LogoUrl);
+            UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
+            UtilesBD.SetParameter(command, "url", grupo.Url);
 
             command.ExecuteNonQuery();
         }
@@ -74,7 +72,7 @@ namespace IndignaFwk.Persistence.DataAccess
             
             command.CommandText = "DELETE FROM Sitio WHERE Id = @id";
             
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
             
             command.ExecuteNonQuery();
         }
@@ -91,7 +89,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 
                 command.CommandText ="select * from Sitio where Id = @id";
 
-                command.Parameters.AddWithValue("id", id);
+                UtilesBD.SetParameter(command, "id", id);
 
                 reader = command.ExecuteReader();
 
@@ -136,7 +134,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "select * from Sitio where Url = @url";
 
-                command.Parameters.AddWithValue("url", url);
+                UtilesBD.SetParameter(command, "url", url);
 
                 reader = command.ExecuteReader();
 

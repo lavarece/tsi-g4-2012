@@ -25,9 +25,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "values(@nombre, @referencia); " + 
                                   "select @idGen = SCOPE_IDENTITY() FROM Imagen";
 
-            command.Parameters.AddWithValue("nombre", imagen.Nombre);
-
-            command.Parameters.AddWithValue("referencia", imagen.Referencia);
+            UtilesBD.SetParameter(command, "nombre", imagen.Nombre);
+            UtilesBD.SetParameter(command, "referencia", imagen.Referencia);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -51,9 +50,9 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "Referencia = @referencia " + 
                                   "WHERE Id = @id ";
 
-            command.Parameters.AddWithValue("id", imagen.Id);
-            command.Parameters.AddWithValue("nombre", imagen.Nombre);
-            command.Parameters.AddWithValue("referencia", imagen.Referencia);
+            UtilesBD.SetParameter(command, "id", imagen.Id);
+            UtilesBD.SetParameter(command, "nombre", imagen.Nombre);
+            UtilesBD.SetParameter(command, "referencia", imagen.Referencia);
 
             command.ExecuteNonQuery();
         }
@@ -68,7 +67,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM Imagen WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
@@ -85,7 +84,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "SELECT * FROM Imagen WHERE Id = @id";
 
-                command.Parameters.AddWithValue("id", id); ;
+                UtilesBD.SetParameter(command, "id", id); ;
 
                 reader = command.ExecuteReader();
 
