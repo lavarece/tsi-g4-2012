@@ -4,7 +4,7 @@
 	x:Class="IndignaFwk_WPF_BackOffice.GestionUsuarios"
 	x:Name="Window"
 	Title="GestionUsuarios"
-	Width="524" Height="441">
+	Width="524" Height="364">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
 		<Grid.ColumnDefinitions>
@@ -16,18 +16,18 @@
 			<RowDefinition Height="400.84"/>
 			<RowDefinition Height="Auto" MinHeight="39.16"/>
 		</Grid.RowDefinitions>
-		<Label Content="Gestión de uSUARIOS" Height="39" Margin="43.5,71,37.5,0" VerticalAlignment="Top" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667" Grid.Column="1">
+		<Label Content="Gestión de Usuarios" Height="39" Margin="79.5,6,1.5,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<ComboBox Height="18" Margin="10.5,145.5,200.5,0" VerticalAlignment="Top" Grid.Column="1"/>
-		<Label Content="Sitio:" HorizontalAlignment="Left" Height="28.5" Margin="7.5,120,0,0" VerticalAlignment="Top" Width="73.5" Foreground="#FF00FFF9" Grid.Column="1">
+		<ComboBox Height="18" Margin="12.5,70.5,198.5,0" VerticalAlignment="Top" Grid.Column="1"/>
+		<Label Content="Sitio:" HorizontalAlignment="Left" Height="28.5" Margin="9.5,45,0,0" VerticalAlignment="Top" Width="73.5" Foreground="#FF00FFF9" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<DataGrid x:Name="datagrid_usuarios" Margin="12,188,13,55" Grid.Column="1">
+		<DataGrid x:Name="datagrid_usuarios" Margin="14,113,11,130" Grid.Column="1">
 			<DataGrid.Columns>
 				<DataGridCheckBoxColumn/>
 				<DataGridTextColumn Header="Sitio"/>
@@ -35,6 +35,13 @@
 				<DataGridHyperlinkColumn/>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Button Content="Eliminar" HorizontalAlignment="Right" Height="23" Margin="0,0,15,11" VerticalAlignment="Bottom" Width="85" Grid.Column="1"/>
+		<Button Content="Eliminar" HorizontalAlignment="Right" Height="23" Margin="0,0,13,86" VerticalAlignment="Bottom" Width="85" Grid.Column="1">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
 	</Grid>
 </Window>

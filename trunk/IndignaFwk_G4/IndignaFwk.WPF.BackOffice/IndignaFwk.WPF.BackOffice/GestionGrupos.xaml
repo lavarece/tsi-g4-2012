@@ -4,22 +4,26 @@
 	x:Class="IndignaFwk_WPF_BackOffice.GestionGrupos"
 	x:Name="Window"
 	Title="GestionGrupos"
-	Width="446" Height="436">
+	Width="446" Height="395">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
-		<DataGrid Margin="6,79,8,48">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="355.016"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<DataGrid Margin="6,42,8,42">
 			<DataGrid.Columns>
 				<DataGridTextColumn  Header="Nombre"/>
 				<DataGridHyperlinkColumn Header="URL"/>
 				<DataGridHyperlinkColumn/>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Label Content="Gestión de Grupos" Height="39" Margin="1,41,67,0" VerticalAlignment="Top" FontFamily="Goudy Stout" Foreground="#FF00FFF9" FontSize="18.667">
+		<Label Content="Gestión de Grupos" Height="39" Margin="48,-3,20,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Button x:Name="boton_nuevoGrupo" HorizontalAlignment="Right" Height="26" Margin="0,0,9,10" VerticalAlignment="Bottom" Width="127" Content="Nuevo Grupo" Click="boton_nuevoGrupo_Click">
+		<Button x:Name="boton_nuevoGrupo" HorizontalAlignment="Right" Height="26" Margin="0,0,9,4" VerticalAlignment="Bottom" Width="127" Content="Nuevo Grupo" Click="boton_nuevoGrupo_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>

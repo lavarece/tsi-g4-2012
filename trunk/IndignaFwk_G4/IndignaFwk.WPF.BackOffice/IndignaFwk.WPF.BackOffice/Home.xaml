@@ -81,7 +81,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-        <Button Content="Salir" Height="28" Margin="395,0,0,0" Name="btn_salir" VerticalAlignment="Top">
+        <Button Content="Salir" Height="23" Margin="381,9,14,0" Name="btn_salir" VerticalAlignment="Top">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1" />
