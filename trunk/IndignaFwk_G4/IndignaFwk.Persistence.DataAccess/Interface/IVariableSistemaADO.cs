@@ -17,6 +17,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
         VariableSistema Obtener(int id, SqlConnection conexion);
 
+        VariableSistema ObtenerPorNombre(string nombre, SqlConnection conexion);
+        
         List<VariableSistema> ObtenerListado(SqlConnection conexion);
     }
 }

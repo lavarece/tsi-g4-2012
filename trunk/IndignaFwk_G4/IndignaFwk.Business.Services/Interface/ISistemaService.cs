@@ -4,13 +4,25 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.Business.Managers;
 
 namespace IndignaFwk.Business.Services
 {
-    [ServiceContract(
-    Namespace = "http://localhost//IndignaFwk//2012",
-    SessionMode = SessionMode.Allowed)] 
+    [ServiceContract]
     public interface ISistemaService
     {
+        [OperationContract]
+        List<VariableSistema> ObtenerListadoVariables();
+
+        [OperationContract]
+        VariableSistema ObtenerVariablePorId(int idVariable);
+
+        [OperationContract]
+        VariableSistema ObtenerVariablePorNombre(string nombre);
+
+        [OperationContract]
+        void EditarVariableSistema(VariableSistema variableSistema);
+
     }
 }
