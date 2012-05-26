@@ -23,7 +23,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "INSERT INTO Administrador(Nombre, Email, Password, Pregunta, Respuesta, Region) " +
                                   "values(@nombre, @email, @password, @pregunta, @respuesta, @region);" +
-                                  "select @idGen = SCOPE_IDENTITY() FROM Administador;";
+                                  "select @idGen = SCOPE_IDENTITY() FROM Administrador;";
 
             UtilesBD.SetParameter(command, "nombre", administrador.Nombre);
             UtilesBD.SetParameter(command, "email", administrador.Email);

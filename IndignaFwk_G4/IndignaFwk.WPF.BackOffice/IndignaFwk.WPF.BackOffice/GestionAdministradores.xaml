@@ -18,9 +18,9 @@
 		</Grid.RowDefinitions>
 		<DataGrid x:Name="datagrid_administradores" Margin="13.5,44.5,17,74.5">
 			<DataGrid.Columns>
-				<DataGridTextColumn  Header="E-Mail"/>
-				<DataGridTextColumn  Header="Nombre"/>
-				<DataGridTextColumn  Header="Apellido"/>
+                <DataGridTextColumn Binding="{Binding Path=Email}" Header="E-Mail"/>
+                <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
+                <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido"/>
 			</DataGrid.Columns>
 		</DataGrid>
 		<Label Content="Gestión de Administradores" Height="39" Margin="32.5,2,-22.61,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32" Grid.ColumnSpan="2">

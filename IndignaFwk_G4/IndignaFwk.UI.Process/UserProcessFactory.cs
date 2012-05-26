@@ -72,5 +72,21 @@ namespace IndignaFwk.UI.Process
                 return _usuarioUserProcess;
             }
         }
+
+        //AdministradorUserProcess
+        private AdministradorUserProcess _adminUserProcess;
+
+        public AdministradorUserProcess AdministradorUserProcess
+        {
+            get
+            {
+                if (_adminUserProcess == null)
+                {
+                    _adminUserProcess = new AdministradorUserProcess();
+                }
+
+                return _adminUserProcess;
+            }
+        }
     }
 }

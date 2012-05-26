@@ -82,7 +82,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_guardarRegistroAdmin" Content="Guardar" Grid.Column="1" Margin="0,0,7,5" Grid.Row="1" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom">
+		<Button x:Name="boton_guardarRegistroAdmin" Content="Guardar" Grid.Column="1" Margin="0,0,7,5" Grid.Row="1" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom" Click="boton_guardarRegistroAdmin_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="Black" Offset="1"/>

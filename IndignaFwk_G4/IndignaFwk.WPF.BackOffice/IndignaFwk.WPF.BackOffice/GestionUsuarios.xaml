@@ -21,7 +21,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<ComboBox Height="18" Margin="12.5,70.5,198.5,0" VerticalAlignment="Top" Grid.Column="1"/>
+		<ComboBox Name="comboBox_Sitios" Height="18" Margin="12.5,70.5,198.5,0" VerticalAlignment="Top" Grid.Column="1" SelectionChanged="comboBox_Sitios_SelectionChanged" />
 		<Label Content="Sitio:" HorizontalAlignment="Left" Height="28.5" Margin="9.5,45,0,0" VerticalAlignment="Top" Width="73.5" Foreground="#FF00FFF9" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
@@ -30,8 +30,8 @@
 		<DataGrid x:Name="datagrid_usuarios" Margin="14,113,11,130" Grid.Column="1">
 			<DataGrid.Columns>
 				<DataGridCheckBoxColumn/>
-				<DataGridTextColumn Header="Sitio"/>
-				<DataGridTextColumn Header="Email"/>
+                <DataGridTextColumn Binding="{Binding Path=Grupo.Nombre}" Header="Sitio"/>
+                <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
 				<DataGridHyperlinkColumn/>
 			</DataGrid.Columns>
 		</DataGrid>
