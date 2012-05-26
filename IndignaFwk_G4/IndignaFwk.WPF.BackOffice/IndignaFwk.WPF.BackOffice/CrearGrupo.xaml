@@ -23,7 +23,7 @@
 			</TextBox.Effect>
 		</TextBox>
 		<Label Content="Nombre:" Height="30" Margin="0,71,152,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
-        <Label Content="Crear Grupo" Margin="13.415,0,0,59" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="256" VerticalContentAlignment="Center" Grid.Column="2">
+        <Label Content="Datos del Grupo" Margin="27.415,0,0,52.5" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="337" VerticalContentAlignment="Center" Grid.Column="2">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
