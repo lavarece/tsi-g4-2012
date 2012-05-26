@@ -112,6 +112,50 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
+        public VariableSistema ObtenerPorNombre(string nombre, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM VariableSistema WHERE Nombre = @nombre";
+
+                UtilesBD.SetParameter(command, "nombre", nombre);
+
+                reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    VariableSistema vSistema = new VariableSistema();
+
+                    vSistema.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    vSistema.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    vSistema.Valor = UtilesBD.GetStringFromReader("Valor", reader);
+
+                    return vSistema;
+                }
+
+                return null;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+    
+
+        
+        
+        
         public List<VariableSistema> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
