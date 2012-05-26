@@ -42,6 +42,7 @@ namespace IndignaFwk.UI.Process
             return grupo;
         }
 
+
         public Grupo ObtenerGrupoPorUrl(string url)
         {
             GrupoServiceClient proxy = new GrupoServiceClient();

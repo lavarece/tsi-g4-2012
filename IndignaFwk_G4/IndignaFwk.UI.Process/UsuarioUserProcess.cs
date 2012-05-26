@@ -60,11 +60,33 @@ namespace IndignaFwk.UI.Process
             proxy.Close();
         }
 
+        public List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            List <Usuario> usuarios = proxy.ObtenerUsuariosPorIdGrupo(idGrupo);
+
+            proxy.Close();
+
+            return usuarios;
+        }
+
         public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
         {
             UsuarioServiceClient proxy = new UsuarioServiceClient();
 
             Usuario usuario = proxy.ObtenerUsuarioPorEmailYPass(email, pass);
+
+            proxy.Close();
+
+            return usuario;
+        }
+
+        public Usuario ObtenerUsuarioPorEmail(string email)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            Usuario usuario = proxy.ObtenerUsuarioPorEmail(email);
 
             proxy.Close();
 

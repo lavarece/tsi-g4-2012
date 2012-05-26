@@ -44,6 +44,31 @@ textarea
     margin:0.5em 0 0 0;
 }
 
+/* style para indicar el logOn*/
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 100px;
+    color: Red;
+}
+
+#logindisplay a:link {
+    color: red;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: red;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color: red;
+    text-decoration: none;
+}
+
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/

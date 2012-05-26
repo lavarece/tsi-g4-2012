@@ -18,5 +18,7 @@ namespace IndignaFwk.Persistence.DataAccess
         Administrador Obtener(int id, SqlConnection conexion);
 
         List<Administrador> ObtenerListado(SqlConnection conexion);
+
+        Administrador ObtenerPorEmailYPass(string email, string pass, SqlConnection conexion);
     }
 }

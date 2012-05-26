@@ -29,6 +29,11 @@ namespace IndignaFwk.Business.Services
             return usuarioManager.ObtenerUsuarioPorId(idUsuario);
         }
 
+        public List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo)
+        {
+            return usuarioManager.ObtenerUsuariosPorIdGrupo(idGrupo);
+        }
+
         public void EditarUsuario(Usuario usuario)
         {
             usuarioManager.EditarUsuario(usuario);
@@ -42,6 +47,11 @@ namespace IndignaFwk.Business.Services
         public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
         {
             return usuarioManager.ObtenerUsuarioPorEmailYPass(email, pass);
+        }
+
+        public Usuario ObtenerUsuarioPorEmail(string email)
+        { 
+            return usuarioManager.ObtenerPorEmail(email);
         }
     }
 }

@@ -24,6 +24,10 @@ namespace IndignaFwk.UI.Process.AdministradorService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorId", ReplyAction="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorIdResponse")]
         IndignaFwk.Common.Entities.Administrador ObtenerAdministradorPorId(int idAdministrador);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorEmailYPass", ReplyAction="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorEmailYPassRespons" +
+            "e")]
+        IndignaFwk.Common.Entities.Administrador ObtenerAdministradorPorEmailYPass(string email, string pass);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdministradorService/EditarAdministrador", ReplyAction="http://tempuri.org/IAdministradorService/EditarAdministradorResponse")]
         void EditarAdministrador(IndignaFwk.Common.Entities.Administrador administrador);
         
@@ -68,6 +72,10 @@ namespace IndignaFwk.UI.Process.AdministradorService {
         
         public IndignaFwk.Common.Entities.Administrador ObtenerAdministradorPorId(int idAdministrador) {
             return base.Channel.ObtenerAdministradorPorId(idAdministrador);
+        }
+        
+        public IndignaFwk.Common.Entities.Administrador ObtenerAdministradorPorEmailYPass(string email, string pass) {
+            return base.Channel.ObtenerAdministradorPorEmailYPass(email, pass);
         }
         
         public void EditarAdministrador(IndignaFwk.Common.Entities.Administrador administrador) {
