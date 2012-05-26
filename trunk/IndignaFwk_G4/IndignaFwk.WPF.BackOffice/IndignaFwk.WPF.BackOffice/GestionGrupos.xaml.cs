@@ -9,6 +9,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IndignaFwk.UI;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -17,11 +21,12 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class GestionGrupos : Window
 	{
+        private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+
 		public GestionGrupos()
 		{
 			this.InitializeComponent();
-			
-			// Insert code required on object creation below this point.
+            dataGrid_listaGrupos.ItemsSource = grupoUserProcess.ObtenerListadoGrupos();
 		}
 
 		private void boton_nuevoGrupo_Click(object sender, System.Windows.RoutedEventArgs e)

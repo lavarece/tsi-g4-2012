@@ -9,6 +9,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IndignaFwk.UI;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -17,11 +21,23 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class GestionUsuarios : Window
 	{
+        UsuarioUserProcess usuarioUserProcess = UserProcessFactory.Instance.UsuarioUserProcess;
+        GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+
 		public GestionUsuarios()
 		{
 			this.InitializeComponent();
-			
-			// Insert code required on object creation below this point.
-		}
+
+            datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerListadoUsuarios();
+            foreach(Grupo grupo in grupoUserProcess.ObtenerListadoGrupos())
+            {
+                comboBox_Sitios.Items.Add(grupo.Url);
+            }
+        }
+
+        private void comboBox_Sitios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            usuarioUserProcess.
+        }
 	}
 }

@@ -11,11 +11,10 @@
 			<RowDefinition Height="355.016"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<DataGrid Margin="6,42,8,42">
+        <DataGrid AutoGenerateColumns="False" DockPanel.Dock="Top" Name="dataGrid_listaGrupos" Margin="6,42,8,42">
 			<DataGrid.Columns>
-				<DataGridTextColumn  Header="Nombre"/>
-				<DataGridHyperlinkColumn Header="URL"/>
-				<DataGridHyperlinkColumn/>
+                <DataGridHyperlinkColumn  Binding="{Binding Path=Nombre}" Header="Nombre"/>
+                <DataGridTextColumn Binding="{Binding Path=Url}" Header="URL"/>
 			</DataGrid.Columns>
 		</DataGrid>
 		<Label Content="Gestión de Grupos" Height="39" Margin="48,-3,20,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32">
