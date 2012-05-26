@@ -26,7 +26,7 @@
 				<DropShadowEffect/>
 			</PasswordBox.Effect>
 		</PasswordBox>
-        <Label Content="Iniciar sesión" FontFamily="Magneto" FontSize="32" Foreground="#FF00FFF9" Height="39" HorizontalAlignment="Left" Margin="54,0,0,146.5" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="330" Grid.ColumnSpan="2">
+        <Label Content="Iniciar sesión" FontFamily="Microsoft YaHei" FontSize="24" Foreground="#FF00FFF9" Height="39" Margin="103,0,102.71,145.5" VerticalAlignment="Bottom" VerticalContentAlignment="Center">
             <Label.Effect>
                 <DropShadowEffect />
             </Label.Effect>

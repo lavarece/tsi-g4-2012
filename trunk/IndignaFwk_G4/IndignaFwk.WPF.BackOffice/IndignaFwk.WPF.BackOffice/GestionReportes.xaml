@@ -11,7 +11,7 @@
 			<RowDefinition Height="131.999"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<Label Content="Gestión de Reportes" Height="39" Margin="24,0,-21,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32">
+		<Label Content="Gestión de Reportes" Height="39" Margin="87,2,-84,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>

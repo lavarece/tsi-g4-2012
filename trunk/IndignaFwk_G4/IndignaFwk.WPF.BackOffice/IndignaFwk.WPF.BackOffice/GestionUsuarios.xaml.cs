@@ -37,7 +37,6 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void comboBox_Sitios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            usuarioUserProcess.
         }
 	}
 }

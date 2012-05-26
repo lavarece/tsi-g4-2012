@@ -13,11 +13,17 @@
 		</Grid.RowDefinitions>
         <DataGrid AutoGenerateColumns="False" DockPanel.Dock="Top" Name="dataGrid_listaGrupos" Margin="6,42,8,42">
 			<DataGrid.Columns>
-                <DataGridHyperlinkColumn  Binding="{Binding Path=Nombre}" Header="Nombre"/>
+                <DataGridHyperlinkColumn  Binding="{Binding Path=Nombre}" Header="Nombre">
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <EventSetter Event="Hyperlink.Click" Handler="OnHyperlinkClick" />
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
                 <DataGridTextColumn Binding="{Binding Path=Url}" Header="URL"/>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Label Content="Gestión de Grupos" Height="39" Margin="48,-3,20,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32">
+		<Label Content="Gestión de Grupos" Height="39" Margin="110,-3,-42,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>

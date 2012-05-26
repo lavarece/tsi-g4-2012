@@ -9,6 +9,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Util;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -17,6 +20,8 @@ namespace IndignaFwk_WPF_BackOffice
 	/// </summary>
 	public partial class Login : Window
 	{
+        AdministradorUserProcess adminUserProcess = UserProcessFactory.Instance.AdministradorUserProcess;
+
 		public Login()
 		{
 			this.InitializeComponent();
@@ -25,7 +30,7 @@ namespace IndignaFwk_WPF_BackOffice
         private void btn_iniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             Home homeWindow = new Home(txt_usuario.Text);
-
+            
             homeWindow.Show();
 
             this.Close();

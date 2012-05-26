@@ -23,10 +23,29 @@ namespace IndignaFwk_WPF_BackOffice
     public partial class CrearGrupo : Window
     {
         private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+        private Boolean editando;
+        private Grupo grupoEditando;
+
 
         public CrearGrupo()
         {
             this.InitializeComponent();
+            editando = false;
+        }
+
+        public CrearGrupo(Grupo grupo)
+        {
+            this.InitializeComponent();
+            txt_nombre.Text = grupo.Nombre;
+            txt_url.Text = grupo.Url;
+            if(UtilesGenerales.isNullOrEmpty(grupo.Descripcion))
+            {
+                txt_descripcion.Text = grupo.Descripcion;
+            }
+
+            grupoEditando = grupo;
+
+            editando = true;
         }
 
         private void btn_guardar_Click(object sender, RoutedEventArgs e)
@@ -49,7 +68,15 @@ namespace IndignaFwk_WPF_BackOffice
 
                 grupo.Url = txt_url.Text;
 
-                grupoUserProcess.CrearNuevoGrupo(grupo);
+                if (editando)
+                {
+                    grupo.Id = grupoEditando.Id;
+                    grupoUserProcess.EditarGrupo(grupo);
+                }
+                else 
+                {
+                    grupoUserProcess.CrearNuevoGrupo(grupo);
+                }                
             }
         }
 

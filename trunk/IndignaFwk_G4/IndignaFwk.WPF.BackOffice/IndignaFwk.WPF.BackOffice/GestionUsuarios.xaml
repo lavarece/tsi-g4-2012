@@ -16,7 +16,7 @@
 			<RowDefinition Height="400.84"/>
 			<RowDefinition Height="Auto" MinHeight="39.16"/>
 		</Grid.RowDefinitions>
-		<Label Content="Gestión de Usuarios" Height="39" Margin="79.5,6,1.5,0" VerticalAlignment="Top" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32" Grid.Column="1">
+		<Label Content="Gestión de Usuarios" Height="39" Margin="132.5,9,127.5,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>

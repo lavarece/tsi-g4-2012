@@ -36,5 +36,15 @@ namespace IndignaFwk_WPF_BackOffice
 			CrearGrupo crearGrupoWindow = new CrearGrupo();
 			crearGrupoWindow.Show();
 		}
+
+        private void OnHyperlinkClick(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            Grupo grupoSeleccionado = grupoUserProcess.ObtenerGrupoPorId(((Grupo)this.dataGrid_listaGrupos.SelectedItem).Id);
+
+            CrearGrupo crearGrupoWindow = new CrearGrupo(grupoSeleccionado);
+
+            crearGrupoWindow.Show();
+        }
 	}
 }

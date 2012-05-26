@@ -5,9 +5,9 @@
 	x:Class="IndignaFwk_WPF_BackOffice.CrearAdministrador"
 	x:Name="Window"
 	Title="CrearAdministrador"
-	Width="493" Height="380">
+	Width="499" Height="330">
 
-	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Height="282" Width="475">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="88"/>
 			<RowDefinition Height="251"/>
@@ -24,12 +24,7 @@
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<TextBox x:Name="textBox_apellidoAdmin" Grid.Column="1" Height="30" Margin="15.084,17,3.044,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1">
-			<TextBox.Effect>
-				<DropShadowEffect/>
-			</TextBox.Effect>
-		</TextBox>
-		<TextBox x:Name="textbox_emailAdmin" Grid.Column="1" Margin="15.084,61,3.044,0" TextWrapping="Wrap" Height="30.008" Grid.Row="1" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+        <TextBox x:Name="textbox_emailAdmin" Grid.Column="1" Margin="15,18,3,0" TextWrapping="Wrap" Height="30.008" Grid.Row="1" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
@@ -39,42 +34,37 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="Apellido:" Height="25" Margin="0,19,3.916,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="59" Grid.Row="1" Foreground="#FF00FFF9">
+        <Label Content="Email:" Margin="0,23,213,0" HorizontalAlignment="Right" Width="75" Height="25.008" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF00FFF9" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="Email:" Margin="0,64,-27.084,0" HorizontalAlignment="Right" Width="75" Height="25.008" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF00FFF9" d:LayoutOverrides="VerticalAlignment">
-			<Label.Effect>
-				<DropShadowEffect/>
-			</Label.Effect>
-		</Label>
-		<PasswordBox x:Name="passwordbox_passAdmin" Grid.Column="1" Height="30" Margin="15,0,5,93" VerticalAlignment="Bottom" Grid.Row="1">
+		<PasswordBox x:Name="passwordbox_passAdmin" Grid.Column="1" Height="30" Margin="17,0,3,147" VerticalAlignment="Bottom" Grid.Row="1">
 			<PasswordBox.Effect>
 				<DropShadowEffect/>
 			</PasswordBox.Effect>
 		</PasswordBox>
-		<PasswordBox x:Name="passwordBox_repassAdmin" Grid.Column="1" Height="30" Margin="15,0,5,48" VerticalAlignment="Bottom" Grid.Row="1">
+		<PasswordBox x:Name="passwordBox_repassAdmin" Grid.Column="1" Height="30" Margin="17,0,3,111" VerticalAlignment="Bottom" Grid.Row="1">
 			<PasswordBox.Effect>
 				<DropShadowEffect/>
 			</PasswordBox.Effect>
 		</PasswordBox>
-		<Label Content="Contraseña:" Height="25" Margin="63.084,0,-13.084,97" VerticalAlignment="Bottom" Grid.Row="1" Foreground="#FF00FFF9">
+		<Label Content="Contraseña:" Height="25" Margin="59,0,229,147" VerticalAlignment="Bottom" Grid.Row="1" Foreground="#FF00FFF9" Grid.ColumnSpan="2">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="Repetir Contraseña:" Height="25" Margin="22.084,0,-9.084,52" VerticalAlignment="Bottom" Grid.Row="1" Foreground="#FF00FFF9">
+		<Label Content="Repetir Contraseña:" Height="25" Margin="13,110,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FF00FFF9">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="Crear Administrador" Margin="38,12,38,38" FontFamily="Magneto" Foreground="#FF00FFF9" FontSize="32" Grid.ColumnSpan="4">
+		<Label Content="Crear Administrador" Margin="-20,11,8,39" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Button x:Name="boton_cancelarRegistroAdmin" Content="Cancelar" Grid.Column="2" Margin="2,0,-76,5" Grid.Row="1" Height="25" VerticalAlignment="Bottom">
+		<Button x:Name="boton_cancelarRegistroAdmin" Content="Cancelar" Grid.Column="2" Margin="1,0,0,69" Grid.Row="1" Height="25" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="Black" Offset="1"/>
@@ -82,7 +72,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_guardarRegistroAdmin" Content="Guardar" Grid.Column="1" Margin="0,0,7,5" Grid.Row="1" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom" Click="boton_guardarRegistroAdmin_Click">
+		<Button x:Name="boton_guardarRegistroAdmin" Content="Guardar" Grid.Column="1" Margin="0,0,3,69" Grid.Row="1" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom" Click="boton_guardarRegistroAdmin_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="Black" Offset="1"/>
