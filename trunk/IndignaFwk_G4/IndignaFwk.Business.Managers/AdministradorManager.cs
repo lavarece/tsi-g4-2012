@@ -141,5 +141,25 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
+
+        public Administrador ObtenerAdministradorPorEmailYPass(string email, string pass)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return AdministradorADO.ObtenerPorEmailYPass(email, pass, conexion);
+            }
+            catch(Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
     }
 }

@@ -28,6 +28,11 @@ namespace IndignaFwk.Business.Services
             return administradorManager.ObtenerAdministradorPorId(idAdministrador);
         }
 
+        public Administrador ObtenerAdministradorPorEmailYPass(string email, string pass)
+        { 
+           return administradorManager.ObtenerAdministradorPorEmailYPass(email, pass);
+        }
+
         public void EditarAdministrador(Administrador administrador)
         {
             administradorManager.EditarAdministrador(administrador);

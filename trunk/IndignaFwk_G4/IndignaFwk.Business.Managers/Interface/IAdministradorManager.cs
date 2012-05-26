@@ -17,5 +17,7 @@ namespace IndignaFwk.Business.Managers
         void EditarAdministrador(Administrador administrador);
 
         void EliminarAdministrador(int idAdministrador);
+
+        Administrador ObtenerAdministradorPorEmailYPass(string email, string pass);
     }
 }

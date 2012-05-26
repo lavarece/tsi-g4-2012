@@ -41,10 +41,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerAdministradorPorEmailYPass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAdministradorPorEmailYPassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerAdministradorPorEmailYPassResult" nillable="true" type="q4:Administrador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="EditarAdministrador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="administrador" nillable="true" type="q4:Administrador" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="administrador" nillable="true" type="q5:Administrador" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

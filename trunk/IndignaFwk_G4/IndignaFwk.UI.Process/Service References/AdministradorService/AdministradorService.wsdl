@@ -25,6 +25,12 @@
   <wsdl:message name="IAdministradorService_ObtenerAdministradorPorId_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IAdministradorService_ObtenerAdministradorPorEmailYPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorEmailYPass" />
+  </wsdl:message>
+  <wsdl:message name="IAdministradorService_ObtenerAdministradorPorEmailYPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAdministradorPorEmailYPassResponse" />
+  </wsdl:message>
   <wsdl:message name="IAdministradorService_EditarAdministrador_InputMessage">
     <wsdl:part name="parameters" element="tns:EditarAdministrador" />
   </wsdl:message>
@@ -49,6 +55,10 @@
     <wsdl:operation name="ObtenerAdministradorPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorId" message="tns:IAdministradorService_ObtenerAdministradorPorId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorIdResponse" message="tns:IAdministradorService_ObtenerAdministradorPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAdministradorPorEmailYPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorEmailYPass" message="tns:IAdministradorService_ObtenerAdministradorPorEmailYPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorEmailYPassResponse" message="tns:IAdministradorService_ObtenerAdministradorPorEmailYPass_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditarAdministrador">
       <wsdl:input wsaw:Action="http://tempuri.org/IAdministradorService/EditarAdministrador" message="tns:IAdministradorService_EditarAdministrador_InputMessage" />
@@ -81,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerAdministradorPorId">
       <soap:operation soapAction="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAdministradorPorEmailYPass">
+      <soap:operation soapAction="http://tempuri.org/IAdministradorService/ObtenerAdministradorPorEmailYPass" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -59,5 +59,17 @@ namespace IndignaFwk.UI.Process
 
             proxy.Close();
         }
+
+        public Administrador ObtenerAdministradorPorEmailYPass(string email, string pass)
+        {
+            AdministradorServiceClient proxy = new AdministradorServiceClient();
+
+            Administrador administrador = proxy.ObtenerAdministradorPorEmailYPass(email, pass);
+            
+            proxy.Close();
+
+            return administrador;
+
+        }
     }
 }

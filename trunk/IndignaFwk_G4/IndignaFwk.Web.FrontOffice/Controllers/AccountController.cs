@@ -38,6 +38,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 
                 if (usuario != null && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
+                    FormsAuthentication.SetAuthCookie(model.Correo, model.Recordarme);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -109,10 +110,21 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             usuario.Pregunta = model.PreguntaSecreta;
             usuario.Respuesta = "PEPE";
             usuario.Grupo = this.site.Grupo;
+            //controlar mail que no exista en la base para ese grupo
 
-            usuarioUserProcess.CrearNuevoUsuario(usuario);
+            //Si el usuario existe te retorna a la web
+            if (usuarioUserProcess.ObtenerUsuarioPorEmail(model.Correo) != null)
+            {
+                usuarioUserProcess.CrearNuevoUsuario(usuario);
 
-            return View("Detalle", model);
+                return View("Detalle", model);
+            }
+            else
+            {
+                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+            }
+
+            return View(model);
         }
 
         public ActionResult Detalle()

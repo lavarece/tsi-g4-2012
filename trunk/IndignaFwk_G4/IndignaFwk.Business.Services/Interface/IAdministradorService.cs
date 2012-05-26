@@ -21,6 +21,9 @@ namespace IndignaFwk.Business.Services
         Administrador ObtenerAdministradorPorId(int idAdministrador);
 
         [OperationContract]
+        Administrador ObtenerAdministradorPorEmailYPass(string email, string pass);
+
+        [OperationContract]
         void EditarAdministrador(Administrador administrador);
 
         [OperationContract]

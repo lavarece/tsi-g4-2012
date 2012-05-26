@@ -80,6 +80,8 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+
+
         /*
          * Método que obtiene la lista de sitios de 
          * la base de datos.
@@ -148,6 +150,27 @@ namespace IndignaFwk.Business.Managers
              }
          }
 
+         public List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return UsuarioADO.ObtenerUsuariosPorIdGrupo(idGrupo, conexion);
+
+             }
+             catch(Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;            
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
          public void EditarUsuario(Usuario usuario)
          {
              try
@@ -184,6 +207,26 @@ namespace IndignaFwk.Business.Managers
              {
                  UtilesBD.RollbackTransaccion(transaccion);
 
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
+         public Usuario ObtenerPorEmail(string email)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return UsuarioADO.ObtenerPorEmail(email, conexion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+                 
                  throw ex;
              }
              finally

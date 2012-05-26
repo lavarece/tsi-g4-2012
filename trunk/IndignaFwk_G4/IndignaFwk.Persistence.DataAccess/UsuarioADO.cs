@@ -147,6 +147,62 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
+        public List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo, SqlConnection conexion)
+        {
+            SqlDataReader reader = reader = null;
+
+            List<Usuario> listaUsuarioGrupo = new List<Usuario>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM Usuario WHERE FK_Id_Sitio = @id";
+
+                command.Parameters.AddWithValue("id", idGrupo);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
+
+                    usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    usuario.Email = UtilesBD.GetStringFromReader("Email", reader);
+
+                    usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
+
+                    usuario.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
+
+                    usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
+
+                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+
+                    // Las referecias cargaras con los otros dao
+                    listaUsuarioGrupo.Add(usuario);
+                }
+                return listaUsuarioGrupo;
+
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }             
+            }
+        }
+
+
         public List<Usuario> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
@@ -199,6 +255,64 @@ namespace IndignaFwk.Persistence.DataAccess
                 }   
             }
         }
+
+
+
+        public Usuario ObtenerPorEmail(string email, SqlConnection conexion)
+        { 
+            SqlDataReader reader = null;
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email";
+
+                UtilesBD.SetParameter(command, "email", email);
+
+                reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
+
+                    usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    usuario.Email = UtilesBD.GetStringFromReader("Email", reader);
+
+                    usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
+
+                    usuario.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
+
+                    usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
+
+                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+
+                    usuario.Grupo = new Grupo(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader));
+                    
+                    return usuario;            
+                }
+                
+                return null;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+        
+        
 
         public Usuario ObtenerPorEmailYPass(string email, string pass, SqlConnection conexion)
         {

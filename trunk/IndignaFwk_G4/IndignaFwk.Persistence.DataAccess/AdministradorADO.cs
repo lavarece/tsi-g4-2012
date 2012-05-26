@@ -128,6 +128,55 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
+        public Administrador ObtenerPorEmailYPass(string email, string pass, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM Administrador WHERE Email = @email and Password = @pass";
+
+                UtilesBD.SetParameter(command, "email", email);
+
+                UtilesBD.SetParameter(command, "pass", pass);
+
+                reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Administrador administrador = new Administrador();
+
+                    administrador.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    administrador.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    administrador.Password = UtilesBD.GetStringFromReader("Conectado", reader);
+
+                    administrador.Pregunta = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    administrador.Respuesta = UtilesBD.GetStringFromReader("Email", reader);
+
+                    administrador.Region = UtilesBD.GetStringFromReader("Password", reader);
+
+                    // Las referecias cargaras con los otros dao
+                    return administrador;
+                }
+
+                return null;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
         public List<Administrador> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
