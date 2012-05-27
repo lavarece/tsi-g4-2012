@@ -1,28 +1,16 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Indignados - [Nombre del grupo]";
+    Layout = "~/Content/layout_1/layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Error</title>
-</head>
-<body>
-    <h2 style="color: #FF0000; font-weight:bold;">
-        Error en el sistema, verifique los detalles para solucionarlo o contacte con el administrador.
-    </h2>
-
-    <hr /><br />
-
-    <table border="1" width="100%">
-        <tr>
-            <td><b>Tipo de error</b></td>
-            <td>@ViewBag.TipoError</td>
-        </tr>
-        <tr>
-            <td><b>Mensaje de error</b></td>
-            <td>@ViewBag.MensajeError</td>
-        </tr>
-    </table>
-</body>
-</html>
+<h2>Ha ocurrido un error, a continuacion se detalla el mismo:</h2> <br />
+<table>
+    <tr>
+        <td>Tipo de error</td>
+        <td>[TIPO]</td>
+    </tr>
+    <tr>
+        <td>Mensaje del error</td>
+        <td>[MENSAJE DE ERROR]</td>
+    </tr>
+</table>
