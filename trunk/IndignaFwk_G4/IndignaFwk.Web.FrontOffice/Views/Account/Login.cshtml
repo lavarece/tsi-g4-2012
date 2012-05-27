@@ -1,0 +1,51 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.LoginModel 
+
+@{
+    ViewBag.Title = "[Nombre de grupo] - Login";
+    Layout = "~/Content/layout_1/layout.cshtml";
+}
+
+<h2>Inicio de sesión</h2>
+
+@Html.ValidationSummary(true, "Datos incorrectos, intente nuevamente.")
+
+@using (Html.BeginForm()) {
+    <div class="areaFormulario">
+        <table>
+            <tr>
+                <td>
+                    <div id="fieldLabel">
+                        @Html.LabelFor(m => m.Email)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </td>                
+                <td></td>
+            </tr>   
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Contraseña)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.Contraseña)
+                        @Html.ValidationMessageFor(m => m.Contraseña)
+                    </div>
+                </td>
+                <td></td>
+            </tr>         
+        </table>        
+    </div>
+    
+    <div class="areaBotones">
+        <ul>    
+            <li>
+                <div class="boton">
+                    <a href="#">Acceder</a>
+                </div>       
+            </li>
+        </ul>        
+    </div>
+}

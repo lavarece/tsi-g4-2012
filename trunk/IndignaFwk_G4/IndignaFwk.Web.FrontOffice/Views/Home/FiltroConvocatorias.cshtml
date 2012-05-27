@@ -1,0 +1,78 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.FiltroConvocatoriaModel
+
+<div class="areaFormulario" id="divFiltroConvocatorias" style="display: none">    
+    <fieldset><legend>Filtro de convocatorias</legend>
+        <table>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Titulo)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Titulo)
+                        @Html.ValidationMessageFor(m => m.Titulo)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Descripcion)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Descripcion)
+                        @Html.ValidationMessageFor(m => m.Descripcion)
+                    </div>
+                </td>
+            </tr>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Quorum)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Quorum)
+                        @Html.ValidationMessageFor(m => m.Quorum)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Tematica)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Tematica)
+                        @Html.ValidationMessageFor(m => m.Tematica)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: right; margin: 5px 0px;">
+            <div class="boton">
+                <a href="#">Buscar</a>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<script type="text/javascript">
+
+    function mostrarOcultarFiltroConvocatorias(mostrar) 
+    {
+        var botonVerFiltro = $("#botonVerFiltro");
+        var botonOcultarFiltro = $("#botonOcultarFiltro");
+        var divFiltroConvocatorias = $("#divFiltroConvocatorias");
+
+        if (mostrar == 0) 
+        {
+            botonVerFiltro.css("display", "block");
+            botonOcultarFiltro.css("display", "none");
+            divFiltroConvocatorias.css("display", "none");
+
+        }
+        else if(mostrar == 1)
+        {
+            botonVerFiltro.css("display", "none");
+            botonOcultarFiltro.css("display", "block");
+            divFiltroConvocatorias.css("display", "block");
+        }
+    }
+
+</script>
