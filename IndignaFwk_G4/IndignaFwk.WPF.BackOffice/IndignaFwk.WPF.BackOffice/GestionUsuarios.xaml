@@ -27,7 +27,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-        <DataGrid SelectionChanged="dataGridUsuario_SelectionChanged" x:Name="datagrid_usuarios" IsReadOnly="True" Margin="14,113,11,130" Grid.Column="1" >
+        <DataGrid x:Name="datagrid_usuarios" IsReadOnly="True" Margin="14,113,11,130" Grid.Column="1" >
 			<DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
                 <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
