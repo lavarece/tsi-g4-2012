@@ -88,6 +88,8 @@ namespace IndignaFwk.Business.Managers
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                 VariableADO.Editar(variableSistema, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
             }
             catch (Exception ex)
             {

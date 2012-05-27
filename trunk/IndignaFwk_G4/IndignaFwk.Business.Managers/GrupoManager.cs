@@ -150,6 +150,8 @@ namespace IndignaFwk.Business.Managers
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                GrupoADO.Editar(grupo, conexion, transaccion);
+
+               UtilesBD.CommitTransaccion(transaccion);
            }
            catch (Exception ex)
            {
@@ -177,6 +179,8 @@ namespace IndignaFwk.Business.Managers
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                GrupoADO.Eliminar(idGrupo, conexion, transaccion);
+
+               UtilesBD.CommitTransaccion(transaccion);
            }
            catch (Exception ex)
            {

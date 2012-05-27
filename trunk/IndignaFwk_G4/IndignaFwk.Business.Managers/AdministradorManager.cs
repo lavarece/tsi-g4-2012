@@ -107,6 +107,8 @@ namespace IndignaFwk.Business.Managers
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                 AdministradorADO.Editar(administrador, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
             }
             catch (Exception ex)
             {
@@ -129,6 +131,8 @@ namespace IndignaFwk.Business.Managers
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                 AdministradorADO.Eliminar(idAdministrador, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
             }
             catch (Exception ex)
             {
