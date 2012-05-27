@@ -70,6 +70,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ConvocatoriaModel.cs" />
     <Compile Include="Models\HomeModels.cs" />
     <Compile Include="MultiTenant\ContainerControllerFactory.cs" />
     <Compile Include="MultiTenant\Ensure.cs" />

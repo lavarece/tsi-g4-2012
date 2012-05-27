@@ -9,6 +9,7 @@
 
 @Html.ValidationSummary(true, "Datos incorrectos, intente nuevamente.")
 
+
 @using (Html.BeginForm()) {
     <div class="areaFormulario">
         <table>
@@ -39,7 +40,7 @@
         </table>        
     </div>
     
-    <div class="areaBotones">
+    <div class="areaBotones2">
         <ul>    
             <li>
                 <div class="boton">
@@ -49,3 +50,7 @@
         </ul>        
     </div>
 }
+<br />
+<p>
+Haz click en el siguente link para registrarte: @Html.ActionLink("Register", "Register")
+</p>
