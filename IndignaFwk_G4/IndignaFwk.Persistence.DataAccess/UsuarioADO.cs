@@ -89,7 +89,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = "DELETE FROM Usuario WHERE Id = @id";
 
-            command.Parameters.AddWithValue("id", id);
+            UtilesBD.SetParameter(command, "id", id);
 
             command.ExecuteNonQuery();
         }
