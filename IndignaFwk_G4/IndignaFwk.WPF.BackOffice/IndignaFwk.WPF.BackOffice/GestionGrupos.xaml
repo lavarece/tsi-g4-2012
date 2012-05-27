@@ -13,7 +13,7 @@
 		</Grid.RowDefinitions>
         <DataGrid AutoGenerateColumns="False" DockPanel.Dock="Top" Name="dataGrid_listaGrupos" Margin="6,42,8,42">
 			<DataGrid.Columns>
-                <DataGridHyperlinkColumn  Binding="{Binding Path=Nombre}" Header="Nombre">
+                <DataGridHyperlinkColumn Binding="{Binding Path=Nombre}" Header="Nombre">
                     <DataGridHyperlinkColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <EventSetter Event="Hyperlink.Click" Handler="OnHyperlinkClick" />

@@ -51,5 +51,10 @@ namespace IndignaFwk_WPF_BackOffice
 			GestionVariables gestionVarWindow = new GestionVariables();
 			gestionVarWindow.Show();
 		}
+
+		private void btnSalir(object sender, System.Windows.RoutedEventArgs e)
+		{
+			// TODO: Add event handler implementation here.
+		}
 	}
 }

@@ -29,11 +29,20 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void btn_iniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            Home homeWindow = new Home(txt_usuario.Text);
-            
-            homeWindow.Show();
+            Administrador admin = adminUserProcess.ObtenerAdministradorPorEmailYPass(txt_usuario.Text, txt_password.Password);
 
-            this.Close();
+            if (admin != null)
+            {
+                Home homeWindow = new Home(txt_usuario.Text);
+
+                homeWindow.Show();
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error! Email y Contraseña incorrectos");
+            }
         }
 	}
 }
