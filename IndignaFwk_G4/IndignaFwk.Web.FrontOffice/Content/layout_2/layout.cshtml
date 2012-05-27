@@ -15,10 +15,10 @@
             <div id="login">
                 <ul>
                     <li>                        
-                        <a href="@*@Url.Action("Login","Account")*@">Identificarme</a>
+                        <a href="@Url.Action("Login","Account")">Acceder</a>
                     </li>
                     <li>
-                        <a href="@*@Url.Action("Registro","Account")*@">Registrarme</a>
+                        <a href="@Url.Action("Registro","Account")">Registrarme</a>
                     </li>
                 </ul>
             </div>
@@ -26,7 +26,7 @@
 
         <div id="menu">
             <ul>    
-                <li class="selected"><a href="#">Inicio</a></li>
+                <li class="selected"><a href="@Url.Action("Index","Home")">Inicio</a></li>
                 <li><a href="#">Mapa</a></li>
                 <li><a href="#">Novedades</a></li>
                 <li><a href="#">Convocatorias</a></li>

@@ -345,3 +345,74 @@
 {
     background-color: #515151;
 }
+
+.areaBotones2
+{
+    margin: 15px 0px 15px 127px;
+}
+
+.areaBotones2 ul
+{
+    list-style: none;
+    margin: 0px;
+}
+
+.areaBotones2 li
+{
+    float: left;
+}
+
+.boton2 
+{
+    display: block;
+    margin: 15px 0px 10px 150px;
+}
+
+.boton2 a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #FFFF1F;
+    border: 1px solid #FFFF1F;
+    color: #FFFFFF;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+}
+
+#logfieldset
+{
+    background-color:#FF6600;
+    width:500px;
+    
+}
+
+.areaFormulario
+{
+    margin: 15px 0px 10px 150px;
+}
+
+.areaFormulario table
+{
+    width: 100%
+}
+
+.areaFormulario td
+{
+    width: 50%;
+}
+
+.areaFormulario2
+{
+    margin: 15px 0px 10px 20px;
+}
+
+.areaFormulario2 table
+{
+    width: 100%
+}
+
+.areaFormulario2 td
+{
+    width: 50%;
+}

@@ -6,15 +6,15 @@
 }
 
 <h2>Registro de usuario</h2>
-
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 @Html.ValidationSummary(true, "El registro no es válido, intente nuevamente.")
 
+
 @using (Html.BeginForm()) 
 {
-    <div class="areaFormulario">    
+    <div class="areaFormulario2">    
         <table>
             <tr>    
                 <td>
@@ -98,7 +98,7 @@
         </table>   
     </div>
     
-    <div class="areaBotones">
+    <div class="areaBotones2">
         <ul>
             <li>
                 <div class="boton">
@@ -108,4 +108,3 @@
         </ul>        
     </div>              
 }
-
