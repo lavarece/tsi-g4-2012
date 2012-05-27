@@ -12,7 +12,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         private IApplicationTenant site;
 
         public HomeController(IApplicationTenant site)
-        {
+        { 
             this.site = site;
         }
 
