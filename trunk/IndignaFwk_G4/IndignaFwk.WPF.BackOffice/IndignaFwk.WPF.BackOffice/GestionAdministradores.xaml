@@ -16,19 +16,29 @@
 			<RowDefinition Height="411.144"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-        <DataGrid x:Name="datagrid_administradores" IsReadOnly="True" AutoGenerateColumns="False" Margin="13.5,44.5,17,74.5">
-			<DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Email}" Header="E-Mail"/>
-                <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
-                <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido"/>
-			</DataGrid.Columns>
-		</DataGrid>
-		<Label Content="Gestión de Administradores" Height="39" Margin="129.5,0,-119.61,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.ColumnSpan="2">
+        <DockPanel Margin="10">
+            <DataGrid x:Name="datagrid_administradores" DockPanel.Dock="Top" IsReadOnly="True" AutoGenerateColumns="False" Margin="13.5,44.5,17,74.5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Email}" Header="E-Mail"/>
+                    <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
+                    <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <Label Content="Gestión de Administradores" Height="39" Margin="129.5,0,-119.61,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.ColumnSpan="2">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
 		<Button x:Name="boton_nuevoAdministrador" Height="26" Margin="0,0,18,39.5" VerticalAlignment="Bottom" Content="Alta Administrador" HorizontalAlignment="Right" Width="127" Click="boton_nuevoAdministrador_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_Salir" Height="26" Margin="0,0,155,39.5" VerticalAlignment="Bottom" Content="Salir" HorizontalAlignment="Right" Width="127" Click="boton_SalirClick">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>

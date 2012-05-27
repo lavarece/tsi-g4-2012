@@ -34,5 +34,10 @@ namespace IndignaFwk_WPF_BackOffice
 			CrearAdministrador crearAdminWindow = new CrearAdministrador();
 			crearAdminWindow.Show();
 		}
+
+		private void boton_SalirClick(object sender, System.Windows.RoutedEventArgs e)
+		{
+            this.Close();
+		}
 	}
 }

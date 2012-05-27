@@ -23,5 +23,10 @@ namespace IndignaFwk_WPF_BackOffice
 			
 			// Insert code required on object creation below this point.
 		}
+
+		private void boton_Salir_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			// TODO: Add event handler implementation here.
+		}
 	}
 }
