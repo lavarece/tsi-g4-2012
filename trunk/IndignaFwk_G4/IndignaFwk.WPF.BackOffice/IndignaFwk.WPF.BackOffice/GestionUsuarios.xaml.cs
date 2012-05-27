@@ -28,7 +28,8 @@ namespace IndignaFwk_WPF_BackOffice
 		{
 			this.InitializeComponent();
 
-            datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerListadoUsuarios();
+            List<Usuario> listaUsuarios = usuarioUserProcess.ObtenerListadoUsuarios();
+            datagrid_usuarios.ItemsSource = listaUsuarios;
             foreach(Grupo grupo in grupoUserProcess.ObtenerListadoGrupos())
             {
                 comboBox_Sitios.Items.Add(grupo.Url);
@@ -37,6 +38,32 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void comboBox_Sitios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Grupo grupo = grupoUserProcess.ObtenerGrupoPorUrl(comboBox_Sitios.SelectedItem.ToString());
+
+            datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerUsuariosPorIdGrupo(grupo.Id);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+                  
+            usuarioUserProcess.EliminarUsuario(((Usuario)this.datagrid_usuarios.SelectedItem).Id);
+            MessageBox.Show("Usuario eliminado correctamente");
+            
+            if (comboBox_Sitios.SelectedItem != null)
+            {
+                Grupo grupo = grupoUserProcess.ObtenerGrupoPorUrl(comboBox_Sitios.SelectedItem.ToString());
+                datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerUsuariosPorIdGrupo(grupo.Id);
+            }
+            else
+            {
+                datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerListadoUsuarios();
+            }
+        }
+
+        private void dataGridUsuario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
 	}
 }

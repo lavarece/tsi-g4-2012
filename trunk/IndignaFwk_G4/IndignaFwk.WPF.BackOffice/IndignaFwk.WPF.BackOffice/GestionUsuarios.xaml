@@ -21,21 +21,20 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<ComboBox Name="comboBox_Sitios" Height="18" Margin="12.5,70.5,198.5,0" VerticalAlignment="Top" Grid.Column="1" SelectionChanged="comboBox_Sitios_SelectionChanged" />
+		<ComboBox Name="comboBox_Sitios" Height="22" Margin="12.5,70.5,198.5,0" VerticalAlignment="Top" Grid.Column="1" SelectionChanged="comboBox_Sitios_SelectionChanged" />
 		<Label Content="Sitio:" HorizontalAlignment="Left" Height="28.5" Margin="9.5,45,0,0" VerticalAlignment="Top" Width="73.5" Foreground="#FF00FFF9" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<DataGrid x:Name="datagrid_usuarios" Margin="14,113,11,130" Grid.Column="1">
+        <DataGrid SelectionChanged="dataGridUsuario_SelectionChanged" x:Name="datagrid_usuarios" IsReadOnly="True" Margin="14,113,11,130" Grid.Column="1" >
 			<DataGrid.Columns>
-				<DataGridCheckBoxColumn/>
-                <DataGridTextColumn Binding="{Binding Path=Grupo.Nombre}" Header="Sitio"/>
+                <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
                 <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
-				<DataGridHyperlinkColumn/>
+                <DataGridTextColumn Binding="{Binding Path=Descripcion}" Header="Descripcion"/>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Button Content="Eliminar" HorizontalAlignment="Right" Height="23" Margin="0,0,13,86" VerticalAlignment="Bottom" Width="85" Grid.Column="1">
+		<Button Content="Eliminar" HorizontalAlignment="Right" Height="23" Margin="0,0,13,86" VerticalAlignment="Bottom" Width="85" Grid.Column="1" Click="Button_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
