@@ -1,24 +1,17 @@
 ﻿@{
     ViewBag.Title = "[Nombre del grupo] - Inicio";
-    Layout = "~/Content/layout_1/layout.cshtml";
+    Layout = "~/Content/layout_2/layout.cshtml";
 }
-
-<h2>Inicio</h2>
-
 <div id="listaConvocatorias">
     <div class="areaBotones">
-        <ul>                
+        <ul>
+        <b><font size=3>Convocatiorias Activas:</font></b>
             <li>            
                 <div class="boton" id="botonVerFiltro">
                     <a href="javascript:mostrarOcultarFiltroConvocatorias(1);">Ver filtro</a>
                 </div>
                 <div class="boton" id="botonOcultarFiltro" style="display: none;">
                     <a href="javascript:mostrarOcultarFiltroConvocatorias(0);">Ocultar filtro</a>
-                </div>
-            </li>
-            <li>
-                <div class="boton">
-                    <a href="javascript:void(0);">Crear convocatoria</a>
                 </div>
             </li>
         </ul>
@@ -98,12 +91,11 @@
 </div>
 
 <div id="mapaConvocatorias">    
-    <iframe width="300" height="200"
+    <iframe width="560" height="400"
         src="http://maps.google.com.uy/?ie=UTF8&amp;t=m&amp;
                 ll=-34.902827,-56.170349&amp;spn=0.098548,0.146255&amp;
                 z=12&amp;output=embed">            
     </iframe>
 </div>
-
 
 
