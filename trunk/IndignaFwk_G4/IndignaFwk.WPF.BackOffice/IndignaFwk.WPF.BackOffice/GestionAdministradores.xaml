@@ -16,7 +16,7 @@
 			<RowDefinition Height="411.144"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<DataGrid x:Name="datagrid_administradores" Margin="13.5,44.5,17,74.5">
+        <DataGrid x:Name="datagrid_administradores" IsReadOnly="True" AutoGenerateColumns="False" Margin="13.5,44.5,17,74.5">
 			<DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Email}" Header="E-Mail"/>
                 <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>

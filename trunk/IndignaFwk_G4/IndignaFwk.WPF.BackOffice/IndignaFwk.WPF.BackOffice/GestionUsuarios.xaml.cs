@@ -60,10 +60,5 @@ namespace IndignaFwk_WPF_BackOffice
                 datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerListadoUsuarios();
             }
         }
-
-        private void dataGridUsuario_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
 	}
 }
