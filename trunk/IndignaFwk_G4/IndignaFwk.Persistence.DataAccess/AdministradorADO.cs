@@ -74,7 +74,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "DELETE FROM Adinistrador WHERE Id = @id";
+            command.CommandText = "DELETE FROM Administrador WHERE Id = @id";
 
             command.Parameters.AddWithValue("id", id);
 
@@ -105,13 +105,15 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     administrador.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    administrador.Password = UtilesBD.GetStringFromReader("Conectado", reader);
+                    administrador.Email = UtilesBD.GetStringFromReader("Email", reader);
 
-                    administrador.Pregunta = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    administrador.Password = UtilesBD.GetStringFromReader("Password", reader);
 
-                    administrador.Respuesta = UtilesBD.GetStringFromReader("Email", reader);
+                    administrador.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
 
-                    administrador.Region = UtilesBD.GetStringFromReader("Password", reader);
+                    administrador.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
+
+                    administrador.Region = UtilesBD.GetStringFromReader("Region", reader);
 
                     // Las referecias cargaras con los otros dao
                     return administrador;
@@ -154,13 +156,15 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     administrador.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    administrador.Password = UtilesBD.GetStringFromReader("Conectado", reader);
+                    administrador.Email = UtilesBD.GetStringFromReader("Email", reader);
 
-                    administrador.Pregunta = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    administrador.Password = UtilesBD.GetStringFromReader("Password", reader);
 
-                    administrador.Respuesta = UtilesBD.GetStringFromReader("Email", reader);
+                    administrador.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
 
-                    administrador.Region = UtilesBD.GetStringFromReader("Password", reader);
+                    administrador.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
+
+                    administrador.Region = UtilesBD.GetStringFromReader("Region", reader);
 
                     // Las referecias cargaras con los otros dao
                     return administrador;
@@ -201,13 +205,15 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     administrador.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    administrador.Password = UtilesBD.GetStringFromReader("Conectado", reader);
+                    administrador.Email = UtilesBD.GetStringFromReader("Email", reader);
 
-                    administrador.Pregunta = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    administrador.Password = UtilesBD.GetStringFromReader("Password", reader);
 
-                    administrador.Respuesta = UtilesBD.GetStringFromReader("Email", reader);
+                    administrador.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
 
-                    administrador.Region = UtilesBD.GetStringFromReader("Password", reader);
+                    administrador.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
+
+                    administrador.Region = UtilesBD.GetStringFromReader("Region", reader);
 
                     // Las referecias cargaras con los otros dao
                     listaAdminstrador.Add(administrador);
