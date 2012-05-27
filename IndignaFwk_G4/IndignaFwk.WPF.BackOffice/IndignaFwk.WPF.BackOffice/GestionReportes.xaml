@@ -28,5 +28,13 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
+		<Button x:Name="boton_Salir" Height="26" Margin="122.11,0,160.89,4.355" VerticalAlignment="Bottom" Content="Salir" Click="boton_Salir_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
 	</Grid>
 </Window>

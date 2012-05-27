@@ -46,5 +46,10 @@ namespace IndignaFwk_WPF_BackOffice
 
             crearGrupoWindow.Show();
         }
+
+        private void boton_Salir_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Close();
+        }
 	}
 }

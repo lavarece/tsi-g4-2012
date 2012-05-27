@@ -60,5 +60,10 @@ namespace IndignaFwk_WPF_BackOffice
                 datagrid_usuarios.ItemsSource = usuarioUserProcess.ObtenerListadoUsuarios();
             }
         }
+
+        private void boton_Salir_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Close();
+        }
 	}
 }
