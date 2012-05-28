@@ -255,6 +255,8 @@ CREATE TABLE [dbo].[Convocatoria](
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Quorum] [int],
 	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FechaInicio] [DateTime],
+	[FechaFin] [DateTime],
 	[FK_Id_UsuarioCreacion] [int],
 	[FK_Id_Sitio] [int],
 	[FK_Id_Tematica] [int],
