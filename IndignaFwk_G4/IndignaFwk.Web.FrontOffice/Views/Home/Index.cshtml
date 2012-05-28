@@ -2,100 +2,97 @@
     ViewBag.Title = "[Nombre del grupo] - Inicio";
     Layout = "~/Content/layout_1/layout.cshtml";
 }
-<div id="listaConvocatorias">
-    <div class="areaBotones">
-        <ul>
-        <b><font size=3>Convocatiorias Activas:</font></b>
-            <li>            
-                <div class="boton" id="botonVerFiltro">
-                    <a href="javascript:mostrarOcultarFiltroConvocatorias(1);">Ver filtro</a>
-                </div>
-                <div class="boton" id="botonOcultarFiltro" style="display: none;">
-                    <a href="javascript:mostrarOcultarFiltroConvocatorias(0);">Ocultar filtro</a>
-                </div>
-            </li>
-        </ul>
+
+<div class="detalleGrupo">
+    <h3>Bienvenido al grupo [Nombre grupo]</h3>
+    <div class="imagenGrupo">
+        <img src="@Url.Content("~/Content/layout_1/images/group_no_image.png")" alt="Imagen grupo"/>
     </div>
-    @RenderPage("~/Views/Home/FiltroConvocatorias.cshtml")
-        
-    <table class="dataTable">
-        <thead>
-            <tr>            
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Tematica</th>
-                <th>Quorum</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>        
-            <tr class="odd">
-                <td>
-                    Titulo 1
-                </td>
-                <td>
-                    Descripción 1
-                </td>
-                <td>
-                    Tematica 1
-                </td>     
-                <td>
-                    Quorum 1
-                </td>  
-                <td class="fieldIcono">
-                    <a href="#" title="Posicionar convocatoria">
-                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
-                    </a>
-                </td>       
-            </tr>
-            <tr class="even">
-                <td>
-                    Titulo 2
-                </td>
-                <td>
-                    Descripción 2
-                </td>
-                <td>
-                    Tematica 2
-                </td>   
-                <td>
-                    Quorum 2
-                </td>           
-                <td class="fieldIcono">
-                    <a href="#" title="Posicionar convocatoria">
-                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
-                    </a>
-                </td>   
-            </tr>
-            <tr class="odd">
-                <td>
-                    Titulo 3
-                </td>
-                <td>
-                    Descripción 3
-                </td>
-                <td>
-                    Tematica 3
-                </td>   
-                <td>
-                    Quorum 3
-                </td>    
-                <td class="fieldIcono">
-                    <a href="#" title="Posicionar convocatoria">
-                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
-                    </a>
-                </td>        
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed justo massa, 
+        fermentum luctus mi. Pellentesque habitant morbi tristique senectus et netus et malesuada 
+        fames ac turpis egestas. Phasellus at diam eget nunc vehicula lacinia sed eget purus. 
+        Donec dignissim consequat porttitor. Phasellus a molestie nunc. Suspendisse accumsan,
+        lorem vitae ornare iaculis, augue augue auctor leo, in malesuada metus nunc ac tellus. 
+    </div>
 </div>
 
-<div id="mapaConvocatorias">    
-    <iframe width="560" height="400"
-        src="http://maps.google.com.uy/?ie=UTF8&amp;t=m&amp;
-                ll=-34.902827,-56.170349&amp;spn=0.098548,0.146255&amp;
-                z=12&amp;output=embed">            
-    </iframe>
+<div style="clear: both;"></div>
+
+<div class="listadoContenidos">
+    <h3>Contenidos del grupo</h3>
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">       
+                    <a href="#">Compartir contenido</a>
+                </div>
+            </li>            
+        </ul>
+    </div>
+
+    <div class="itemContenido">
+        <div class="creadorContenido">
+            <img src="@Url.Content("~/Content/layout_1/images/user_no_image.png")" alt="Imagen usuario" />    
+            <span>Datos del creador</span><hr />                    
+        </div>
+        <div class="contenido">
+            <iframe width="100%" height="100%" src="http://www.youtube.com/embed/BRSm3QxIhZM" frameborder="0" allowfullscreen></iframe>            
+        </div>        
+        <div class="detalleContenido">
+            <div class="fieldLabel">Tipo: <span class="fieldValue">Tipo</span></div>
+            <div class="fieldLabel">Titulo: <span class="fieldValue">Titulo</span></div>
+            <div class="fieldLabel">Comentario: <span class="fieldValue">Comentario</span></div>
+
+            <div class="areaBotones">
+            <ul>
+                <li>
+                    <div class="boton">       
+                        <a href="#">Me gusta</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="boton">       
+                        <a href="#">Inadecuado</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="itemContenido">
+        <div class="creadorContenido">
+            <img src="@Url.Content("~/Content/layout_1/images/user_no_image.png")" alt="Imagen usuario" />    
+            <span>Datos del creador</span><hr />                    
+        </div>
+        <div class="contenido">
+            <iframe width="100%" height="100%" src="http://www.youtube.com/embed/BRSm3QxIhZM" frameborder="0" allowfullscreen></iframe>            
+        </div>        
+        <div class="detalleContenido">
+            <div class="fieldLabel">Tipo: <span class="fieldValue">Tipo</span></div>
+            <div class="fieldLabel">Titulo: <span class="fieldValue">Titulo</span></div>
+            <div class="fieldLabel">Comentario: <span class="fieldValue">Comentario</span></div>
+
+            <div class="areaBotones">
+                <ul>
+                    <li>
+                        <div class="boton">       
+                            <a href="#">Me gusta</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="boton">       
+                            <a href="#">Inadecuado</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
 
 
