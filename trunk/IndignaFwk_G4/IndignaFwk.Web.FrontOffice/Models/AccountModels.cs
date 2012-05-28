@@ -9,11 +9,11 @@ namespace IndignaFwk.Web.FrontOffice.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "E-mail:")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña:")]
         public string Contraseña { get; set; }
@@ -21,40 +21,40 @@ namespace IndignaFwk.Web.FrontOffice.Models
 
     public class RegistroModel
     {
-        [Required]
+        [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Nombre")]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Region geografica")]
         public string RegionGeografica { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [StringLength(100, ErrorMessage = "El password debe ser mayor a 6 caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Contraseña { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
         [Compare("Contraseña", ErrorMessage = "El usuario y contraseña no coinciden.")]
         public string ConfirmarContraseña { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Pregunta secreta:")]
         public string PreguntaSecreta { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Respuesta secreta:")]
         public string RespuestaSecreta { get; set; }
     }

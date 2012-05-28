@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
@@ -9,14 +7,19 @@ using System.Web.Security;
 
 namespace IndignaFwk.Web.FrontOffice.Models
 {
-    public class FiltroConvocatoriaModel
+    public class ConvocatoriaModel
     {
-        [Required(ErrorMessage="Campo obligatorio")]
-        [Display(Name = "Título:")]
-        public string Titulo { get; set; }
+        public int ID;
 
         [Required(ErrorMessage="Campo obligatorio")]
-        [Display(Name = "Descripción:")]
+        [Display(Name = "Titulo:")]
+        public string Titulo { get; set; }
+
+        [Display(Name = "Link foto:")]
+        public string LogoUrl { get; set; }
+
+        [Required(ErrorMessage="Campo obligatorio")]
+        [Display(Name = "Descripcion:")]
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage="Campo obligatorio")]
@@ -24,15 +27,16 @@ namespace IndignaFwk.Web.FrontOffice.Models
         public string Quorum { get; set; }
 
         [Required(ErrorMessage="Campo obligatorio")]
-        [Display(Name = "Temática:")]
-        public string Tematica { get; set; }
+        [Display(Name = "Ubicación (Lat, Lon):")]
+        public string Ubicacion { get; set; }
 
         [Required(ErrorMessage="Campo obligatorio")]
-        [Display(Name = "Fecha inicio:")]
-        public string FechaInicio { get; set; }
+        [Display(Name = "Comienzo:")]
+        public DateTime? FechaInicio{ get; set; }
 
         [Required(ErrorMessage="Campo obligatorio")]
-        [Display(Name = "Fecha fin:")]
-        public string FechaFin { get; set; }
+        [Display(Name = "Fin:")]
+        public DateTime? FechaFin { get; set; }
     }
+
 }
