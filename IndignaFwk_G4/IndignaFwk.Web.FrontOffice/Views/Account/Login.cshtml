@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "[Nombre de grupo] - Login";
-    Layout = "~/Content/layout_2/layout.cshtml";
+    Layout = "~/Content/layout_1/layout.cshtml";
 }
 
 <h2>Inicio de sesión</h2>
@@ -44,7 +44,7 @@
         <ul>    
             <li>
                 <div class="boton">
-                    <a href="#">Acceder</a>
+                    <a href="#" onclick="submit();">Acceder</a>
                 </div>       
             </li>
         </ul>        
@@ -52,5 +52,5 @@
 }
 <br />
 <p>
-Haz click en el siguente link para registrarte: @Html.ActionLink("Register", "Register")
+Haz click en el siguente link para registrarte: @Html.ActionLink("Registro", "Registro")
 </p>
