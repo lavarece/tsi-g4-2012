@@ -62,9 +62,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return View();
         }
 
-
-        //POST: /Account/Registro
-
         [HttpPost]
         public ActionResult Registro(RegistroModel model)
         {
@@ -95,13 +92,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return View(model);
         }
 
-        public ActionResult Detalle()
+        public ActionResult DetalleRegistro()
         {
             return View();
         }
-
-
-
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {

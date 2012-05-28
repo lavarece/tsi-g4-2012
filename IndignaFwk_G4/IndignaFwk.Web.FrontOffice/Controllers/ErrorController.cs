@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
     public class ErrorController : Controller
     {
         private Exception exception;
+
+        private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
 
         public ErrorController(Exception exception)
         {
@@ -17,9 +22,18 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.TipoError = exception.GetType().ToString();
+            ViewBag.TipoError = this.exception.GetType().ToString();
 
-            ViewBag.MensajeError = exception.Message;
+            ViewBag.MensajeError = this.exception.Message;
+
+            if(this.exception.GetType().ToString().Equals(new TenantNotFoundException().GetType().ToString()))
+            {
+                List<Grupo> listadoGrupos = grupoUserProcess.ObtenerListadoGrupos();
+
+                ViewBag.ListadoGrupos = listadoGrupos;
+            }
+
+            ViewBag.GruposDisponibles = "Grupos";
 
             this.exception = null;
 
