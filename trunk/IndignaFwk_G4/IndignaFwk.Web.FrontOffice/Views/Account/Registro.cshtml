@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "[Nombre de grupo] - Registro";
-    Layout = "~/Content/layout_2/layout.cshtml";
+    Layout = "~/Content/layout_1/layout.cshtml";
 }
 
 <h2>Registro de usuario</h2>
@@ -50,8 +50,8 @@
                         @Html.LabelFor(m=>m.RegionGeografica)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Email)
-                        @Html.ValidationMessageFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.RegionGeografica)
+                        @Html.ValidationMessageFor(m => m.RegionGeografica)
                     </div>
                 </td>
             </tr>
@@ -102,7 +102,7 @@
         <ul>
             <li>
                 <div class="boton">
-                    <a href="#">Registrarme</a>
+                    <a href="#" onclick="submit();">Registrarme</a>
                 </div>       
             </li>
         </ul>        
