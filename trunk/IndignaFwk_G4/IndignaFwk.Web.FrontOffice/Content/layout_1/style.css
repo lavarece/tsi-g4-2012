@@ -1,3 +1,5 @@
+/* Estilos estructura */
+
 body
 {
     font-size: 12px;
@@ -6,6 +8,11 @@ body
     text-align: justify;
     margin: 0px;
     background: url('images/bg_body.png') repeat-x #3C3C3C;    
+}
+
+input, select, textarea
+{
+    border: 1px #000000 solid;
 }
 
 #wrapper 
@@ -155,9 +162,60 @@ body
     margin: 20px 10px;
 }
 
+#mapaConvocatorias .mapa
+{
+    float: left;
+    width: 62%;
+    height: 400px;
+}
+
+#mapaConvocatorias .mapa iframe
+{
+    width: 100%;
+    height: 100%;
+}
+
+#mapaConvocatorias .detalleConvocatoria
+{
+    float: right;
+    width: 35%;
+}
+
+/* Estilos errores MVC */
+.validation-summary-errors
+{
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #F96D51;
+    border: 1px solid #A62106;
+    border-radius: 5px 5px 5px 5px;
+    color: #3C3C3C;
+}
+
+.validation-summary-errors span
+{
+    padding-left: 12px;
+}
+
+.input-validation-error
+{
+    background-color: #FFEEEE;
+}
+
+.field-validation-error
+{
+    display: block;
+    color: #F96D51;
+}
+
+/* Estilos clases generales */
 .fieldLabel
 {
     font-style: italic;
+    text-align: left;
+    vertical-align: top;
 }
 
 .fieldValue input[type="text"], 
@@ -167,9 +225,24 @@ body
     width: 70%;
 }
 
+.fieldValue
+{
+    font-weight: bold;
+    font-style: normal;
+}
+
 .fieldIcono
 {
     width: 30px;
+    text-align: center;
+    padding-left: 0px !important;
+}
+
+.fieldCheckbox
+{
+    width: 35px;
+    text-align: center;
+    padding-left: 0px !important;
 }
 
 .areaFormulario
@@ -181,6 +254,11 @@ body
 .areaFormulario table
 {
     width: 100%
+}
+
+.areaFormulario tr
+{
+    vertical-align: top;
 }
 
 .areaFormulario td
@@ -201,11 +279,12 @@ body
 {
     list-style: none;
     margin: 0px;
+    float: right;
 }
 
 .areaBotones li
 {
-    float: right;
+    float: left;
 }
 
 
@@ -234,11 +313,18 @@ body
     background-color: #C8E199;
 }
 
+.wrapperDataTable
+{
+    max-height: 400px;
+    overflow: auto;
+    padding-top: 5px;
+    width: 100%;
+}
+
 .dataTable
 {
     width: 100%;
     border: 0px;
-    margin-top: 10px;
 }
 
 .dataTable thead tr
@@ -269,4 +355,72 @@ body
 {
     background-color: #515151;
 }
+
+.notificacionNoLeida
+{
+    font-weight: bold;
+    font-size: 13px;
+    font-style: oblique;
+}
+
+.detalleGrupo .imagenGrupo
+{
+    float: left;
+    padding: 5px 15px 5px 5px;
+}
+
+
+.listaContenidos
+{
+    width: 100%;
+}
+
+.itemContenido
+{
+    float: left;
+    background-color: #515151;
+    display: block;
+    border: 1px solid #ACEF2F;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.creadorContenido
+{
+    padding: 10px;
+    vertical-align: top;
+}
+
+.creadorContenido img
+{
+    padding-right: 10px;
+    width: 50px;
+    height: 70px;
+}
+
+.creadorContenido hr
+{
+    border: 1px solid #616161;
+}
+
+.creadorContenido span
+{
+    vertical-align: top;
+}
+
+.contenido
+{
+    padding: 5px 10px;
+    float: left;
+    width: 60%;
+    height: 400px;
+}
+
+.detalleContenido
+{
+    float: left;
+    display: inline;
+    width: 36%;
+}
+
 
