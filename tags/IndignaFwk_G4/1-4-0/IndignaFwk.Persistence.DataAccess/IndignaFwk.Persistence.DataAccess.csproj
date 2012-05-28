@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{939458C8-1768-48C3-BB7F-CCAAEF6327CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IndignaFwk.Persistence.DataAccess</RootNamespace>
+    <AssemblyName>IndignaFwk.Persistence.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AdministradorADO.cs" />
+    <Compile Include="AsistenciaConvocatoriaADO.cs" />
+    <Compile Include="ContenidoADO.cs" />
+    <Compile Include="ConvocatoriaADO.cs" />
+    <Compile Include="GrupoADO.cs" />
+    <Compile Include="Interface\IAdministradoADO.cs" />
+    <Compile Include="Interface\IAsistenciaConvocatoriaADO.cs" />
+    <Compile Include="Interface\IContenidoADO.cs" />
+    <Compile Include="Interface\IConvocatoriaADO.cs" />
+    <Compile Include="Interface\IGrupoADO.cs" />
+    <Compile Include="Interface\IImagenADO.cs" />
+    <Compile Include="ImagenADO.cs" />
+    <Compile Include="Interface\IMarcaContenidoADO.cs" />
+    <Compile Include="Interface\INotificacionADO.cs" />
+    <Compile Include="Interface\ITematicaADO.cs" />
+    <Compile Include="Interface\IUsuarioADO.cs" />
+    <Compile Include="Interface\IUsuTematicaADO.cs" />
+    <Compile Include="Interface\IVariableSistemaADO.cs" />
+    <Compile Include="MarcaContenidoADO.cs" />
+    <Compile Include="NotificacionADO.cs" />
+    <Compile Include="TematicaADO.cs" />
+    <Compile Include="UsuarioADO.cs" />
+    <Compile Include="UsuTematicaADO.cs" />
+    <Compile Include="VariableSistemaADO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

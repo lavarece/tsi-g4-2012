@@ -1,0 +1,418 @@
+﻿body 
+{
+    font-size: 12px;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #DBDBD5;
+    background-color: #151515;
+    text-align: justify;
+    margin: 0px;
+}
+
+#wrapper 
+{
+	width: 920px;
+	margin: 0 auto;
+	border-top: 0px;
+	border-left: 3px ridge #151515;
+	border-right: 3px ridge #151515;
+	border-bottom: 0px;
+	background-color:#FF0000;
+}
+
+#header
+{
+    width: 900px;    
+    background-color: #515151;
+    height: 90px;
+    line-height: 90px;
+    margin: auto;  
+    background: url('images/header.png') no-repeat;     
+}
+
+#logo
+{
+    font-family:Chiller;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 30px;
+    float: left;
+    color: #FFFFFF;
+}
+
+#login
+{
+    float: right;    
+}
+
+#login ul
+{
+    list-style: none;
+    margin: 25px;
+}
+
+#login li
+{
+    float: left;
+    margin: 0px 3px;
+    background: url('images/ico_vineta.gif') no-repeat left 50%;    
+}
+
+#login a 
+{
+	text-decoration: none;
+	color: #DBDBD5;
+	font-weight:bold;
+	font-style:italic;
+	font-size: 18px;
+	padding: 0px 15px;	
+}
+
+#login a:hover
+{
+    text-decoration: underline;
+}
+
+#menu
+{
+    width: 900px;
+    margin: 10px auto;
+    height: 31px;
+    line-height: 29px;
+    border-bottom: 1px solid #ACEF2F;
+}
+
+#menu ul 
+{
+	margin: 0px;
+	list-style: none;
+	padding: 0px;
+}
+
+#menu li 
+{
+	float: left;
+    background-color: #FF6600;	
+    margin: 0px 2px;	
+    border-left: 1px solid #FF6600;
+    border-right: 1px solid #FF6600;
+    border-top: 1px solid #FF6600;    
+    border-radius: 5px 5px 0px 0px;
+}
+
+#menu a 
+{
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 0px 15px;	
+}
+
+#menu a:hover
+{
+    text-decoration: underline;
+}
+
+#menu .selected
+{
+    background-color: #FFFF1F;
+    border-color: #FFFF1F;
+}
+
+#page 
+{
+	width: 900px;
+	margin: 0px auto;
+}
+
+#content {
+	float: left;
+	width: 570px;
+}
+
+
+/* Sidebar */
+
+#sidebar 
+{   
+	float: right;
+	width: 300px;
+}
+
+#sidebar-bgtop {
+}
+
+#sidebar-bgbtm {
+}
+
+#sidebar-content {
+}
+
+#sidebar ul 
+{
+	padding: 0px 0 5px 0;
+	margin: 0px;
+	list-style: none;
+}
+
+#sidebar li li {
+	margin-right: 10px;
+	line-height: 30px;
+	padding-left: 15px;
+	border-bottom: 1px dashed #ACEF2F;
+}
+
+#sidebar li ul {
+	margin-bottom: 1.8em;
+	list-style: none;
+}
+
+#sidebar h2 {
+	background: url(images/img09.jpg) no-repeat left top;
+	padding: 7px 25px;
+	font-size: 1.4em;
+}
+
+#sidebar a {
+	text-decoration: none;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+}
+
+/* Search */
+
+#search {
+}
+
+#search form {
+	margin-bottom: 1.8em;
+	padding: 0px;
+}
+
+#search fieldset {
+	margin-left: 20px;
+	padding: 0px;
+	border: none;
+}
+
+#search #s {
+	width: 160px;
+}
+
+#footer
+{
+    width: 920px;
+    background-color: #151515;
+    margin: auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-top: 0px;
+	border-left: 3px ridge #151515;
+	border-right: 3px ridge #151515;
+	border-bottom: 3px ridge #151515;
+	border-radius: 0px 0px 10px 10px;
+}
+
+#footer p
+{
+    margin: 0px;
+}
+
+#mapaConvocatorias
+{
+    margin: 10px 0px;
+}
+
+#mapaConvocatorias iframe
+{
+    border:3px solid Black;
+    
+}
+
+.fieldLabel
+{
+    font-style: italic;
+}
+
+.fieldValue input[type="text"], 
+.fieldValue textarea,
+.fieldValue input[type="password"]
+{
+    width: 70%;
+}
+
+.fieldIcono
+{
+    width: 30px;
+}
+
+.areaFormulario
+{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.areaFormulario table
+{
+    width: 65%
+}
+
+.areaFormulario td
+{
+    width: 50%;
+}
+
+.areaBotones
+{
+    background-color: #FF6600;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 15px;
+}
+
+.areaBotones ul
+{
+    list-style: none;
+    margin: 0px;
+}
+
+.areaBotones li
+{
+    float: right;
+}
+
+.boton 
+{
+    display: block;
+    margin: 0px 5px;
+}
+
+.boton a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #FFFF1F;
+    border: 1px solid #FFFF1F;
+    color: #FFFFFF;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+}
+
+.boton a:hover
+{
+    text-decoration: underline;
+    border: 1px outset #A8CF5E;
+    background-color: #C8E199;
+}
+
+.dataTable
+{
+    width: 100%;
+    border: 0px;
+    margin-top: 10px;
+}
+
+.dataTable thead tr
+{
+    background-color: #FFFF1F;    
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: #FFFFFF;
+}
+
+.dataTable thead tr th
+{
+    padding: 5px 0px;
+}
+
+.dataTable tbody tr td
+{
+    padding-left: 5px;
+}
+
+.odd
+{
+    background-color: #898989;
+}
+
+.even
+{
+    background-color: #515151;
+}
+
+.areaBotones2
+{
+    margin: 15px 0px 15px 127px;
+}
+
+.areaBotones2 ul
+{
+    list-style: none;
+    margin: 0px;
+}
+
+.areaBotones2 li
+{
+    float: left;
+}
+
+.boton2 
+{
+    display: block;
+    margin: 15px 0px 10px 150px;
+}
+
+.boton2 a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #FFFF1F;
+    border: 1px solid #FFFF1F;
+    color: #FFFFFF;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+}
+
+#logfieldset
+{
+    background-color:#FF6600;
+    width:500px;
+    
+}
+
+.areaFormulario
+{
+    margin: 15px 0px 10px 150px;
+}
+
+.areaFormulario table
+{
+    width: 100%
+}
+
+.areaFormulario td
+{
+    width: 50%;
+}
+
+.areaFormulario2
+{
+    margin: 15px 0px 10px 20px;
+}
+
+.areaFormulario2 table
+{
+    width: 100%
+}
+
+.areaFormulario2 td
+{
+    width: 50%;
+}
