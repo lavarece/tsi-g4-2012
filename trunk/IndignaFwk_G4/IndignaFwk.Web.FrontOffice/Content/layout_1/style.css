@@ -423,4 +423,92 @@ input, select, textarea
     width: 36%;
 }
 
+.listaUsuariosChat
+{
+    background-color: #515151;
+    border: 1px solid #ACEF2F;
+    float: left;
+    overflow: auto;
+    width: 25%;
+    float: left;
+    min-height: 400px;
+    max-height: 400px;
+}
 
+.listaUsuariosChat ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nombreUsuarioChat
+{
+    display: inline;
+    line-height: 32px;
+}
+
+.nombreUsuarioChat a
+{
+    text-decoration: none;
+    color: #DBDBD5;    
+    padding: 7px 100px 7px 5px;
+    text-align: left;
+}
+
+.nombreUsuarioChat a:hover
+{
+    background-color: #A8CF5E;
+    color: #3C3C3C;
+}
+
+.conversacionChat
+{
+    margin-left: 5px;
+    border: 1px solid #ACEF2F;
+    background-color: #515151;
+    width: 660px;
+    float: right;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.conversacionChat textarea
+{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 285px;
+    width: 645px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mensajeChat
+{
+    margin-top: 12px;
+    margin-left: 5px;
+    border: 1px solid #ACEF2F;
+    background-color: #515151;
+    width: 660px;
+    float: right;
+    min-height: 85px;
+    max-height: 85px;
+    line-height: 80px;
+ }
+ 
+ .mensajeChat textarea
+{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 70px;
+    width: 564px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mensajeChat .boton
+{
+    float: right;
+}

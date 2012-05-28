@@ -67,6 +67,16 @@ namespace IndignaFwk.Common.Util
             }
         }
 
+        public static DateTime? GetDateTimeFromReader(String key, SqlDataReader reader)
+        {
+            if (reader != null && reader[key].ToString().Length > 0)
+            {
+                return (DateTime) reader[key];
+            }
+
+            return null;
+        }
+
         public static string GetStringFromReader(string key, SqlDataReader reader)
         {
             if (reader != null && reader[key].ToString().Length > 0)

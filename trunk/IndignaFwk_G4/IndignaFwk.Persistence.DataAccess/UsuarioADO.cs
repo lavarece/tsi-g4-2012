@@ -296,7 +296,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
 
-                    usuario.Grupo = new Grupo(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader));
+                    usuario.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
                     
                     return usuario;            
                 }
@@ -354,7 +354,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
 
-                    usuario.Grupo = new Grupo(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader));
+                    usuario.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
                     
                     return usuario;
                 }

@@ -25,5 +25,8 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public Usuario Usuario { get; set; }
+
+        [DataMember]
+        public DateTime? FechaCreacion { get; set; }
     }
 }

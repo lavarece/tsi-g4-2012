@@ -148,7 +148,6 @@ BEGIN
 CREATE TABLE [dbo].[Sitio](
 	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
-	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Template] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int] ,
@@ -174,10 +173,14 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Co
 BEGIN
 CREATE TABLE [dbo].[Contenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Comentario] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[EstadoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[TipoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Sitio] [int],
-	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FechaCreacion] [DateTime], 
+	[FK_Id_UsuarioCreacion] [int]
 CONSTRAINT FK_Contenido_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
@@ -208,6 +211,7 @@ CREATE TABLE [dbo].[Usuario](
 	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[FK_Id_Imagen] [int]
 CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
@@ -311,6 +315,7 @@ CREATE TABLE [dbo].[Notificacion](
 	[Visto] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Convocatoria] [int],
 	[FK_Id_Usuario] [int],
+	[FechaCreacion] [DateTime],
 CONSTRAINT FK_Notificacion_FK_Id_Convocatoria FOREIGN KEY (FK_Id_Convocatoria) REFERENCES Convocatoria(Id),
 CONSTRAINT FK_Notificacion_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id)
 ) ON [PRIMARY]

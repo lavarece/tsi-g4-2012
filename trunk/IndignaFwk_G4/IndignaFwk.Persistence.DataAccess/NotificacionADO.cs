@@ -21,14 +21,15 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = " insert into Notificacion(Contenido, Visto, FK_Id_Convocatoria, Fk_Id_Usuario) " +
-                                  " values(@contenido, @visto, @idConvocatoria, @idUsuario); " +
+            command.CommandText = " insert into Notificacion(Contenido, Visto, FK_Id_Convocatoria, Fk_Id_Usuario, FechaCreacion) " +
+                                  " values(@contenido, @visto, @idConvocatoria, @idUsuario, @fechaCreacion); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM Notificacion; ";
 
             UtilesBD.SetParameter(command, "contenido", notificacion.Contenido);
             UtilesBD.SetParameter(command, "visto", (notificacion.Visto == true ? "1" : "0"));
             UtilesBD.SetParameter(command, "idConvocatoria", notificacion.Convocatoria.Id);
             UtilesBD.SetParameter(command, "idUsuario", notificacion.Usuario.Id);
+            UtilesBD.SetParameter(command, "fechaCreacion", notificacion.FechaCreacion);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -100,6 +101,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.Visto = ("1".Equals(UtilesBD.GetStringFromReader("Visto", reader)) ? true : false);
 
+                    notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
+
                     // Las relaciones desde los ADO particulares
 
                     return notificacion;
@@ -141,6 +144,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     notificacion.Contenido = UtilesBD.GetStringFromReader("Contenido", reader);
 
                     notificacion.Visto = ("1".Equals(UtilesBD.GetStringFromReader("Visto", reader)) ? true : false);
+
+                    notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
                     // Las relaciones desde los ADO particulares
 
