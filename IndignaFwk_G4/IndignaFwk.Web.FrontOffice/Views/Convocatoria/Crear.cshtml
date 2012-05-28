@@ -43,11 +43,12 @@
                     </div>            
                     <div class="fieldValue">
                         @Html.TextAreaFor(m => m.Descripcion)
+                        @Html.ValidationMessageFor(m => m.Descripcion)
                     </div>
                 </td>
                 <td>
                     <div class="fieldLabel">
-                        @Html.LabelFor(m=>m.Quorum)
+                        @Html.LabelFor(m => m.Quorum)
                     </div>    
                     <div class="fieldValue">
                         @Html.TextBoxFor(m => m.Quorum)
@@ -100,7 +101,7 @@
             </li>
             <li>
                 <div class="boton">
-                    <a href="@Url.Action("Listado","Convocatoria")">Volver</a>
+                    <a href="@Url.Action("Listado", "Convocatoria")">Volver</a>
                 </div>       
             </li>
         </ul>        

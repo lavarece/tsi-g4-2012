@@ -15,6 +15,12 @@ namespace IndignaFwk.Common.Entities
         public int Id { get; set; }
 
         [DataMember]
+        public string Titulo { get; set; }
+
+        [DataMember]
+        public string Comentario { get; set; }
+
+        [DataMember]
         public string Url { get; set; }
 
         [DataMember]
@@ -22,6 +28,11 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public string TipoContenido { get; set; }
-    }
 
+        [DataMember]
+        public DateTime? FechaCreacion { get; set; }
+
+        [DataMember]
+        public Usuario UsuarioCreacion { get; set; }
+    }
 }

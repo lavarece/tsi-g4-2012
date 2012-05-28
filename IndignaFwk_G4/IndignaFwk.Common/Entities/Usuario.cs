@@ -42,6 +42,9 @@ namespace IndignaFwk.Common.Entities
         public string Region { get; set; }
 
         [DataMember]
+        public Imagen Imagen { get; set; }
+
+        [DataMember]
         public List<Tematica> ListaTematicas { get; set; }
     }
 }

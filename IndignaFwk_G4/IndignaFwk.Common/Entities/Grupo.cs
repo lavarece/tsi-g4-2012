@@ -11,21 +11,11 @@ namespace IndignaFwk.Common.Entities
     [Serializable]
     public class Grupo
     {
-        public Grupo() { }
-
-        public Grupo(int id)
-        {
-            this.Id = id;
-        }
-
         [DataMember]
         public int Id { get; set; }
 
         [DataMember]
         public string Nombre { get; set; }
-
-        [DataMember]
-        public string LogoUrl { get; set; }
 
         [DataMember]
         public string Descripcion { get; set; }
@@ -37,9 +27,9 @@ namespace IndignaFwk.Common.Entities
         public string Url { get; set; }
 
         [DataMember]
-        public List<Contenido> ListaContenido { get; set; }
+        public Imagen Imagen { get; set; }
 
         [DataMember]
-        public List<Imagen> ListaImagen { get; set; }
+        public List<Contenido> ListaContenido { get; set; }
     }
 }

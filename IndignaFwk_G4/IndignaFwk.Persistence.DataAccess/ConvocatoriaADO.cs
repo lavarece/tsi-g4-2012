@@ -21,8 +21,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Convocatoria (Titulo, LogoUrl, Descripcion, Quorum, Coordenada, FK_Id_UsuarioCreacion, FK_Id_Sitio, FK_Id_Tematica) " +
-                                  "values(@Titulo, @LogoUrl, @Descripcion, @Quorum, @Coordenada, @IdUsuarioCreacion, @IdSitio, @IdTematica); " +
+            command.CommandText = "INSERT INTO Convocatoria (Titulo, LogoUrl, Descripcion, Quorum, Coordenada, FechaInicio, FechaFin, FK_Id_UsuarioCreacion, FK_Id_Sitio, FK_Id_Tematica) " +
+                                  "values(@Titulo, @LogoUrl, @Descripcion, @Quorum, @Coordenada, @FechaInicio, @FechaFin, @IdUsuarioCreacion, @IdSitio, @IdTematica); " +
                                   "select @idGen = SCOPE_IDENTITY() FROM Convocatoria ";
 
             UtilesBD.SetParameter(command, "Titulo", convocatoria.Titulo);
@@ -30,6 +30,8 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Quorum", convocatoria.Quorum);            
             UtilesBD.SetParameter(command, "Coordenada", convocatoria.Coordenadas);            
             UtilesBD.SetParameter(command, "LogoUrl", convocatoria.LogoUrl);
+            UtilesBD.SetParameter(command, "FechaInicio", convocatoria.FechaInicio);
+            UtilesBD.SetParameter(command, "FechaFin", convocatoria.FechaFin);
             UtilesBD.SetParameter(command, "IdUsuarioCreacion", convocatoria.UsuarioCreacion.Id);
             UtilesBD.SetParameter(command, "IdSitio", convocatoria.Grupo.Id);
             UtilesBD.SetParameter(command, "IdTematica", convocatoria.Tematica.Id);
@@ -57,6 +59,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "Descripción = @descripcion, " +
                                   "Quorum = @quorum, " +                                   
                                   "Coordenada = @coordenada " +
+                                  "FechaInicio = @fechaInicio" +
+                                  "FechaFin = @fechaFin" +
                                   "FK_Id_Tematica=@idTematica" +
                                   "WHERE Id = @id";
 
@@ -65,6 +69,8 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "descripcion", convocatoria.Descripcion);
             UtilesBD.SetParameter(command, "quorum", convocatoria.Quorum);
             UtilesBD.SetParameter(command, "coordenada", convocatoria.Coordenadas);
+            UtilesBD.SetParameter(command, "fechaInicio", convocatoria.FechaInicio);
+            UtilesBD.SetParameter(command, "fechaFin", convocatoria.FechaFin);
             UtilesBD.SetParameter(command, "idTematica", convocatoria.Tematica.Id);
             UtilesBD.SetParameter(command, "id", convocatoria.Id);
            
@@ -112,6 +118,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
                     convocatoria.Quorum = UtilesBD.GetIntFromReader("Quorum", reader);
                     convocatoria.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+                    convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
+                    convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
 
                     // Si se desea la info del referencia invocar a lo obstener de los otros ADO con el ID correspondiente
                     return convocatoria;

@@ -33,6 +33,12 @@ namespace IndignaFwk.Common.Entities
         public Tematica Tematica { get; set; }
 
         [DataMember]
+        public DateTime? FechaInicio { get; set; }
+
+        [DataMember]
+        public DateTime? FechaFin { get; set; }
+
+        [DataMember]
         public Grupo Grupo { get; set; }
 
         [DataMember]

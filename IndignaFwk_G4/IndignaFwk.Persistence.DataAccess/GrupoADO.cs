@@ -48,14 +48,14 @@ namespace IndignaFwk.Persistence.DataAccess
             
             command.CommandText = " UPDATE Sitio SET " +
                                   " Nombre = @nombre, " + 
-                                  " LogoUrl = @logoUrl," + 
+                                  " FK_Id_Imagen = @idImagen," + 
                                   " Descripcion = @descripcion, " +
                                   " Url = @url " + 
                                   " WHERE Id = @id";
 
             UtilesBD.SetParameter(command, "id", grupo.Id);
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
-            UtilesBD.SetParameter(command, "logoUrl", grupo.LogoUrl);
+            UtilesBD.SetParameter(command, "logoUrl", grupo.Imagen.Id);
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
 
@@ -101,8 +101,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    grupo.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
-
                     grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
@@ -146,8 +144,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    grupo.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
-
                     grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
@@ -189,8 +185,6 @@ namespace IndignaFwk.Persistence.DataAccess
                     varGrupo.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     varGrupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
-
-                    varGrupo.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
 
                     varGrupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
