@@ -1,0 +1,108 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.ConvocatoriaModel 
+
+@{
+    ViewBag.Title = "[Nombre del grupo] - Convocatorias";
+    Layout = "~/Content/layout_1/layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@Html.ValidationSummary(true, "La convocatoria no es válida, intente nuevamente.")
+
+<h2>Crear convocatoria</h2>
+
+@using (Html.BeginForm()) 
+{
+    <div class="areaFormulario">    
+        <table>
+            <tr>    
+                <td>
+                     <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Titulo)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Titulo)
+                        @Html.ValidationMessageFor(m => m.Titulo)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.LogoUrl)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.LogoUrl)
+                        @Html.ValidationMessageFor(m => m.LogoUrl)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Descripcion)
+                    </div>            
+                    <div class="fieldValue">
+                        @Html.TextAreaFor(m => m.Descripcion)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m=>m.Quorum)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Quorum)
+                        @Html.ValidationMessageFor(m => m.Quorum)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.FechaFin)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.FechaFin)
+                        @Html.ValidationMessageFor(m => m.FechaFin)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.FechaInicio)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.FechaInicio)
+                        @Html.ValidationMessageFor(m => m.FechaInicio)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Ubicacion)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Ubicacion)
+                        @Html.ValidationMessageFor(m => m.Ubicacion)
+                    </div>                    
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>   
+    </div>
+    
+    <div class="areaBotones">
+        <ul>            
+            <li>
+                <div class="boton">
+                    <a href="#">Crear</a>
+                </div>       
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="@Url.Action("Listado","Convocatoria")">Volver</a>
+                </div>       
+            </li>
+        </ul>        
+    </div>              
+}
