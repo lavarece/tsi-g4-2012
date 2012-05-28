@@ -5,16 +5,16 @@
     Layout = "~/Content/layout_1/layout.cshtml";
 }
 
-<h2>Registro de usuario</h2>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 @Html.ValidationSummary(true, "El registro no es válido, intente nuevamente.")
 
+<h3>Registro de usuario</h3>
 
 @using (Html.BeginForm()) 
 {
-    <div class="areaFormulario2">    
+    <div class="areaFormulario">    
         <table>
             <tr>    
                 <td>
@@ -43,6 +43,7 @@
                     </div>            
                     <div class="fieldValue">
                         @Html.TextAreaFor(m => m.Descripcion)
+                        @Html.ValidationMessageFor(m => m.Descripcion)
                     </div>
                 </td>
                 <td>
@@ -98,7 +99,7 @@
         </table>   
     </div>
     
-    <div class="areaBotones2">
+    <div class="areaBotones">
         <ul>
             <li>
                 <div class="boton">
