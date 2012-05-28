@@ -21,7 +21,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
-        [HttpGet]
         public ActionResult Index()
         {
             Grupo grupo = grupoUserProcess.ObtenerGrupoPorId(site.Grupo.Id);
