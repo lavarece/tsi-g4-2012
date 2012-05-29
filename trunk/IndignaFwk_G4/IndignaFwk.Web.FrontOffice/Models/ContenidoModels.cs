@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Web.FrontOffice.Models
 {
@@ -24,5 +25,8 @@ namespace IndignaFwk.Web.FrontOffice.Models
         [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Url:")]
         public string Url { get; set; }
+
+        /* Listados requeridos */
+        public IList<TipoContenidoEnum> TipoContenidos { get; set; }
     }
 }
