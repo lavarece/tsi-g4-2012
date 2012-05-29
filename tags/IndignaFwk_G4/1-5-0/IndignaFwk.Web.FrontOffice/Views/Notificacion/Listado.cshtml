@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "[Nombre del grupo] - Notificaciones";
+    Layout = "~/Content/layout_3/layout.cshtml";
+}
+
+<div>
+    <div>
+        <h3>Listado de notificaciones</h3>
+    </div>
+
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">
+                    <a href="#">Marcar como leído</a>
+                </div>
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="#">Marcar como no leído</a>
+                </div>
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="#">Eliminar</a>
+                </div>
+            </li>            
+        </ul>
+    </div>
+
+    <div class="wrapperDataTable">    
+        <table class="dataTable">
+            <thead>
+                <tr>            
+                    <th><input type="checkbox"/></th>
+                    <th>Notificación</th>
+                </tr>
+            </thead>
+            <tbody>        
+                <tr class="odd">
+                    <td class="fieldCheckbox">
+                        <input type="checkbox"/>
+                    </td>
+                    <td class="notificacionNoLeida">
+                        Contenido de la notificacion
+                    </td>                       
+                </tr>
+                <tr class="even">
+                     <td class="fieldCheckbox">
+                        <input type="checkbox" />
+                    </td>
+                    <td class="notificacionNoLeida">
+                        Contenido de la notificacion
+                    </td>      
+                </tr>
+                <tr class="odd">
+                    <td class="fieldCheckbox">
+                        <input type="checkbox" />
+                    </td>
+                    <td>
+                        Contenido de la notificacion
+                    </td>          
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="IndignaFwk_WPF_BackOffice.Home"
+	x:Name="Window"
+	Title="Home"
+	Width="480" Height="364">
+
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Height="550">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="343.876"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+        <Rectangle Margin="22,108,236,34" Stroke="#FF00FFF9">
+			<Rectangle.Effect>
+				<DropShadowEffect/>
+			</Rectangle.Effect>
+		</Rectangle>
+		<Button x:Name="boton_gestionAdmin" Content="Gestión de Administradores" Height="28" Margin="36,120,247,0" VerticalAlignment="Top" Click="boton_gestionAdmin_Click">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionUsu" Content="Gestión de Usuarios" Height="28" Margin="36,0,247,159" VerticalAlignment="Bottom" Click="boton_gestionUsu_Click">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionGrupos" Content="Gestión de Grupos" Margin="36,0,247,123" Click="boton_gestionGrupo_Click" Height="28" VerticalAlignment="Bottom">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionVar" Content="Gestión de Variables" Height="28" Margin="36,0,247,87" VerticalAlignment="Bottom" Click="boton_gestionVar_Click">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_gestionRep" Content="Gestión de Reportes" Height="28" Margin="36,0,247,51" VerticalAlignment="Bottom" Click="boton_gestionRep_Click">
+			<Button.Effect>
+				<DropShadowEffect/>
+			</Button.Effect>
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework, " Margin="0,29,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontSize="14" UseLayoutRounding="False" DataContext="{Binding}" Height="39" FontStretch="Normal">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<Label Content="&quot;I have a dream...&quot;&#xd;&#xa;&#x9;&#x9;Martin Luther King" Height="61" Margin="232,249,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontStyle="Italic" HorizontalAlignment="Left" Width="214" AllowDrop="False">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+        <Button Content="Salir" Height="23" Margin="381,9,14,0" Name="btn_salir" VerticalAlignment="Top" Click="btnSalir">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1" />
+                    <GradientStop Color="#FF00FFF9" Offset="0.8" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect />
+            </Button.Effect>
+        </Button>
+        <Label Content="Seleccione una de las opciones para administrar." FontStyle="Italic" Foreground="#FF00FFF9" Height="29" HorizontalAlignment="Left" Margin="22,73,0,0" VerticalAlignment="Top" Width="424">
+            <Label.Effect>
+                <DropShadowEffect />
+            </Label.Effect>
+        </Label>
+    </Grid>
+</Window>
