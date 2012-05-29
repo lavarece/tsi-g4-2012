@@ -272,6 +272,7 @@
     height: 35px;
     line-height: 35px;
     margin-top: 15px;
+    margin-bottom:15px;
 }
 
 .areaBotones ul
@@ -415,4 +416,195 @@
 .areaFormulario2 td
 {
     width: 50%;
+}
+
+.listaContenidos
+{
+    width: 100%;
+}
+
+.itemContenido
+{
+    float: left;
+    background-color: #FF0000;
+    display: block;
+    margin-bottom:10px;
+    border-bottom:1px dashed #8B0B0B;
+    width: 100%;
+    margin:10px 0px 10px 0px;
+}
+
+.creadorContenido
+{
+    padding: 10px;
+    vertical-align: top;
+}
+
+.creadorContenido img
+{
+    padding-right: 10px;
+    width: 25px;
+    height: 25px;
+    
+}
+
+.creadorContenido hr
+{
+    border: 1px solid #FFFF1F;
+}
+
+.creadorContenido span
+{
+    vertical-align: top;
+}
+
+.contenido
+{
+    padding: 5px 10px;
+    float: left;
+    width: 60%;
+    height: 200px;
+}
+
+.detalleContenido
+{
+    float: left;
+    display: inline;
+    width: 36%;
+}
+
+.areaBotones3
+{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 15px;
+    margin-bottom:15px;
+}
+
+.areaBotones3 ul
+{
+    list-style: none;
+    margin: 0px;
+}
+
+.areaBotones3 li
+{
+}
+
+.boton 
+{
+    display: block;
+    margin: 0px 5px;
+}
+
+.boton a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #FFFF1F;
+    border: 1px solid #FFFF1F;
+    color: #FFFFFF;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+    
+}
+
+.boton a:hover
+{
+    text-decoration: underline;
+    border: 1px outset #A8CF5E;
+    background-color: #C8E199;
+}
+
+.listaUsuariosChat
+{
+    background-color: #515151;
+    border: 1px solid #ACEF2F;
+    float: left;
+    overflow: auto;
+    width: 28%;
+    float: left;
+    min-height: 400px;
+    max-height: 400px;
+}
+
+.listaUsuariosChat ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nombreUsuarioChat
+{
+    display: inline;
+    line-height: 32px;
+}
+
+.nombreUsuarioChat a
+{
+    text-decoration: none;
+    color: #DBDBD5;    
+    padding: 7px 100px 7px 5px;
+    text-align: left;
+}
+
+.nombreUsuarioChat a:hover
+{
+    background-color: #A8CF5E;
+    color: #3C3C3C;
+}
+
+.conversacionChat
+{
+    margin-left: 5px;
+    border: 1px solid #ACEF2F;
+    background-color: #515151;
+    width: 400px;
+    float: right;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.conversacionChat textarea
+{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 285px;
+    width: 387px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mensajeChat
+{
+    margin-top: 12px;
+    margin-left: 5px;
+    border: 1px solid #ACEF2F;
+    background-color: #515151;
+    width: 400px;
+    float: right;
+    min-height: 85px;
+    max-height: 85px;
+    line-height: 80px;
+ }
+ 
+ .mensajeChat textarea
+{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 70px;
+    width: 387px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mensajeChat .boton
+{
+    margin-top:-30px;
+    float: right;
 }
