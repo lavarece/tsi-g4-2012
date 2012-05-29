@@ -3,46 +3,44 @@
 body
 {
     font-size: 12px;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    color: #DBDBD5;
+    font-family: arial,sans-serif;
     text-align: justify;
-    margin: 0px;
-    background: url('images/bg_body.png') repeat-x #3C3C3C;    
+    margin: 0px;  
+    color: #000000;  
 }
 
 input, select, textarea
 {
-    border: 1px #000000 solid;
+    border: 1px #BEE0D9 solid;
 }
 
 #wrapper 
 {
-	width: 920px;
-	margin: 0 auto;
-	border-top: 0px;
-	border-left: 3px ridge #ACEF2F;
-	border-right: 3px ridge #ACEF2F;
-	border-bottom: 0px; 	
-    background-color: #3C3C3C;
+	width: 100%;
+	margin: 0px;
+    background-color: #FFFFFF;
 }
 
 #header
 {
-    width: 900px;    
-    background-color: #515151;
-    height: 90px;
-    line-height: 90px;
-    margin: auto;  
-    background: url('images/header.png') no-repeat;     
+    width: 100%;    
+    background-color: #448E7F;
+    height: 38px;
+    line-height: 38px;
+    position: fixed !important;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    z-index: 300;
 }
 
 #logoHeader
 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    padding-left: 30px;
+    padding-left: 20px;
     float: left;
-    color: #3C3C3C;
+    color: #FFFFFF;
 }
 
 #login
@@ -60,13 +58,13 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('images/ico_vineta.gif') no-repeat left 50%;    
+    background: url('images/ico_vineta.png') no-repeat left 50%;    
 }
 
 #login a 
 {
 	text-decoration: none;
-	color: #DBDBD5;
+	color: #FFFFFF;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -79,82 +77,63 @@ input, select, textarea
 
 #menu
 {
-    width: 900px;
-    margin: 10px auto;
-    height: 31px;
-    line-height: 29px;
-    border-bottom: 1px solid #ACEF2F;
+    position: relative;
+    float: left;
+    top: 40px;   
+    width: 13%; 
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 #menu ul 
 {
-	margin: 0px;
 	list-style: none;
 	padding: 0px;
+	margin: 0px;
 }
 
 #menu li 
 {
-	float: left;
-    background-color: #898989;	
-    margin: 0px 2px;	
-    border-left: 1px solid #1A1A1A;
-    border-right: 1px solid #1A1A1A;
-    border-top: 1px solid #1A1A1A;    
-    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+    padding-left: 0;
+    white-space: nowrap;	
 }
 
 #menu a 
 {
 	text-decoration: none;
-	color: #1A1A1A;
+	color: #000000;
 	font-weight: bold;
 	font-size: 13px;
-	padding: 0px 15px;	
+	padding: 10px 100% 10px 10px;;
+	line-height: 30px;
 }
 
 #menu a:hover
 {
     text-decoration: underline;
+    background-color: #448E7F;
 }
 
 #menu .selected
 {
-    background-color: #A8CF5E;
-    border-color: #A8CF5E;
+    background-color: #BEE0D9;
 }
 
 #page 
 {
-	width: 900px;
-	margin: 0px auto;
-	padding-bottom: 20px;
+    position: relative;
+    float: left;
+	width: 68%;
+	border-left: 1px solid #BEE0D9;
+	border-bottom: 1px solid #BEE0D9;
+	border-right: 1px solid #BEE0D9;
+	top: 38px;
 }
 
 #content
 {
-    margin-top: 10px;
-    width: 100%;  
-}
-
-#footer
-{
-    width: 920px;
-    background-color: #515151;
-    margin: auto;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border-top: 0px;
-	border-left: 3px ridge #ACEF2F;
-	border-right: 3px ridge #ACEF2F;
-	border-bottom: 3px ridge #ACEF2F;
-	border-radius: 0px 0px 10px 10px;
-}
-
-#footer p
-{
-    margin: 0px;
+    margin: 20px;
 }
 
 #mapaConvocatorias
@@ -221,6 +200,7 @@ input, select, textarea
 .fieldValue input[type="text"], 
 .fieldValue textarea,
 .fieldValue input[type="password"]
+.fieldValue select
 {
     width: 70%;
 }
@@ -267,12 +247,11 @@ input, select, textarea
 }
 
 .areaBotones
-{
-    background-color: #777777;
+{    
     width: 100%;
-    height: 35px;
-    line-height: 35px;
-    margin-top: 15px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
 }
 
 .areaBotones ul
@@ -287,7 +266,6 @@ input, select, textarea
     float: left;
 }
 
-
 .boton 
 {
     display: block;
@@ -298,24 +276,21 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #A8CF5E;
-    border: 1px solid #212121;
-    color: #3C3C3C;
+    border: 1px solid #2E6056;
+    background-color: #448E7F;
+    color: #FFFFFF;
     font-size: 13px;    
     font-weight: bold;    
-    border-radius: 7px 7px 7px 7px;
 }
 
-.boton a:hover
+.boton a:active
 {
-    text-decoration: underline;
-    border: 1px outset #A8CF5E;
-    background-color: #C8E199;
+    background-color: #2E6056;
 }
 
 .wrapperDataTable
 {
-    max-height: 400px;
+    max-height: 600px;
     overflow: auto;
     padding-top: 5px;
     width: 100%;
@@ -329,11 +304,11 @@ input, select, textarea
 
 .dataTable thead tr
 {
-    background-color: #A8CF5E;    
+    background-color: #448E7F;    
     text-align: center;
     font-weight: bold;
     font-size: 13px;
-    color: #3C3C3C;
+    color: #FFFFFF;
 }
 
 .dataTable thead tr th
@@ -348,12 +323,12 @@ input, select, textarea
 
 .odd
 {
-    background-color: #898989;
+    background-color: #E5F3F0;
 }
 
 .even
 {
-    background-color: #515151;
+    background-color: #BBDFD8;
 }
 
 .notificacionNoLeida
@@ -369,26 +344,22 @@ input, select, textarea
     padding: 5px 15px 5px 5px;
 }
 
-
-.listaContenidos
-{
-    width: 100%;
-}
-
 .itemContenido
 {
     float: left;
-    background-color: #515151;
     display: block;
-    border: 1px solid #ACEF2F;
-    width: 100%;
-    margin: 10px 0px;
+    border-top: 1px solid #BEE0D9;
+    width: 103%;
+    margin-top: 10px;
+    position: relative;
+    left: -20px;
 }
 
 .creadorContenido
 {
-    padding: 10px;
+    margin: 10px 10px 0px 10px;
     vertical-align: top;
+    border-bottom: 1px solid #EBEBEB;
 }
 
 .creadorContenido img
@@ -398,11 +369,6 @@ input, select, textarea
     height: 70px;
 }
 
-.creadorContenido hr
-{
-    border: 1px solid #616161;
-}
-
 .creadorContenido span
 {
     vertical-align: top;
@@ -410,7 +376,7 @@ input, select, textarea
 
 .contenido
 {
-    padding: 5px 10px;
+    margin: 10px 10px 0px 10px;
     float: left;
     width: 60%;
     height: 400px;
@@ -418,20 +384,24 @@ input, select, textarea
 
 .detalleContenido
 {
+    margin: 10px 5px;
     float: left;
     display: inline;
-    width: 36%;
+    width: 35%;
 }
 
 .listaUsuariosChat
 {
-    background-color: #515151;
-    border: 1px solid #ACEF2F;
+    background-color: #F0F0F0;
+    border-left: 1px solid #448E7F;
+    border-bottom: 1px solid #448E7F; 
     overflow: auto;
-    width: 25%;
-    float: left;
+    width: 15%;
+    float: right;
     min-height: 400px;
-    max-height: 400px;
+    max-height: 1024px;
+    position: relative;
+    top: 38px;
 }
 
 .listaUsuariosChat ul
@@ -439,6 +409,11 @@ input, select, textarea
     list-style: none;
     padding: 0px;
     margin: 0px;
+}
+
+.listaUsuariosChat li
+{
+    background: url('images/ico_conectado.png') no-repeat 95% 50%;    
 }
 
 .nombreUsuarioChat
@@ -449,65 +424,14 @@ input, select, textarea
 
 .nombreUsuarioChat a
 {
-    text-decoration: none;
-    color: #DBDBD5;    
-    padding: 7px 100px 7px 5px;
+    text-decoration: none;  
+    color: #000000;
+    border-bottom: 1px solid #EBEBEB;
+    padding: 10px 81px 10px 10px;
     text-align: left;
 }
 
 .nombreUsuarioChat a:hover
 {
-    background-color: #A8CF5E;
-    color: #3C3C3C;
-}
-
-.conversacionChat
-{
-    margin-left: 5px;
-    border: 1px solid #ACEF2F;
-    background-color: #515151;
-    width: 660px;
-    float: right;
-    min-height: 300px;
-    max-height: 300px;
-}
-
-.conversacionChat textarea
-{
-    margin-left: 5px;
-    margin-top: 5px;
-    height: 285px;
-    width: 645px;
-    resize: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.mensajeChat
-{
-    margin-top: 12px;
-    margin-left: 5px;
-    border: 1px solid #ACEF2F;
-    background-color: #515151;
-    width: 660px;
-    float: right;
-    min-height: 85px;
-    max-height: 85px;
-    line-height: 80px;
- }
- 
- .mensajeChat textarea
-{
-    margin-left: 5px;
-    margin-top: 5px;
-    height: 70px;
-    width: 564px;
-    resize: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.mensajeChat .boton
-{
-    float: right;
+    background: #E1E1E1 url('images/ico_conectado.png') no-repeat 95% 50%;    
 }

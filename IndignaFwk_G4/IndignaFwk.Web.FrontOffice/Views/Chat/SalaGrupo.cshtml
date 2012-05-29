@@ -1,34 +1,12 @@
 ﻿@{
     ViewBag.Title = "[Nombre del grupo] - Chat";
-    Layout = "~/Content/layout_1/layout.cshtml";
+    Layout = "~/Content/layout_3/layout.cshtml";
 }
 
 <h2>Chat del grupo</h2>
 
-<div class="listaUsuariosChat">
-    <ul>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">> Nombre completo 1</a>
-            </div>
-        </li>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">> Nombre completo 1</a>
-            </div>
-        </li>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">> Nombre completo 1</a>
-            </div>
-        </li>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">> Nombre completo 1</a>
-            </div>
-        </li>
-    </ul>
-</div>
+@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
 
 <div class="conversacionChat">  
     <textarea readonly="readonly"></textarea>
