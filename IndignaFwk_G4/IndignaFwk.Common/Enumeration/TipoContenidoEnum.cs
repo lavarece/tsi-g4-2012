@@ -12,6 +12,8 @@ namespace IndignaFwk.Common.Enumeration
 
         public static readonly TipoContenidoEnum VIDEO = new TipoContenidoEnum("VIDEO", "Video");
 
+        public static readonly TipoContenidoEnum LINK = new TipoContenidoEnum("LINK", "Link");
+
         public string Valor { get; private set; }
 
         public string Etiqueta { get; private set; }
@@ -30,6 +32,8 @@ namespace IndignaFwk.Common.Enumeration
             listado.Add(IMAGEN);
 
             listado.Add(VIDEO);
+
+            listado.Add(LINK);
 
             return listado;
         }
