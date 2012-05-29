@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "[Nombre del grupo] - Inicio";
+    Layout = "~/Content/layout_3/layout.cshtml";
+}
+
+<div class="detalleGrupo">
+    <h3>Bienvenido al grupo [Nombre grupo]</h3>
+    <div class="imagenGrupo">
+        <img src="@Url.Content("~/Content/layout_1/images/group_no_image.png")" alt="Imagen grupo"/>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed justo massa, 
+        fermentum luctus mi. Pellentesque habitant morbi tristique senectus et netus et malesuada 
+        fames ac turpis egestas. Phasellus at diam eget nunc vehicula lacinia sed eget purus. 
+        Donec dignissim consequat porttitor. Phasellus a molestie nunc. Suspendisse accumsan,
+        lorem vitae ornare iaculis, augue augue auctor leo, in malesuada metus nunc ac tellus. 
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+
+<div class="listadoContenidos">
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">       
+                    <a href="@Url.Action("Compartir", "Contenido")">Compartir contenido</a>
+                </div>
+            </li>            
+        </ul>
+    </div>
+
+    <div class="itemContenido">
+        <div class="creadorContenido">
+            <img src="@Url.Content("~/Content/layout_1/images/user_no_image.png")" alt="Imagen usuario" />    
+            <span>Datos del creador y fecha de creacion del contenido</span>                  
+        </div>
+        <div class="contenido">
+            <iframe width="100%" height="100%" src="http://www.youtube.com/embed/BRSm3QxIhZM?wmode=transparent" frameborder="0" wmode="transparent"></iframe>            
+        </div>        
+        <div class="detalleContenido">
+            <div class="fieldLabel">Tipo: <span class="fieldValue">Tipo</span></div>
+            <div class="fieldLabel">Titulo: <span class="fieldValue">Titulo</span></div>
+            <div class="fieldLabel">Comentario: <span class="fieldValue">Comentario</span></div>
+
+            <div class="areaBotones">
+            <ul>
+                <li>
+                    <div class="boton">       
+                        <a href="#">Me gusta</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="boton">       
+                        <a href="#">Inadecuado</a>
+                    </div>
+                </li>               
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="itemContenido">
+        <div class="creadorContenido">
+            <img src="@Url.Content("~/Content/layout_1/images/user_no_image.png")" alt="Imagen usuario" />    
+            <span>Datos del creador y fecha de creacion del contenido</span><hr />                        
+        </div>
+        <div class="contenido">
+            <iframe width="100%" height="100%" src="http://www.youtube.com/embed/BRSm3QxIhZM?wmode=transparent" frameborder="0" wmode="transparent"></iframe>            
+        </div>        
+        <div class="detalleContenido">
+            <div class="fieldLabel">Tipo: <span class="fieldValue">Tipo</span></div>
+            <div class="fieldLabel">Titulo: <span class="fieldValue">Titulo</span></div>
+            <div class="fieldLabel">Comentario: <span class="fieldValue">Comentario</span></div>
+
+            <div class="areaBotones">
+                <ul>
+                    <li>
+                        <div class="boton">       
+                            <a href="#">Me gusta</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="boton">       
+                            <a href="#">Inadecuado</a>
+                        </div>
+                    <li>
+                        <div class="boton">       
+                            <a href="#">Etiquetar</a>
+                        </div>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

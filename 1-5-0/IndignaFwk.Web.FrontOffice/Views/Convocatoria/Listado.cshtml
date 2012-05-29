@@ -1,0 +1,231 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.FiltroConvocatoriaModel
+
+@{
+    ViewBag.Title = "[Nombre del grupo] - Convocatorias";
+    Layout = "~/Content/layout_3/layout.cshtml";
+}
+
+<div>
+    <h3>Listado de convocatorias activas</h3>
+</div>
+<div class="areaBotones">
+    <ul>
+        <li>
+            <div class="boton">
+                <a href="@Url.Action("Crear","Convocatoria")">Crear convocatoria</a>
+            </div>
+        </li>
+        <li>            
+            <div class="boton" id="botonVerFiltro">
+                <a href="javascript:mostrarOcultarFiltroConvocatorias(1);">Ver filtro</a>
+            </div>
+            <div class="boton" id="botonOcultarFiltro" style="display: none;">
+                <a href="javascript:mostrarOcultarFiltroConvocatorias(0);">Ocultar filtro</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- Filtro de convocatorias -->
+<div class="areaFormulario" id="divFiltroConvocatorias" style="display: none">    
+    <fieldset><legend>Filtro de convocatorias</legend>
+        <table>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Titulo)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Titulo)
+                        @Html.ValidationMessageFor(m => m.Titulo)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Descripcion)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Descripcion)
+                        @Html.ValidationMessageFor(m => m.Descripcion)
+                    </div>
+                </td>
+            </tr>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Quorum)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Quorum)
+                        @Html.ValidationMessageFor(m => m.Quorum)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Tematica)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Tematica)
+                        @Html.ValidationMessageFor(m => m.Tematica)
+                    </div>
+                </td>
+            </tr>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.FechaInicio)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.FechaInicio, new { id = "filtroFechaInicio" })
+                        @Html.ValidationMessageFor(m => m.FechaInicio)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.FechaFin)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.FechaFin, new { id = "filtroFechaFin"})
+                        @Html.ValidationMessageFor(m => m.FechaFin)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: right; margin: 5px 0px;">
+            <div class="boton">
+                <a href="#">Buscar</a>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<!-- Listado de convocatorias -->  
+<div class="wrapperDataTable">
+    <table class="dataTable">
+        <thead>
+            <tr>            
+                <th>Título</th>
+                <th>Tematica</th>
+                <th>Comienza</th>
+                <th>Finaliza</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>        
+            <tr class="odd">
+                <td>
+                    Titulo 1
+                </td>
+                <td>
+                    Descripción 1
+                </td>
+                <td>
+                    21/12/2012
+                </td>     
+                <td>
+                    24/12/2012
+                </td>     
+                <td class="fieldIcono">
+                    <a href="#" title="Ubicar en mapa">
+                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
+                    </a>
+                </td>       
+            </tr>
+            <tr class="even">
+                <td>
+                    Titulo 2
+                </td>
+                <td>
+                    Descripción 2
+                </td>
+                <td>
+                    21/12/2012
+                </td>     
+                <td>
+                    24/12/2012
+                </td>            
+                <td class="fieldIcono">
+                    <a href="#" title="Ubicar en mapa">
+                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
+                    </a>
+                </td>   
+            </tr>
+            <tr class="odd">
+                <td>
+                    Titulo 3
+                </td>
+                <td>
+                    Descripción 3
+                </td>
+                <td>
+                    21/12/2012
+                </td>     
+                <td>
+                    24/12/2012
+                </td>     
+                <td class="fieldIcono">
+                    <a href="#" title="Ubicar en mapa">
+                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
+                    </a>
+                </td>        
+            </tr>
+        </tbody>
+    </table>
+</div>  
+
+<!-- Mapa de convocatorias -->
+<div>
+    <h3>Ubicación y detalle de la convocatoria</h3>
+</div>
+<div id="mapaConvocatorias">    
+    <div class="mapa">
+        <iframe src="http://maps.google.com.uy/?ie=UTF8&amp;t=m&amp;
+                    ll=-34.902827,-56.170349&amp;spn=0.098548,0.146255&amp;
+                    z=12&amp;output=embed">            
+        </iframe>    
+    </div>
+    <div class="detalleConvocatoria">
+        <div class="fieldLabel">Titulo: <span class="fieldValue">Titulo 1</span></div>
+        <div class="fieldLabel">Descripción: <span class="fieldValue">Descripcion 1</span></div>
+        <div class="fieldLabel">Temática: <span class="fieldValue">Tematica 1</span></div>
+        <div class="fieldLabel">Comienzo: <span class="fieldValue">21/12/2012</span></div>
+        <div class="fieldLabel">Fin: <span class="fieldValue">21/12/2012</span></div>
+
+        <div class="areaBotones">
+            <ul>
+                <li>
+                    <div class="boton">       
+                        <a href="#">Asistiré</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>    
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#filtroFechaInicio").datepicker();
+        $("#filtroFechaFin").datepicker();
+    });
+
+    function mostrarOcultarFiltroConvocatorias(mostrar) {
+        var botonVerFiltro = $("#botonVerFiltro");
+        var botonOcultarFiltro = $("#botonOcultarFiltro");
+        var divFiltroConvocatorias = $("#divFiltroConvocatorias");
+
+        if (mostrar == 0) {
+            botonVerFiltro.css("display", "block");
+            botonOcultarFiltro.css("display", "none");
+            divFiltroConvocatorias.css("display", "none");
+
+        }
+        else if (mostrar == 1) {
+            botonVerFiltro.css("display", "none");
+            botonOcultarFiltro.css("display", "block");
+            divFiltroConvocatorias.css("display", "block");
+        }
+    }
+
+</script>

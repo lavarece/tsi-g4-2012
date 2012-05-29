@@ -1,0 +1,4 @@
+El script de la BD se encuentra en Setup/Database, el usuario y password son indigna_usr.
+
+Por el momento las host de las url de los grupos que se creen en el sistema, deben agregarse en el archivo
+host mapeandolas a la IP del WebServer donde se ejecute la aplicacion.
