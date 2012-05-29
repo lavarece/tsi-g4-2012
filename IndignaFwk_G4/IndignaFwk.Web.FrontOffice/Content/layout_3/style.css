@@ -412,14 +412,16 @@ input, select, textarea
 }
 
 .listaUsuariosChat li
-{
-    background: url('images/ico_conectado.png') no-repeat 95% 50%;    
+{    
+    overflow: hidden;
+    padding-left: 0;
+    white-space: nowrap;    
 }
 
 .nombreUsuarioChat
 {
     display: inline;
-    line-height: 32px;
+    line-height: 38px;
 }
 
 .nombreUsuarioChat a
@@ -427,11 +429,12 @@ input, select, textarea
     text-decoration: none;  
     color: #000000;
     border-bottom: 1px solid #EBEBEB;
-    padding: 10px 81px 10px 10px;
-    text-align: left;
+    padding: 10px 100% 10px 25px;
+    text-align: left;  
+    background: url('images/ico_conectado.png') no-repeat 2% 50%;      
 }
 
 .nombreUsuarioChat a:hover
-{
-    background: #E1E1E1 url('images/ico_conectado.png') no-repeat 95% 50%;    
+{    
+    background: #E1E1E1 url('images/ico_conectado.png') no-repeat 2% 50%;    
 }
