@@ -88,5 +88,22 @@ namespace IndignaFwk.UI.Process
                 return _adminUserProcess;
             }
         }
+
+        //SistemaUserProcess
+        private SistemaUserProcess _sistemaUserProcess;
+
+        public SistemaUserProcess SistemaUserProcess
+        {
+            get
+            {
+                if (_sistemaUserProcess == null)
+                {
+                    _sistemaUserProcess = new SistemaUserProcess();
+                }
+
+                return _sistemaUserProcess;
+            }
+        }
+
     }
 }

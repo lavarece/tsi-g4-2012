@@ -21,7 +21,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<TextBox Margin="222,68,191,0" TextWrapping="Wrap" Height="25.062" VerticalAlignment="Top">
+        <TextBox x:Name="Recursos_mas_rankeados" Margin="222,68,191,0" TextWrapping="Wrap" Height="25.062" VerticalAlignment="Top" MaxLength="2">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
@@ -31,7 +31,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<TextBox Margin="212,106.062,201,0" TextWrapping="Wrap" Height="25" VerticalAlignment="Top">
+        <TextBox x:Name="Recursos_compartidos" Margin="212,106.062,201,0" TextWrapping="Wrap" Height="25" VerticalAlignment="Top">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
@@ -41,7 +41,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<TextBox Margin="184,0,0,106" TextWrapping="Wrap" HorizontalAlignment="Left" Width="33" Height="25" VerticalAlignment="Bottom">
+        <TextBox x:Name="Dar_de_baja_contenido" Margin="184,0,0,106" TextWrapping="Wrap" HorizontalAlignment="Left" Width="33" Height="25" VerticalAlignment="Bottom">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
@@ -51,12 +51,12 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<TextBox Margin="0,0,108,72" TextWrapping="Wrap" HorizontalAlignment="Right" Width="33" Height="25" VerticalAlignment="Bottom">
+        <TextBox x:Name="Dar_de_baja_usuario" Margin="0,0,104,69" TextWrapping="Wrap" HorizontalAlignment="Right" Width="33" Height="25" VerticalAlignment="Bottom">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<Button x:Name="boton_cancelarRegistroVariables" Content="Cancelar" Margin="0,0,15,28.062" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom">
+		<Button x:Name="boton_cancelarRegistroVariables" Content="Cancelar" Margin="0,0,15,28.062" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom" Click="boton_cancelarRegistroVariables_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="Black" Offset="1"/>
@@ -64,7 +64,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_guardarRegistroVariables" Content="Guardar" Margin="0,0,114,28.062" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom">
+		<Button x:Name="boton_guardarRegistroVariables" Content="Guardar" Margin="0,0,114,28.062" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Bottom" Click="boton_guardarRegistroVariables_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="Black" Offset="1"/>
