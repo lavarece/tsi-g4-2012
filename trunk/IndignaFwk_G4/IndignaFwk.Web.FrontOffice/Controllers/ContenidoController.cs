@@ -59,9 +59,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 contenido.FechaCreacion = DateTime.Now;
 
-                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+                CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
 
                 contenido.UsuarioCreacion = new Usuario { Id = ci.Id };
+
+                contenido.Grupo = site.Grupo;
 
                 convocatoriaUserProcess.CrearNuevoContenido(contenido);
             }
@@ -70,5 +72,38 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult MeGustaContenido()
+        {
+            CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
+
+            int idUsuario = ci.Id;
+
+            int idContenidoMarcar = Int32.Parse(Request["idContenidoMarcar"]);
+
+            // Verifico si existe una marcar entre el contenido y el usuario, si existe la edito si no la creo
+            MarcaContenido marcaContenido = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenidoMarcar);
+
+            if (marcaContenido != null)
+            {
+                marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
+            }
+            else
+            {
+                marcaContenido.UsuarioMarca = new Usuario { Id = idUsuario };
+
+                marcaContenido.Contenido = new Contenido { Id = idContenidoMarcar };
+
+                marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
+
+            }
+
+            PopulateViewBag();
+                
+            return RedirectToAction("Home", "Index");
+        }
+
+
     }
 }

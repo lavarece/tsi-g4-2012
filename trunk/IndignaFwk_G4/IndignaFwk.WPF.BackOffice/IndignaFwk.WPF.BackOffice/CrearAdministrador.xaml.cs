@@ -29,23 +29,23 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void boton_guardarRegistroAdmin_Click(object sender, RoutedEventArgs e)
         {
-            if (UtilesGenerales.isNullOrEmpty(textbox_nombreAdmin.Text))
+            if (String.IsNullOrEmpty(textbox_nombreAdmin.Text))
             {
                 MessageBox.Show("El campo nombre es obligatorio");
             }
-            //else if (UtilesGenerales.isNullOrEmpty(textBox_apellidoAdmin.Text))
+            //else if (String.IsNullOrEmpty(textBox_apellidoAdmin.Text))
             //{
             //    MessageBox.Show("El campo apellido es obligatorio");
             //}
-            else if (UtilesGenerales.isNullOrEmpty(textbox_emailAdmin.Text))
+            else if (String.IsNullOrEmpty(textbox_emailAdmin.Text))
             {
                 MessageBox.Show("El campo email es obligatorio");
             }
-            else if (UtilesGenerales.isNullOrEmpty(passwordbox_passAdmin.Password))
+            else if (String.IsNullOrEmpty(passwordbox_passAdmin.Password))
             {
                 MessageBox.Show("El campo contraseña es obligatorio");
             }
-            else if (UtilesGenerales.isNullOrEmpty(passwordBox_repassAdmin.Password))
+            else if (String.IsNullOrEmpty(passwordBox_repassAdmin.Password))
             {
                 MessageBox.Show("Debe repetir la contraseña");
             }

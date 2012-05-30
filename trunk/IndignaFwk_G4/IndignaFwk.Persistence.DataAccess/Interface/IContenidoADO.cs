@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -17,6 +18,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         Contenido Obtener(int id, SqlConnection conexion);
 
-        List<Contenido> ObtenerListado(SqlConnection conexion);
+        List<Contenido> ObtenerListadoPorGrupoYVisibilidad(SqlConnection conexion, int idGrupo, string visibilidadContenido);
     }
 }

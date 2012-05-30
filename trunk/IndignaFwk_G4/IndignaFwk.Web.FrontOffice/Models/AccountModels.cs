@@ -26,6 +26,10 @@ namespace IndignaFwk.Web.FrontOffice.Models
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Apellido")]
+        public string Apellido { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
         public string Email { get; set; }

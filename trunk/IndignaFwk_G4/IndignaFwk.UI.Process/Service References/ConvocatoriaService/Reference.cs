@@ -33,14 +33,27 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevoContenido", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevoContenidoResponse")]
         int CrearNuevoContenido(IndignaFwk.Common.Entities.Contenido contenido);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidos", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosResponse")]
-        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidos();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibili" +
+            "dad", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibili" +
+            "dadResponse")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorIdResponse")]
         IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse")]
         int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" +
+            "", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" +
+            "Response")]
+        IndignaFwk.Common.Entities.MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevaMarcaContenido", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevaMarcaContenidoResponse")]
+        int CrearNuevaMarcaContenido(IndignaFwk.Common.Entities.MarcaContenido marcaContenido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/EditarMarcaContenido", ReplyAction="http://tempuri.org/IConvocatoriaService/EditarMarcaContenidoResponse")]
+        void EditarMarcaContenido(IndignaFwk.Common.Entities.MarcaContenido marcaContenido);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -94,8 +107,8 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
             return base.Channel.CrearNuevoContenido(contenido);
         }
         
-        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidos() {
-            return base.Channel.ObtenerListadoContenidos();
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido) {
+            return base.Channel.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, visibilidadContenido);
         }
         
         public IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido) {
@@ -104,6 +117,18 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         public int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria) {
             return base.Channel.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
+        
+        public IndignaFwk.Common.Entities.MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido) {
+            return base.Channel.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenido);
+        }
+        
+        public int CrearNuevaMarcaContenido(IndignaFwk.Common.Entities.MarcaContenido marcaContenido) {
+            return base.Channel.CrearNuevaMarcaContenido(marcaContenido);
+        }
+        
+        public void EditarMarcaContenido(IndignaFwk.Common.Entities.MarcaContenido marcaContenido) {
+            base.Channel.EditarMarcaContenido(marcaContenido);
         }
     }
 }

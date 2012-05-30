@@ -38,7 +38,7 @@ namespace IndignaFwk_WPF_BackOffice
             this.InitializeComponent();
             txt_nombre.Text = grupo.Nombre;
             txt_url.Text = grupo.Url;
-            if(UtilesGenerales.isNullOrEmpty(grupo.Descripcion))
+            if(String.IsNullOrEmpty(grupo.Descripcion))
             {
                 txt_descripcion.Text = grupo.Descripcion;
             }
@@ -50,11 +50,11 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void btn_guardar_Click(object sender, RoutedEventArgs e)
         {
-            if (UtilesGenerales.isNullOrEmpty(txt_nombre.Text))
+            if (String.IsNullOrEmpty(txt_nombre.Text))
             {
                 MessageBox.Show("El campo nombre es obligatorio");
             }
-            else if (UtilesGenerales.isNullOrEmpty(txt_url.Text))
+            else if (String.IsNullOrEmpty(txt_url.Text))
             {
                 MessageBox.Show("El campo URL es obligatorio");
             }

@@ -32,7 +32,7 @@ namespace IndignaFwk.Business.Services
         int CrearNuevoContenido(Contenido contenido);
 
         [OperationContract]
-        List<Contenido> ObtenerListadoContenidos();
+        List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido);
 
         [OperationContract]
         Contenido ObtenerContenidoPorId(int idContenido);
@@ -40,5 +40,15 @@ namespace IndignaFwk.Business.Services
         // Operaciones AsistenciaConvocatoria
         [OperationContract]
         int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
+
+        // Operaciones MarcarContenido
+        [OperationContract]
+        MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
+
+        [OperationContract]
+        int CrearNuevaMarcaContenido(MarcaContenido marcaContenido);
+
+        [OperationContract]
+        void EditarMarcaContenido(MarcaContenido marcaContenido);
     }
 }

@@ -52,7 +52,7 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UsuTematica.cs" />
     <Compile Include="Entities\VariableSistema.cs" />
-    <Compile Include="Enumeration\EstadoContenidoEnum.cs" />
+    <Compile Include="Enumeration\VisibilidadContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoMarcaContenidoEnum.cs" />
     <Compile Include="Util\UtilesSeguridad.cs" />

@@ -7,6 +7,7 @@ using System.Text;
 using IndignaFwk.Business.Managers;
 using IndignaFwk.Common.Entities;
 
+
 namespace IndignaFwk.Business.Services
 {
     public class ConvocatoriaService : IConvocatoriaService
@@ -43,9 +44,9 @@ namespace IndignaFwk.Business.Services
             return convocatoriaManager.CrearNuevoContenido(contenido);
         }
 
-        public List<Contenido> ObtenerListadoContenidos()
+        public List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido)
         {
-            return convocatoriaManager.ObtenerListadoContenidos();
+            return convocatoriaManager.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, visibilidadContenido);
         }
 
         public Contenido ObtenerContenidoPorId(int idContenido)
@@ -56,6 +57,21 @@ namespace IndignaFwk.Business.Services
         public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
         {
             return convocatoriaManager.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
+
+        public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
+        {
+            return convocatoriaManager.ObtenerMarcaContenidoPorUsuarioYContenido(idContenido, idContenido);
+        }
+
+        public int CrearNuevaMarcaContenido(MarcaContenido marcaContenido)
+        {
+            return convocatoriaManager.CrearNuevaMarcaContenido(marcaContenido);
+        }
+
+        public void EditarMarcaContenido(MarcaContenido marcaContenido)
+        {
+            convocatoriaManager.EditarMarcaContenido(marcaContenido);
         }
     }
 }

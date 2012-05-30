@@ -18,6 +18,9 @@ namespace IndignaFwk.Common.Entities
         public string Nombre { get; set; }
 
         [DataMember]
+        public string Apellido { get; set; }
+
+        [DataMember]
         public string Descripcion { get; set; }
 
         [DataMember]
@@ -46,5 +49,8 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public List<Tematica> ListaTematicas { get; set; }
+
+        // Retorna el nombre competo del usuario (Nombre + " " + Apellido)
+        public string NombreCompleto { get { return Nombre + " " + Apellido; } }
     }
 }

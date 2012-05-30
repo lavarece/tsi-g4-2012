@@ -43,11 +43,11 @@
   <wsdl:message name="IConvocatoriaService_CrearNuevoContenido_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevoContenidoResponse" />
   </wsdl:message>
-  <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidos_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidos" />
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosPorGrupoYVisibilidad" />
   </wsdl:message>
-  <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidos_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosResponse" />
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosPorGrupoYVisibilidadResponse" />
   </wsdl:message>
   <wsdl:message name="IConvocatoriaService_ObtenerContenidoPorId_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerContenidoPorId" />
@@ -60,6 +60,24 @@
   </wsdl:message>
   <wsdl:message name="IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaAsistenciaConvocatoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMarcaContenidoPorUsuarioYContenido" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMarcaContenidoPorUsuarioYContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_CrearNuevaMarcaContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaMarcaContenido" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_CrearNuevaMarcaContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaMarcaContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_EditarMarcaContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarMarcaContenido" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_EditarMarcaContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarMarcaContenidoResponse" />
   </wsdl:message>
   <wsdl:portType name="IConvocatoriaService">
     <wsdl:operation name="CrearNuevaConvocatoria">
@@ -86,9 +104,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevoContenido" message="tns:IConvocatoriaService_CrearNuevoContenido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevoContenidoResponse" message="tns:IConvocatoriaService_CrearNuevoContenido_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerListadoContenidos">
-      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidos" message="tns:IConvocatoriaService_ObtenerListadoContenidos_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosResponse" message="tns:IConvocatoriaService_ObtenerListadoContenidos_OutputMessage" />
+    <wsdl:operation name="ObtenerListadoContenidosPorGrupoYVisibilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibilidad" message="tns:IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibilidadResponse" message="tns:IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerContenidoPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId" message="tns:IConvocatoriaService_ObtenerContenidoPorId_InputMessage" />
@@ -97,6 +115,18 @@
     <wsdl:operation name="CrearNuevaAsistenciaConvocatoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMarcaContenidoPorUsuarioYContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" message="tns:IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenidoResponse" message="tns:IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevaMarcaContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaMarcaContenido" message="tns:IConvocatoriaService_CrearNuevaMarcaContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaMarcaContenidoResponse" message="tns:IConvocatoriaService_CrearNuevaMarcaContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarMarcaContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/EditarMarcaContenido" message="tns:IConvocatoriaService_EditarMarcaContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/EditarMarcaContenidoResponse" message="tns:IConvocatoriaService_EditarMarcaContenido_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConvocatoriaService" type="tns:IConvocatoriaService">
@@ -155,8 +185,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerListadoContenidos">
-      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidos" style="document" />
+    <wsdl:operation name="ObtenerListadoContenidosPorGrupoYVisibilidad">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibilidad" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -175,6 +205,33 @@
     </wsdl:operation>
     <wsdl:operation name="CrearNuevaAsistenciaConvocatoria">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMarcaContenidoPorUsuarioYContenido">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevaMarcaContenido">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/CrearNuevaMarcaContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarMarcaContenido">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/EditarMarcaContenido" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -73,11 +73,11 @@ namespace IndignaFwk.UI.Process
             return id;
         }
 
-        public List<Contenido> ObtenerListadoContenidos()
+        public List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido)
         {
             ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
 
-            List<Contenido> listado = proxy.ObtenerListadoContenidos();
+            List<Contenido> listado = proxy.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, visibilidadContenido);
 
             proxy.Close();
 
@@ -105,6 +105,38 @@ namespace IndignaFwk.UI.Process
             proxy.Close();
 
             return id;
+        }
+
+        // Operaciones MarcaContenido
+        public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            MarcaContenido marcaContenido = proxy.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenido);
+
+            proxy.Close();
+
+            return marcaContenido;
+        }
+
+        public int CrearNuevaMarcaContenido(MarcaContenido marcaContenido)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            int id = proxy.CrearNuevaMarcaContenido(marcaContenido);
+
+            proxy.Close();
+
+            return id;
+        }
+
+        public void EditarMarcaContenido(MarcaContenido marcaContenido)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            proxy.EditarMarcaContenido(marcaContenido);
+
+            proxy.Close();
         }
     }
 }
