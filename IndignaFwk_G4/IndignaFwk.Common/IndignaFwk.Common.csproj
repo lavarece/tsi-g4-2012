@@ -55,6 +55,7 @@
     <Compile Include="Enumeration\EstadoContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoMarcaContenidoEnum.cs" />
+    <Compile Include="Util\UtilesSeguridad.cs" />
     <Compile Include="Util\UtilesBD.cs" />
     <Compile Include="Util\UtilesGenerales.cs" />
   </ItemGroup>
