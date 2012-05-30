@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E00590F0-59B7-47B4-8D13-F46651195D52}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IndignaFwk.UI.Process</RootNamespace>
+    <AssemblyName>IndignaFwk.UI.Process</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AdministradorUserProcess.cs" />
+    <Compile Include="ConvocatoriaUserProcess.cs" />
+    <Compile Include="GrupoUserProcess.cs" />
+    <Compile Include="Service References\AdministradorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ConvocatoriaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GrupoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SistemaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UsuarioService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SistemaUserProcess.cs" />
+    <Compile Include="UserProcessFactory.cs" />
+    <Compile Include="UsuarioUserProcess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Administrador.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Contenido.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Convocatoria.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Grupo.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Usuario.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.VariableSistema.datasource" />
+    <None Include="Service References\AdministradorService\AdministradorService.wsdl" />
+    <None Include="Service References\AdministradorService\AdministradorService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdministradorService\AdministradorService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdministradorService\AdministradorService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.wsdl" />
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrupoService\GrupoService.wsdl" />
+    <None Include="Service References\GrupoService\GrupoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrupoService\GrupoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GrupoService\GrupoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SistemaService\SistemaService.wsdl" />
+    <None Include="Service References\SistemaService\SistemaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SistemaService\SistemaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SistemaService\SistemaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
+    <None Include="Service References\UsuarioService\UsuarioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdministradorService\" />
+    <WCFMetadataStorage Include="Service References\ConvocatoriaService\" />
+    <WCFMetadataStorage Include="Service References\GrupoService\" />
+    <WCFMetadataStorage Include="Service References\SistemaService\" />
+    <WCFMetadataStorage Include="Service References\UsuarioService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoService\GrupoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConvocatoriaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConvocatoriaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConvocatoriaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioService\UsuarioService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdministradorService\AdministradorService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdministradorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdministradorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdministradorService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SistemaService\SistemaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SistemaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SistemaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SistemaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

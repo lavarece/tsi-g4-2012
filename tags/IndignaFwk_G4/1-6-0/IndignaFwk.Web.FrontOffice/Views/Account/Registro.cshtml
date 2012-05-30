@@ -1,0 +1,111 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.RegistroModel 
+
+@{
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + "- Registro";
+    Layout = "~/Content/" + ViewBag.GrupoSite.NombreLayout + "/layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@Html.ValidationSummary(true, "El registro no es válido, intente nuevamente.")
+
+<h3>Registro de usuario</h3>
+
+@using (Html.BeginForm()) 
+{
+    <div class="areaFormulario">    
+        <table>
+            <tr>    
+                <td>
+                     <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Nombre)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Nombre)
+                        @Html.ValidationMessageFor(m => m.Nombre)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Email)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Descripcion)
+                    </div>            
+                    <div class="fieldValue">
+                        @Html.TextAreaFor(m => m.Descripcion)
+                        @Html.ValidationMessageFor(m => m.Descripcion)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m=>m.RegionGeografica)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.RegionGeografica)
+                        @Html.ValidationMessageFor(m => m.RegionGeografica)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Contraseña)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.Contraseña)
+                        @Html.ValidationMessageFor(m => m.Contraseña)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.ConfirmarContraseña)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.ConfirmarContraseña)
+                        @Html.ValidationMessageFor(m => m.ConfirmarContraseña)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.PreguntaSecreta)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.PreguntaSecreta)
+                        @Html.ValidationMessageFor(m => m.PreguntaSecreta)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.RespuestaSecreta)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.RespuestaSecreta)
+                        @Html.ValidationMessageFor(m => m.RespuestaSecreta)
+                    </div>
+                </td>
+            </tr>            
+        </table>   
+    </div>
+    
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">
+                    <a href="#" onclick="submit();">Finalizar</a>
+                </div>       
+            </li>
+        </ul>        
+    </div>              
+}
