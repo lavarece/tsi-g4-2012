@@ -233,7 +233,8 @@ input, select, textarea
 
 .fieldValue input[type="text"], 
 .fieldValue textarea,
-.fieldValue input[type="password"]
+.fieldValue input[type="password"],
+.fieldValue select
 {
     width: 70%;
 }
