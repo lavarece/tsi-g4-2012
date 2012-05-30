@@ -11,6 +11,8 @@ namespace IndignaFwk.Business.Managers
 {
     public interface ISistemaManager
     {
+        int CrearNuevaVariable(VariableSistema variable);
+        
         VariableSistema ObtenerVariablePorId(int idVariable);
 
         VariableSistema ObtenerVariablePorNombre(string nombreVariable);

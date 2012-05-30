@@ -39,6 +39,32 @@ namespace IndignaFwk.Business.Managers
         * conexiones, ademas llama las AccessDataObject para
         * persistir el nuevo objeto.
         */
+        public int CrearNuevaVariable(VariableSistema variable)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                int id = VariableADO.Crear(variable, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
+
+                return id;
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+        
         public VariableSistema ObtenerVariablePorId(int idVariable)
         {
             try
@@ -109,11 +135,7 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                List<VariableSistema> variables = new List<VariableSistema>();
-
-                variables = VariableADO.ObtenerListado(conexion);
-
-                return variables;
+                return VariableADO.ObtenerListado(conexion); ;
             }
             catch (Exception ex)
             {
