@@ -37,6 +37,30 @@
   <wsdl:message name="IConvocatoriaService_EliminarConvocatoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarConvocatoriaResponse" />
   </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_CrearNuevoContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoContenido" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_CrearNuevoContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidos" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerContenidoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerContenidoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaAsistenciaConvocatoria" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaAsistenciaConvocatoriaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IConvocatoriaService">
     <wsdl:operation name="CrearNuevaConvocatoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaConvocatoria" message="tns:IConvocatoriaService_CrearNuevaConvocatoria_InputMessage" />
@@ -57,6 +81,22 @@
     <wsdl:operation name="EliminarConvocatoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/EliminarConvocatoria" message="tns:IConvocatoriaService_EliminarConvocatoria_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/EliminarConvocatoriaResponse" message="tns:IConvocatoriaService_EliminarConvocatoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevoContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevoContenido" message="tns:IConvocatoriaService_CrearNuevoContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevoContenidoResponse" message="tns:IConvocatoriaService_CrearNuevoContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoContenidos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidos" message="tns:IConvocatoriaService_ObtenerListadoContenidos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosResponse" message="tns:IConvocatoriaService_ObtenerListadoContenidos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId" message="tns:IConvocatoriaService_ObtenerContenidoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorIdResponse" message="tns:IConvocatoriaService_ObtenerContenidoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevaAsistenciaConvocatoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConvocatoriaService" type="tns:IConvocatoriaService">
@@ -99,6 +139,42 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarConvocatoria">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/EliminarConvocatoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevoContenido">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/CrearNuevoContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoContenidos">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoPorId">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevaAsistenciaConvocatoria">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

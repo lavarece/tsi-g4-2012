@@ -65,4 +65,58 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="CrearNuevoContenido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="contenido" nillable="true" type="q5:Contenido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearNuevoContenidoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CrearNuevoContenidoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerListadoContenidos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerListadoContenidosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerListadoContenidosResult" nillable="true" type="q6:ArrayOfContenido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerContenidoPorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idContenido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerContenidoPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerContenidoPorIdResult" nillable="true" type="q7:Contenido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearNuevaAsistenciaConvocatoria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="asistenciaConvocatoria" nillable="true" type="q8:AsistenciaConvocatoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CrearNuevaAsistenciaConvocatoriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CrearNuevaAsistenciaConvocatoriaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

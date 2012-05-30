@@ -37,5 +37,20 @@ namespace IndignaFwk.Common.Enumeration
 
             return listado;
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj == null)
+                return false;
+
+            TipoContenidoEnum tObj = (TipoContenidoEnum)obj;
+
+            return this.Valor.Equals(tObj.Valor);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

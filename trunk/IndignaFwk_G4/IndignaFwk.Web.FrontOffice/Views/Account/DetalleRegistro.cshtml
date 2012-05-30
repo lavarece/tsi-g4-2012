@@ -1,8 +1,8 @@
 ﻿@model IndignaFwk.Web.FrontOffice.Models.RegistroModel
 
 @{
-    ViewBag.Title = "[Nombre de grupo] - Login";
-    Layout = "~/Content/layout_3/layout.cshtml";
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Login";
+    Layout = "~/Content/" + ViewBag.GrupoSite.NombreLayout + "/layout.cshtml";
 }
 
 <h3>Usuario registrado correctamente</h3>
@@ -12,26 +12,35 @@
     
     <br/>
     
-    <div class="display-label"><b>Nombre:</b></div>
+    <div class="display-label">Nombre:/div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Nombre)
     </div>
 
     <br/>
 
-    <div class="display-label"><b>Descripción:</b></div>
+    <div class="display-label">Descripción:</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Descripcion)
     </div>
 
     <br/>
 
-    <div class="display-label"><b>Correo:</b></div>
+    <div class="display-label">Correo:<div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Email)
     </div>
 
 </fieldset>
-<p>
-    @Html.ActionLink("Volver al Inicio","Index", "Home")
-</p>
+
+<div class="areaBotones">
+    <ul>    
+        <li>
+            <div class="boton">
+                <a href="@Url.Action("Index", "Home")">Volver al Inicio</a>
+            </div>       
+        </li>        
+    </ul>     
+</div>
+
+

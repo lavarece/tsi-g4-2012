@@ -6,7 +6,10 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Runtime.Caching;
 using StructureMap;
+using System.Web.Security;
+using System.Security.Principal;
 using IndignaFwk.Web.FrontOffice.MultiTenant;
+using IndignaFwk.Web.FrontOffice.Util;
 
 namespace IndignaFwk.Web.FrontOffice
 {    
@@ -20,7 +23,23 @@ namespace IndignaFwk.Web.FrontOffice
             // Multi tenant support            
             ControllerBuilder.Current.SetControllerFactory(new ContainerControllerFactory(new TenantContainerResolver()));
         }
-        
+
+        protected void Application_PostAuthenticateRequest()
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                CustomIdentity identity = new CustomIdentity(authTicket.Name, authTicket.UserData);
+
+                GenericPrincipal newUser = new GenericPrincipal(identity, new string[] { });
+
+                Context.User = newUser;
+            }
+        }
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

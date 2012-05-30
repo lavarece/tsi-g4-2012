@@ -1,19 +1,15 @@
 ﻿@{
-    ViewBag.Title = "[Nombre del grupo] - Inicio";
-    Layout = "~/Content/layout_3/layout.cshtml";
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Inicio";
+    Layout = "~/Content/" + ViewBag.GrupoSite.NombreLayout + "/layout.cshtml";
 }
 
 <div class="detalleGrupo">
-    <h3>Bienvenido al grupo [Nombre grupo]</h3>
+    <h3>Bienvenido al grupo @ViewBag.GrupoSite.Nombre</h3>
     <div class="imagenGrupo">
-        <img src="@Url.Content("~/Content/layout_1/images/group_no_image.png")" alt="Imagen grupo"/>
+        <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.NombreLayout + "/images/group_no_image.png")" alt="Imagen grupo"/>
     </div>
     <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed justo massa, 
-        fermentum luctus mi. Pellentesque habitant morbi tristique senectus et netus et malesuada 
-        fames ac turpis egestas. Phasellus at diam eget nunc vehicula lacinia sed eget purus. 
-        Donec dignissim consequat porttitor. Phasellus a molestie nunc. Suspendisse accumsan,
-        lorem vitae ornare iaculis, augue augue auctor leo, in malesuada metus nunc ac tellus. 
+        @ViewBag.GrupoSite.Descripcion 
     </div>
 </div>
 
@@ -32,7 +28,7 @@
 
     <div class="itemContenido">
         <div class="creadorContenido">
-            <img src="@Url.Content("~/Content/layout_1/images/user_no_image.png")" alt="Imagen usuario" />    
+            <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.NombreLayout + "/images/user_no_image.png")" alt="Imagen usuario" />    
             <span>Datos del creador y fecha de creacion del contenido</span>                  
         </div>
         <div class="contenido">
@@ -62,7 +58,7 @@
 
     <div class="itemContenido">
         <div class="creadorContenido">
-            <img src="@Url.Content("~/Content/layout_1/images/user_no_image.png")" alt="Imagen usuario" />    
+            <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.NombreLayout + "/images/user_no_image.png")" alt="Imagen usuario" />    
             <span>Datos del creador y fecha de creacion del contenido</span><hr />                        
         </div>
         <div class="contenido">
@@ -83,12 +79,7 @@
                     <li>
                         <div class="boton">       
                             <a href="#">Inadecuado</a>
-                        </div>
-                    <li>
-                        <div class="boton">       
-                            <a href="#">Etiquetar</a>
-                        </div>
-                    </li>
+                        </div>                    
                     </li>
                 </ul>
             </div>

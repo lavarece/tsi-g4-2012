@@ -16,8 +16,15 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
+        private void PopulateViewBag()
+        {
+            ViewBag.GrupoSite = site.Grupo;
+        }
+
         public ActionResult SalaGrupo()
         {
+            PopulateViewBag();
+
             return View();
         }
 

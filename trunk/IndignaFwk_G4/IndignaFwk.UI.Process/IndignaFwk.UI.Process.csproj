@@ -78,6 +78,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Administrador.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Contenido.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Convocatoria.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Grupo.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Usuario.datasource" />

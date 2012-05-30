@@ -11,6 +11,7 @@ namespace IndignaFwk.Business.Services
     [ServiceContract]
     public interface IConvocatoriaService
     {
+        // Operaciones convocatorias
         [OperationContract]
         int CrearNuevaConvocatoria(Convocatoria convocatoria);
 
@@ -25,5 +26,19 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         void EliminarConvocatoria(int idConvocatoria);
+        
+        // Operaciones Contenidos
+        [OperationContract]
+        int CrearNuevoContenido(Contenido contenido);
+
+        [OperationContract]
+        List<Contenido> ObtenerListadoContenidos();
+
+        [OperationContract]
+        Contenido ObtenerContenidoPorId(int idContenido);
+
+        // Operaciones AsistenciaConvocatoria
+        [OperationContract]
+        int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
     }
 }
