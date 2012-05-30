@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.Runtime.Serialization;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Common.Entities
 {
@@ -34,5 +35,8 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public Usuario UsuarioCreacion { get; set; }
+
+        [DataMember]
+        public Grupo Grupo { get; set; }
     }
 }

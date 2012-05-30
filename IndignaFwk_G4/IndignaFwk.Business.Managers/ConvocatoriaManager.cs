@@ -73,8 +73,22 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-        /* OPERACIONES */
+        private IMarcaContenidoADO _marcaContenidoADO;
+        protected IMarcaContenidoADO MarcaContenidoADO
+        {
+            get
+            {
+                if (_marcaContenidoADO == null)
+                {
+                    _marcaContenidoADO = new MarcaContenidoADO();
+                }
 
+                return _marcaContenidoADO;
+            }
+        }
+
+
+        /* OPERACIONES */
         public int CrearNuevaConvocatoria(Convocatoria convocatoria)
         {
             try
@@ -216,13 +230,20 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-        public List<Contenido> ObtenerListadoContenidos()
+        public List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido)
         {
             try
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                return ContenidoADO.ObtenerListado(conexion);
+                List<Contenido> listadoContenidos = ContenidoADO.ObtenerListadoPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido);
+
+                foreach (Contenido c in listadoContenidos)
+                {
+                    c.UsuarioCreacion = UsuarioADO.Obtener(c.UsuarioCreacion.Id, conexion);
+                }
+
+                return listadoContenidos;
             }
             catch (Exception ex)
             {
@@ -244,7 +265,8 @@ namespace IndignaFwk.Business.Managers
 
                 Contenido contenido = ContenidoADO.Obtener(idContenido, conexion);
 
-                contenido.UsuarioCreacion = UsuarioADO.Obtener(idContenido, conexion);
+                // Obtengo las relaciones del contenido con otras entidades
+                contenido.UsuarioCreacion = UsuarioADO.Obtener(contenido.UsuarioCreacion.Id, conexion);
 
                 return contenido;
             }
@@ -273,6 +295,80 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CommitTransaccion(transaccion);
 
                 return ret;
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+
+        public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                MarcaContenido marcaContenido = MarcaContenidoADO.ObtenerPorUsuarioYContenido(idUsuario, idUsuario, conexion);
+
+                return marcaContenido;
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+
+        public int CrearNuevaMarcaContenido(MarcaContenido marcaContenido)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                int ret = MarcaContenidoADO.Crear(marcaContenido, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
+
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public void EditarMarcaContenido(MarcaContenido marcaContenido)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                MarcaContenidoADO.Editar(marcaContenido, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
             }
             catch (Exception ex)
             {

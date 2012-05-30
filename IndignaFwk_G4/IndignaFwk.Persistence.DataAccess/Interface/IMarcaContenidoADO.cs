@@ -17,6 +17,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
         MarcaContenido Obtener(int id, SqlConnection conexion);
 
+        MarcaContenido ObtenerPorUsuarioYContenido(int idUsuario, int idContenido, SqlConnection conexion);
+
         List<MarcaContenido> ObtenerListado(SqlConnection conexion);
     }
 }

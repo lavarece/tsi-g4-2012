@@ -22,6 +22,22 @@ namespace IndignaFwk.Common.Enumeration
             this.Etiqueta = etiqueta;
         }
 
+        public static VisibilidadContenidoEnum FromString(string strVisibilidad)
+        {
+            if (PRIVADO.Valor.Equals(strVisibilidad))
+            {
+                return PRIVADO;
+            }
+            else if (PUBLICO.Valor.Equals(strVisibilidad))
+            {
+                return PUBLICO;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static List<VisibilidadContenidoEnum> ObtenerListado()
         {
             List<VisibilidadContenidoEnum> listado = new List<VisibilidadContenidoEnum>();
@@ -42,6 +58,11 @@ namespace IndignaFwk.Common.Enumeration
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+ 	         return Etiqueta;
         }
     }
 

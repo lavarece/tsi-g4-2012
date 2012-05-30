@@ -44,9 +44,13 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 if (usuario != null && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
-                    FormsAuthentication.SetAuthCookie(usuario.Nombre, true);
+                    string idUsuario = usuario.Id.ToString();
 
-                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, usuario.Nombre, DateTime.Now, DateTime.Now.AddMinutes(30), true, usuario.Id.ToString());
+                    string nombreCompleto = usuario.NombreCompleto;
+
+                    FormsAuthentication.SetAuthCookie(nombreCompleto, true);
+
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(30), true, idUsuario);
 
                     string encTicket = FormsAuthentication.Encrypt(ticket);
 

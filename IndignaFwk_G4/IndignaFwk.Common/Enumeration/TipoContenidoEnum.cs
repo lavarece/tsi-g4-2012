@@ -25,6 +25,26 @@ namespace IndignaFwk.Common.Enumeration
             this.Etiqueta = etiqueta;
         }
 
+        public static TipoContenidoEnum FromString(string strTipo)
+        {
+            if (IMAGEN.Valor.Equals(strTipo))
+            {
+                return IMAGEN;
+            }
+            else if (VIDEO.Valor.Equals(strTipo))
+            {
+                return VIDEO;
+            }
+            else if (LINK.Valor.Equals(strTipo))
+            {
+                return LINK;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static List<TipoContenidoEnum> ObtenerListado()
         {
             List<TipoContenidoEnum> listado = new List<TipoContenidoEnum>();
@@ -51,6 +71,11 @@ namespace IndignaFwk.Common.Enumeration
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Etiqueta;
         }
     }
 }

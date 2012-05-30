@@ -389,7 +389,8 @@ input, select, textarea
     height: 70px;
 }
 
-.creadorContenido span
+.creadorContenido span,
+.creadorContenido b
 {
     vertical-align: top;
 }
@@ -399,7 +400,21 @@ input, select, textarea
     margin: 10px 10px 0px 10px;
     float: left;
     width: 60%;
-    height: 400px;
+    max-height: 400px;
+}
+
+.contenido iframe,
+.contenido img
+{
+    width: 100%;
+    min-height: 400px;
+}
+
+.contenido a
+{
+    text-decoration: none;
+    color: #448E7F;
+    font-weight: bold;
 }
 
 .detalleContenido
@@ -408,6 +423,19 @@ input, select, textarea
     float: left;
     display: inline;
     width: 35%;
+}
+
+.mensajeSinContenido
+{
+    font-weight: bold;
+    font-style: oblique;
+    margin-top: 10px;
+    border-top: 1px solid #BEE0D9;
+    padding-top: 10px;
+    width: 100%;
+    position: relative;
+    left: -20px;
+    padding-left: 15px;
 }
 
 .listaUsuariosChat

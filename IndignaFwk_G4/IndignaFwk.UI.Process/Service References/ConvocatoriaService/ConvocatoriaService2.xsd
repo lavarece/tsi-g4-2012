@@ -23,7 +23,7 @@
       <xs:element minOccurs="0" name="Imagen" nillable="true" type="tns:Imagen" />
       <xs:element minOccurs="0" name="ListaContenido" nillable="true" type="tns:ArrayOfContenido" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Template" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreLayout" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -46,6 +46,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Comentario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:Grupo" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="NivelVisibilidad" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TipoContenido" nillable="true" type="xs:string" />
@@ -57,6 +58,7 @@
   <xs:element name="Contenido" nillable="true" type="tns:Contenido" />
   <xs:complexType name="Usuario">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Apellido" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Conectado" type="xs:boolean" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
@@ -99,4 +101,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AsistenciaConvocatoria" nillable="true" type="tns:AsistenciaConvocatoria" />
+  <xs:complexType name="MarcaContenido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contenido" nillable="true" type="tns:Contenido" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoMarca" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsuarioMarca" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarcaContenido" nillable="true" type="tns:MarcaContenido" />
 </xs:schema>

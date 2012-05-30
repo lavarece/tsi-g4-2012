@@ -71,8 +71,8 @@ namespace IndignaFwk_WPF_BackOffice
         {
            
             //Valido campos en blanco
-            if (UtilesGenerales.isNullOrEmpty(Recursos_mas_rankeados.Text) || UtilesGenerales.isNullOrEmpty(Recursos_compartidos.Text) ||
-            UtilesGenerales.isNullOrEmpty(Dar_de_baja_contenido.Text) || UtilesGenerales.isNullOrEmpty(Dar_de_baja_usuario.Text))
+            if (String.IsNullOrEmpty(Recursos_mas_rankeados.Text) || String.IsNullOrEmpty(Recursos_compartidos.Text) ||
+                String.IsNullOrEmpty(Dar_de_baja_contenido.Text) || String.IsNullOrEmpty(Dar_de_baja_usuario.Text))
             {
                 MessageBox.Show("Debe completar todos los campos");
             }

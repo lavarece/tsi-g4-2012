@@ -33,7 +33,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(Grupo grupo in ViewBag.ListadoGrupos){
+                @foreach(Grupo grupo in ViewBag.ListadoGrupos)
+                {
                     string estiloTR = (ViewBag.ListadoGrupos.IndexOf(grupo) % 2 == 0 ? "odd" : "even");              
                     <tr class="@estiloTR">
                         <td>@grupo.Nombre</td>

@@ -2,11 +2,13 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="Usuario">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Apellido" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Conectado" type="xs:boolean" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:Grupo" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Imagen" nillable="true" type="tns:Imagen" />
       <xs:element minOccurs="0" name="ListaTematicas" nillable="true" type="tns:ArrayOfTematica" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
@@ -20,36 +22,14 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Imagen" nillable="true" type="tns:Imagen" />
       <xs:element minOccurs="0" name="ListaContenido" nillable="true" type="tns:ArrayOfContenido" />
-      <xs:element minOccurs="0" name="ListaImagen" nillable="true" type="tns:ArrayOfImagen" />
-      <xs:element minOccurs="0" name="LogoUrl" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Template" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreLayout" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Grupo" nillable="true" type="tns:Grupo" />
-  <xs:complexType name="ArrayOfContenido">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contenido" nillable="true" type="tns:Contenido" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfContenido" nillable="true" type="tns:ArrayOfContenido" />
-  <xs:complexType name="Contenido">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="EstadoContenido" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="TipoContenido" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Contenido" nillable="true" type="tns:Contenido" />
-  <xs:complexType name="ArrayOfImagen">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Imagen" nillable="true" type="tns:Imagen" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfImagen" nillable="true" type="tns:ArrayOfImagen" />
   <xs:complexType name="Imagen">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -58,6 +38,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Imagen" nillable="true" type="tns:Imagen" />
+  <xs:complexType name="ArrayOfContenido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contenido" nillable="true" type="tns:Contenido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContenido" nillable="true" type="tns:ArrayOfContenido" />
+  <xs:complexType name="Contenido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comentario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NivelVisibilidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoContenido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsuarioCreacion" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contenido" nillable="true" type="tns:Contenido" />
   <xs:complexType name="ArrayOfTematica">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Tematica" nillable="true" type="tns:Tematica" />

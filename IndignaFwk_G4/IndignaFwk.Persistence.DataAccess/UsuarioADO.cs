@@ -21,8 +21,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Password, Pregunta, Region, Respuesta, FK_Id_Sitio, FK_Id_Imagen) " +
-                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Password, @Pregunta, @Region, @Respuesta, @IdSitio, @IdImagen); " +
+            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Apellido, Password, Pregunta, Region, Respuesta, FK_Id_Sitio, FK_Id_Imagen) " +
+                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Apellido, @Password, @Pregunta, @Region, @Respuesta, @IdSitio, @IdImagen); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM Usuario; ";
 
             
@@ -30,6 +30,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Descripcion", usuario.Descripcion);
             UtilesBD.SetParameter(command, "Email", usuario.Email);            
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
+            UtilesBD.SetParameter(command, "Apellido", usuario.Apellido);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
             UtilesBD.SetParameter(command, "Region", usuario.Region);
             UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
@@ -63,7 +64,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "Descripcion = @descripcion, " + 
                                   "Email = @email, " + 
                                   "FK_Id_Sitio = @sitio, " + 
-                                  "Nombre=@nombre, " + 
+                                  "Nombre = @nombre, " +
+                                  "Apellido = @apellido, " +
                                   "Password = @password, " + 
                                   "Region = @region, " + 
                                   "Respuesta = @respuesta, " + 
@@ -76,6 +78,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Email", usuario.Email);
             UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
+            UtilesBD.SetParameter(command, "Apellido", usuario.Apellido);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
             UtilesBD.SetParameter(command, "Region", usuario.Region);
             UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
@@ -122,6 +125,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Apellido = UtilesBD.GetStringFromReader("Apellido", reader);
 
                     usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
 
@@ -178,6 +183,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
+                    usuario.Apellido = UtilesBD.GetStringFromReader("Apellido", reader);
+
                     usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
 
                     usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
@@ -231,6 +238,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Apellido = UtilesBD.GetStringFromReader("Apellido", reader);
 
                     usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
 
@@ -286,6 +295,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Apellido = UtilesBD.GetStringFromReader("Apellido", reader);
 
                     usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
 
@@ -344,6 +355,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Apellido = UtilesBD.GetStringFromReader("Apellido", reader);
 
                     usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
 

@@ -207,6 +207,7 @@ CREATE TABLE [dbo].[Usuario](
 	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Sitio] [int] NOT NULL,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Apellido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,

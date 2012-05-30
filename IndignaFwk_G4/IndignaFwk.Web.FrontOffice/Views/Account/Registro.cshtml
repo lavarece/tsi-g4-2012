@@ -27,6 +27,17 @@
                     </div>
                 </td>
                 <td>
+                     <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Apellido)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Apellido)
+                        @Html.ValidationMessageFor(m => m.Apellido)
+                    </div>
+                </td>
+            </tr>            
+            <tr>
+                <td>
                     <div class="fieldLabel">
                         @Html.LabelFor(m => m.Email)
                     </div>
@@ -35,8 +46,6 @@
                         @Html.ValidationMessageFor(m => m.Email)
                     </div>
                 </td>
-            </tr>
-            <tr>
                 <td>
                     <div class="fieldLabel">
                         @Html.LabelFor(m => m.Descripcion)
@@ -45,16 +54,7 @@
                         @Html.TextAreaFor(m => m.Descripcion)
                         @Html.ValidationMessageFor(m => m.Descripcion)
                     </div>
-                </td>
-                <td>
-                    <div class="fieldLabel">
-                        @Html.LabelFor(m=>m.RegionGeografica)
-                    </div>    
-                    <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.RegionGeografica)
-                        @Html.ValidationMessageFor(m => m.RegionGeografica)
-                    </div>
-                </td>
+                </td>                
             </tr>
             <tr>
                 <td>
@@ -94,6 +94,19 @@
                         @Html.TextBoxFor(m => m.RespuestaSecreta)
                         @Html.ValidationMessageFor(m => m.RespuestaSecreta)
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m=>m.RegionGeografica)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.RegionGeografica)
+                        @Html.ValidationMessageFor(m => m.RegionGeografica)
+                    </div>
+                </td>
+                <td>
                 </td>
             </tr>            
         </table>   

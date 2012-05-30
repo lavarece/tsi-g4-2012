@@ -22,11 +22,18 @@ namespace IndignaFwk.Business.Managers
         // Operaciones Contenidos
         int CrearNuevoContenido(Contenido contenido);
 
-        List<Contenido> ObtenerListadoContenidos();
+        List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido);
 
         Contenido ObtenerContenidoPorId(int idContenido);
 
         // Operaciones AsistenciaConvocatoria
         int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
+
+        // Operaciones MarcaContenido
+        MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
+
+        int CrearNuevaMarcaContenido(MarcaContenido marcaContenido);
+
+        void EditarMarcaContenido(MarcaContenido marcaContenido);
     }
 }
