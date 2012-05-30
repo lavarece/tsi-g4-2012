@@ -24,7 +24,7 @@ namespace IndignaFwk.Common.Entities
         public string Url { get; set; }
 
         [DataMember]
-        public string EstadoContenido { get; set; }
+        public string NivelVisibilidad { get; set; }
 
         [DataMember]
         public string TipoContenido { get; set; }

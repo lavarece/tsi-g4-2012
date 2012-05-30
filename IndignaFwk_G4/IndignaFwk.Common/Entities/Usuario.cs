@@ -15,6 +15,9 @@ namespace IndignaFwk.Common.Entities
         public int Id { get; set; }
 
         [DataMember]
+        public string Nombre { get; set; }
+
+        [DataMember]
         public string Descripcion { get; set; }
 
         [DataMember]
@@ -22,12 +25,6 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public string Email { get; set; }
-
-        [DataMember]
-        public string Nombre { get; set; }
-
-        [DataMember]
-        public Grupo Grupo { get; set; }
 
         [DataMember]
         public string Password { get; set; }
@@ -40,6 +37,9 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public string Region { get; set; }
+
+        [DataMember]
+        public Grupo Grupo { get; set; }
 
         [DataMember]
         public Imagen Imagen { get; set; }

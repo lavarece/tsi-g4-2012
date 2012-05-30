@@ -21,11 +21,14 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
+        private void PopulateViewBag()
+        {
+            ViewBag.GrupoSite = site.Grupo;
+        }
+
         public ActionResult Index()
         {
-            Grupo grupo = grupoUserProcess.ObtenerGrupoPorId(site.Grupo.Id);
-
-            ViewBag.Grupo = grupo;
+            PopulateViewBag();
 
             return View();
         }

@@ -19,7 +19,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             this.exception = exception;
         }
-
+        
         public ActionResult Index()
         {
             ViewBag.TipoError = this.exception.GetType().ToString();
@@ -32,8 +32,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 ViewBag.ListadoGrupos = listadoGrupos;
             }
-
-            ViewBag.GruposDisponibles = "Grupos";
 
             this.exception = null;
 

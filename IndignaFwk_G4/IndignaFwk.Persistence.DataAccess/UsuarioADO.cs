@@ -21,20 +21,25 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Password, Pregunta, Region, Respuesta) " +
-                                  "values(@Conectado, @Descripcion, @Email, @IdSitio, @Nombre, @Password, @Pregunta, @Region, @Respuesta); " +
+            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Password, Pregunta, Region, Respuesta, FK_Id_Sitio, FK_Id_Imagen) " +
+                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Password, @Pregunta, @Region, @Respuesta, @IdSitio, @IdImagen); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM Usuario; ";
 
             
             UtilesBD.SetParameter(command, "Conectado", (usuario.Conectado == true ? "1" : "0"));
             UtilesBD.SetParameter(command, "Descripcion", usuario.Descripcion);
-            UtilesBD.SetParameter(command, "Email", usuario.Email);
-            UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
+            UtilesBD.SetParameter(command, "Email", usuario.Email);            
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
             UtilesBD.SetParameter(command, "Region", usuario.Region);
             UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
             UtilesBD.SetParameter(command, "Pregunta", usuario.Pregunta);
+            UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
+
+            if(usuario.Imagen != null)
+                UtilesBD.SetParameter(command, "IdImagen", usuario.Imagen.Id);
+            else
+                UtilesBD.SetParameter(command, "IdImagen", null);
             
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;

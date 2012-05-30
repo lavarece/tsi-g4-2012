@@ -149,7 +149,7 @@ CREATE TABLE [dbo].[Sitio](
 	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Template] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[NombreLayout] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int] ,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
  CONSTRAINT FK_Sitio_FK_Imagen FOREIGN KEY (FK_Id_Imagen) REFERENCES Imagen(Id) 
@@ -176,7 +176,7 @@ CREATE TABLE [dbo].[Contenido](
 	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Comentario] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[EstadoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[NivelVisibilidad] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[TipoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Sitio] [int],
 	[FechaCreacion] [DateTime], 

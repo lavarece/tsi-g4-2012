@@ -21,17 +21,17 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Contenido(Titulo, Comentario, Url, EstadoContenido, TipoContenido, FechaCreacion, FK_Id_UsuarioCreacion) " +
-                                  "values(@titulo, @comentario, @url, @estadoContenido, @tipoContenido, @fechaCreacion, @idUsuarioCreacion);" +
+            command.CommandText = "INSERT INTO Contenido(Titulo, Comentario, Url, NivelVisibilidad, TipoContenido, FechaCreacion, FK_Id_UsuarioCreacion) " +
+                                  "values(@titulo, @comentario, @url, @nivelVisibilidad, @tipoContenido, @fechaCreacion, @idUsuarioCreacion);" +
                                   "select @idGen = SCOPE_IDENTITY() FROM Contenido;";
 
             UtilesBD.SetParameter(command, "titulo", contenido.Titulo);
             UtilesBD.SetParameter(command, "comentario", contenido.Comentario);
             UtilesBD.SetParameter(command, "url", contenido.Url);
-            UtilesBD.SetParameter(command, "estadoContenido", contenido.EstadoContenido);
+            UtilesBD.SetParameter(command, "nivelVisibilidad", contenido.NivelVisibilidad);
             UtilesBD.SetParameter(command, "tipoContenido", contenido.TipoContenido);
             UtilesBD.SetParameter(command, "fechaCreacion", contenido.FechaCreacion);
-            UtilesBD.SetParameter(command, "idUsuarioCreacion", contenido.UsuarioCreacion);
+            UtilesBD.SetParameter(command, "idUsuarioCreacion", contenido.UsuarioCreacion.Id);
 
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -52,7 +52,7 @@ namespace IndignaFwk.Persistence.DataAccess
                                    "SET Titulo = @titulo, " +
                                    "Comentario = @comentario, " + 
                                    "Url = @url, " + 
-                                   "EstadoContenido = @estadoContenido, " + 
+                                   "NivelVisibilidad = @nivelVisibilidad, " + 
                                    "TipoContenido = @tipoContenido " + 
                                    "WHERE Id = @id");
 
@@ -60,7 +60,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "titulo", contenido.Titulo);
             UtilesBD.SetParameter(command, "comentario", contenido.Comentario);
             UtilesBD.SetParameter(command, "url", contenido.Url);
-            UtilesBD.SetParameter(command, "estadoContenido", contenido.EstadoContenido);
+            UtilesBD.SetParameter(command, "nivelVisibilidad", contenido.NivelVisibilidad);
             UtilesBD.SetParameter(command, "tipoContenido", contenido.TipoContenido);
 
             command.ExecuteNonQuery();
@@ -103,13 +103,13 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     contenido.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    contenido.Url = UtilesBD.GetStringFromReader("Titulo", reader);
+                    contenido.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
 
-                    contenido.Url = UtilesBD.GetStringFromReader("Comentario", reader);
+                    contenido.Comentario = UtilesBD.GetStringFromReader("Comentario", reader);
 
                     contenido.Url = UtilesBD.GetStringFromReader("Url", reader);
 
-                    contenido.EstadoContenido = UtilesBD.GetStringFromReader("EstadoContenido", reader);
+                    contenido.NivelVisibilidad = UtilesBD.GetStringFromReader("NivelVisibilidad", reader);
 
                     contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
 
@@ -153,15 +153,17 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     contenido.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    contenido.Url = UtilesBD.GetStringFromReader("Titulo", reader);
+                    contenido.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
 
-                    contenido.Url = UtilesBD.GetStringFromReader("Comentario", reader);
+                    contenido.Comentario = UtilesBD.GetStringFromReader("Comentario", reader);
 
                     contenido.Url = UtilesBD.GetStringFromReader("Url", reader);
 
-                    contenido.EstadoContenido = UtilesBD.GetStringFromReader("EstadoContenido", reader);
+                    contenido.NivelVisibilidad = UtilesBD.GetStringFromReader("NivelVisibilidad", reader);
 
                     contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
+
+                    contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
                     listaContenido.Add(contenido);
                 }

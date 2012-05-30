@@ -21,7 +21,7 @@ namespace IndignaFwk.Common.Entities
         public string Descripcion { get; set; }
         
         [DataMember]
-        public string Template { get; set; }
+        public string NombreLayout { get; set; }
 
         [DataMember]
         public string Url { get; set; }

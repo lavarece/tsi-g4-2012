@@ -1,8 +1,8 @@
 ﻿@model IndignaFwk.Web.FrontOffice.Models.LoginModel 
 
 @{
-    ViewBag.Title = "[Nombre de grupo] - Login";
-    Layout = "~/Content/layout_3/layout.cshtml";
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Login";
+    Layout = "~/Content/" + ViewBag.GrupoSite.NombreLayout + "/layout.cshtml";
 }
 
 @Html.ValidationSummary(true, "Datos incorrectos, intente nuevamente.")
@@ -49,7 +49,7 @@
             </li>
             <li>
                 <div class="boton">
-                    <a href="#" onclick="submit();">Registrarme</a>
+                    <a href="@Url.Action("Registro", "Account")">Registrarme</a>
                 </div>
             </li>
         </ul>     

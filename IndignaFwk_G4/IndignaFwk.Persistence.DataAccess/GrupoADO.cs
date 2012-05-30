@@ -21,13 +21,19 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
             
-            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url) " +
-                                  " values(@nombre, @descripcion, @url); " + 
+            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, NombreLayout, FK_Id_Imagen) " +
+                                  " values(@nombre, @descripcion, @url, @nombreLayout, @idImagen); " + 
                                   " select @idGen = SCOPE_IDENTITY() FROM Sitio; ";
             
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
+            UtilesBD.SetParameter(command, "nombreLayout", grupo.NombreLayout);
+
+            if (grupo.Imagen != null)
+                UtilesBD.SetParameter(command, "idImagen", grupo.Imagen.Id);
+            else
+                UtilesBD.SetParameter(command, "idImagen", null);
 
             // indico que la query tiene un parámetro de salida thisId de tipo int
             command.Parameters.Add("@idGen", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -54,10 +60,17 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " WHERE Id = @id";
 
             UtilesBD.SetParameter(command, "id", grupo.Id);
-            UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
-            UtilesBD.SetParameter(command, "logoUrl", grupo.Imagen.Id);
+            UtilesBD.SetParameter(command, "nombre", grupo.Nombre);       
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
+
+            if(grupo.Imagen != null)
+                UtilesBD.SetParameter(command, "idImagen", grupo.Imagen.Id);
+            else
+                UtilesBD.SetParameter(command, "idImagen", null);
+
+
+
 
             command.ExecuteNonQuery();
         }
@@ -105,6 +118,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
+                    grupo.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
+
                     // Las referencias cargarlas con los ADO particulares
                     return grupo;
                 }
@@ -148,6 +163,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
+                    grupo.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
+
                     return grupo;
                 }
 
@@ -180,17 +197,19 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 while (reader.Read())
                 {
-                    Grupo varGrupo = new Grupo();
+                    Grupo grupo = new Grupo();
 
-                    varGrupo.Id = UtilesBD.GetIntFromReader("Id", reader);
+                    grupo.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    varGrupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+                    grupo.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    varGrupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
-                    varGrupo.Url = UtilesBD.GetStringFromReader("Url", reader);
+                    grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
-                    listaGrupos.Add(varGrupo);
+                    grupo.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
+
+                    listaGrupos.Add(grupo);
                 }
 
                 return listaGrupos;

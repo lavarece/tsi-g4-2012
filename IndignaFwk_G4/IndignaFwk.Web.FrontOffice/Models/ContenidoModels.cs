@@ -15,6 +15,10 @@ namespace IndignaFwk.Web.FrontOffice.Models
         public string Tipo { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Nivel de visibilidad:")]
+        public string Visibilidad { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Título:")]
         public string Titulo { get; set; }
 
@@ -25,8 +29,5 @@ namespace IndignaFwk.Web.FrontOffice.Models
         [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Url:")]
         public string Url { get; set; }
-
-        /* Listados requeridos */
-        public IList<TipoContenidoEnum> TipoContenidos { get; set; }
     }
 }

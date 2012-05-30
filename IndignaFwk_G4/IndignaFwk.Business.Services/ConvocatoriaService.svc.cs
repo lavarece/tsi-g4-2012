@@ -37,5 +37,25 @@ namespace IndignaFwk.Business.Services
         {
             convocatoriaManager.EliminarConvocatoria(idConvocatoria);
         }
+        
+        public int CrearNuevoContenido(Contenido contenido)
+        {
+            return convocatoriaManager.CrearNuevoContenido(contenido);
+        }
+
+        public List<Contenido> ObtenerListadoContenidos()
+        {
+            return convocatoriaManager.ObtenerListadoContenidos();
+        }
+
+        public Contenido ObtenerContenidoPorId(int idContenido)
+        {
+            return convocatoriaManager.ObtenerContenidoPorId(idContenido);
+        }
+
+        public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            return convocatoriaManager.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
     }
 }

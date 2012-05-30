@@ -29,6 +29,18 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/EliminarConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/EliminarConvocatoriaResponse")]
         void EliminarConvocatoria(int idConvocatoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevoContenido", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevoContenidoResponse")]
+        int CrearNuevoContenido(IndignaFwk.Common.Entities.Contenido contenido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidos", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosResponse")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorIdResponse")]
+        IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse")]
+        int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -76,6 +88,22 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         public void EliminarConvocatoria(int idConvocatoria) {
             base.Channel.EliminarConvocatoria(idConvocatoria);
+        }
+        
+        public int CrearNuevoContenido(IndignaFwk.Common.Entities.Contenido contenido) {
+            return base.Channel.CrearNuevoContenido(contenido);
+        }
+        
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidos() {
+            return base.Channel.ObtenerListadoContenidos();
+        }
+        
+        public IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido) {
+            return base.Channel.ObtenerContenidoPorId(idContenido);
+        }
+        
+        public int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria) {
+            return base.Channel.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
         }
     }
 }

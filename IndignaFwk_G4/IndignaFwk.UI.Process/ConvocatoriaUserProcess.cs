@@ -9,6 +9,7 @@ namespace IndignaFwk.UI.Process
 {
     public class ConvocatoriaUserProcess
     {
+        /* Operaciones Convocatoria */
         public int CrearNuevaConvocatoria(Convocatoria convocatoria)
         {
             ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
@@ -58,6 +59,52 @@ namespace IndignaFwk.UI.Process
             proxy.EliminarConvocatoria(idConvocatoria);
 
             proxy.Close();
+        }
+
+        /* Operaciones Contenidos */
+        public int CrearNuevoContenido(Contenido contenido)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            int id = proxy.CrearNuevoContenido(contenido);
+
+            proxy.Close();
+
+            return id;
+        }
+
+        public List<Contenido> ObtenerListadoContenidos()
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            List<Contenido> listado = proxy.ObtenerListadoContenidos();
+
+            proxy.Close();
+
+            return listado;
+        }
+
+        public Contenido ObtenerContenidoPorId(int idContenido)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            Contenido contenido = proxy.ObtenerContenidoPorId(idContenido);
+
+            proxy.Close();
+
+            return contenido;
+        }
+
+        /* Operaciones AsistenciaConvocatoria */
+        public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            int id = proxy.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+
+            proxy.Close();
+
+            return id;
         }
     }
 }

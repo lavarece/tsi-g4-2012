@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using IndignaFwk.Web.FrontOffice.MultiTenant;
 using System.Web.Routing;
+using IndignaFwk.Web.FrontOffice.MultiTenant;
 using IndignaFwk.Web.FrontOffice.Models;
 using System.Web.Security;
 using IndignaFwk.Common.Entities;
@@ -23,8 +23,15 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
+        private void PopulateViewBag()
+        {
+            ViewBag.GrupoSite = site.Grupo;
+        }
+
         public ActionResult Login()
         {
+            PopulateViewBag();
+
             return View();
         }
 
@@ -37,16 +44,26 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 if (usuario != null && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
-                    FormsAuthentication.SetAuthCookie(model.Email, true);
+                    FormsAuthentication.SetAuthCookie(usuario.Nombre, true);
+
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, usuario.Nombre, DateTime.Now, DateTime.Now.AddMinutes(30), true, usuario.Id.ToString());
+
+                    string encTicket = FormsAuthentication.Encrypt(ticket);
+
+                    HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+
+                    HttpContext.Response.Cookies.Add(authCookie);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El correo or password es incorrecto.");
+                    ModelState.AddModelError("", "");
                 }
-
             }
-            //Si sucede cualquier otro error retorna la vista logOn
+
+            PopulateViewBag();
+
             return View(model);
         }
 
@@ -54,11 +71,15 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             FormsAuthentication.SignOut();
 
+            PopulateViewBag();
+
             return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Registro()
         {
+            PopulateViewBag();
+
             return View();
         }
 
@@ -73,7 +94,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 usuario.Email = model.Email;
                 usuario.Password = model.Contraseña;
                 usuario.Pregunta = model.PreguntaSecreta;
-                usuario.Respuesta = "PEPE";
+                usuario.Respuesta = model.RespuestaSecreta;
+                usuario.Region = model.RegionGeografica;
                 usuario.Grupo = this.site.Grupo;
                 //controlar mail que no exista en la base para ese grupo
 
@@ -82,18 +104,25 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 {
                     usuarioUserProcess.CrearNuevoUsuario(usuario);
 
-                    return View("Detalle", model);
+                    PopulateViewBag();
+
+                    return View("DetalleRegistro", model);
                 }
                 else
                 {
                     ModelState.AddModelError("", "El usuario ya existe en el sistema.");
                 }
             }
+
+            PopulateViewBag();
+
             return View(model);
         }
 
         public ActionResult DetalleRegistro()
         {
+            PopulateViewBag();
+
             return View();
         }
         #region Status Codes

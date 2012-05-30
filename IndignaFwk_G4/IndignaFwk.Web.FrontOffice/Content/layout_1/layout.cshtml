@@ -18,26 +18,43 @@
     <div id="wrapper">
         <div id="header">
             <div id="logoHeader">
-                Nombre del grupo
+                @ViewBag.GrupoSite.Nombre
             </div>
             <div id="login">
-                <ul>
-                    <li>                        
-                        <a href="@Url.Action("Login","Account")">Acceder</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Registro","Account")">Registrarme</a>
-                    </li>
-                </ul>
-            </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul> 
+                        <li class="usuarioAutenticado">
+                            Bienvenido, @User.Identity.Name
+                        </li>                          
+                        <li>                        
+                            <a href="@Url.Action("LogOff", "Account")">Editar perfil</a>
+                        </li>                   
+                        <li>                        
+                            <a href="@Url.Action("LogOff", "Account")">Cerrar sesión</a>
+                        </li>                                                
+                    </ul>
+                }
+                else
+                {
+                    <ul>
+                        <li>                        
+                            <a href="@Url.Action("Login", "Account")">Acceder</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Registro", "Account")">Registrarme</a>
+                        </li>
+                    </ul>
+                }             
+            </div>            
         </div>
 
         <div id="menu">
             <ul>    
-                <li class="selected"><a href="@Url.Action("Index","Home")">Inicio</a></li>
-                <li><a href="@Url.Action("Listado","Convocatoria")">Convocatorias</a></li>
-                <li><a href="@Url.Action("Listado","Notificacion")">Notificaciones</a></li>
-                <li><a href="@Url.Action("SalaGrupo","Chat")"">Chat</a></li>
+                <li class="selected"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+                <li><a href="@Url.Action("Listado", "Convocatoria")">Convocatorias</a></li>
+                <li><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
+                <li><a href="@Url.Action("SalaGrupo", "Chat")"">Chat</a></li>
             </ul>
         </div>
 
@@ -53,7 +70,7 @@
     
     <div id="footer">
         <p>
-            Layout numero 1 para el front office
+            Sitio del grupo @ViewBag.GrupoSite.Nombre - Powered by Indignado Framework.
         </p>
     </div>
 </body>
