@@ -56,7 +56,7 @@ namespace IndignaFwk_WPF_BackOffice
 
 		private void btnSalir(object sender, System.Windows.RoutedEventArgs e)
 		{
-			// TODO: Add event handler implementation here.
+            this.Close();
 		}
 	}
 }
