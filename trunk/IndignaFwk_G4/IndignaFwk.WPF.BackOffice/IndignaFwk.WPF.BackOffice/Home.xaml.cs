@@ -43,9 +43,7 @@ namespace IndignaFwk_WPF_BackOffice
 		private void boton_gestionUsu_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
 			GestionUsuarios gestionUsuariosWindow = new GestionUsuarios();
-            this.Hide();
 			gestionUsuariosWindow.Show();
-            this.Show();
 		}
 
 		private void boton_gestionVar_Click(object sender, System.Windows.RoutedEventArgs e)

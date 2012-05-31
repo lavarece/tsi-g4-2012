@@ -43,15 +43,6 @@ namespace IndignaFwk_WPF_BackOffice
             vsistema = sistemaUserProcess.ObtenerVariablePorId(7);
             if (vsistema.Valor != null)
                 Dar_de_baja_usuario.Text = vsistema.Valor;
-                   
-                
-
-           
-
-
-
-          
-
         }
         
         public void EditarVariables(VariableSistema variable)
@@ -107,10 +98,7 @@ namespace IndignaFwk_WPF_BackOffice
                     this.Close();
                 
                 }
-            }
-            
-            
-           
+            }          
         }
 	}
 }

@@ -4,8 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 	x:Class="IndignaFwk_WPF_BackOffice.Login"
 	x:Name="Window"
-	Title="Iniciar sesión"
-	Width="386" Height="224">
+	Title="Iniciar sesión" Height="224" Width="386">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Margin="0,0,-12,-11">
 		<Grid.ColumnDefinitions>
