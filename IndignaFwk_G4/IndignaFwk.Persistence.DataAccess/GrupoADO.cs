@@ -20,15 +20,16 @@ namespace IndignaFwk.Persistence.DataAccess
             command.Transaction = transaccion;
 
             command.Connection = conexion;
-            
-            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, NombreLayout, FK_Id_Imagen) " +
-                                  " values(@nombre, @descripcion, @url, @nombreLayout, @idImagen); " + 
+
+            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, FK_Id_Imagen, FK_Id_Layout, FK_Id_Tematica) " +
+                                  " values(@nombre, @descripcion, @url, @idImagen, @idLayout, @idTematica); " + 
                                   " select @idGen = SCOPE_IDENTITY() FROM Sitio; ";
             
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
-            UtilesBD.SetParameter(command, "nombreLayout", grupo.NombreLayout);
+            UtilesBD.SetParameter(command, "nombreLayout", grupo.Layout.Id);
+            UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
 
             if (grupo.Imagen != null)
                 UtilesBD.SetParameter(command, "idImagen", grupo.Imagen.Id);
@@ -53,16 +54,20 @@ namespace IndignaFwk.Persistence.DataAccess
             command.Connection = conexion;
             
             command.CommandText = " UPDATE Sitio SET " +
-                                  " Nombre = @nombre, " + 
-                                  " FK_Id_Imagen = @idImagen," + 
+                                  " Nombre = @nombre, " +                                    
                                   " Descripcion = @descripcion, " +
-                                  " Url = @url " + 
+                                  " Url = @url " +                                  
+                                  " FK_Id_Layout = @idLayout," +
+                                  " FK_Id_Tematica = @idTematica," +
+                                  " FK_Id_Imagen = @idImagen," +
                                   " WHERE Id = @id";
 
             UtilesBD.SetParameter(command, "id", grupo.Id);
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);       
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
+            UtilesBD.SetParameter(command, "idLayout", grupo.Layout.Id);
+            UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
 
             if(grupo.Imagen != null)
                 UtilesBD.SetParameter(command, "idImagen", grupo.Imagen.Id);
@@ -118,9 +123,12 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
-                    grupo.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
+                    grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
 
-                    // Las referencias cargarlas con los ADO particulares
+                    grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
+
+                    grupo.Imagen = new Imagen { Id = UtilesBD.GetIntFromReader("FK_Id_Imagen", reader) };
+
                     return grupo;
                 }
 
@@ -163,7 +171,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
-                    grupo.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
+                    grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
+
+                    grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
+
+                    grupo.Imagen = new Imagen { Id = UtilesBD.GetIntFromReader("FK_Id_Imagen", reader) };
 
                     return grupo;
                 }
@@ -207,7 +219,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
-                    grupo.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
+                    grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
+
+                    grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
+
+                    grupo.Imagen = new Imagen { Id = UtilesBD.GetIntFromReader("FK_Id_Imagen", reader) };
 
                     listaGrupos.Add(grupo);
                 }

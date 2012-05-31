@@ -46,6 +46,7 @@
     <Compile Include="Entities\Convocatoria.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\Imagen.cs" />
+    <Compile Include="Entities\Layout.cs" />
     <Compile Include="Entities\MarcaContenido.cs" />
     <Compile Include="Entities\Notificacion.cs" />
     <Compile Include="Entities\Tematica.cs" />

@@ -9,11 +9,11 @@ using System.Data.SqlClient;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
-    public class TematicaADO : ITematicaADO
+    public class LayoutADO : ILayoutADO
     {
         private SqlCommand command;    
 
-        public Tematica Obtener(int id, SqlConnection conexion)
+        public Layout Obtener(int id, SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
@@ -23,7 +23,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "select * from Tematica where Id = @id";
+                command.CommandText = "select * from Layout where Id = @id";
 
                 UtilesBD.SetParameter(command, "id", id);
 
@@ -31,15 +31,15 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 if (reader.Read())
                 {
-                    Tematica tematica = new Tematica();
+                    Layout layout = new Layout();
 
-                    tematica.Id = UtilesBD.GetIntFromReader("id", reader);
+                    layout.Id = UtilesBD.GetIntFromReader("id", reader);
 
-                    tematica.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+                    layout.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    tematica.NombreCSS = UtilesBD.GetStringFromReader("NombreCSS", reader);
+                    layout.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
 
-                    return tematica;
+                    return layout;
                 }
 
                 return null;
@@ -53,11 +53,11 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        public List<Tematica> ObtenerListado(SqlConnection conexion)
+        public List<Layout> ObtenerListado(SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
-            List<Tematica> listaTematicas = new List<Tematica>();
+            List<Layout> listaLayouts = new List<Layout>();
 
             try
             {
@@ -65,24 +65,24 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Tematica";
+                command.CommandText = "SELECT * FROM Layout";
 
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    Tematica tematica = new Tematica();
+                    Layout layout = new Layout();
 
-                    tematica.Id = UtilesBD.GetIntFromReader("id", reader);
+                    layout.Id = UtilesBD.GetIntFromReader("id", reader);
 
-                    tematica.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+                    layout.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
 
-                    tematica.NombreCSS = UtilesBD.GetStringFromReader("NombreCSS", reader);
+                    layout.NombreLayout = UtilesBD.GetStringFromReader("NombreLayout", reader);
 
-                    listaTematicas.Add(tematica);
+                    listaLayouts.Add(layout);
                 }
 
-                return listaTematicas;
+                return listaLayouts;
             }
             finally
             {

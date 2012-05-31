@@ -34,5 +34,24 @@ namespace IndignaFwk.Business.Services
             sistemaManager.EditarVariable(variableSistema);
         }
 
+        public Layout ObtenerLayoutPorId(int idLayout)
+        {
+            return sistemaManager.ObtenerLayoutPorId(idLayout);
+        }
+
+        public List<Layout> ObtenerListadoLayouts()
+        {
+            return sistemaManager.ObtenerListadoLayouts();
+        }
+
+        public Tematica ObtenerTematicaPorId(int idTematica)
+        {
+            return sistemaManager.ObtenerTematicaPorId(idTematica);
+        }
+
+        public List<Tematica> ObtenerListadoTematicas()
+        {
+            return sistemaManager.ObtenerListadoTematicas();
+        }
     }
 }

@@ -31,6 +31,30 @@
   <wsdl:message name="ISistemaService_EditarVariableSistema_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditarVariableSistemaResponse" />
   </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerLayoutPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerLayoutPorId" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerLayoutPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerLayoutPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerListadoLayouts_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoLayouts" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerListadoLayouts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoLayoutsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerTematicaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTematicaPorId" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerTematicaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTematicaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerListadoTematicas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoTematicas" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaService_ObtenerListadoTematicas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoTematicasResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISistemaService">
     <wsdl:operation name="ObtenerListadoVariables">
       <wsdl:input wsaw:Action="http://tempuri.org/ISistemaService/ObtenerListadoVariables" message="tns:ISistemaService_ObtenerListadoVariables_InputMessage" />
@@ -47,6 +71,22 @@
     <wsdl:operation name="EditarVariableSistema">
       <wsdl:input wsaw:Action="http://tempuri.org/ISistemaService/EditarVariableSistema" message="tns:ISistemaService_EditarVariableSistema_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISistemaService/EditarVariableSistemaResponse" message="tns:ISistemaService_EditarVariableSistema_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLayoutPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaService/ObtenerLayoutPorId" message="tns:ISistemaService_ObtenerLayoutPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaService/ObtenerLayoutPorIdResponse" message="tns:ISistemaService_ObtenerLayoutPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoLayouts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaService/ObtenerListadoLayouts" message="tns:ISistemaService_ObtenerListadoLayouts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaService/ObtenerListadoLayoutsResponse" message="tns:ISistemaService_ObtenerListadoLayouts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTematicaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaService/ObtenerTematicaPorId" message="tns:ISistemaService_ObtenerTematicaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaService/ObtenerTematicaPorIdResponse" message="tns:ISistemaService_ObtenerTematicaPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoTematicas">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaService/ObtenerListadoTematicas" message="tns:ISistemaService_ObtenerListadoTematicas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaService/ObtenerListadoTematicasResponse" message="tns:ISistemaService_ObtenerListadoTematicas_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISistemaService" type="tns:ISistemaService">
@@ -80,6 +120,42 @@
     </wsdl:operation>
     <wsdl:operation name="EditarVariableSistema">
       <soap:operation soapAction="http://tempuri.org/ISistemaService/EditarVariableSistema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLayoutPorId">
+      <soap:operation soapAction="http://tempuri.org/ISistemaService/ObtenerLayoutPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoLayouts">
+      <soap:operation soapAction="http://tempuri.org/ISistemaService/ObtenerListadoLayouts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTematicaPorId">
+      <soap:operation soapAction="http://tempuri.org/ISistemaService/ObtenerTematicaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoTematicas">
+      <soap:operation soapAction="http://tempuri.org/ISistemaService/ObtenerListadoTematicas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -9,10 +9,10 @@ using System.Data;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
-    public interface ITematicaADO
+    public interface ILayoutADO
     {
-        Tematica Obtener(int id, SqlConnection conexion);
+        Layout Obtener(int id, SqlConnection conexion);
 
-        List<Tematica> ObtenerListado(SqlConnection conexion);        
+        List<Layout> ObtenerListado(SqlConnection conexion);        
     }
 }

@@ -54,5 +54,52 @@ namespace IndignaFwk.UI.Process
 
             return variableSistema;
         }
+
+        /* Operaciones con layouts */
+        public Layout ObtenerLayoutPorId(int idLayout)
+        {
+            SistemaServiceClient proxy = new SistemaServiceClient();
+
+            Layout layout = proxy.ObtenerLayoutPorId(idLayout);
+
+            proxy.Close();
+
+            return layout;
+        }
+
+        public List<Layout> ObtenerListadoLayouts()
+        {
+            SistemaServiceClient proxy = new SistemaServiceClient();
+
+            List<Layout> listado = proxy.ObtenerListadoLayouts();
+
+            proxy.Close();
+
+            return listado;
+        }
+
+        /* Operaciones con tematicas */
+        public Tematica ObtenerTematicaPorId(int idTematica)
+        {
+            SistemaServiceClient proxy = new SistemaServiceClient();
+
+            Tematica tematica = proxy.ObtenerTematicaPorId(idTematica);
+
+            proxy.Close();
+
+            return tematica;
+        }
+
+        public List<Tematica> ObtenerListadoTematicas()
+        {
+            SistemaServiceClient proxy = new SistemaServiceClient();
+
+            List<Tematica> listaTematicas = proxy.ObtenerListadoTematicas();
+
+            proxy.Close();
+
+            return listaTematicas;
+        }
+
     }    
 }
