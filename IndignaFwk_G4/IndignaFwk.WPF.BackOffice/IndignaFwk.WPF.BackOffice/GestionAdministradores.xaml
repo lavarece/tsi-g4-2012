@@ -21,7 +21,6 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path=Email}" Header="E-Mail"/>
                     <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
-                    <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
