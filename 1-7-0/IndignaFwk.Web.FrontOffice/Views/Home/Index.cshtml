@@ -1,0 +1,92 @@
+﻿@using IndignaFwk.Common.Entities;
+@using IndignaFwk.Common.Enumeration;
+
+@{
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Inicio";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<div class="detalleGrupo">
+    <h3>Bienvenido al grupo @ViewBag.GrupoSite.Nombre</h3>
+    <div class="imagenGrupo">
+        <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.Layout.NombreLayout + "/images/group_no_image.png")" alt="Imagen grupo"/>
+    </div>
+    <div>
+        @ViewBag.GrupoSite.Descripcion 
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">       
+                    <a href="@Url.Action("Compartir", "Contenido")">Compartir contenido</a>
+                </div>
+            </li>            
+        </ul>
+    </div>
+}
+
+  
+<div class="listadoContenidos">
+    @if (ViewBag.ListadoContenidos != null && ViewBag.ListadoContenidos.Count > 0)
+    {
+        foreach (Contenido contenido in ViewBag.ListadoContenidos)
+        {
+            <div class="itemContenido">
+                <div class="creadorContenido">
+                    <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.NombreLayout + "/images/user_no_image.png")" alt="Imagen usuario" />    
+                    <span>
+                        El usuario <b>@contenido.UsuarioCreacion.NombreCompleto</b> ha compartido el siguiente enlace.                        
+                    </span>                  
+                </div>
+                <div class="contenido">
+                    @if (contenido.TipoContenido.Equals(TipoContenidoEnum.VIDEO.Valor))
+                    {
+                        <iframe width="100%" height="100%" src="@contenido.Url" frameborder="0" wmode="transparent"></iframe>            
+                    }
+                    else if (contenido.TipoContenido.Equals(TipoContenidoEnum.IMAGEN.Valor))
+                    {
+                        <img src="@contenido.Url" alt="Imagen" />
+                    }
+                    else if (contenido.TipoContenido.Equals(TipoContenidoEnum.LINK.Valor))
+                    {
+                        <a target="_blank" href="@contenido.Url">@contenido.Url</a>
+                    }                        
+                </div>        
+                <div class="detalleContenido">
+                    <div class="fieldLabel">Tipo: <span class="fieldValue">@TipoContenidoEnum.FromString(contenido.TipoContenido).Etiqueta</span></div>
+                    <div class="fieldLabel">Titulo: <span class="fieldValue">@contenido.Titulo</span></div>
+                    <div class="fieldLabel">Comentario: <span class="fieldValue">@contenido.Comentario</span></div>
+                    <div class="fieldLabel">Visibilidad: <span class="fieldValue">@VisibilidadContenidoEnum.FromString(contenido.NivelVisibilidad).Etiqueta</span></div>
+                    <div class="fieldLabel">Fecha creación: <span class="fieldValue">@contenido.FechaCreacion.ToString()</span></div>
+
+                    <div class="areaBotones">
+                    <ul>
+                        <li>
+                            <div class="boton">       
+                                <a href="#">Me gusta</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="boton">       
+                                <a href="#">Inadecuado</a>
+                            </div>
+                        </li>               
+                    </ul>
+                </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="mensajeSinContenido">
+            El grupo no tiene contenidos. Para agregarlos debe autenticarse.
+        </div>        
+    }
+</div>

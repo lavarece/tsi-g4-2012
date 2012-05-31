@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Chat";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<h2>Chat del grupo</h2>
+
+@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+
+<div class="conversacionChat">  
+    <textarea readonly="readonly"></textarea>
+</div>
+
+<div class="mensajeChat">
+   <textarea></textarea>
+    <div class="boton">
+        <a href="#">Enviar</a>
+    </div>
+</div>
