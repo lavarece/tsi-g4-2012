@@ -21,15 +21,15 @@ namespace IndignaFwk.Common.Entities
         public string Descripcion { get; set; }
         
         [DataMember]
-        public string NombreLayout { get; set; }
-
-        [DataMember]
         public string Url { get; set; }
 
         [DataMember]
-        public Imagen Imagen { get; set; }
+        public Layout Layout { get; set; }
 
         [DataMember]
-        public List<Contenido> ListaContenido { get; set; }
+        public Tematica Tematica { get; set; }
+
+        [DataMember]
+        public Imagen Imagen { get; set; }
     }
 }

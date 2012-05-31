@@ -19,7 +19,6 @@ namespace IndignaFwk.Business.Managers
 
         /* DEPENDENCIAS */
         private IVariableSistemaADO _variableAdo;
-
         protected IVariableSistemaADO VariableADO
         {
             get
@@ -30,6 +29,34 @@ namespace IndignaFwk.Business.Managers
                 }
 
                 return _variableAdo;
+            }
+        }
+
+        private ITematicaADO _tematicaADO;
+        protected ITematicaADO TematicaADO
+        {
+            get
+            {
+                if (_tematicaADO == null)
+                {
+                    _tematicaADO = new TematicaADO();
+                }
+
+                return _tematicaADO;
+            }
+        }
+
+        private ILayoutADO _layoutADO;
+        protected ILayoutADO LayoutADO
+        {
+            get
+            {
+                if (_layoutADO == null)
+                {
+                    _layoutADO = new LayoutADO();
+                }
+
+                return _layoutADO;
             }
         }
 
@@ -149,5 +176,84 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        public Layout ObtenerLayoutPorId(int idLayout)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return LayoutADO.Obtener(idLayout, conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public List<Layout> ObtenerListadoLayouts()
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return LayoutADO.ObtenerListado(conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public Tematica ObtenerTematicaPorId(int idTematica)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return TematicaADO.Obtener(idTematica, conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public List<Tematica> ObtenerListadoTematicas()
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return TematicaADO.ObtenerListado(conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
     }
 }

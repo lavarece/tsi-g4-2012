@@ -18,7 +18,6 @@ namespace IndignaFwk.Business.Managers
 
        /* DEPENDENCIAS */
        private IGrupoADO _grupoAdo;
-
        protected IGrupoADO GrupoADO
        {
            get
@@ -31,6 +30,49 @@ namespace IndignaFwk.Business.Managers
                return _grupoAdo;
            }
        }
+
+       private IImagenADO _imagenADO;
+       protected IImagenADO ImagenADO
+       {
+           get
+           {
+               if(_imagenADO == null)
+               {
+                   _imagenADO = new ImagenADO();
+               }
+               
+               return _imagenADO;
+           }
+       }
+       
+       private ITematicaADO _tematicaADO;
+       protected ITematicaADO TematicaADO
+       {
+           get
+           {
+               if(_tematicaADO == null)
+               {
+                   _tematicaADO = new TematicaADO();
+               }
+
+               return _tematicaADO;
+           }
+       }
+
+       private ILayoutADO _layoutADO;
+       protected ILayoutADO LayoutADO
+       {
+           get
+           {
+               if(_layoutADO == null)
+               {
+                   _layoutADO = new LayoutADO();
+               }
+
+               return _layoutADO;
+           }
+       }
+       
 
        /*
         * Metodo que se llama desde la capa de servicio para
@@ -74,7 +116,27 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               return GrupoADO.ObtenerListado(conexion);
+               List<Grupo> listadoGrupos = GrupoADO.ObtenerListado(conexion);
+
+               foreach (Grupo grupo in listadoGrupos)
+               {
+                   if (grupo.Imagen != null && grupo.Imagen.Id != 0)
+                   {
+                       grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
+                   }
+
+                   if (grupo.Layout != null && grupo.Imagen.Id != 0)
+                   {
+                       grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
+                   }
+
+                   if (grupo.Tematica != null && grupo.Tematica.Id != 0)
+                   {
+                       grupo.Tematica = TematicaADO.Obtener(grupo.Tematica.Id, conexion);
+                   }
+               }
+
+               return listadoGrupos;
            }
            catch (Exception ex)
            {
@@ -96,9 +158,26 @@ namespace IndignaFwk.Business.Managers
        {
            try
            {
-               conexion = UtilesBD.ObtenerConexion(true);
+                conexion = UtilesBD.ObtenerConexion(true);
 
-               return GrupoADO.Obtener(idGrupo, conexion);
+                Grupo grupo = GrupoADO.Obtener(idGrupo, conexion);
+
+                if (grupo.Imagen != null && grupo.Imagen.Id != 0)
+                {
+                    grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
+                }
+
+                if (grupo.Layout != null && grupo.Imagen.Id != 0)
+                {
+                    grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
+                }
+
+                if (grupo.Tematica != null && grupo.Tematica.Id != 0)
+                {
+                    grupo.Tematica = TematicaADO.Obtener(grupo.Tematica.Id, conexion);
+                }
+                
+                return grupo; 
            }
            catch (Exception ex)
            {
@@ -122,6 +201,21 @@ namespace IndignaFwk.Business.Managers
                conexion = UtilesBD.ObtenerConexion(true);
 
                Grupo grupo = GrupoADO.ObtenerPorUrl(url, conexion);
+
+               if (grupo.Imagen != null && grupo.Imagen.Id != 0)
+               {
+                   grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
+               }
+
+               if (grupo.Layout != null && grupo.Imagen.Id != 0)
+               {
+                   grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
+               }
+
+               if (grupo.Tematica != null && grupo.Tematica.Id != 0)
+               {
+                   grupo.Tematica = TematicaADO.Obtener(grupo.Tematica.Id, conexion);
+               }
 
                return grupo;
            }

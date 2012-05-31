@@ -81,7 +81,9 @@
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Contenido.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Convocatoria.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Grupo.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Layout.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.MarcaContenido.datasource" />
+    <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Tematica.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Usuario.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.VariableSistema.datasource" />
     <None Include="Service References\AdministradorService\AdministradorService.wsdl" />

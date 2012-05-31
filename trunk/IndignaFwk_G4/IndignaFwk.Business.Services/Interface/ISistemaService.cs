@@ -24,5 +24,19 @@ namespace IndignaFwk.Business.Services
         [OperationContract]
         void EditarVariableSistema(VariableSistema variableSistema);
 
+        /* Operaciones con layouts */
+        [OperationContract]
+        Layout ObtenerLayoutPorId(int idLayout);
+
+        [OperationContract]
+        List<Layout> ObtenerListadoLayouts();
+
+        /* Operaciones con tematicas */
+        [OperationContract]
+        Tematica ObtenerTematicaPorId(int idTematica);
+
+        [OperationContract]
+        List<Tematica> ObtenerListadoTematicas();
+
     }
 }

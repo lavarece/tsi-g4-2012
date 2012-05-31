@@ -9,7 +9,7 @@ namespace IndignaFwk.Common.Entities
 {
     [DataContract]
     [Serializable]
-    public class Tematica
+    public class Layout
     {
         [DataMember]
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace IndignaFwk.Common.Entities
         public string Nombre { get; set; }
 
         [DataMember]
-        public string NombreCSS { get; set; }
+        public string NombreLayout { get; set; }
     }
 }

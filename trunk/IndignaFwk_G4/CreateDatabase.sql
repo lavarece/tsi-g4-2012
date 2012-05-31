@@ -149,9 +149,10 @@ CREATE TABLE [dbo].[Sitio](
 	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[NombreLayout] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[FK_Id_Imagen] [int] ,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[FK_Id_Imagen] [int] ,
+	[FK_Id_Layout] [int] NOT NULL,
+	[FK_Id_Tematica] [int] NOT NULL
  CONSTRAINT FK_Sitio_FK_Imagen FOREIGN KEY (FK_Id_Imagen) REFERENCES Imagen(Id) 
 ) ON [PRIMARY]
 END
@@ -235,6 +236,29 @@ BEGIN
 CREATE TABLE [dbo].[Tematica](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[NombreCSS] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
+) ON [PRIMARY]
+END
+GO
+
+--Layout
+USE [IndignadoFDb]
+GO
+/****** Object:  Table [dbo].[Layout]    Script Date: 04/16/2012 19:10:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Layout]') AND type in (N'U'))
+DROP TABLE [dbo].Layout
+GO
+/****** Object:  Table [dbo].[Layout]    Script Date: 04/16/2012 19:10:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Layout]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].Layout(
+	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[NombreLayout] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
 END
 GO

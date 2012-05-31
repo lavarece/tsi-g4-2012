@@ -111,11 +111,11 @@
     <Content Include="Content\layout_1\jquery-theme\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\layout_1\jquery-theme\jquery-ui-1.8.20.css" />
-    <Content Include="Content\layout_1\style.css" />
+    <Content Include="Content\layout_1\css\default.css" />
     <Content Include="Content\layout_2\images\header.png" />
     <Content Include="Content\layout_2\images\ico_vineta.gif" />
     <Content Include="Content\layout_2\images\img09.jpg" />
-    <Content Include="Content\layout_2\style.css" />
+    <Content Include="Content\layout_2\css\default.css" />
     <Content Include="Content\layout_3\images\group_no_image.png" />
     <Content Include="Content\layout_3\images\ico_conectado.png" />
     <Content Include="Content\layout_3\images\ico_posMapa.png" />
@@ -137,7 +137,7 @@
     <Content Include="Content\layout_3\jquery-theme\images\ui-icons_eeeeee_256x240.png" />
     <Content Include="Content\layout_3\jquery-theme\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\layout_3\jquery-theme\jquery-ui-1.8.20.css" />
-    <Content Include="Content\layout_3\style.css" />
+    <Content Include="Content\layout_3\css\default.css" />
     <Content Include="Global.asax" />
     <Content Include="MultiTenant\Library\StructureMap.dll" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />

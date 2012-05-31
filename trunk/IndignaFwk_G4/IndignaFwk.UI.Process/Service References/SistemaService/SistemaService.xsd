@@ -14,4 +14,32 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VariableSistema" nillable="true" type="tns:VariableSistema" />
+  <xs:complexType name="Layout">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCSS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Layout" nillable="true" type="tns:Layout" />
+  <xs:complexType name="ArrayOfLayout">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Layout" nillable="true" type="tns:Layout" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLayout" nillable="true" type="tns:ArrayOfLayout" />
+  <xs:complexType name="Tematica">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreLayout" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tematica" nillable="true" type="tns:Tematica" />
+  <xs:complexType name="ArrayOfTematica">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tematica" nillable="true" type="tns:Tematica" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTematica" nillable="true" type="tns:ArrayOfTematica" />
 </xs:schema>
