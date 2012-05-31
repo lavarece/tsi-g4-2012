@@ -234,7 +234,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Tematica]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Tematica](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[NombreCSS] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
@@ -255,8 +255,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Layout]') AND type in (N'U'))
 BEGIN
-CREATE TABLE [dbo].Layout(
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+CREATE TABLE [dbo].[Layout](
+	[Id] [int] NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[NombreLayout] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]

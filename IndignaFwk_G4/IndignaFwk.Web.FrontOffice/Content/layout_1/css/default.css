@@ -7,7 +7,7 @@ body
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;
-    background: url('images/bg_body.png') repeat-x #3C3C3C;    
+    background: url('../images/bg_body.png') repeat-x #3C3C3C;    
 }
 
 input, select, textarea
@@ -33,7 +33,7 @@ input, select, textarea
     height: 90px;
     line-height: 90px;
     margin: auto;  
-    background: url('images/header.png') no-repeat;     
+    background: url('../images/header.png') no-repeat;     
 }
 
 #logoHeader
@@ -62,7 +62,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('images/ico_vineta.gif') no-repeat left 50%;    
+    background: url('../images/ico_vineta.gif') no-repeat left 50%;    
 }
 
 #login .usuarioAutenticado
