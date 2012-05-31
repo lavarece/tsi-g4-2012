@@ -89,7 +89,7 @@ namespace IndignaFwk.Common.Util
 
         public static int GetIntFromReader(string key, SqlDataReader reader)
         {
-            if (reader != null && reader[key] != null)
+            if (reader != null && reader[key].ToString().Length > 0)
             {
                 return (int)reader[key];
             }

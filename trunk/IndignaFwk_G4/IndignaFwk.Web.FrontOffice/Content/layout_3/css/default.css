@@ -58,7 +58,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('images/ico_vineta.png') no-repeat left 50%;    
+    background: url('../images/ico_vineta.png') no-repeat left 50%;    
 }
 
 #login .usuarioAutenticado
@@ -479,10 +479,10 @@ input, select, textarea
     border-bottom: 1px solid #EBEBEB;
     padding: 10px 100% 10px 25px;
     text-align: left;  
-    background: url('images/ico_conectado.png') no-repeat 2% 50%;      
+    background: url('../images/ico_conectado.png') no-repeat 2% 50%;      
 }
 
 .nombreUsuarioChat a:hover
 {    
-    background: #E1E1E1 url('images/ico_conectado.png') no-repeat 2% 50%;    
+    background: #E1E1E1 url('../images/ico_conectado.png') no-repeat 2% 50%;    
 }

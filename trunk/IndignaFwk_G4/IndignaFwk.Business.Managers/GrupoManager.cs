@@ -125,7 +125,7 @@ namespace IndignaFwk.Business.Managers
                        grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
                    }
 
-                   if (grupo.Layout != null && grupo.Imagen.Id != 0)
+                   if (grupo.Layout != null && grupo.Layout.Id != 0)
                    {
                        grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
                    }
@@ -167,7 +167,7 @@ namespace IndignaFwk.Business.Managers
                     grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
                 }
 
-                if (grupo.Layout != null && grupo.Imagen.Id != 0)
+                if (grupo.Layout != null && grupo.Layout.Id != 0)
                 {
                     grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
                 }
@@ -207,7 +207,7 @@ namespace IndignaFwk.Business.Managers
                    grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
                }
 
-               if (grupo.Layout != null && grupo.Imagen.Id != 0)
+               if (grupo.Layout != null && grupo.Layout.Id != 0)
                {
                    grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
                }

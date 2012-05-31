@@ -22,7 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{5F
 	ProjectSection(SolutionItems) = preProject
 		CreateDatabase.sql = CreateDatabase.sql
 		InsertBasico.sql = InsertBasico.sql
-		Leeme.txt = Leeme.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E2EE9F62-80C1-40C8-83B2-90174C670BE0}"
