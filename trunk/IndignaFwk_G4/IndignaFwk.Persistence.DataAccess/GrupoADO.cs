@@ -28,7 +28,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
-            UtilesBD.SetParameter(command, "nombreLayout", grupo.Layout.Id);
+            UtilesBD.SetParameter(command, "idLayout", grupo.Layout.Id);
             UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
 
             if (grupo.Imagen != null)
