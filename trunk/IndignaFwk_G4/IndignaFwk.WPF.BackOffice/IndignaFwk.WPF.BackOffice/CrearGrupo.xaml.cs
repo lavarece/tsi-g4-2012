@@ -23,6 +23,7 @@ namespace IndignaFwk_WPF_BackOffice
     public partial class CrearGrupo : Window
     {
         private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+        private SistemaUserProcess sistemaUserProcess = UserProcessFactory.Instance.SistemaUserProcess;
         private Boolean editando;
         private Grupo grupoEditando;
 
@@ -31,6 +32,12 @@ namespace IndignaFwk_WPF_BackOffice
         {
             this.InitializeComponent();
             editando = false;
+
+            List<Layout> listaLayouts = sistemaUserProcess.ObtenerListadoLayouts();
+            comboBox_layouts.ItemsSource = listaLayouts;
+            
+            List<Tematica> listaTematica = sistemaUserProcess.ObtenerListadoTematicas();
+            comboBox_temas.ItemsSource = listaTematica;
         }
 
         public CrearGrupo(Grupo grupo)
@@ -50,13 +57,27 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void btn_guardar_Click(object sender, RoutedEventArgs e)
         {
+            MensajeError mensaje;
+
             if (String.IsNullOrEmpty(txt_nombre.Text))
             {
-                MessageBox.Show("El campo nombre es obligatorio");
+                mensaje= new MensajeError("El campo nombre es obligatorio");
+                mensaje.Show();
             }
             else if (String.IsNullOrEmpty(txt_url.Text))
             {
-                MessageBox.Show("El campo URL es obligatorio");
+                mensaje = new MensajeError("El campo URL es obligatorio");
+                mensaje.Show();
+            }
+            else if (comboBox_layouts.SelectedItem == null)
+            {
+                mensaje = new MensajeError("El campo Layouts es obligatorio");
+                mensaje.Show();
+            }
+            else if (comboBox_temas.SelectedItem == null)
+            {
+                mensaje = new MensajeError("El campo Temas es obligatorio");
+                mensaje.Show();
             }
             else
             {
@@ -67,6 +88,10 @@ namespace IndignaFwk_WPF_BackOffice
                 grupo.Descripcion = txt_descripcion.Text;
 
                 grupo.Url = txt_url.Text;
+
+                grupo.Layout = (Layout)comboBox_layouts.SelectedItem;
+
+                grupo.Tematica = (Tematica)comboBox_temas.SelectedItem;
 
                 if (editando)
                 {

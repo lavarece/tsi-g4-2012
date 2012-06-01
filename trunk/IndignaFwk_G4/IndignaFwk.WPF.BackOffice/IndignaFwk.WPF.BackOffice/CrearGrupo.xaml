@@ -51,8 +51,24 @@
                 <DropShadowEffect />
             </TextBox.Effect>
         </TextBox>
-        <ComboBox Name="comboBox_layouts" HorizontalAlignment="Left" Height="29" Margin="96.5,197,0,0" VerticalAlignment="Top" Width="253"/>
-        <ComboBox x:Name="comboBox_layouts_Copy" HorizontalAlignment="Left" Height="29" Margin="96,241.5,0,0" VerticalAlignment="Top" Width="253"/>
+        <ComboBox Name="comboBox_layouts" HorizontalAlignment="Left" Height="29" Margin="96.5,197,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Nombre}" Width="80"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="comboBox_temas" HorizontalAlignment="Left" Height="29" Margin="96,241.5,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Nombre}" Width="80"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Label Background="#00000000" Content="Layouts:" Foreground="#FF00FFF9" Margin="0,0,644.59,416" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
         <Label Background="#00000000" Content="Temas:" Foreground="#FF00FFF9" Margin="0,0,645.59,371" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
     </Grid>
