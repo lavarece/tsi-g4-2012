@@ -287,11 +287,9 @@ CREATE TABLE [dbo].[Convocatoria](
 	[FechaInicio] [DateTime],
 	[FechaFin] [DateTime],
 	[FK_Id_UsuarioCreacion] [int],
-	[FK_Id_Sitio] [int],
-	[FK_Id_Tematica] [int],
+	[FK_Id_Sitio] [int]
  CONSTRAINT FK_Convocatoria_FK_UsuarioCreacion FOREIGN KEY (FK_Id_UsuarioCreacion) REFERENCES Usuario(Id),
  CONSTRAINT FK_Convocatoria_FK_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id),
- CONSTRAINT FK_Convocatoria_FK_Tematica FOREIGN KEY (FK_Id_Tematica) REFERENCES Tematica(Id)
 ) ON [PRIMARY]
 END
 GO
