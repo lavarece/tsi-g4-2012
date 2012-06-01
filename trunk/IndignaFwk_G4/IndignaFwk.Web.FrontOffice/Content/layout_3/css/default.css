@@ -183,7 +183,6 @@ input, select, textarea
 /* Estilos errores MVC */
 .validation-summary-errors
 {
-    height: 30px;
     line-height: 30px;
     font-size: 13px;
     font-weight: bold;
@@ -191,6 +190,14 @@ input, select, textarea
     border: 1px solid #A62106;
     border-radius: 5px 5px 5px 5px;
     color: #3C3C3C;
+}
+
+.validation-summary-errors ul
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .validation-summary-errors span
@@ -425,7 +432,7 @@ input, select, textarea
     width: 35%;
 }
 
-.mensajeSinContenido
+.mensajeListadoVacio
 {
     font-weight: bold;
     font-style: oblique;

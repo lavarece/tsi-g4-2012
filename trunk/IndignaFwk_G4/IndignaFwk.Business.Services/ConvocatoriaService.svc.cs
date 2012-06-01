@@ -24,6 +24,11 @@ namespace IndignaFwk.Business.Services
             return convocatoriaManager.ObtenerListadoConvocatorias();
         }
 
+        public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
+        {
+            return convocatoriaManager.ObtenerListadoConvocatoriasPorGrupo(idGrupo);
+        }
+
         public Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria)
         {
             return convocatoriaManager.ObtenerConvocatoriaPorId(idConvocatoria);

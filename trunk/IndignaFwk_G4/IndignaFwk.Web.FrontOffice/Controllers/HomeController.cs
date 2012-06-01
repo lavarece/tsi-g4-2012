@@ -11,10 +11,8 @@ using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private IApplicationTenant site;
-
         private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
 
         private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
@@ -26,7 +24,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private void PopulateViewBag()
         {
-            ViewBag.GrupoSite = site.Grupo;
+            base.PopulateViewBag();
 
             // Cargo los contenidos, si el usuario esta autenticado cargo todos (Privados y Publicos) si no solo los privados
             if (HttpContext.User.Identity.IsAuthenticated)

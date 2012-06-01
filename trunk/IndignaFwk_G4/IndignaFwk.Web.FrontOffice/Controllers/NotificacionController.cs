@@ -7,10 +7,8 @@ using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
-    public class NotificacionController : Controller
+    public class NotificacionController : BaseController
     {
-        private IApplicationTenant site;
-
         public NotificacionController(IApplicationTenant site)
         {
             this.site = site;
@@ -18,7 +16,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private void PopulateViewBag()
         {
-            ViewBag.GrupoSite = site.Grupo;
+            base.PopulateViewBag();
         }
 
         public ActionResult Listado()

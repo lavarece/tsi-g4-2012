@@ -7,10 +7,8 @@ using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
-    public class ChatController : Controller
+    public class ChatController : BaseController
     {
-        private IApplicationTenant site;
-
         public ChatController(IApplicationTenant site)
         {
             this.site = site;
@@ -18,7 +16,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private void PopulateViewBag()
         {
-            ViewBag.GrupoSite = site.Grupo;
+            base.PopulateViewBag();
         }
 
         public ActionResult SalaGrupo()
@@ -27,6 +25,5 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             return View();
         }
-
     }
 }

@@ -9,7 +9,7 @@ using IndignaFwk.Web.FrontOffice.MultiTenant;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
-    public class ErrorController : Controller
+    public class ErrorController : BaseController
     {
         private Exception exception;
 

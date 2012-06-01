@@ -18,5 +18,7 @@ namespace IndignaFwk.Persistence.DataAccess
         Convocatoria Obtener(int id, SqlConnection conexion);
 
         List<Convocatoria> ObtenerListado(SqlConnection conexion);
+
+        List<Convocatoria> ObtenerListadoPorGrupo(SqlConnection conexion, int idGrupo);
     }
 }

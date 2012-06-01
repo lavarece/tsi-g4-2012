@@ -71,7 +71,7 @@
                         @Html.LabelFor(m => m.FechaInicio)
                     </div>
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.FechaInicio)
+                        @Html.TextBoxFor(m => m.FechaInicio, new { @readonly = "readonly"})
                         @Html.ValidationMessageFor(m => m.FechaInicio)
                     </div>
                 </td>
