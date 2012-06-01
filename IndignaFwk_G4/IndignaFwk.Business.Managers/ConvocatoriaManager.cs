@@ -135,6 +135,26 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ConvocatoriaADO.ObtenerListadoPorGrupo(conexion, idGrupo);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
         public Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria)
         {
             try

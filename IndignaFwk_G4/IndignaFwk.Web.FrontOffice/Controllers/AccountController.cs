@@ -13,10 +13,8 @@ using IndignaFwk.UI.Process;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
-        private IApplicationTenant site;
-
         private UsuarioUserProcess usuarioUserProcess = UserProcessFactory.Instance.UsuarioUserProcess;
 
         public AccountController(IApplicationTenant site)
@@ -24,9 +22,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
-        private void PopulateViewBag()
+        protected override void PopulateViewBag()
         {
-            ViewBag.GrupoSite = site.Grupo;
+            base.PopulateViewBag();
         }
 
         public ActionResult Login()
@@ -66,7 +64,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "");
+                    ModelState.AddModelError("", "El usuario indicado no existe en este grupo.");
                 }
             }
 
@@ -114,65 +112,17 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 {
                     usuarioUserProcess.CrearNuevoUsuario(usuario);
 
-                    PopulateViewBag();
-
-                    return View("DetalleRegistro", model);
+                    AddControllerMessage("Usuario registrado correctamente.");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El usuario ya existe en el sistema.");
+                    ModelState.AddModelError("", "El e-mail seleccionado ya esta siendo utilizado por otro usuario.");
                 }
             }
 
             PopulateViewBag();
 
             return View(model);
-        }
-
-        public ActionResult DetalleRegistro()
-        {
-            PopulateViewBag();
-
-            return View();
-        }
-        #region Status Codes
-        private static string ErrorCodeToString(MembershipCreateStatus createStatus)
-        {
-            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
-            // a full list of status codes.
-            switch (createStatus)
-            {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
-
-                case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
-
-                case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
-
-                case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-            }
-        }
-        #endregion
+        }    
     }
 }

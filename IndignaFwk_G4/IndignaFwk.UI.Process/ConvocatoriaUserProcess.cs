@@ -32,6 +32,17 @@ namespace IndignaFwk.UI.Process
             return listaConvocatorias;
         }
 
+        public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            List<Convocatoria> listado = proxy.ObtenerListadoConvocatoriasPorGrupo(idGrupo);
+
+            proxy.Close();
+
+            return listado;
+        }
+
         public Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria)
         {
             ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();

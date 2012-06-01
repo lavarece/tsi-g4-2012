@@ -30,9 +30,6 @@ namespace IndignaFwk.Common.Entities
         public string LogoUrl { get; set; }
 
         [DataMember]
-        public Tematica Tematica { get; set; }
-
-        [DataMember]
         public DateTime? FechaInicio { get; set; }
 
         [DataMember]

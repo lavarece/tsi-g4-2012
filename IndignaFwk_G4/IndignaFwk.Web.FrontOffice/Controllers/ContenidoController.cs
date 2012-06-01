@@ -13,10 +13,8 @@ using IndignaFwk.Common.Entities;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
-    public class ContenidoController : Controller
+    public class ContenidoController : BaseController
     {
-        private IApplicationTenant site;
-
         private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
 
         public ContenidoController(IApplicationTenant site)
@@ -26,7 +24,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private void PopulateViewBag()
         {
-            ViewBag.GrupoSite = site.Grupo;
+            base.PopulateViewBag();
 
             ViewBag.ListaTiposContenido = TipoContenidoEnum.ObtenerListado();
 
@@ -66,6 +64,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 contenido.Grupo = site.Grupo;
 
                 convocatoriaUserProcess.CrearNuevoContenido(contenido);
+
+                AddControllerMessage("Operación exitosa.");
             }
 
             PopulateViewBag();
@@ -74,7 +74,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         }
 
         [HttpGet]
-        public ActionResult MeGustaContenido()
+        public ActionResult MarcarContenidoMeGusta()
         {
             CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
 
@@ -88,6 +88,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             if (marcaContenido != null)
             {
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
+
+                convocatoriaUserProcess.EditarMarcaContenido(marcaContenido);
             }
             else
             {
@@ -97,13 +99,50 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
 
+                convocatoriaUserProcess.CrearNuevaMarcaContenido(marcaContenido);
             }
+
+            AddControllerMessage("Gracias por su opinión.");
 
             PopulateViewBag();
                 
             return RedirectToAction("Home", "Index");
         }
 
+        [HttpGet]
+        public ActionResult MarcarContenidoInadecuado()
+        {
+            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
+            int idUsuario = ci.Id;
+
+            int idContenidoMarcar = Int32.Parse(Request["idContenidoMarcar"]);
+
+            // Verifico si existe una marcar entre el contenido y el usuario, si existe la edito si no la creo
+            MarcaContenido marcaContenido = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenidoMarcar);
+
+            if (marcaContenido != null)
+            {
+                marcaContenido.TipoMarca = TipoMarcaContenidoEnum.INADECUADO.Valor;
+
+                convocatoriaUserProcess.EditarMarcaContenido(marcaContenido);
+            }
+            else
+            {
+                marcaContenido.UsuarioMarca = new Usuario { Id = idUsuario };
+
+                marcaContenido.Contenido = new Contenido { Id = idContenidoMarcar };
+
+                marcaContenido.TipoMarca = TipoMarcaContenidoEnum.INADECUADO.Valor;
+
+                convocatoriaUserProcess.CrearNuevaMarcaContenido(marcaContenido);
+            }
+
+            AddControllerMessage("Gracias por su opinión.");
+
+            PopulateViewBag();
+
+            return RedirectToAction("Home", "Index");
+        }
     }
 }

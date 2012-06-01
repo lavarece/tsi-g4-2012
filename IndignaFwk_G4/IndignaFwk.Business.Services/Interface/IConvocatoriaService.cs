@@ -17,6 +17,9 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         List<Convocatoria> ObtenerListadoConvocatorias();
+        
+        [OperationContract]
+        List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo);
 
         [OperationContract]
         Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria);

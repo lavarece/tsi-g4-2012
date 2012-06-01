@@ -1,0 +1,18 @@
+﻿@if (ViewBag.ControllerMessages != null && ViewBag.ControllerMessages.Count > 0)
+{
+    <div id="divControllerMessages" title="Mensajes">
+	    <ul>
+            @foreach (string msj in ViewBag.ControllerMessages)
+            {
+                <li>@msj</li>
+            }
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#divControllerMessages").dialog();
+        });	
+    </script>
+}
+    

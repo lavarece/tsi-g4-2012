@@ -9,8 +9,6 @@ namespace IndignaFwk.Web.FrontOffice.Models
 {
     public class ConvocatoriaModel
     {
-        public int ID;
-
         [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Titulo:")]
         public string Titulo { get; set; }
@@ -24,11 +22,11 @@ namespace IndignaFwk.Web.FrontOffice.Models
 
         [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Quorum:")]
-        public string Quorum { get; set; }
+        public int Quorum { get; set; }
 
         [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Ubicación (Lat, Lon):")]
-        public string Ubicacion { get; set; }
+        public string Coordenadas { get; set; }
 
         [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Comienzo:")]
