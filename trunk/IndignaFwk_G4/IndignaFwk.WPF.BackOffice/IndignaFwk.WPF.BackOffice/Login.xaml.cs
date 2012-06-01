@@ -29,7 +29,11 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void btn_iniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            Administrador admin = adminUserProcess.ObtenerAdministradorPorEmailYPass(txt_usuario.Text, txt_password.Password);
+
+            //Encriptando password para compararlo en la base de datos
+            string passEncriptado = UtilesSeguridad.Encriptar(txt_password.Password);
+
+            Administrador admin = adminUserProcess.ObtenerAdministradorPorEmailYPass(txt_usuario.Text, passEncriptado);
 
             if (admin != null)
             {

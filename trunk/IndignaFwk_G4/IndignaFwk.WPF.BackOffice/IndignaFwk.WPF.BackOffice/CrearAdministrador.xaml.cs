@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IndignaFwk.UI;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.Common.Util;
 using IndignaFwk.UI.Process;
 using IndignaFwk.Common.Util;
 
@@ -63,7 +64,7 @@ namespace IndignaFwk_WPF_BackOffice
 
                 admin.Email = textbox_emailAdmin.Text;
                 
-                admin.Password = passwordbox_passAdmin.Password;
+                admin.Password = UtilesSeguridad.Encriptar(passwordbox_passAdmin.Password);
 
                 adminUserProcess.CrearNuevoAdministrador(admin);
 
