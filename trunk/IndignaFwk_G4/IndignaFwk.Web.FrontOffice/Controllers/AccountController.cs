@@ -8,6 +8,7 @@ using IndignaFwk.Web.FrontOffice.MultiTenant;
 using IndignaFwk.Web.FrontOffice.Models;
 using System.Web.Security;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.Common.Util;
 using IndignaFwk.UI.Process;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
@@ -40,7 +41,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmailYPass(model.Email, model.Contraseña);
+                //Encripto contraseña para compararla con la encriptada en la base.
+                String passEncriptado = UtilesSeguridad.Encriptar(model.Contraseña);
+
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmailYPass(model.Email, passEncriptado);
 
                 if (usuario != null && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
@@ -96,7 +100,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 usuario.Nombre = model.Nombre;
                 usuario.Descripcion = model.Descripcion;
                 usuario.Email = model.Email;
-                usuario.Password = model.Contraseña;
+
+                //Encripto contraseña para guardar en la base
+                usuario.Password = UtilesSeguridad.Encriptar(model.Contraseña);
                 usuario.Pregunta = model.PreguntaSecreta;
                 usuario.Respuesta = model.RespuestaSecreta;
                 usuario.Region = model.RegionGeografica;
