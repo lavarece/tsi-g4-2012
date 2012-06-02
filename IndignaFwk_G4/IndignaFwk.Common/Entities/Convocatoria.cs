@@ -40,5 +40,7 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public Usuario UsuarioCreacion { get; set; }
+
+        public Boolean ExisteAsistenciaUsuario { get; set; }
     }
 }

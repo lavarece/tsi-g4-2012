@@ -315,6 +315,25 @@ input, select, textarea
     background-color: #2E6056;
 }
 
+.botonPressed
+{
+    display: block;
+    margin: 0px 5px;
+}
+
+.botonPressed a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #C0DC8C;
+    border: 2px inset #7BA331;
+    color: #3C3C3C;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+    cursor: default;
+}
+
 .wrapperDataTable
 {
     max-height: 600px;

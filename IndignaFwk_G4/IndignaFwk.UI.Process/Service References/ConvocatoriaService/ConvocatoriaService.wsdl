@@ -19,6 +19,12 @@
   <wsdl:message name="IConvocatoriaService_ObtenerListadoConvocatorias_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerListadoConvocatoriasResponse" />
   </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoConvocatoriasPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoConvocatoriasPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoConvocatoriasPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoConvocatoriasPorGrupoResponse" />
+  </wsdl:message>
   <wsdl:message name="IConvocatoriaService_ObtenerConvocatoriaPorId_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerConvocatoriaPorId" />
   </wsdl:message>
@@ -61,6 +67,24 @@
   <wsdl:message name="IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaAsistenciaConvocatoriaResponse" />
   </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_EditarAsistenciaConvocatoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAsistenciaConvocatoria" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_EditarAsistenciaConvocatoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAsistenciaConvocatoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_EliminarAsistenciaConvocatoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAsistenciaConvocatoria" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_EliminarAsistenciaConvocatoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAsistenciaConvocatoriaResponse" />
+  </wsdl:message>
   <wsdl:message name="IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerMarcaContenidoPorUsuarioYContenido" />
   </wsdl:message>
@@ -87,6 +111,10 @@
     <wsdl:operation name="ObtenerListadoConvocatorias">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatorias" message="tns:IConvocatoriaService_ObtenerListadoConvocatorias_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasResponse" message="tns:IConvocatoriaService_ObtenerListadoConvocatorias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoConvocatoriasPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupo" message="tns:IConvocatoriaService_ObtenerListadoConvocatoriasPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupoResponse" message="tns:IConvocatoriaService_ObtenerListadoConvocatoriasPorGrupo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerConvocatoriaPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriaPorId" message="tns:IConvocatoriaService_ObtenerConvocatoriaPorId_InputMessage" />
@@ -116,6 +144,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria" message="tns:IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoriaResponse" message="tns:IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarAsistenciaConvocatoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/EditarAsistenciaConvocatoria" message="tns:IConvocatoriaService_EditarAsistenciaConvocatoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/EditarAsistenciaConvocatoriaResponse" message="tns:IConvocatoriaService_EditarAsistenciaConvocatoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAsistenciaConvocatoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoria" message="tns:IConvocatoriaService_EliminarAsistenciaConvocatoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoriaResponse" message="tns:IConvocatoriaService_EliminarAsistenciaConvocatoria_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ObtenerMarcaContenidoPorUsuarioYContenido">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" message="tns:IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenidoResponse" message="tns:IConvocatoriaService_ObtenerMarcaContenidoPorUsuarioYContenido_OutputMessage" />
@@ -142,6 +182,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerListadoConvocatorias">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoConvocatoriasPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -205,6 +254,33 @@
     </wsdl:operation>
     <wsdl:operation name="CrearNuevaAsistenciaConvocatoria">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarAsistenciaConvocatoria">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/EditarAsistenciaConvocatoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAsistenciaConvocatoria">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoria" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

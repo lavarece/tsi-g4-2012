@@ -96,6 +96,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             {
                 Usuario usuario = new Usuario();
                 usuario.Nombre = model.Nombre;
+                usuario.Apellido = model.Apellido;
                 usuario.Descripcion = model.Descripcion;
                 usuario.Email = model.Email;
 

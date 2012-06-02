@@ -22,7 +22,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
-        private void PopulateViewBag()
+        protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
 
@@ -74,7 +74,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         }
 
         [HttpGet]
-        public ActionResult MarcarContenidoMeGusta()
+        public ActionResult MeGustaContenido()
         {
             CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
 
@@ -93,9 +93,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             }
             else
             {
-                marcaContenido.UsuarioMarca = new Usuario { Id = idUsuario };
+                marcaContenido = new MarcaContenido();
 
                 marcaContenido.Contenido = new Contenido { Id = idContenidoMarcar };
+
+                marcaContenido.UsuarioMarca = new Usuario { Id = idUsuario };
 
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
 
@@ -106,11 +108,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             PopulateViewBag();
                 
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
-        public ActionResult MarcarContenidoInadecuado()
+        public ActionResult ContenidoInadecuado()
         {
             CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
@@ -129,6 +131,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             }
             else
             {
+                marcaContenido = new MarcaContenido();
+
                 marcaContenido.UsuarioMarca = new Usuario { Id = idUsuario };
 
                 marcaContenido.Contenido = new Contenido { Id = idContenidoMarcar };
@@ -142,7 +146,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             PopulateViewBag();
 
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -59,14 +59,9 @@ namespace IndignaFwk.Business.Services
             return convocatoriaManager.ObtenerContenidoPorId(idContenido);
         }
 
-        public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
-        {
-            return convocatoriaManager.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
-        }
-
         public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
         {
-            return convocatoriaManager.ObtenerMarcaContenidoPorUsuarioYContenido(idContenido, idContenido);
+            return convocatoriaManager.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenido);
         }
 
         public int CrearNuevaMarcaContenido(MarcaContenido marcaContenido)
@@ -77,6 +72,26 @@ namespace IndignaFwk.Business.Services
         public void EditarMarcaContenido(MarcaContenido marcaContenido)
         {
             convocatoriaManager.EditarMarcaContenido(marcaContenido);
+        }
+
+        public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
+        {
+            return convocatoriaManager.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, idConvocatoria);
+        }
+
+        public void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            convocatoriaManager.EditarAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
+
+        public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            return convocatoriaManager.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
+
+        public void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria)
+        {
+            convocatoriaManager.EliminarAsistenciaConvocatoria(idAsistenciaConvocatoria);
         }
     }
 }

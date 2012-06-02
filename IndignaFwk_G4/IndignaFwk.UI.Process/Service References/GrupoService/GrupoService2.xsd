@@ -4,36 +4,14 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="ListaContenido" nillable="true" type="tns:ArrayOfContenido" />
-      <xs:element minOccurs="0" name="ListaImagen" nillable="true" type="tns:ArrayOfImagen" />
-      <xs:element minOccurs="0" name="LogoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Imagen" nillable="true" type="tns:Imagen" />
+      <xs:element minOccurs="0" name="Layout" nillable="true" type="tns:Layout" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Template" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tematica" nillable="true" type="tns:Tematica" />
       <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Grupo" nillable="true" type="tns:Grupo" />
-  <xs:complexType name="ArrayOfContenido">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contenido" nillable="true" type="tns:Contenido" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfContenido" nillable="true" type="tns:ArrayOfContenido" />
-  <xs:complexType name="Contenido">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="EstadoContenido" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="TipoContenido" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Contenido" nillable="true" type="tns:Contenido" />
-  <xs:complexType name="ArrayOfImagen">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Imagen" nillable="true" type="tns:Imagen" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfImagen" nillable="true" type="tns:ArrayOfImagen" />
   <xs:complexType name="Imagen">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -42,6 +20,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Imagen" nillable="true" type="tns:Imagen" />
+  <xs:complexType name="Layout">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreLayout" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Layout" nillable="true" type="tns:Layout" />
+  <xs:complexType name="Tematica">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCSS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tematica" nillable="true" type="tns:Tematica" />
   <xs:complexType name="ArrayOfGrupo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Grupo" nillable="true" type="tns:Grupo" />

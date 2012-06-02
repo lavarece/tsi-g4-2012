@@ -38,5 +38,8 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public Grupo Grupo { get; set; }
+
+        // Dato utilizado por la logica de presentacion 
+        public MarcaContenido MarcaContenidoUsuario { get; set; }
     }
 }

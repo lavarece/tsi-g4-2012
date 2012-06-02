@@ -20,14 +20,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
-        private void PopulateViewBag()
+        protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
-
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                ViewBag.ListadoConvocatoriasGrupo = convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
-            }
         }
 
         public ActionResult Crear()
@@ -76,6 +71,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult Listado()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ListadoConvocatoriasGrupo = convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
+            }
+
             PopulateViewBag();
 
             return View();
@@ -84,9 +84,15 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         [HttpGet]
         public ActionResult UbicarConvocatoria()
         {
-            int idConvocatoriaSeleccionar = Int32.Parse(Request["idConvocatoriaSeleccionar"]);
+            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
-            Convocatoria convocatoriaSeleccionada = convocatoriaUserProcess.ObtenerConvocatoriaPorId(idConvocatoriaSeleccionar);
+            int idUsuario = ci.Id;
+
+            int idConvocatoriaAUbicar = Int32.Parse(Request["idConvocatoriaAUbicar"]);
+
+            Convocatoria convocatoriaSeleccionada = convocatoriaUserProcess.ObtenerConvocatoriaPorId(idConvocatoriaAUbicar);
+
+            convocatoriaSeleccionada.ExisteAsistenciaUsuario = convocatoriaUserProcess.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, idConvocatoriaAUbicar) != null;
 
             ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
 
@@ -96,12 +102,43 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         [HttpGet]
         public ActionResult AsistirConvocatoria()
         {
+            CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
+
+            int idUsuario = ci.Id;
+
+            int idConvocatoriaSeleccionada = Int32.Parse(Request["idConvocatoriaSeleccionada"]);
+
+            AsistenciaConvocatoria asistenciaConvocatoria = new AsistenciaConvocatoria();
+
+            asistenciaConvocatoria.Usuario = new Usuario { Id = idUsuario };
+
+            asistenciaConvocatoria.Convocatoria = new Convocatoria { Id = idConvocatoriaSeleccionada };
+
+            convocatoriaUserProcess.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+
+            AddControllerMessage("Asistencia guardada");
+
             return View();
         }
 
         [HttpGet]
         public ActionResult NoAsistirConvocatoria()
         {
+            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+            int idUsuario = ci.Id;
+
+            int idConvocatoriaSeleccionada = Int32.Parse(Request["idConvocatoriaSeleccionada"]);
+
+            AsistenciaConvocatoria asistenciaConvocatoria = convocatoriaUserProcess.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, idConvocatoriaSeleccionada);
+
+            if (asistenciaConvocatoria != null)
+            {
+                convocatoriaUserProcess.EliminarAsistenciaConvocatoria(asistenciaConvocatoria.Id);
+            }
+
+            AddControllerMessage("Asistencia eliminada");
+
             return View();
         }
 

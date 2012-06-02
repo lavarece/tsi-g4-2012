@@ -14,7 +14,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             this.site = site;
         }
 
-        private void PopulateViewBag()
+        protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
         }

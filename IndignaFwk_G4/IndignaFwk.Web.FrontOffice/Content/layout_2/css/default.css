@@ -311,6 +311,24 @@
     background-color: #C8E199;
 }
 
+.botonPressed
+{
+    display: block;
+    margin: 0px 5px;
+}
+
+.botonPressed a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #C0DC8C;
+    border: 1px solid #7BA331;
+    color: #FFFFFF;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+}
+
 .dataTable
 {
     width: 100%;
@@ -453,7 +471,8 @@
     border: 1px solid #FFFF1F;
 }
 
-.creadorContenido span
+.creadorContenido span,
+.creadorContenido b
 {
     vertical-align: top;
 }

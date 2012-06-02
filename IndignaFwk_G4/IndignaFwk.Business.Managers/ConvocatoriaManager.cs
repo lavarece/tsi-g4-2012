@@ -302,40 +302,13 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-        public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
-        {
-            try
-            {
-                conexion = UtilesBD.ObtenerConexion(true);
-
-                transaccion = UtilesBD.IniciarTransaccion(conexion);
-
-                int ret = AsistenciaConvocatoriaADO.Crear(asistenciaConvocatoria, conexion, transaccion);
-
-                UtilesBD.CommitTransaccion(transaccion);
-
-                return ret;
-            }
-            catch (Exception ex)
-            {
-                UtilesBD.RollbackTransaccion(transaccion);
-
-                throw ex;
-            }
-            finally
-            {
-                UtilesBD.CerrarConexion(conexion);
-            }
-        }
-
-
         public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
         {
             try
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                MarcaContenido marcaContenido = MarcaContenidoADO.ObtenerPorUsuarioYContenido(idUsuario, idUsuario, conexion);
+                MarcaContenido marcaContenido = MarcaContenidoADO.ObtenerPorUsuarioYContenido(idUsuario, idContenido, conexion);
 
                 return marcaContenido;
             }
@@ -387,6 +360,100 @@ namespace IndignaFwk.Business.Managers
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                 MarcaContenidoADO.Editar(marcaContenido, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                int ret = AsistenciaConvocatoriaADO.Crear(asistenciaConvocatoria, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
+
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return AsistenciaConvocatoriaADO.ObtenerPorUsuarioYConvocatoria(idUsuario, idConvocatoria, conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                AsistenciaConvocatoriaADO.Editar(asistenciaConvocatoria, conexion, transaccion);
+
+                UtilesBD.CommitTransaccion(transaccion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                AsistenciaConvocatoriaADO.Eliminar(idAsistenciaConvocatoria, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
             }

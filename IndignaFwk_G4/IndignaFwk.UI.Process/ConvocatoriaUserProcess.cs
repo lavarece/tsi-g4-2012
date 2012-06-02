@@ -118,6 +118,36 @@ namespace IndignaFwk.UI.Process
             return id;
         }
 
+        public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            AsistenciaConvocatoria asistenciaConvocatoria = proxy.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, idConvocatoria);
+
+            proxy.Close();
+
+            return asistenciaConvocatoria;
+        }
+
+
+        public void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            proxy.EditarAsistenciaConvocatoria(asistenciaConvocatoria);
+
+            proxy.Close();
+        }
+
+        public void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            proxy.EliminarAsistenciaConvocatoria(idAsistenciaConvocatoria);
+
+            proxy.Close();
+        }
+
         // Operaciones MarcaContenido
         public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
         {

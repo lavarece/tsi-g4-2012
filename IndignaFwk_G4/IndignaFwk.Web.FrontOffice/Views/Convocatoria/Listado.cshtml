@@ -162,9 +162,18 @@ else
             <div class="areaBotones">
                 <ul>
                     <li>
-                        <div class="boton">       
-                            <a href="#">Asistiré</a>
-                        </div>
+                        @if (convocatoriaSel.ExisteAsistenciaUsuario == false)
+                        {                            
+                            <div class="boton">       
+                                <a href="@Url.Action("AsisitireConvocatoria", "Convocatoria", new { idConvocatoriaSeleccionada = convocatoriaSel.Id })">Asistiré</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="boton">       
+                                <a href="@Url.Action("NoAsistirConvocatoria", "Convocatoria", new { idConvocatoriaSeleccionada = convocatoriaSel.Id })">No Asistiré</a>
+                            </div>
+                        }
                     </li>
                 </ul>
             </div>
