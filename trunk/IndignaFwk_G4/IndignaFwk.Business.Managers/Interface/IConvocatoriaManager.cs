@@ -31,6 +31,12 @@ namespace IndignaFwk.Business.Managers
         // Operaciones AsistenciaConvocatoria
         int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
 
+        AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria);
+
+        void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
+
+        void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
+
         // Operaciones MarcaContenido
         MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
 

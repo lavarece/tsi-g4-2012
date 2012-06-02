@@ -21,6 +21,10 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatorias", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasResponse")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerListadoConvocatorias();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupo", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupoRespon" +
+            "se")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriaPorId", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriaPorIdResponse")]
         IndignaFwk.Common.Entities.Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria);
         
@@ -43,6 +47,17 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse")]
         int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorUsuarioYC" +
+            "onvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorUsuarioYC" +
+            "onvocatoriaResponse")]
+        IndignaFwk.Common.Entities.AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/EditarAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/EditarAsistenciaConvocatoriaResponse")]
+        void EditarAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoriaResponse")]
+        void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" +
             "", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerMarcaContenidoPorUsuarioYContenido" +
@@ -91,6 +106,10 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
             return base.Channel.ObtenerListadoConvocatorias();
         }
         
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo) {
+            return base.Channel.ObtenerListadoConvocatoriasPorGrupo(idGrupo);
+        }
+        
         public IndignaFwk.Common.Entities.Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria) {
             return base.Channel.ObtenerConvocatoriaPorId(idConvocatoria);
         }
@@ -117,6 +136,18 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         public int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria) {
             return base.Channel.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
+        
+        public IndignaFwk.Common.Entities.AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria) {
+            return base.Channel.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, idConvocatoria);
+        }
+        
+        public void EditarAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria) {
+            base.Channel.EditarAsistenciaConvocatoria(asistenciaConvocatoria);
+        }
+        
+        public void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria) {
+            base.Channel.EliminarAsistenciaConvocatoria(idAsistenciaConvocatoria);
         }
         
         public IndignaFwk.Common.Entities.MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido) {
