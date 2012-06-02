@@ -213,7 +213,8 @@ CREATE TABLE [dbo].[Usuario](
 	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[FK_Id_Imagen] [int]
+	[FK_Id_Imagen] [int],
+	[FechaRegistro] [DateTime]
 CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
