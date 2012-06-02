@@ -7,7 +7,7 @@ using System.IO;
 
 namespace IndignaFwk.Common.Util
 {
-    class UtilesSeguridad
+    public class UtilesSeguridad
     {
         /* 
          * Metodo para encriptar contraseñas
