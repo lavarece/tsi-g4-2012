@@ -101,13 +101,24 @@ namespace IndignaFwk_WPF_BackOffice
                 else 
                 {
                     grupoUserProcess.CrearNuevoGrupo(grupo);
-                }                
+                }
+
+                mensaje = new MensajeError("Operacion completada exitosamente!");
+                mensaje.Show();
+                this.Close();
             }
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_abrirMapa_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Mapa win = new Mapa();
+           
+            win.Show();
         }
     }
 }
