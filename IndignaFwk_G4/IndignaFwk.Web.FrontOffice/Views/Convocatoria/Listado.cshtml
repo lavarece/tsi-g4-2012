@@ -94,10 +94,18 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div class="fieldLabel">
+                            @Html.LabelFor(m => m.Asistire)
+                            @Html.CheckBoxFor(m => m.Asistire, new { @checked = "checked" })
+                        </div>
+                    </td>
+                </tr>
             </table>
             <div style="text-align: right; margin: 5px 0px;">
                 <div class="boton">
-                    <a href="#">Buscar</a>
+                    <a href="#" onclick="submit();">Buscar</a>
                 </div>
             </div>
         </fieldset>
