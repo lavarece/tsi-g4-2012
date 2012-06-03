@@ -109,6 +109,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AsistenciaConvocatoria" nillable="true" type="tns:AsistenciaConvocatoria" />
+  <xs:complexType name="ArrayOfAsistenciaConvocatoria">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AsistenciaConvocatoria" nillable="true" type="tns:AsistenciaConvocatoria" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAsistenciaConvocatoria" nillable="true" type="tns:ArrayOfAsistenciaConvocatoria" />
   <xs:complexType name="MarcaContenido">
     <xs:sequence>
       <xs:element minOccurs="0" name="Contenido" nillable="true" type="tns:Contenido" />
