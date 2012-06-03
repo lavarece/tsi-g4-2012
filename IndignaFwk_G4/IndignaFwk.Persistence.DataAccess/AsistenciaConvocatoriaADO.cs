@@ -127,6 +127,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.CommandText = "SELECT * FROM AsistenciaConvocatoria WHERE FK_Id_Usuario = @idUsuario";
 
+                UtilesBD.SetParameter(command, "idUsuario", idUsuario);
+
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -134,6 +136,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
 
                     asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+
+                    asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
 
                     asistenciaC.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
 
