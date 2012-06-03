@@ -162,5 +162,14 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return View("Listado");
         }
 
+        public ActionResult Buscar()
+        {
+            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+            int idUsuario = ci.Id;
+
+            ViewBag.ListadoConvocatoriasAsistire = convocatoriaUserProcess.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, 0);
+            return View("Listado");
+        }
+
     }
 }
