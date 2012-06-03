@@ -401,6 +401,27 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        public List<AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return AsistenciaConvocatoriaADO.ObtenerListadoPorIdUsuario(idUsuario, conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+
         public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
         {
             try
