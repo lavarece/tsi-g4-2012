@@ -23,6 +23,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
+
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ListadoConvocatoriasGrupo = convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
+            }
         }
 
         public ActionResult Crear()
@@ -71,11 +76,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult Listado()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                ViewBag.ListadoConvocatoriasGrupo = convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
-            }
-
             PopulateViewBag();
 
             return View();
@@ -96,7 +96,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
 
-            return View();
+            PopulateViewBag();
+
+            return View("Listado");
         }
 
         [HttpGet]
@@ -118,7 +120,16 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             AddControllerMessage("Asistencia guardada");
 
-            return View();
+            // Recargo la convocatoria para ponerla en el ViewBag
+            Convocatoria convocatoriaSeleccionada = convocatoriaUserProcess.ObtenerConvocatoriaPorId(idConvocatoriaSeleccionada);
+
+            convocatoriaSeleccionada.ExisteAsistenciaUsuario = true;
+
+            ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
+
+            PopulateViewBag();
+
+            return View("Listado");
         }
 
         [HttpGet]
@@ -139,7 +150,16 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             AddControllerMessage("Asistencia eliminada");
 
-            return View();
+            // Recargo la convocatoria para ponerla en el ViewBag
+            Convocatoria convocatoriaSeleccionada = convocatoriaUserProcess.ObtenerConvocatoriaPorId(idConvocatoriaSeleccionada);
+
+            convocatoriaSeleccionada.ExisteAsistenciaUsuario = false;
+
+            ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
+
+            PopulateViewBag();
+
+            return View("Listado");
         }
 
     }

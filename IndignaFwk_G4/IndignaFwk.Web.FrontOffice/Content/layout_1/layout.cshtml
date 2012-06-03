@@ -54,9 +54,12 @@
         <div id="menu">
             <ul>    
                 <li class="selected"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
-                <li><a href="@Url.Action("Listado", "Convocatoria")">Convocatorias</a></li>
-                <li><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
-                <li><a href="@Url.Action("SalaGrupo", "Chat")"">Chat</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {                
+                    <li><a href="@Url.Action("Listado", "Convocatoria")">Convocatorias</a></li>
+                    <li><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
+                    <li><a href="@Url.Action("SalaGrupo", "Chat")">Chat</a></li>
+                }
             </ul>
         </div>
 

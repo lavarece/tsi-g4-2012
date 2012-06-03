@@ -117,7 +117,11 @@
     else
     {
         <div class="mensajeListadoVacio">
-            El grupo no tiene contenidos. Para agregarlos debe autenticarse.
+            El grupo no tiene contenidos. 
+            @if (!User.Identity.IsAuthenticated)
+            {
+                @:Para agregarlos debe autenticarse.
+            }
         </div>        
     }
 </div>

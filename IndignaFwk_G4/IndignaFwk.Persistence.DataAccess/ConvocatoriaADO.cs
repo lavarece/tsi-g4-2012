@@ -21,14 +21,14 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Convocatoria (Titulo, LogoUrl, Descripcion, Quorum, Coordenada, FechaInicio, FechaFin, FK_Id_UsuarioCreacion, FK_Id_Sitio) " +
-                                  "values(@Titulo, @LogoUrl, @Descripcion, @Quorum, @Coordenada, @FechaInicio, @FechaFin, @IdUsuarioCreacion, @IdSitio); " +
+            command.CommandText = "INSERT INTO Convocatoria (Titulo, LogoUrl, Descripcion, Quorum, Coordenadas, FechaInicio, FechaFin, FK_Id_UsuarioCreacion, FK_Id_Sitio) " +
+                                  "values(@Titulo, @LogoUrl, @Descripcion, @Quorum, @Coordenadas, @FechaInicio, @FechaFin, @IdUsuarioCreacion, @IdSitio); " +
                                   "select @idGen = SCOPE_IDENTITY() FROM Convocatoria ";
 
             UtilesBD.SetParameter(command, "Titulo", convocatoria.Titulo);
             UtilesBD.SetParameter(command, "Descripcion", convocatoria.Descripcion);
             UtilesBD.SetParameter(command, "Quorum", convocatoria.Quorum);            
-            UtilesBD.SetParameter(command, "Coordenada", convocatoria.Coordenadas);            
+            UtilesBD.SetParameter(command, "Coordenadas", convocatoria.Coordenadas);            
             UtilesBD.SetParameter(command, "LogoUrl", convocatoria.LogoUrl);
             UtilesBD.SetParameter(command, "FechaInicio", convocatoria.FechaInicio);
             UtilesBD.SetParameter(command, "FechaFin", convocatoria.FechaFin);
