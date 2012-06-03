@@ -59,31 +59,31 @@
             <tr>
                 <td>
                     <div class="fieldLabel">
-                        @Html.LabelFor(m => m.FechaFin)
+                        @Html.LabelFor(m => m.FechaInicio)
                     </div>
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.FechaFin)
-                        @Html.ValidationMessageFor(m => m.FechaFin)
+                        @Html.TextBoxFor(m => m.FechaInicio, new { id = "fechaInicioConvocatoria" })
+                        @Html.ValidationMessageFor(m => m.FechaInicio)
                     </div>
                 </td>
                 <td>
                     <div class="fieldLabel">
-                        @Html.LabelFor(m => m.FechaInicio)
+                        @Html.LabelFor(m => m.FechaFin)
                     </div>
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.FechaInicio, new { @readonly = "readonly"})
-                        @Html.ValidationMessageFor(m => m.FechaInicio)
+                        @Html.TextBoxFor(m => m.FechaFin, new { id = "fechaFinConvocatoria" })
+                        @Html.ValidationMessageFor(m => m.FechaFin)
                     </div>
-                </td>
+                </td>                
             </tr>
             <tr>
                 <td>
                     <div class="fieldLabel">
-                        @Html.LabelFor(m => m.Ubicacion)
+                        @Html.LabelFor(m => m.Coordenadas)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Ubicacion)
-                        @Html.ValidationMessageFor(m => m.Ubicacion)
+                        @Html.TextBoxFor(m => m.Coordenadas)
+                        @Html.ValidationMessageFor(m => m.Coordenadas)
                     </div>                    
                 </td>
                 <td>
@@ -96,7 +96,7 @@
         <ul>            
             <li>
                 <div class="boton">
-                    <a href="#">Crear</a>
+                    <a href="#" onclick="submit();">Crear</a>
                 </div>       
             </li>
             <li>
@@ -107,3 +107,10 @@
         </ul>        
     </div>              
 }
+
+<script type="text/javascript">
+    $(function () {
+        $("#fechaInicioConvocatoria").datepicker();
+        $("#fechaFinConvocatoria").datepicker();
+    });
+</script>
