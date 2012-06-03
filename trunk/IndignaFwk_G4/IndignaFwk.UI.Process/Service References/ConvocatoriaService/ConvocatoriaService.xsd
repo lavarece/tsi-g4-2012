@@ -163,6 +163,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerAsistenciaConvocatoriaPorIdUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerAsistenciaConvocatoriaPorIdUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerAsistenciaConvocatoriaPorIdUsuarioResult" nillable="true" type="q12:ArrayOfAsistenciaConvocatoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="EliminarAsistenciaConvocatoria">
     <xs:complexType>
       <xs:sequence>
@@ -186,14 +200,14 @@
   <xs:element name="ObtenerMarcaContenidoPorUsuarioYContenidoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerMarcaContenidoPorUsuarioYContenidoResult" nillable="true" type="q12:MarcaContenido" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerMarcaContenidoPorUsuarioYContenidoResult" nillable="true" type="q13:MarcaContenido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CrearNuevaMarcaContenido">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q13:MarcaContenido" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q14:MarcaContenido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -207,7 +221,7 @@
   <xs:element name="EditarMarcaContenido">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q14:MarcaContenido" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q15:MarcaContenido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -118,6 +118,17 @@ namespace IndignaFwk.UI.Process
             return id;
         }
 
+        public List<AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            List<AsistenciaConvocatoria> listaAsistenciaConvocatoria = proxy.ObtenerAsistenciaConvocatoriaPorIdUsuario(idUsuario);
+
+            proxy.Close();
+
+            return listaAsistenciaConvocatoria;
+        }
+
         public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
         {
             ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
