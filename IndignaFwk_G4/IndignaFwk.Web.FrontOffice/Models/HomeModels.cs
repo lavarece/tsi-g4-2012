@@ -34,5 +34,8 @@ namespace IndignaFwk.Web.FrontOffice.Models
         [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Fecha fin:")]
         public string FechaFin { get; set; }
+
+        [Display(Name = "Mostrar sólo a las que asistiré:")]
+        public bool Asistire { get; set; }
     }
 }
