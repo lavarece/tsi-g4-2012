@@ -113,6 +113,45 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
+        public List <AsistenciaConvocatoria> ObtenerListadoPorIdUsuario(int idUsuario, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            List<AsistenciaConvocatoria> listaAsistenciaC = new List<AsistenciaConvocatoria>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM AsistenciaConvocatoria WHERE FK_Id_Usuario = @idUsuario";
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
+
+                    asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+
+                    asistenciaC.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+
+                    listaAsistenciaC.Add(asistenciaC);
+                }
+
+                return listaAsistenciaC;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
+
         public AsistenciaConvocatoria ObtenerPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria, SqlConnection conexion)
         {
             SqlDataReader reader = null;
