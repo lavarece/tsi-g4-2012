@@ -167,6 +167,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
             int idUsuario = ci.Id;
 
+            //Obtengo lista de las convocatorias a las que el usuario asistira
+            List <AsistenciaConvocatoria> listaAsistenciaConvocatoriaDeUsuario = convocatoriaUserProcess.ObtenerAsistenciaConvocatoriaPorIdUsuario(idUsuario);
+
             ViewBag.ListadoConvocatoriasAsistire = convocatoriaUserProcess.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, 0);
             return View("Listado");
         }
