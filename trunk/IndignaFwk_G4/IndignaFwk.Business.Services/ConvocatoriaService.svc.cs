@@ -74,6 +74,11 @@ namespace IndignaFwk.Business.Services
             convocatoriaManager.EditarMarcaContenido(marcaContenido);
         }
 
+        public List <AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario)
+        {
+            return convocatoriaManager.ObtenerAsistenciaConvocatoriaPorIdUsuario(idUsuario);
+        }
+
         public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
         {
             return convocatoriaManager.ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(idUsuario, idConvocatoria);
