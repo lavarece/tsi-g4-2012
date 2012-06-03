@@ -407,7 +407,17 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                return AsistenciaConvocatoriaADO.ObtenerListadoPorIdUsuario(idUsuario, conexion);
+                List<AsistenciaConvocatoria> listaDeAsistencias = AsistenciaConvocatoriaADO.ObtenerListadoPorIdUsuario(idUsuario, conexion);
+
+
+                foreach (AsistenciaConvocatoria asistencia in listaDeAsistencias)
+                {
+                    asistencia.Convocatoria = ConvocatoriaADO.Obtener(asistencia.Convocatoria.Id, conexion);
+                }
+
+                return listaDeAsistencias;
+
+
             }
             catch (Exception ex)
             {
