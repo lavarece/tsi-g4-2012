@@ -51,6 +51,9 @@ namespace IndignaFwk.Business.Services
         void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
 
         [OperationContract]
+        List<AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario);
+
+        [OperationContract]
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
 
         // Operaciones MarcarContenido
