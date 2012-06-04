@@ -1,0 +1,83 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+              
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <!-- jQuery -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/layout_3/jquery-theme/jquery-ui-1.8.20.css")" media="all" />    
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.20.min.js")" type="text/javascript"></script>
+
+    <!-- Estilos particulares -->
+    <link href="@Url.Content("~/Content/layout_3/css/" + @ViewBag.GrupoSite.Tematica.NombreCSS + ".css")" rel="stylesheet" type="text/css" />    
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="logoHeader">
+                @ViewBag.GrupoSite.Nombre
+            </div>            
+            <div id="login">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul>
+                        <li class="usuarioAutenticado">
+                            Bienvenido, @User.Identity.Name
+                        </li>
+                        <li>                        
+                            <a href="@Url.Action("LogOff", "Account")">Editar perfil</a>
+                        </li>                   
+                        <li>                        
+                            <a href="@Url.Action("LogOff", "Account")">Cerrar sesión</a>
+                        </li>                                                
+                    </ul>
+                }
+                else
+                {
+                    <ul>
+                        <li>                        
+                            <a href="@Url.Action("Login", "Account")">Acceder</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Registro", "Account")">Registrarme</a>
+                        </li>
+                    </ul>
+                }                
+            </div>
+        </div>
+
+        <div id="menu">
+            <ul>    
+                <li class="selected"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href="@Url.Action("Listado", "Convocatoria")">Convocatorias</a></li>
+                    <li><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
+                }                
+            </ul>
+
+            <div style="clear: both;"></div>
+        </div>
+
+        <div id="page">
+            <div id="content">
+                @RenderBody()
+            </div>    
+            
+            <div style="clear:both"></div>        
+
+            <div id="footer">
+                <p>
+                    Sitio del grupo @ViewBag.GrupoSite.Nombre - Powered by Indignado Framework.
+                </p>
+            </div>
+        </div>
+        
+        @RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+    </div>
+</body>
+</html>
