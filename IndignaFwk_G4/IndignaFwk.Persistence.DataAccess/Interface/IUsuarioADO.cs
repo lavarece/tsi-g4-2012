@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IUsuarioADO
     {
-        int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
         
         void Editar(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion);
 
@@ -23,6 +23,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
         Usuario ObtenerPorEmail(string email, SqlConnection conexion);
 
-        List <Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo, SqlConnection conexion);
+        List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo, SqlConnection conexion, SqlTransaction transaccion = null);
     }
 }

@@ -41,6 +41,26 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public Usuario UsuarioCreacion { get; set; }
 
+        // Atributo utilizado por la presentacion
         public Boolean ExisteAsistenciaUsuario { get; set; }
+
+        // Funciones auxiliares
+        public string GetLatitud()
+        {
+            string cleanCoord = Coordenadas.Replace("(", "").Replace(")", "");
+
+            string[] array = cleanCoord.Split(',');
+
+            return array[0];
+        }
+
+        public string GetLongitud()
+        {
+            string cleanCoord = Coordenadas.Replace("(", "").Replace(")", "");
+
+            string[] array = cleanCoord.Split(',');
+
+            return array[1];
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        public int Crear(Administrador administrador, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(Administrador administrador, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -36,7 +36,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.ExecuteScalar();
 
-            return (int)command.Parameters["@idGen"].Value;
+            administrador.Id = (int)command.Parameters["@idGen"].Value;
         }
 
         public void Editar(Administrador administrador, SqlConnection conexion, SqlTransaction transaccion)

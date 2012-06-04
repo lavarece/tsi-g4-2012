@@ -1,0 +1,60 @@
+﻿
+<input type="hidden" id="latitudGrupo" value="@ViewBag.GrupoSite.GetLatitud()" />
+<input type="hidden" id="longitudGrupo" value="@ViewBag.GrupoSite.GetLongitud()" />
+<div id="divMapaSelector" title="Selector de coordenadas" style="display: none;"></div>  
+    
+<script type="text/javascript">
+
+    // Dialog Jquery
+    function showMapaSelector(idCampoSelector) {
+        $("#divMapaSelector").dialog({
+            modal: true,
+            resizable: false,
+            width: 600,
+            height: 600
+        });
+
+        initializeMapaSelector(idCampoSelector);
+    }
+
+    // Funciones sobre el mapa
+    var mapSelector;
+    var lastMarkerSelector;
+
+    function initializeMapaSelector(idCampoSelector) 
+    {
+        var latitud = $("#latitudGrupo").val();
+        var longitud = $("#longitudGrupo").val();
+        var campoSelector = $("#" + idCampoSelector);
+
+        var myOptions = {
+            center: new google.maps.LatLng(latitud, longitud),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        mapSelector = new google.maps.Map(document.getElementById("divMapaSelector"), myOptions);
+
+        google.maps.event.addListener(mapSelector, 'click', function (event) {
+            campoSelector.val(event.latLng);
+            addMarker(event.latLng);
+        });
+    }
+
+    function addMarker(location) 
+    {
+        var marker = new google.maps.Marker({
+            position: location,
+            map: mapSelector
+        });
+
+        if (lastMarkerSelector != null) 
+        {
+            lastMarkerSelector.setMap(null);
+        }
+
+        lastMarkerSelector = marker;
+        mapSelector.setCenter(location);
+    }
+
+</script>

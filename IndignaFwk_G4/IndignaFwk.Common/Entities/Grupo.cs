@@ -19,7 +19,10 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public string Descripcion { get; set; }
-        
+
+        [DataMember]
+        public string Coordenadas { get; set; }
+
         [DataMember]
         public string Url { get; set; }
 
@@ -31,5 +34,24 @@ namespace IndignaFwk.Common.Entities
 
         [DataMember]
         public Imagen Imagen { get; set; }
+
+        // Funciones auxiliares
+        public string GetLatitud()
+        {
+            string cleanCoord = Coordenadas.Replace("(", "").Replace(")", "");
+
+            string[] array = cleanCoord.Split(',');
+
+            return array[0];
+        }
+
+        public string GetLongitud()
+        {
+            string cleanCoord = Coordenadas.Replace("(", "").Replace(")", "");
+
+            string[] array = cleanCoord.Split(',');
+
+            return array[1];
+        }
     }
 }

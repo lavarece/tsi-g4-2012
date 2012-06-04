@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
         
-        public int Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -21,13 +21,14 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, FK_Id_Imagen, FK_Id_Layout, FK_Id_Tematica) " +
-                                  " values(@nombre, @descripcion, @url, @idImagen, @idLayout, @idTematica); " + 
+            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK_Id_Tematica) " +
+                                  " values(@nombre, @descripcion, @url, @coordenadas, @idImagen, @idLayout, @idTematica); " + 
                                   " select @idGen = SCOPE_IDENTITY() FROM Sitio; ";
             
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
+            UtilesBD.SetParameter(command, "coordenadas", grupo.Coordenadas);
             UtilesBD.SetParameter(command, "idLayout", grupo.Layout.Id);
             UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
 
@@ -42,7 +43,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteScalar();
 
             // este es el identificador generado
-            return (int)command.Parameters["@idGen"].Value;
+            grupo.Id = (int)command.Parameters["@idGen"].Value;
         }
 
         public void Editar(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
@@ -56,7 +57,8 @@ namespace IndignaFwk.Persistence.DataAccess
             command.CommandText = " UPDATE Sitio SET " +
                                   " Nombre = @nombre, " +                                    
                                   " Descripcion = @descripcion, " +
-                                  " Url = @url " +                                  
+                                  " Url = @url " +
+                                  " Coordenadas = @coordenadas" +                                  
                                   " FK_Id_Layout = @idLayout," +
                                   " FK_Id_Tematica = @idTematica," +
                                   " FK_Id_Imagen = @idImagen," +
@@ -66,6 +68,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);       
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
+            UtilesBD.SetParameter(command, "coordenadas", grupo.Coordenadas);
             UtilesBD.SetParameter(command, "idLayout", grupo.Layout.Id);
             UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
 
@@ -73,9 +76,6 @@ namespace IndignaFwk.Persistence.DataAccess
                 UtilesBD.SetParameter(command, "idImagen", grupo.Imagen.Id);
             else
                 UtilesBD.SetParameter(command, "idImagen", null);
-
-
-
 
             command.ExecuteNonQuery();
         }
@@ -122,6 +122,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
 
@@ -171,6 +173,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
+                    grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+
                     grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
 
                     grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
@@ -218,6 +222,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     grupo.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
 
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
 

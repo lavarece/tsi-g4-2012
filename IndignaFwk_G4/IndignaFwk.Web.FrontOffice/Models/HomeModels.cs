@@ -35,7 +35,7 @@ namespace IndignaFwk.Web.FrontOffice.Models
         [Display(Name = "Fecha fin:")]
         public string FechaFin { get; set; }
 
-        [Display(Name = "Mostrar sólo a las que asistiré:")]
+        [Display(Name = "Mostrar sólo a las que asistiré")]
         public bool Asistire { get; set; }
     }
 }

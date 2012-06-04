@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        public int Crear(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -34,7 +34,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteScalar();
 
             // este es el identificador generado
-            return (int)command.Parameters["@idGen"].Value;
+            usuTem.Id = (int)command.Parameters["@idGen"].Value;
         }
        
         public void Editar(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion)

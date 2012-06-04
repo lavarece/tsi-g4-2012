@@ -10,7 +10,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IContenidoADO
     {
-        int Crear(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion);
 

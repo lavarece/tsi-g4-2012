@@ -150,6 +150,7 @@ CREATE TABLE [dbo].[Sitio](
 	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[FK_Id_Imagen] [int] ,
 	[FK_Id_Layout] [int] NOT NULL,
 	[FK_Id_Tematica] [int] NOT NULL
@@ -211,7 +212,7 @@ CREATE TABLE [dbo].[Usuario](
 	[Apellido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Pregunta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Region] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int],
 	[FechaRegistro] [DateTime]

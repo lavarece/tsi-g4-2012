@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IVariableSistemaADO
     {
-        int Crear(VariableSistema variableSistema, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(VariableSistema variableSistema, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(VariableSistema variableSistema, SqlConnection conexion, SqlTransaction transaccion);
 

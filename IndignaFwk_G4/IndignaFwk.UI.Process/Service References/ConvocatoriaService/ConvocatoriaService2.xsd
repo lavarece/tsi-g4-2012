@@ -17,6 +17,7 @@
   <xs:element name="Convocatoria" nillable="true" type="tns:Convocatoria" />
   <xs:complexType name="Grupo">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Coordenadas" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Imagen" nillable="true" type="tns:Imagen" />
@@ -55,6 +56,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Apellido" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Conectado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Coordenadas" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:Grupo" />
@@ -64,7 +66,6 @@
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Pregunta" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Respuesta" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

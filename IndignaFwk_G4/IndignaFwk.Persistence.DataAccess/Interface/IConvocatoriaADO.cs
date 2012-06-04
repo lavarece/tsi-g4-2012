@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IConvocatoriaADO
     {
-        int Crear(Convocatoria convocatoria, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Convocatoria convocatoria, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(Convocatoria convocatoria, SqlConnection conexion, SqlTransaction transaccion);
 

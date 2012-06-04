@@ -88,11 +88,11 @@ namespace IndignaFwk.Business.Managers
                
                transaccion = UtilesBD.IniciarTransaccion(conexion); 
 
-               int ret = GrupoADO.Crear(grupo, conexion, transaccion);
+               GrupoADO.Crear(grupo, conexion, transaccion);
 
                UtilesBD.CommitTransaccion(transaccion);
 
-               return ret;
+               return grupo.Id;
            }
            catch (Exception ex)
            {

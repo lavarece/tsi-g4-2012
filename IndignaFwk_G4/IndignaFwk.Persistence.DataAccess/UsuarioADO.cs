@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        public int Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -21,8 +21,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Apellido, Password, Pregunta, Region, Respuesta, FK_Id_Sitio, FK_Id_Imagen) " +
-                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Apellido, @Password, @Pregunta, @Region, @Respuesta, @IdSitio, @IdImagen); " +
+            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Apellido, Password, Pregunta, Coordenadas, Respuesta, FK_Id_Sitio, FK_Id_Imagen) " +
+                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Apellido, @Password, @Pregunta, @Coordenadas, @Respuesta, @IdSitio, @IdImagen); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM Usuario; ";
 
             
@@ -32,7 +32,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
             UtilesBD.SetParameter(command, "Apellido", usuario.Apellido);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
-            UtilesBD.SetParameter(command, "Region", usuario.Region);
+            UtilesBD.SetParameter(command, "Coordenadas", usuario.Coordenadas);
             UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
             UtilesBD.SetParameter(command, "Pregunta", usuario.Pregunta);
             UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
@@ -48,7 +48,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteScalar();
 
             // este es el identificador generado
-            return (int)command.Parameters["@idGen"].Value;
+            usuario.Id = (int)command.Parameters["@idGen"].Value;
         }
 
         public void Editar(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
@@ -66,8 +66,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   "FK_Id_Sitio = @sitio, " + 
                                   "Nombre = @nombre, " +
                                   "Apellido = @apellido, " +
-                                  "Password = @password, " + 
-                                  "Region = @region, " + 
+                                  "Password = @password, " +
+                                  "Coordenadas = @Coordenadas, " + 
                                   "Respuesta = @respuesta, " + 
                                   "Pregunta = @Pregunta " + 
                                   "WHERE Id = @id";
@@ -80,7 +80,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
             UtilesBD.SetParameter(command, "Apellido", usuario.Apellido);
             UtilesBD.SetParameter(command, "Password", usuario.Password);
-            UtilesBD.SetParameter(command, "Region", usuario.Region);
+            UtilesBD.SetParameter(command, "Coordenadas", usuario.Coordenadas);
             UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
             UtilesBD.SetParameter(command, "Pregunta", usuario.Pregunta);
 
@@ -140,7 +140,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
-                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+                    usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     // Las referecias cargaras con los otros dao
                     return usuario;
@@ -157,7 +157,7 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        public List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo, SqlConnection conexion)
+        public List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo, SqlConnection conexion, SqlTransaction transaccion = null)
         {
             SqlDataReader reader = reader = null;
 
@@ -166,6 +166,11 @@ namespace IndignaFwk.Persistence.DataAccess
             try
             {
                 command = conexion.CreateCommand();
+
+                if (transaccion != null)
+                {
+                    command.Transaction = transaccion;
+                }
 
                 command.Connection = conexion;
 
@@ -197,7 +202,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
-                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+                    usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     // Las referecias cargaras con los otros dao
                     listaUsuarioGrupo.Add(usuario);
@@ -253,7 +258,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
-                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+                    usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     // Las referecias cargaras con los otros dao
                     listaUsuarios.Add(usuario);
@@ -310,7 +315,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
-                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+                    usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     usuario.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
                     
@@ -370,7 +375,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
-                    usuario.Region = UtilesBD.GetStringFromReader("Region", reader);
+                    usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     usuario.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
                     

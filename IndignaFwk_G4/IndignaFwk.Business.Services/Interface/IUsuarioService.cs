@@ -35,5 +35,9 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         Usuario ObtenerUsuarioPorEmail(string email);
+
+        // Operaciones con notificaciones
+        [OperationContract]
+        List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
     }
 }

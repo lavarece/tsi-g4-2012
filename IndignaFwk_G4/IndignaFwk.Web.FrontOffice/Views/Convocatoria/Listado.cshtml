@@ -93,21 +93,13 @@
                             @Html.ValidationMessageFor(m => m.FechaFin)
                         </div>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                    <br />
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.Asistire)
-                            @Html.CheckBoxFor(m => m.Asistire, new { @checked = "checked" })
-                        </div>
-                    </td>
-                </tr>
+                </tr>                
             </table>
             <div style="text-align: right; margin: 5px 0px;">
                 <div class="boton">
-                    <a href="@Url.Action("Listado", "Convocatoria")">Buscar</a>
-                </div>ch
+                    <a href="@Url.Action("Filtrar", "Convocatoria")">Buscar</a>
+                </div>
+            </div>
         </fieldset>
     </div>
 
@@ -115,6 +107,10 @@
     if (ViewBag.ListadoConvocatoriasGrupo != null && ViewBag.ListadoConvocatoriasGrupo.Count > 0)
     {
         <div class="wrapperDataTable">  
+            <div class="fieldLabel">
+                @Html.CheckBoxFor(m => m.Asistire)
+                @Html.LabelFor(m => m.Asistire)                
+            </div>            
             <table class="dataTable">
                 <thead>
                     <tr>            
@@ -126,8 +122,9 @@
                 </thead>
                 @foreach (Convocatoria convocatoria in ViewBag.ListadoConvocatoriasGrupo)
                 {
+                    string claseTR = ViewBag.ListadoConvocatoriasGrupo.IndexOf(convocatoria) % 2 == 0 ? "odd" : "even";
                     <tbody>        
-                        <tr class="odd">
+                        <tr class="@claseTR">
                             <td>@convocatoria.Titulo</td>
                             <td>@convocatoria.FechaInicio.ToString()</td>     
                             <td>@convocatoria.FechaFin.ToString()</td>
@@ -157,13 +154,36 @@
         <div>
             <h3>Ubicación y detalle de la convocatoria</h3>
         </div>
-        <div id="mapaConvocatorias">    
-            <div class="mapa">
-                <iframe src="http://maps.google.com.uy/?ie=UTF8&amp;t=m&amp;
-                            ll=-34.902827,-56.170349&amp;spn=0.098548,0.146255&amp;
-                            z=12&amp;output=embed">            
-                </iframe>    
-            </div>
+        <div id="mapaConvocatorias">                
+            <div class="mapa" id="divMapaConvocatoria"></div>
+            <input type="hidden" id="latitudConvocatoriaSel" value="@convocatoriaSel.GetLatitud()" />
+            <input type="hidden" id="longitudConvocatoriaSel" value="@convocatoriaSel.GetLongitud()" />
+
+            <script type="text/javascript">
+                $(function () {
+                    initializeMapaConvocatoria();
+                });
+
+                function initializeMapaConvocatoria() 
+                {
+                    var latitud = $("#latitudConvocatoriaSel").val();
+                    var longitud = $("#longitudConvocatoriaSel").val();
+
+                    var myOptions = {
+                        center: new google.maps.LatLng(latitud, longitud),
+                        zoom: 10,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+
+                    var mapaConvocatoria = new google.maps.Map(document.getElementById("divMapaConvocatoria"), myOptions);
+
+                    var marker = new google.maps.Marker({
+                        position: mapaConvocatoria.getCenter(),
+                        map: mapaConvocatoria
+                    });
+                }
+            </script>
+
             <div class="detalleConvocatoria">
                 <div class="fieldLabel">Titulo: <span class="fieldValue">@convocatoriaSel.Titulo</span></div>
                 <div class="fieldLabel">Descripción: <span class="fieldValue">@convocatoriaSel.Descripcion</span></div>

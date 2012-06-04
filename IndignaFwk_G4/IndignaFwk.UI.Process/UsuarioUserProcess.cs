@@ -92,5 +92,16 @@ namespace IndignaFwk.UI.Process
 
             return usuario;
         }
+
+        public List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            List<Notificacion> listadoNotificaciones = proxy.ObtenerListadoNotificacionesPorUsuario(idUsuario);
+
+            proxy.Close();
+
+            return listadoNotificaciones;
+        }
     }
 }

@@ -104,7 +104,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 usuario.Password = UtilesSeguridad.Encriptar(model.Contraseña);
                 usuario.Pregunta = model.PreguntaSecreta;
                 usuario.Respuesta = model.RespuestaSecreta;
-                usuario.Region = model.RegionGeografica;
+                usuario.Coordenadas = model.Coordenadas;
                 usuario.Grupo = this.site.Grupo;
                 //controlar mail que no exista en la base para ese grupo
 

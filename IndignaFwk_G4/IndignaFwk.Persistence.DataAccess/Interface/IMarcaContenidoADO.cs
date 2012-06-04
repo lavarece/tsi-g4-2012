@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IMarcaContenidoADO
     {
-        int Crear(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion);
 

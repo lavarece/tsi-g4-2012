@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IUsuTematicaADO
     {
-        int Crear(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(UsuTematica usuTem, SqlConnection conexion, SqlTransaction transaccion);
 

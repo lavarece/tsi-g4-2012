@@ -39,7 +39,7 @@ namespace IndignaFwk.Common.Entities
         public string Respuesta { get; set; }
 
         [DataMember]
-        public string Region { get; set; }
+        public string Coordenadas { get; set; }
 
         [DataMember]
         public Grupo Grupo { get; set; }
@@ -52,5 +52,24 @@ namespace IndignaFwk.Common.Entities
 
         // Retorna el nombre competo del usuario (Nombre + " " + Apellido)
         public string NombreCompleto { get { return Nombre + " " + Apellido; } }
+
+        // Funciones auxiliares
+        public string GetLatitud()
+        {
+            string cleanCoord = Coordenadas.Replace("(", "").Replace(")", "");
+
+            string[] array = cleanCoord.Split(',');
+
+            return array[0];
+        }
+
+        public string GetLongitud()
+        {
+            string cleanCoord = Coordenadas.Replace("(", "").Replace(")", "");
+
+            string[] array = cleanCoord.Split(',');
+
+            return array[1];
+        }
     }
 }

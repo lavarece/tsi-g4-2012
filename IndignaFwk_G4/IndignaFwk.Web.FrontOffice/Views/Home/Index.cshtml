@@ -64,52 +64,55 @@
                     <div class="fieldLabel">Visibilidad: <span class="fieldValue">@VisibilidadContenidoEnum.FromString(contenido.NivelVisibilidad).Etiqueta</span></div>
                     <div class="fieldLabel">Fecha creación: <span class="fieldValue">@contenido.FechaCreacion.ToString()</span></div>
 
-                    <div class="areaBotones">
-                        <ul>
-                            @if(contenido.MarcaContenidoUsuario == null) 
-                            {                                    
-                                <li>
-                                    <div class="boton">       
-                                        <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="boton">       
-                                        <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
-                                    </div>
-                                </li>               
-                            }
-                            else
-                            {
-                                if(contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.ME_GUSTA.Valor))
-                                {
-                                    <li>
-                                        <div class="botonPressed">       
-                                            <a href="#">Me gusta</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="boton">       
-                                            <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
-                                        </div>
-                                    </li>  
-                                }
-                                else if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.INADECUADO.Valor))
-                                {
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="areaBotones">
+                            <ul>
+                                @if(contenido.MarcaContenidoUsuario == null) 
+                                {                                    
                                     <li>
                                         <div class="boton">       
                                             <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="botonPressed">       
-                                            <a href="#">Inadecuado</a>
+                                        <div class="boton">       
+                                            <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
                                         </div>
-                                    </li>
+                                    </li>               
                                 }
-                            }
-                        </ul>
-                    </div>
+                                else
+                                {
+                                    if(contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.ME_GUSTA.Valor))
+                                    {
+                                        <li>
+                                            <div class="botonPressed">       
+                                                <a href="#">Me gusta</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="boton">       
+                                                <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
+                                            </div>
+                                        </li>  
+                                    }
+                                    else if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.INADECUADO.Valor))
+                                    {
+                                        <li>
+                                            <div class="boton">       
+                                                <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="botonPressed">       
+                                                <a href="#">Inadecuado</a>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
                 </div>
             </div>
         }
