@@ -93,7 +93,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
 
-                    asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+                    asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
 
@@ -135,7 +135,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
 
-                    asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+                    asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
 
@@ -178,7 +178,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
 
-                    asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+                    asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
 
@@ -218,7 +218,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     AsistenciaConvocatoria asistenciaC = new AsistenciaConvocatoria();
 
-                    asistenciaC.Id = UtilesBD.GetIntFromReader("id", reader);
+                    asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
                     asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
 
