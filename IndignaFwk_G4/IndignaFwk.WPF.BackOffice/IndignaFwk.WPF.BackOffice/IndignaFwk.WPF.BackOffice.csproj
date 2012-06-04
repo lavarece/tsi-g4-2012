@@ -188,7 +188,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ReporteTiempo\RegistroTiempo.Designer.cs" />
-    <Compile Include="ReporteTiempo\ReporteTiempo.cs" />
+    <Compile Include="ReporteTiempo\ReporteTiempo.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Page Include="CrearAdministrador.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
