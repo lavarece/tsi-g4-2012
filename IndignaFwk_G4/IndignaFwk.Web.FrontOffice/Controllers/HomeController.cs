@@ -27,6 +27,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             base.PopulateViewBag();
 
+            ViewBag.OpcionMenu = "Inicio";
+
             // Cargo los contenidos, si el usuario esta autenticado cargo todos (Privados y Publicos) si no solo los privados
             if (HttpContext.User.Identity.IsAuthenticated)
             {

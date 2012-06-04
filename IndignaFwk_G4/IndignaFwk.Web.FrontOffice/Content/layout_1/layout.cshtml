@@ -51,14 +51,20 @@
             </div>            
         </div>
 
+        @{
+            string claseMenuInicio = "Inicio".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+            string claseMenuConvocatoria = "Convocatoria".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+            string claseMenuNotificacion = "Notificacion".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+            string claseMenuChat = "Chat".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+        }
         <div id="menu">
             <ul>    
-                <li class="selected"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+                <li class="@claseMenuInicio"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
                 @if (User.Identity.IsAuthenticated)
                 {                
-                    <li><a href="@Url.Action("Listado", "Convocatoria")">Convocatorias</a></li>
-                    <li><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
-                    <li><a href="@Url.Action("SalaGrupo", "Chat")">Chat</a></li>
+                    <li class="@claseMenuConvocatoria"><a href="@Url.Action("Listado", "Convocatoria")">Convocatorias</a></li>
+                    <li class="@claseMenuNotificacion"><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
+                    <li class="@claseMenuChat"><a href="@Url.Action("SalaGrupo", "Chat")">Chat</a></li>
                 }
             </ul>
         </div>
