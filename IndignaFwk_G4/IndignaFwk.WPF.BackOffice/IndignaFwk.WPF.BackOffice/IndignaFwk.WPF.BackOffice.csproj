@@ -187,6 +187,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ReporteTiempo\RegistroTiempo.Designer.cs" />
+    <Compile Include="ReporteTiempo\ReporteTiempo.cs" />
     <Page Include="CrearAdministrador.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -319,6 +321,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="ReporteTiempo\RegistroTiempo.xsc">
+      <DependentUpon>RegistroTiempo.xsd</DependentUpon>
+    </None>
+    <None Include="ReporteTiempo\RegistroTiempo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReporteTiempo\RegistroTiempo.xss">
+      <DependentUpon>RegistroTiempo.xsd</DependentUpon>
+    </None>
+    <None Include="ReporteTiempo\ReporteTiempo.rpt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
