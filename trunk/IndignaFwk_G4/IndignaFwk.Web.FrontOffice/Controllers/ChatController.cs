@@ -17,6 +17,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
+
+            ViewBag.OpcionMenu = "Chat";
         }
 
         public ActionResult SalaGrupo()

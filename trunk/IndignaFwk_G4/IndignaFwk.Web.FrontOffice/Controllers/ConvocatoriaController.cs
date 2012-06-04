@@ -14,47 +14,17 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
     public class ConvocatoriaController : BaseController
     {
         private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
-        private Boolean asistire;
-        private int idUsu;
         
-        //tratando de pasar valores del checkbox al controlador
-        [HttpPost]
-        public void setAsistire(bool v) 
-        {
-            asistire = bool.Parse(Request["asistirech"]); 
-
-            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
-            idUsu = ci.Id;
-        }
-        //tratando de devolver valores que carge en el controller del checkbox
-        public bool getAsistire()
-        {
-            return asistire;
-        }
-
         public ConvocatoriaController(IApplicationTenant site)
         {
             this.site = site;
         }
 
-        
         protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
 
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-
-                if (true) //debo obtener estado de checkbox ak
-                {
-                                                            //idusuario
-                    ViewBag.ListadoConvocatoriasGrupo= Buscar(4); //lista las convocatorias que un usuario asistira
-                }
-                else
-                {
-                    ViewBag.ListadoConvocatoriasGrupo = convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
-                }
-            }
+            ViewBag.OpcionMenu = "Convocatoria";
         }
 
         public ActionResult Crear()
@@ -103,6 +73,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult Listado()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ListadoConvocatoriasGrupo = BuscarConvocatorias();
+            }
+
             PopulateViewBag();
 
             return View();
@@ -147,7 +122,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             AddControllerMessage("Asistencia guardada");
 
-            // Recargo la convocatoria para ponerla en el ViewBag
+            // Recargo la convocatoria seleccionada para ponerla en el ViewBag
             Convocatoria convocatoriaSeleccionada = convocatoriaUserProcess.ObtenerConvocatoriaPorId(idConvocatoriaSeleccionada);
 
             convocatoriaSeleccionada.ExisteAsistenciaUsuario = true;
@@ -177,7 +152,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             AddControllerMessage("Asistencia eliminada");
 
-            // Recargo la convocatoria para ponerla en el ViewBag
+            // Recargo la convocatoria seleccionada para ponerla en el ViewBag
             Convocatoria convocatoriaSeleccionada = convocatoriaUserProcess.ObtenerConvocatoriaPorId(idConvocatoriaSeleccionada);
 
             convocatoriaSeleccionada.ExisteAsistenciaUsuario = false;
@@ -189,20 +164,25 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return View("Listado");
         }
 
-        //devuelve una coleccion con las convocatorias que el usuario de idUsuario asistira
-        public List<Convocatoria> Buscar(int idUsuario)
+        [HttpPost]
+        public ActionResult FiltrarConvocatorias(FiltroConvocatoriaModel model)
         {
-            //Obtengo lista de las convocatorias a las que el usuario asistira
-            List<AsistenciaConvocatoria> listaAsistenciaConvocatoriaDeUsuario = convocatoriaUserProcess.ObtenerAsistenciaConvocatoriaPorIdUsuario(idUsuario);
-            List<Convocatoria> convocatoriasqueasisto = new List<Convocatoria>();
-
-            foreach (AsistenciaConvocatoria asistencia in listaAsistenciaConvocatoriaDeUsuario)
+            if(ModelState.IsValid)
             {
-                Convocatoria c = asistencia.Convocatoria;
-                convocatoriasqueasisto.Add(c);    
+                // Armo un filtroBusquedaConvocatorias con la info del model
+
+                // Invoco al buscar del userProcess
             }
 
-            return convocatoriasqueasisto;    
+            PopulateViewBag();
+
+            return View("Listado");
+        }
+
+        // Operacion auxiliar para buscar las convocatorias a partir de un filtro de busqueda
+        private List<Convocatoria> BuscarConvocatorias()
+        {
+            return new List<Convocatoria>();
         }
 
     }

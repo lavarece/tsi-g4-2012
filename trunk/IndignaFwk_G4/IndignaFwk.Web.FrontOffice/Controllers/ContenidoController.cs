@@ -26,6 +26,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             base.PopulateViewBag();
 
+            ViewBag.OpcionMenu = "Inicio";
+
             ViewBag.ListaTiposContenido = TipoContenidoEnum.ObtenerListado();
 
             ViewBag.ListaNivelesVisibilidad = VisibilidadContenidoEnum.ObtenerListado();
