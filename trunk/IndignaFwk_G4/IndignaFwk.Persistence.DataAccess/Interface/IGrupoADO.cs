@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IGrupoADO
     {
-        int Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion);
 

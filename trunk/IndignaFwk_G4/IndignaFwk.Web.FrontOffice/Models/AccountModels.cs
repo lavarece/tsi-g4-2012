@@ -39,8 +39,8 @@ namespace IndignaFwk.Web.FrontOffice.Models
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Region geografica")]
-        public string RegionGeografica { get; set; }
+        [Display(Name = "Ubicación (Lat, Long)")]
+        public string Coordenadas { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
         [StringLength(100, ErrorMessage = "El password debe ser mayor a 6 caracteres.", MinimumLength = 6)]

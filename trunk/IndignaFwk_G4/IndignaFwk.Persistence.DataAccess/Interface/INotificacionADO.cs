@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface INotificacionADO
     {
-        int Crear(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion);
 
@@ -18,5 +18,7 @@ namespace IndignaFwk.Persistence.DataAccess
         Notificacion Obtener(int id, SqlConnection conexion);
 
         List<Notificacion> ObtenerListado(SqlConnection conexion);
+
+        List<Notificacion> ObtenerListadoPorUsuario(SqlConnection conexion, int idUsuario);
     }
 }

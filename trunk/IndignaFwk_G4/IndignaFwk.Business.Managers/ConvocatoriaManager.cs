@@ -87,6 +87,19 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        private INotificacionADO _notifiacionADO;
+        protected INotificacionADO NotificacionADO
+        {
+            get
+            {
+                if (_notifiacionADO == null)
+                {
+                    _notifiacionADO = new NotificacionADO();
+                }
+
+                return _notifiacionADO;
+            }
+        }
 
         /* OPERACIONES */
         public int CrearNuevaConvocatoria(Convocatoria convocatoria)
@@ -97,11 +110,40 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int ret = ConvocatoriaADO.Crear(convocatoria, conexion, transaccion);
+                ConvocatoriaADO.Crear(convocatoria, conexion, transaccion);
+
+                // Se creara una notificacion a todos los usuarios que se encuentren a menos de 50mk de la convocatoria
+                List<Usuario> usuariosGrupo = UsuarioADO.ObtenerUsuariosPorIdGrupo(convocatoria.Grupo.Id, conexion, transaccion);
+
+                foreach (Usuario usuario in usuariosGrupo)
+                {
+                    double distance = UtilesGenerales.CalcularDistanciaCoordenadas(convocatoria.GetLatitud(),
+                                                                                   convocatoria.GetLongitud(),
+                                                                                   usuario.GetLatitud(),
+                                                                                   usuario.GetLongitud());
+
+                    // Si distancia en KM entre usuario y convocatoria menor a 50 notifico
+                    if (distance < 50D)
+                    {
+                        Notificacion notificacion = new Notificacion();
+
+                        notificacion.Contenido = "Se ha creado la convocatoria '" + convocatoria.Titulo + "' a menos de 50Km de su posición.";
+
+                        notificacion.Visto = false;
+
+                        notificacion.Convocatoria = convocatoria;
+
+                        notificacion.Usuario = usuario;
+
+                        notificacion.FechaCreacion = DateTime.Now;
+
+                        NotificacionADO.Crear(notificacion, conexion, transaccion);
+                    }
+                }
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return ret;
+                return convocatoria.Id;
             }
             catch (Exception ex)
             {
@@ -232,11 +274,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int ret = ContenidoADO.Crear(contenido, conexion, transaccion);
+                ContenidoADO.Crear(contenido, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return ret;
+                return contenido.Id;
             }
             catch (Exception ex)
             {
@@ -333,11 +375,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int ret = MarcaContenidoADO.Crear(marcaContenido, conexion, transaccion);
+                MarcaContenidoADO.Crear(marcaContenido, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return ret;
+                return marcaContenido.Id;
             }
             catch (Exception ex)
             {
@@ -383,11 +425,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int ret = AsistenciaConvocatoriaADO.Crear(asistenciaConvocatoria, conexion, transaccion);
+                AsistenciaConvocatoriaADO.Crear(asistenciaConvocatoria, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return ret;
+                return asistenciaConvocatoria.Id;
             }
             catch (Exception ex)
             {

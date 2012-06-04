@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IImagenADO
     {
-        int Crear(Imagen imagen, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Imagen imagen, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(Imagen imagen, SqlConnection conexion, SqlTransaction transaccion);
 

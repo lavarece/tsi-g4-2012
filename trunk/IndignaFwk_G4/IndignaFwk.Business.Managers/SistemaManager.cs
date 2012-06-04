@@ -74,11 +74,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int id = VariableADO.Crear(variable, conexion, transaccion);
+                VariableADO.Crear(variable, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return id;
+                return variable.Id;
             }
             catch (Exception ex)
             {

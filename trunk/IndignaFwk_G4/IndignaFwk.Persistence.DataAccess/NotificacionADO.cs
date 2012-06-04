@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
 
-        public int Crear(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -37,7 +37,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteScalar();
 
             // este es el identificador generado
-            return (int)command.Parameters["@idGen"].Value;
+            notificacion.Id = (int)command.Parameters["@idGen"].Value;
         }
 
         public void Editar(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion)
@@ -103,7 +103,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    // Las relaciones desde los ADO particulares
+                    notificacion.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader)};
+
+                    notificacion.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader)};
 
                     return notificacion;
                 }
@@ -147,7 +149,57 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    // Las relaciones desde los ADO particulares
+                    notificacion.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader)};
+
+                    notificacion.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader)};
+
+                    listaNotificaciones.Add(notificacion);
+                }
+
+                return listaNotificaciones;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
+        public List<Notificacion> ObtenerListadoPorUsuario(SqlConnection conexion, int idUsuario)
+        {
+            SqlDataReader reader = null;
+
+            List<Notificacion> listaNotificaciones = new List<Notificacion>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                command.CommandText = "SELECT * FROM Notificacion n where n.FK_Id_Usuario = @idUsuario";
+
+                UtilesBD.SetParameter(command, "idUsuario", idUsuario);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Notificacion notificacion = new Notificacion();
+
+                    notificacion.Id = UtilesBD.GetIntFromReader("id", reader);
+
+                    notificacion.Contenido = UtilesBD.GetStringFromReader("Contenido", reader);
+
+                    notificacion.Visto = ("1".Equals(UtilesBD.GetStringFromReader("Visto", reader)) ? true : false);
+
+                    notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
+
+                    notificacion.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+
+                    notificacion.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
 
                     listaNotificaciones.Add(notificacion);
                 }

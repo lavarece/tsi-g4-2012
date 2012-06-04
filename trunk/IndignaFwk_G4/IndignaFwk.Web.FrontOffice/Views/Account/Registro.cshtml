@@ -99,11 +99,11 @@
             <tr>
                 <td>
                     <div class="fieldLabel">
-                        @Html.LabelFor(m=>m.RegionGeografica)
+                        @Html.LabelFor(m=>m.Coordenadas)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.RegionGeografica)
-                        @Html.ValidationMessageFor(m => m.RegionGeografica)
+                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasUsuario", @readonly = true} )
+                        @Html.ValidationMessageFor(m => m.Coordenadas)                         
                     </div>
                 </td>
                 <td>
@@ -122,3 +122,13 @@
         </ul>        
     </div>              
 }
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#txtCoordenadasUsuario').click(function () {
+            showMapaSelector('txtCoordenadasUsuario');
+        });
+    });
+
+</script>

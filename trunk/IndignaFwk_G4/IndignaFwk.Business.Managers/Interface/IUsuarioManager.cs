@@ -23,5 +23,8 @@ namespace IndignaFwk.Business.Managers
         List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo);
 
         Usuario ObtenerPorEmail(string email);
+
+        // Funciones con notificaciones
+        List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
     }
 }

@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
-        public int Crear(AsistenciaConvocatoria asistenciaConvocatoria, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(AsistenciaConvocatoria asistenciaConvocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -33,7 +33,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.ExecuteScalar();
 
-            return (int) command.Parameters["@idGen"].Value;
+            asistenciaConvocatoria.Id = (int) command.Parameters["@idGen"].Value;
         }
 
         public void Editar(AsistenciaConvocatoria asistenciaConvocatoria, SqlConnection conexion, SqlTransaction transaccion)

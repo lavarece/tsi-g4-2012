@@ -1,4 +1,6 @@
-﻿@{
+﻿@using IndignaFwk.Common.Entities;
+
+@{
     ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Notificaciones";
     Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
 }
@@ -8,60 +10,58 @@
         <h3>Listado de notificaciones</h3>
     </div>
 
-    <div class="areaBotones">
-        <ul>
-            <li>
-                <div class="boton">
-                    <a href="#">Marcar como leído</a>
-                </div>
-            </li>
-            <li>
-                <div class="boton">
-                    <a href="#">Marcar como no leído</a>
-                </div>
-            </li>
-            <li>
-                <div class="boton">
-                    <a href="#">Eliminar</a>
-                </div>
-            </li>            
-        </ul>
-    </div>
+    @if (ViewBag.ListadoNotificacionesUsuario != null && ViewBag.ListadoNotificacionesUsuario.Count > 0)
+    {        
+        <div class="areaBotones">
+            <ul>
+                <li>
+                    <div class="boton">
+                        <a href="#">Marcar como leído</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a href="#">Marcar como no leído</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="boton">
+                        <a href="#">Eliminar</a>
+                    </div>
+                </li>            
+            </ul>
+        </div>
 
-    <div class="wrapperDataTable">    
-        <table class="dataTable">
-            <thead>
-                <tr>            
-                    <th><input type="checkbox"/></th>
-                    <th>Notificación</th>
-                </tr>
-            </thead>
-            <tbody>        
-                <tr class="odd">
-                    <td class="fieldCheckbox">
-                        <input type="checkbox"/>
-                    </td>
-                    <td class="notificacionNoLeida">
-                        Contenido de la notificacion
-                    </td>                       
-                </tr>
-                <tr class="even">
-                     <td class="fieldCheckbox">
-                        <input type="checkbox" />
-                    </td>
-                    <td class="notificacionNoLeida">
-                        Contenido de la notificacion
-                    </td>      
-                </tr>
-                <tr class="odd">
-                    <td class="fieldCheckbox">
-                        <input type="checkbox" />
-                    </td>
-                    <td>
-                        Contenido de la notificacion
-                    </td>          
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="wrapperDataTable">    
+            <table class="dataTable">
+                <thead>
+                    <tr>            
+                        <th><input type="checkbox"/></th>
+                        <th>Notificación</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    @foreach (Notificacion notificacion in ViewBag.ListadoNotificacionesUsuario)
+                    {
+                        string claseTR = ViewBag.ListadoNotificacionesUsuario.IndexOf(notificacion) % 2 == 0 ? "odd" : "even";
+                        string claseTDContenido = notificacion.Visto == false ? "notificacionNoLeida" : "";
+                        <tr class="@claseTR">
+                            <td class="fieldCheckbox">
+                                <input type="checkbox"/>
+                            </td>
+                            <td class="@claseTDContenido">
+                                @notificacion.Contenido
+                            </td>                       
+                        </tr>
+                    }                    
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="mensajeListadoVacio">
+            No tiene ninguna notificación.
+        </div>
+    }
 </div>

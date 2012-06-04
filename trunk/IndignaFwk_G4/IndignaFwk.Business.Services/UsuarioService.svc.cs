@@ -53,5 +53,10 @@ namespace IndignaFwk.Business.Services
         { 
             return usuarioManager.ObtenerPorEmail(email);
         }
+
+        public List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario)
+        {
+            return usuarioManager.ObtenerListadoNotificacionesPorUsuario(idUsuario);
+        }
     }
 }

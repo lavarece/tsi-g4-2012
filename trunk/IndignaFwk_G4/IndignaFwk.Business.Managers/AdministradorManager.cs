@@ -40,11 +40,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int ret = AdministradorADO.Crear(administrador, conexion, transaccion);
+                AdministradorADO.Crear(administrador, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return ret;
+                return administrador.Id;
             }
             catch (Exception ex)
             {

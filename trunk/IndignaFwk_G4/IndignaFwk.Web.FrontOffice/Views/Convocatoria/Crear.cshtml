@@ -82,9 +82,9 @@
                         @Html.LabelFor(m => m.Coordenadas)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Coordenadas)
-                        @Html.ValidationMessageFor(m => m.Coordenadas)
-                    </div>                    
+                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasConvocatoria"})
+                        @Html.ValidationMessageFor(m => m.Coordenadas)                        
+                    </div>                                        
                 </td>
                 <td>
                 </td>
@@ -105,12 +105,18 @@
                 </div>       
             </li>
         </ul>        
-    </div>              
+    </div>            
 }
 
 <script type="text/javascript">
+
     $(function () {
         $("#fechaInicioConvocatoria").datepicker();
         $("#fechaFinConvocatoria").datepicker();
+
+        $('#txtCoordenadasConvocatoria').click(function () {
+            showMapaSelector('txtCoordenadasConvocatoria');
+        });
     });
+
 </script>

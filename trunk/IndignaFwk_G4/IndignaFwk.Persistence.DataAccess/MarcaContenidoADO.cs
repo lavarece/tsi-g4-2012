@@ -13,7 +13,7 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
 
-        public int Crear(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion)
+        public void Crear(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
 
@@ -35,7 +35,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.ExecuteScalar();
 
             // este es el identificador generado
-            return (int)command.Parameters["@idGen"].Value;
+            marcaContenido.Id = (int)command.Parameters["@idGen"].Value;
         }
 
         public void Editar(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion)

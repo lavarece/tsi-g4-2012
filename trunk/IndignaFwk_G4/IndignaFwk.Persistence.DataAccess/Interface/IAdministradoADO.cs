@@ -9,7 +9,7 @@ namespace IndignaFwk.Persistence.DataAccess
 {
     public interface IAdministradoADO
     {
-        int Crear(Administrador administrador, SqlConnection conexion, SqlTransaction transaccion);
+        void Crear(Administrador administrador, SqlConnection conexion, SqlTransaction transaccion);
 
         void Editar(Administrador administrador, SqlConnection conexion, SqlTransaction transaccion);
 

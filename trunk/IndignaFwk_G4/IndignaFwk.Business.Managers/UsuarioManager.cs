@@ -18,7 +18,6 @@ namespace IndignaFwk.Business.Managers
 
         /* DEPENDENCIAS */
         private IUsuarioADO _usuarioAdo;
-
         protected IUsuarioADO UsuarioADO
         {
             get
@@ -32,9 +31,7 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-        /* DEPENDENCIAS */
         private IGrupoADO _grupoADO;
-
         protected IGrupoADO GrupoADO
         {
             get
@@ -45,6 +42,20 @@ namespace IndignaFwk.Business.Managers
                 }
 
                 return _grupoADO;
+            }
+        }
+
+        private INotificacionADO _notificacionADO;
+        protected INotificacionADO NotificacionADO
+        {
+            get
+            {
+                if (_notificacionADO == null)
+                {
+                    _notificacionADO = new NotificacionADO();
+                }
+
+                return _notificacionADO;
             }
         }
 
@@ -62,11 +73,11 @@ namespace IndignaFwk.Business.Managers
 
                 transaccion = UtilesBD.IniciarTransaccion(conexion);
 
-                int id = UsuarioADO.Crear(usuario, conexion, transaccion);
+                UsuarioADO.Crear(usuario, conexion, transaccion);
 
                 UtilesBD.CommitTransaccion(transaccion);
 
-                return id;
+                return usuario.Id;
             }
             catch (Exception ex)
             {
@@ -79,8 +90,6 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
-
-
 
         /*
          * Método que obtiene la lista de sitios de 
@@ -246,6 +255,26 @@ namespace IndignaFwk.Business.Managers
                  conexion = UtilesBD.ObtenerConexion(true);
 
                  return UsuarioADO.ObtenerPorEmailYPass(email, pass, conexion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
+         public List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return NotificacionADO.ObtenerListadoPorUsuario(conexion, idUsuario);
              }
              catch (Exception ex)
              {

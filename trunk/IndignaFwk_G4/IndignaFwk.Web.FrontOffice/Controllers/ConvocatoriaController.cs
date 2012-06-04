@@ -98,6 +98,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
 
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ListadoConvocatoriasGrupo = BuscarConvocatorias();
+            }
+
             PopulateViewBag();
 
             return View("Listado");
@@ -129,6 +134,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
 
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ListadoConvocatoriasGrupo = BuscarConvocatorias();
+            }
+
             PopulateViewBag();
 
             return View("Listado");
@@ -159,13 +169,18 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             ViewBag.ConvocatoriaSeleccionada = convocatoriaSeleccionada;
 
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ListadoConvocatoriasGrupo = BuscarConvocatorias();
+            }
+
             PopulateViewBag();
 
             return View("Listado");
         }
 
         [HttpPost]
-        public ActionResult FiltrarConvocatorias(FiltroConvocatoriaModel model)
+        public ActionResult Filtrar(FiltroConvocatoriaModel model)
         {
             if(ModelState.IsValid)
             {
@@ -182,7 +197,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         // Operacion auxiliar para buscar las convocatorias a partir de un filtro de busqueda
         private List<Convocatoria> BuscarConvocatorias()
         {
-            return new List<Convocatoria>();
+            return convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
         }
 
     }

@@ -55,6 +55,12 @@
   <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailResponse" />
   </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerListadoNotificacionesPorUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoNotificacionesPorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerListadoNotificacionesPorUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoNotificacionesPorUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUsuarioService">
     <wsdl:operation name="CrearNuevoUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/CrearNuevoUsuario" message="tns:IUsuarioService_CrearNuevoUsuario_InputMessage" />
@@ -87,6 +93,10 @@
     <wsdl:operation name="ObtenerUsuarioPorEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail" message="tns:IUsuarioService_ObtenerUsuarioPorEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoNotificacionesPorUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario" message="tns:IUsuarioService_ObtenerListadoNotificacionesPorUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuarioResponse" message="tns:IUsuarioService_ObtenerListadoNotificacionesPorUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUsuarioService" type="tns:IUsuarioService">
@@ -156,6 +166,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerUsuarioPorEmail">
       <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoNotificacionesPorUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
