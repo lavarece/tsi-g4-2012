@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace IndignaFwk_WPF_BackOffice {
+namespace IndignaFwk_WPF_BackOffice.ReporteTiempo {
     
     
     /// <summary>
@@ -1672,7 +1672,7 @@ namespace IndignaFwk_WPF_BackOffice {
         }
     }
 }
-namespace IndignaFwk_WPF_BackOffice.RegistroTiempoTableAdapters {
+namespace IndignaFwk_WPF_BackOffice.ReporteTiempo.RegistroTiempoTableAdapters {
     
     
     /// <summary>
@@ -1899,7 +1899,7 @@ SELECT Id, Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Apellido, Passwor
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "";
+            this._connection.ConnectionString = global::IndignaFwk_WPF_BackOffice.Properties.Settings.Default.IndignadoFDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2562,7 +2562,7 @@ SELECT Id, Nombre, Descripcion, Url, FK_Id_Imagen, FK_Id_Layout, FK_Id_Tematica 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "";
+            this._connection.ConnectionString = global::IndignaFwk_WPF_BackOffice.Properties.Settings.Default.IndignadoFDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
