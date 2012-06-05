@@ -8,6 +8,7 @@ insert into Tematica (Id, Nombre, NombreCSS) values (1, 'Por defecto', 'default'
 
 /* grupos */
 insert into Sitio (Nombre, Descripcion, Url, Coordenadas, FK_Id_Layout, FK_Id_Tematica) values ('Grupo prueba layout 1', 'Grupo para probar el layout 1 situado en uruguay', 'localhost', '-34.831841,-56.195068', 1, 1); 
+insert into Sitio (Nombre, Descripcion, Url, Coordenadas, FK_Id_Layout, FK_Id_Tematica) values ('Grupo prueba layout 3', 'Grupo para probar el layout 3 situado en uruguay', 'layout3', '-34.831841,-56.195068', 3, 1); 
 
 /*variables sistema*/
 INSERT INTO VariableSistema (Nombre, Valor) VALUES ('Recursos más rankeados', '5')
