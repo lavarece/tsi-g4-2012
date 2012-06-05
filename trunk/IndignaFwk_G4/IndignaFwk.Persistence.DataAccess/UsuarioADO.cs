@@ -62,8 +62,7 @@ namespace IndignaFwk.Persistence.DataAccess
             command.CommandText = "UPDATE Usuario SET " + 
                                   "Conectado = @conectado, " + 
                                   "Descripcion = @descripcion, " + 
-                                  "Email = @email, " + 
-                                  "FK_Id_Sitio = @sitio, " + 
+                                  "Email = @email, " +                                   
                                   "Nombre = @nombre, " +
                                   "Apellido = @apellido, " +
                                   "Password = @password, " +
@@ -76,7 +75,6 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Conectado", (usuario.Conectado == true ? "1" : "0"));
             UtilesBD.SetParameter(command, "Descripcion", usuario.Descripcion);
             UtilesBD.SetParameter(command, "Email", usuario.Email);
-            UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
             UtilesBD.SetParameter(command, "Nombre", usuario.Nombre);
             UtilesBD.SetParameter(command, "Apellido", usuario.Apellido);
             UtilesBD.SetParameter(command, "Password", usuario.Password);

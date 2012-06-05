@@ -10,6 +10,7 @@ using System.Web.Security;
 using IndignaFwk.Common.Entities;
 using IndignaFwk.Common.Util;
 using IndignaFwk.UI.Process;
+using IndignaFwk.Web.FrontOffice.Util;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
@@ -60,6 +61,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                     HttpContext.Response.Cookies.Add(authCookie);
 
+                    // Seteo la propiedad conectado del usuario a true
+                    usuario.Conectado = true;
+
+                    usuarioUserProcess.EditarUsuario(usuario);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -75,6 +81,15 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult LogOff()
         {
+            // Seteo la propiedad conectado del usuario a false
+            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+            Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+
+            usuario.Conectado = false;
+
+            usuarioUserProcess.EditarUsuario(usuario);
+
             FormsAuthentication.SignOut();
 
             PopulateViewBag();

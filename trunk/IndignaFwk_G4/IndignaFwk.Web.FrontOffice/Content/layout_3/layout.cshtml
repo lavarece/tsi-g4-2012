@@ -15,6 +15,14 @@
 
     <!-- Estilos particulares -->
     <link href="@Url.Content("~/Content/layout_3/css/" + @ViewBag.GrupoSite.Tematica.NombreCSS + ".css")" rel="stylesheet" type="text/css" />    
+
+    <script type="text/javascript">
+        $(function () {
+            window.isActive = true;
+            $(window).focus(function () { this.isActive = true; });
+            $(window).blur(function () { this.isActive = false; });
+        });
+    </script>
 </head>
 
 <body>
@@ -69,9 +77,14 @@
                     <li class="@claseMenuNotificacion"><a href="@Url.Action("Listado", "Notificacion")">Notificaciones</a></li>
                     if (ViewBag.NotificacionesNoLeidas != null && ViewBag.NotificacionesNoLeidas > 0)
                     {
-                        <span class="alertaNotificacionesPendientes">
+                        <span class="alertaNotificacionesPendientes" style="display: none;" id="alertaNotificacionesPendientes">
                             @ViewBag.NotificacionesNoLeidas
                         </span>
+                        <script type="text/javascript">
+                            $(function () {
+                                $("#alertaNotificacionesPendientes").show('pulsate', {}, "slow", null);
+                            });
+                        </script>
                     }
                 }                
             </ul>
@@ -93,7 +106,10 @@
             </div>
         </div>
         
-        @RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+        @if (User.Identity.IsAuthenticated)
+        {            
+            @RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+        }
 
     </div>
 </body>

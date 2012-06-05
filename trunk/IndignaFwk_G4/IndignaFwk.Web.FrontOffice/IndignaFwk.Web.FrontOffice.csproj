@@ -93,7 +93,8 @@
     <Content Include="Content\layout_1\images\bg_body.png" />
     <Content Include="Content\layout_1\images\group_no_image.png" />
     <Content Include="Content\layout_1\images\header.png" />
-    <Content Include="Content\layout_1\images\ico_conectado.png" />
+    <Content Include="Content\layout_1\images\ico_offline.png" />
+    <Content Include="Content\layout_1\images\ico_online.png" />
     <Content Include="Content\layout_1\images\ico_posMapa.png" />
     <Content Include="Content\layout_1\images\ico_vineta.gif" />
     <Content Include="Content\layout_1\images\user_no_image.png" />
@@ -115,11 +116,14 @@
     <Content Include="Content\layout_1\jquery-theme\jquery-ui-1.8.20.css" />
     <Content Include="Content\layout_1\css\default.css" />
     <Content Include="Content\layout_2\images\header.png" />
+    <Content Include="Content\layout_2\images\ico_offline.png" />
+    <Content Include="Content\layout_2\images\ico_online.png" />
     <Content Include="Content\layout_2\images\ico_vineta.gif" />
     <Content Include="Content\layout_2\images\img09.jpg" />
     <Content Include="Content\layout_2\css\default.css" />
     <Content Include="Content\layout_3\images\group_no_image.png" />
-    <Content Include="Content\layout_3\images\ico_conectado.png" />
+    <Content Include="Content\layout_3\images\ico_offline.png" />
+    <Content Include="Content\layout_3\images\ico_online.png" />
     <Content Include="Content\layout_3\images\ico_posMapa.png" />
     <Content Include="Content\layout_3\images\ico_vineta.png" />
     <Content Include="Content\layout_3\images\user_no_image.png" />
