@@ -147,39 +147,92 @@ namespace IndignaFwk.Persistence.DataAccess
                 command = conexion.CreateCommand();
 
                 command.Connection = conexion;
-                int idGrupo = filtroBusqueda.IdGrupo;
 
-                //transaformar la consulta en dinamica y
-                //tener en cuenta el valor que venga en filtroBusqueda.Asistire
-                //si ese valor es true hacer el join con la tabla AsistirConvocatoria
-                //...sino, hacer solo un join entre convocatoria y sitio.
-                //despues hacer dinamico el resto de la consulta, mas especificamente
-                //despues del WHERE tomando los ands como punto de separacion
-                command.CommandText = "SELECT * FROM Sitio s" + 
-                
-                                                    "INNER JOIN Convocatoria c" +
-                                                        "ON (s.Id = c.FK_Id_Sitio)" + 
-                                                    "INNER JOIN  AsistenciaConvocatoria ac" +
-                                                        "ON (c.Id = ac.FK_Id_Convocatoria) " +
-                                            
-                                                "WHERE @idGrupo = s.Id AND" +
-                                                  "@idUsuario = FK_Id_Usuario AND" +
-                                                  "@titulo = c.Titulo AND " +
-                                                  "@descripcion = c.Descripcion" +
-                                                  "@quorum = c.Quorum" +
-                                                  "@fechaInicio = c.FechaInicio" +
-                                                  "@fechaFin = c.FechaFin" +
-                                                  "@tematica = s.FK_Id_Tematica";
-                                                
+                /* Consulta dinamica que devuelve una lista de convocatorias. Esta consulta varia dependiendo de
+                 * los valores que se hayan ingresado en el filtro de busqueda de convocatorias.
+                 */
+                string consulta = "SELECT * FROM Convocatoria c INNER JOIN Sitio s ON c.FK_Id_Sitio = s.Id ";
 
+                if (filtroBusqueda.Asistire)
+                {
+                    consulta += "INNER JOIN AsistenciaConvocatoria ac ON c.Id = ac.FK_Id_Convocatoria ";
+                }
+
+                consulta += "WHERE @idGrupo = s.Id ";
+
+                if (filtroBusqueda.Asistire)
+                {
+                    consulta += "AND @idUsuario = ac.FK_Id_Usuario ";
+                }
+
+                if (filtroBusqueda.Titulo != null)
+                {
+                    consulta += " AND @titulo = c.Titulo";
+                }
+
+                if (filtroBusqueda.Descripcion != null)
+                {
+                    consulta += " AND @descripcion = c.Descripcion";
+                }
+
+                if (filtroBusqueda.Quorum != null)
+                {
+                    consulta += "AND @quorum = c.Quorum";
+                }
+
+                if (filtroBusqueda.FechaInicio != null)
+                {
+                    consulta += " AND @fechaInicio = c.FechaInicio";
+                }
+
+                if (filtroBusqueda.FechaFin != null)
+                {
+                    consulta += " AND @fechaFin = c.FechaFin";
+                }
+
+                if (filtroBusqueda.Tematica != null)
+                {
+                    consulta += " AND @tematica = s.FK_Id_Tematica";                
+                }
+
+                command.CommandText = consulta;
+ 
                 UtilesBD.SetParameter(command, "idGrupo", filtroBusqueda.IdGrupo);
-                UtilesBD.SetParameter(command, "idUsuario", filtroBusqueda.IdUsuario);
-                UtilesBD.SetParameter(command, "titulo", filtroBusqueda.Titulo);
-                UtilesBD.SetParameter(command, "descripcion", filtroBusqueda.Descripcion);
-                UtilesBD.SetParameter(command, "quorum", filtroBusqueda.Quorum);
-                UtilesBD.SetParameter(command, "fechaInicio", filtroBusqueda.FechaInicio);
-                UtilesBD.SetParameter(command, "fechaFin", filtroBusqueda.FechaFin);
-                UtilesBD.SetParameter(command, "tematica", filtroBusqueda.Tematica);
+                
+                if (filtroBusqueda.Asistire)
+                {
+                    UtilesBD.SetParameter(command, "idUsuario", filtroBusqueda.IdUsuario);
+                }
+
+                if (filtroBusqueda.Titulo != null)
+                {
+                    UtilesBD.SetParameter(command, "titulo", filtroBusqueda.Titulo);
+                }
+
+                if (filtroBusqueda.Descripcion != null)
+                {
+                    UtilesBD.SetParameter(command, "descripcion", filtroBusqueda.Descripcion);
+                }
+
+                if (filtroBusqueda.Quorum != null)
+                {
+                    UtilesBD.SetParameter(command, "quorum", filtroBusqueda.Quorum);
+                }
+
+                if (filtroBusqueda.FechaInicio != null)
+                {
+                    UtilesBD.SetParameter(command, "fechaInicio", filtroBusqueda.FechaInicio);
+                }
+
+                if (filtroBusqueda.FechaFin != null)
+                {
+                    UtilesBD.SetParameter(command, "fechaFin", filtroBusqueda.FechaFin);
+                }
+
+                if (filtroBusqueda.Tematica != null)
+                {
+                    UtilesBD.SetParameter(command, "tematica", filtroBusqueda.Tematica);
+                }
 
                 reader = command.ExecuteReader();
 
