@@ -1,24 +1,29 @@
-﻿<div class="listaUsuariosChat">
-    <ul>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">Nombre completo</a>
-            </div>
-        </li>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">Nombre completo</a>
-            </div>
-        </li>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">Nombre completo</a>
-            </div>
-        </li>
-        <li>            
-            <div class="nombreUsuarioChat">                
-                <a href="#">Nombre completo</a>
-            </div>
-        </li>
-    </ul>
+﻿@using IndignaFwk.Common.Entities;
+
+<div class="listaUsuariosChat" id="divListaUsuariosChat">
+    <div class="mensajeCargandoChat">
+        Cargando...
+    </div>
 </div>
+
+<script type="text/javascript">
+
+    $(function () {
+        setInterval("cargarListaUsuariosAjax()", 5000);
+    });
+
+    function cargarListaUsuariosAjax() 
+    {
+        if (window.isActive) 
+        {
+            $.ajax({
+                url: '@Url.Action("CargarListaUsuarios", "Chat")',
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    $("#divListaUsuariosChat").html(data);
+                }
+            });
+        }
+    }
+</script>

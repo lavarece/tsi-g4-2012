@@ -481,6 +481,14 @@ input, select, textarea
     padding-left: 15px;
 }
 
+.mensajeCargandoChat
+{
+    font-weight: bold;
+    font-style: oblique;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
 .listaUsuariosChat
 {
     background-color: #515151;
@@ -516,15 +524,32 @@ input, select, textarea
 {
     text-decoration: none;
     color: #DBDBD5;  
-    border-bottom: 1px solid #EBEBEB;  
+    border-bottom: 1px solid #686868;  
     padding: 10px 100% 10px 25px;
-    text-align: left;
-    background: url('../images/ico_conectado.png') no-repeat 2% 50%;
+    text-align: left;    
 }
 
-.nombreUsuarioChat a:hover
+.usuarioOnline
 {
-    background: #A8CF5E url('../images/ico_conectado.png') no-repeat 2% 50%;    
+    background: url('../images/ico_online.png') no-repeat 2% 50%;
+}
+
+.usuarioOnline a:hover
+{
+    background: url('../images/ico_online.png') no-repeat 2% 50%;
+    background-color: #C4DF93;    
+    color: #3C3C3C;
+}
+
+.usuarioOffline
+{
+    background: url('../images/ico_offline.png') no-repeat 2% 50%;
+}
+
+.usuarioOffline a:hover
+{
+    background: url('../images/ico_offline.png') no-repeat 2% 50%;
+    background-color: #C4DF93;    
     color: #3C3C3C;
 }
 

@@ -476,6 +476,14 @@ input, select, textarea
     padding-left: 15px;
 }
 
+.mensajeCargandoChat
+{
+    font-weight: bold;
+    font-style: oblique;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
 .listaUsuariosChat
 {
     background-color: #F0F0F0;
@@ -517,10 +525,19 @@ input, select, textarea
     border-bottom: 1px solid #E3E3E3;
     padding: 11px 100% 11px 25px;
     text-align: left;  
-    background: url('../images/ico_conectado.png') no-repeat 2% 50%;      
 }
 
 .nombreUsuarioChat a:hover
 {    
     background: #E1E1E1 url('../images/ico_conectado.png') no-repeat 2% 50%;    
+}
+
+.usuarioOnline
+{
+    background: url('../images/ico_online.png') no-repeat 2% 50%;
+}
+
+.usuarioOffline
+{
+    background: url('../images/ico_offline.png') no-repeat 2% 50%;
 }
