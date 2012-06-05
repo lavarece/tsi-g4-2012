@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using IndignaFwk.UI.Process.ConvocatoriaService;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.UI.Process
 {
@@ -31,6 +32,19 @@ namespace IndignaFwk.UI.Process
 
             return listaConvocatorias;
         }
+
+
+        public List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            List<Convocatoria> listaConvocatorias = proxy.ObtenerConvocatoriasPorFiltro(filtroBusqueda);
+
+            proxy.Close();
+
+            return listaConvocatorias;
+        }
+
 
         public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
         {

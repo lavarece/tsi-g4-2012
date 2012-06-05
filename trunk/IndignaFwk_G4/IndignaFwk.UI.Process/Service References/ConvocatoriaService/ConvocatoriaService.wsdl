@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
+      <xsd:import schemaLocation="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IConvocatoriaService_CrearNuevaConvocatoria_InputMessage">
@@ -85,6 +86,12 @@
   <wsdl:message name="IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorIdUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAsistenciaConvocatoriaPorIdUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerConvocatoriasPorFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerConvocatoriasPorFiltro" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerConvocatoriasPorFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerConvocatoriasPorFiltroResponse" />
+  </wsdl:message>
   <wsdl:message name="IConvocatoriaService_EliminarAsistenciaConvocatoria_InputMessage">
     <wsdl:part name="parameters" element="tns:EliminarAsistenciaConvocatoria" />
   </wsdl:message>
@@ -161,6 +168,10 @@
     <wsdl:operation name="ObtenerAsistenciaConvocatoriaPorIdUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorIdUsuario" message="tns:IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorIdUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorIdUsuarioResponse" message="tns:IConvocatoriaService_ObtenerAsistenciaConvocatoriaPorIdUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConvocatoriasPorFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltro" message="tns:IConvocatoriaService_ObtenerConvocatoriasPorFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltroResponse" message="tns:IConvocatoriaService_ObtenerConvocatoriasPorFiltro_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EliminarAsistenciaConvocatoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoria" message="tns:IConvocatoriaService_EliminarAsistenciaConvocatoria_InputMessage" />
@@ -291,6 +302,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerAsistenciaConvocatoriaPorIdUsuario">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerAsistenciaConvocatoriaPorIdUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConvocatoriasPorFiltro">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltro" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

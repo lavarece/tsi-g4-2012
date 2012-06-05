@@ -6,6 +6,7 @@ using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
 using System.Data;
 using IndignaFwk.Common.Util;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -133,6 +134,85 @@ namespace IndignaFwk.Persistence.DataAccess
                 }
             }
         }
+
+
+        public List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            List<Convocatoria> listaConvocatorias = new List<Convocatoria>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+                int idGrupo = filtroBusqueda.IdGrupo;
+
+                //transaformar la consulta en dinamica y
+                //tener en cuenta el valor que venga en filtroBusqueda.Asistire
+                //si ese valor es true hacer el join con la tabla AsistirConvocatoria
+                //...sino, hacer solo un join entre convocatoria y sitio.
+                //despues hacer dinamico el resto de la consulta, mas especificamente
+                //despues del WHERE tomando los ands como punto de separacion
+                command.CommandText = "SELECT * FROM Sitio s" + 
+                
+                                                    "INNER JOIN Convocatoria c" +
+                                                        "ON (s.Id = c.FK_Id_Sitio)" + 
+                                                    "INNER JOIN  AsistenciaConvocatoria ac" +
+                                                        "ON (c.Id = ac.FK_Id_Convocatoria) " +
+                                            
+                                                "WHERE @idGrupo = s.Id AND" +
+                                                  "@idUsuario = FK_Id_Usuario AND" +
+                                                  "@titulo = c.Titulo AND " +
+                                                  "@descripcion = c.Descripcion" +
+                                                  "@quorum = c.Quorum" +
+                                                  "@fechaInicio = c.FechaInicio" +
+                                                  "@fechaFin = c.FechaFin" +
+                                                  "@tematica = s.FK_Id_Tematica";
+                                                
+
+                UtilesBD.SetParameter(command, "idGrupo", filtroBusqueda.IdGrupo);
+                UtilesBD.SetParameter(command, "idUsuario", filtroBusqueda.IdUsuario);
+                UtilesBD.SetParameter(command, "titulo", filtroBusqueda.Titulo);
+                UtilesBD.SetParameter(command, "descripcion", filtroBusqueda.Descripcion);
+                UtilesBD.SetParameter(command, "quorum", filtroBusqueda.Quorum);
+                UtilesBD.SetParameter(command, "fechaInicio", filtroBusqueda.FechaInicio);
+                UtilesBD.SetParameter(command, "fechaFin", filtroBusqueda.FechaFin);
+                UtilesBD.SetParameter(command, "tematica", filtroBusqueda.Tematica);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Convocatoria convocatoria = new Convocatoria();
+
+                    convocatoria.Id = UtilesBD.GetIntFromReader("Id", reader);
+                    convocatoria.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
+                    convocatoria.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    convocatoria.Quorum = UtilesBD.GetIntFromReader("Quorum", reader);
+                    convocatoria.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+                    convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
+                    convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
+                    convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
+                    convocatoria.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
+                    convocatoria.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+
+                    listaConvocatorias.Add(convocatoria);
+                }
+
+
+                return listaConvocatorias;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
 
         public List<Convocatoria> ObtenerListado(SqlConnection conexion)
         {
