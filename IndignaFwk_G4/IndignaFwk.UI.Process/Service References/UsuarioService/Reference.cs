@@ -42,6 +42,15 @@ namespace IndignaFwk.UI.Process.UsuarioService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuarioResponse" +
             "")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorId", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorIdResponse")]
+        IndignaFwk.Common.Entities.Notificacion ObtenerNotificacionPorId(int idNotificacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/EditarNotificacion", ReplyAction="http://tempuri.org/IUsuarioService/EditarNotificacionResponse")]
+        void EditarNotificacion(IndignaFwk.Common.Entities.Notificacion notificacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/EliminarNotificacion", ReplyAction="http://tempuri.org/IUsuarioService/EliminarNotificacionResponse")]
+        void EliminarNotificacion(int idNotificacion);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -105,6 +114,18 @@ namespace IndignaFwk.UI.Process.UsuarioService {
         
         public System.Collections.Generic.List<IndignaFwk.Common.Entities.Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario) {
             return base.Channel.ObtenerListadoNotificacionesPorUsuario(idUsuario);
+        }
+        
+        public IndignaFwk.Common.Entities.Notificacion ObtenerNotificacionPorId(int idNotificacion) {
+            return base.Channel.ObtenerNotificacionPorId(idNotificacion);
+        }
+        
+        public void EditarNotificacion(IndignaFwk.Common.Entities.Notificacion notificacion) {
+            base.Channel.EditarNotificacion(notificacion);
+        }
+        
+        public void EliminarNotificacion(int idNotificacion) {
+            base.Channel.EliminarNotificacion(idNotificacion);
         }
     }
 }

@@ -26,5 +26,11 @@ namespace IndignaFwk.Business.Managers
 
         // Funciones con notificaciones
         List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
+
+        Notificacion ObtenerNotificacionPorId(int idNotificacion);
+
+        void EditarNotificacion(Notificacion notificacion);
+
+        void EliminarNotificacion(int idNotificacion);
     }
 }

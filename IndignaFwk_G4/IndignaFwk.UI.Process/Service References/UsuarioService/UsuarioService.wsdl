@@ -61,6 +61,24 @@
   <wsdl:message name="IUsuarioService_ObtenerListadoNotificacionesPorUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerListadoNotificacionesPorUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerNotificacionPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNotificacionPorId" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerNotificacionPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNotificacionPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EditarNotificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarNotificacion" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EditarNotificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarNotificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarNotificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacion" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarNotificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUsuarioService">
     <wsdl:operation name="CrearNuevoUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/CrearNuevoUsuario" message="tns:IUsuarioService_CrearNuevoUsuario_InputMessage" />
@@ -97,6 +115,18 @@
     <wsdl:operation name="ObtenerListadoNotificacionesPorUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario" message="tns:IUsuarioService_ObtenerListadoNotificacionesPorUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuarioResponse" message="tns:IUsuarioService_ObtenerListadoNotificacionesPorUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNotificacionPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorId" message="tns:IUsuarioService_ObtenerNotificacionPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorIdResponse" message="tns:IUsuarioService_ObtenerNotificacionPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarNotificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EditarNotificacion" message="tns:IUsuarioService_EditarNotificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EditarNotificacionResponse" message="tns:IUsuarioService_EditarNotificacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EliminarNotificacion" message="tns:IUsuarioService_EliminarNotificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EliminarNotificacionResponse" message="tns:IUsuarioService_EliminarNotificacion_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUsuarioService" type="tns:IUsuarioService">
@@ -175,6 +205,33 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerListadoNotificacionesPorUsuario">
       <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNotificacionPorId">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarNotificacion">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EditarNotificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacion">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EliminarNotificacion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
