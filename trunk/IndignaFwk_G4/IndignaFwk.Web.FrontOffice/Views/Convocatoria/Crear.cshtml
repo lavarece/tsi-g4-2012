@@ -82,7 +82,7 @@
                         @Html.LabelFor(m => m.Coordenadas)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasConvocatoria"})
+                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasConvocatoria", @readonly = "readonly" })
                         @Html.ValidationMessageFor(m => m.Coordenadas)                        
                     </div>                                        
                 </td>

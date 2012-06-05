@@ -217,6 +217,19 @@ input, select, textarea
 }
 
 /* Estilos clases generales */
+.alertaNotificacionesPendientes
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #EB3B0F;
+    position: relative;
+    top: -24px;
+    left: 155px;
+    padding: 1px 3px;  
+    border: 1px outset #000000;
+    border-radius: 5px 5px 5px 5px;
+}
+
 .fieldLabel
 {
     font-style: italic;
@@ -380,8 +393,7 @@ input, select, textarea
 .notificacionNoLeida
 {
     font-weight: bold;
-    font-size: 13px;
-    font-style: oblique;
+    background-color: #E8C6C2;
 }
 
 .detalleGrupo .imagenGrupo
@@ -502,8 +514,8 @@ input, select, textarea
 {
     text-decoration: none;  
     color: #000000;
-    border-bottom: 1px solid #EBEBEB;
-    padding: 10px 100% 10px 25px;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 11px 100% 11px 25px;
     text-align: left;  
     background: url('../images/ico_conectado.png') no-repeat 2% 50%;      
 }

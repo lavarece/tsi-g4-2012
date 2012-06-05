@@ -93,6 +93,7 @@
     <Content Include="Content\layout_1\images\bg_body.png" />
     <Content Include="Content\layout_1\images\group_no_image.png" />
     <Content Include="Content\layout_1\images\header.png" />
+    <Content Include="Content\layout_1\images\ico_conectado.png" />
     <Content Include="Content\layout_1\images\ico_posMapa.png" />
     <Content Include="Content\layout_1\images\ico_vineta.gif" />
     <Content Include="Content\layout_1\images\user_no_image.png" />

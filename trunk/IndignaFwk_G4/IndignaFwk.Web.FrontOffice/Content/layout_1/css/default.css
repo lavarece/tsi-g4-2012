@@ -499,23 +499,32 @@ input, select, textarea
     margin: 0px;
 }
 
+.listaUsuariosChat li
+{    
+    overflow: hidden;
+    padding-left: 0;
+    white-space: nowrap;    
+}
+
 .nombreUsuarioChat
 {
     display: inline;
-    line-height: 32px;
+    line-height: 39px;
 }
 
 .nombreUsuarioChat a
 {
     text-decoration: none;
-    color: #DBDBD5;    
-    padding: 7px 100px 7px 5px;
+    color: #DBDBD5;  
+    border-bottom: 1px solid #EBEBEB;  
+    padding: 10px 100% 10px 25px;
     text-align: left;
+    background: url('../images/ico_conectado.png') no-repeat 2% 50%;
 }
 
 .nombreUsuarioChat a:hover
 {
-    background-color: #A8CF5E;
+    background: #A8CF5E url('../images/ico_conectado.png') no-repeat 2% 50%;    
     color: #3C3C3C;
 }
 
