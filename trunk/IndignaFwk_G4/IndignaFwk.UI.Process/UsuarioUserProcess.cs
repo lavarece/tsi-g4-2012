@@ -103,5 +103,34 @@ namespace IndignaFwk.UI.Process
 
             return listadoNotificaciones;
         }
+
+        public Notificacion ObtenerNotificacionPorId(int idNotificacion)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            Notificacion notificacion = proxy.ObtenerNotificacionPorId(idNotificacion);
+
+            proxy.Close();
+
+            return notificacion;
+        }
+
+        public void EditarNotificacion(Notificacion notificacion)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            proxy.EditarNotificacion(notificacion);
+
+            proxy.Close();
+        }
+
+        public void EliminarNotificacion(int idNotificacion)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            proxy.EliminarNotificacion(idNotificacion);
+
+            proxy.Close();
+        }
     }
 }

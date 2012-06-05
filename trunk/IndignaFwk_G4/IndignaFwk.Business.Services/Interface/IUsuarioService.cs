@@ -39,5 +39,14 @@ namespace IndignaFwk.Business.Services
         // Operaciones con notificaciones
         [OperationContract]
         List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
+
+        [OperationContract]
+        Notificacion ObtenerNotificacionPorId(int idNotificacion);
+
+        [OperationContract]
+        void EditarNotificacion(Notificacion notificacion);
+
+        [OperationContract]
+        void EliminarNotificacion(int idNotificacion);
     }
 }

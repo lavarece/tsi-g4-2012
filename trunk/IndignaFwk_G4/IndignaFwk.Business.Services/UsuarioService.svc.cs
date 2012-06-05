@@ -58,5 +58,20 @@ namespace IndignaFwk.Business.Services
         {
             return usuarioManager.ObtenerListadoNotificacionesPorUsuario(idUsuario);
         }
+
+        public Notificacion ObtenerNotificacionPorId(int idNotificacion)
+        {
+            return usuarioManager.ObtenerNotificacionPorId(idNotificacion);
+        }
+
+        public void EditarNotificacion(Notificacion notificacion)
+        {
+            usuarioManager.EditarNotificacion(notificacion);
+        }
+
+        public void EliminarNotificacion(int idNotificacion)
+        {
+            usuarioManager.EliminarNotificacion(idNotificacion);
+        }
     }
 }

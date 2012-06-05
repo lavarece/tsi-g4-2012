@@ -287,5 +287,73 @@ namespace IndignaFwk.Business.Managers
                  UtilesBD.CerrarConexion(conexion);
              }
          }
+
+         public Notificacion ObtenerNotificacionPorId(int idNotificacion)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return NotificacionADO.Obtener(idNotificacion, conexion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
+         public void EditarNotificacion(Notificacion notificacion)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                 NotificacionADO.Editar(notificacion, conexion, transaccion);
+
+                 UtilesBD.CommitTransaccion(transaccion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+        
+         public void EliminarNotificacion(int idNotificacion)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 transaccion = UtilesBD.IniciarTransaccion(conexion);
+
+                 NotificacionADO.Eliminar(idNotificacion, conexion, transaccion);
+
+                 UtilesBD.CommitTransaccion(transaccion);
+             }
+             catch (Exception ex)
+             {
+                 UtilesBD.RollbackTransaccion(transaccion);
+
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
     }
 }
