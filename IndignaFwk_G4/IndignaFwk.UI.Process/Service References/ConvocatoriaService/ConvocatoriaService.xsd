@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
+  <xs:import schemaLocation="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" />
   <xs:element name="CrearNuevaConvocatoria">
     <xs:complexType>
       <xs:sequence>
@@ -177,6 +178,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerConvocatoriasPorFiltro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" minOccurs="0" name="filtroBusqueda" nillable="true" type="q13:FiltroBusqueda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerConvocatoriasPorFiltroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerConvocatoriasPorFiltroResult" nillable="true" type="q14:ArrayOfConvocatoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="EliminarAsistenciaConvocatoria">
     <xs:complexType>
       <xs:sequence>
@@ -200,14 +215,14 @@
   <xs:element name="ObtenerMarcaContenidoPorUsuarioYContenidoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerMarcaContenidoPorUsuarioYContenidoResult" nillable="true" type="q13:MarcaContenido" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerMarcaContenidoPorUsuarioYContenidoResult" nillable="true" type="q15:MarcaContenido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CrearNuevaMarcaContenido">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q14:MarcaContenido" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q16:MarcaContenido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -221,7 +236,7 @@
   <xs:element name="EditarMarcaContenido">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q15:MarcaContenido" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q17:MarcaContenido" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

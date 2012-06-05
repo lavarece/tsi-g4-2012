@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.Business.Services
 {
@@ -52,6 +53,9 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         List<AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario);
+
+        [OperationContract]
+        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda);
 
         [OperationContract]
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);

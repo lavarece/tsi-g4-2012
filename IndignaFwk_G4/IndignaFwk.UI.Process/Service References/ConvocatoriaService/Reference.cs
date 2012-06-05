@@ -61,6 +61,9 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
             "Response")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltro", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltroResponse")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerConvocatoriasPorFiltro(IndignaFwk.Common.Filter.FiltroBusqueda filtroBusqueda);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoriaResponse")]
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
         
@@ -153,6 +156,10 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         public System.Collections.Generic.List<IndignaFwk.Common.Entities.AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario) {
             return base.Channel.ObtenerAsistenciaConvocatoriaPorIdUsuario(idUsuario);
+        }
+        
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerConvocatoriasPorFiltro(IndignaFwk.Common.Filter.FiltroBusqueda filtroBusqueda) {
+            return base.Channel.ObtenerConvocatoriasPorFiltro(filtroBusqueda);
         }
         
         public void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria) {

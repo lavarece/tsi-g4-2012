@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.Persistence.DataAccess
 {
@@ -18,6 +19,8 @@ namespace IndignaFwk.Persistence.DataAccess
         Convocatoria Obtener(int id, SqlConnection conexion);
 
         List<Convocatoria> ObtenerListado(SqlConnection conexion);
+
+        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda, SqlConnection conexion);
 
         List<Convocatoria> ObtenerListadoPorGrupo(SqlConnection conexion, int idGrupo);
     }

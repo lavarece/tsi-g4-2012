@@ -8,6 +8,7 @@ using IndignaFwk.Web.FrontOffice.Models;
 using IndignaFwk.Common.Entities;
 using IndignaFwk.Web.FrontOffice.Util;
 using IndignaFwk.UI.Process;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
@@ -185,8 +186,26 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             if(ModelState.IsValid)
             {
                 // Armo un filtroBusquedaConvocatorias con la info del model
+                FiltroBusqueda filtroBusqueda = new FiltroBusqueda();
+
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                int idUsuario = ci.Id;
+
+
+                filtroBusqueda.IdUsuario = idUsuario;
+                filtroBusqueda.IdGrupo = site.Grupo.Id;
+                filtroBusqueda.Titulo = model.Titulo;
+                filtroBusqueda.Tematica = model.Tematica;
+                filtroBusqueda.Quorum = Int32.Parse(model.Quorum);
+                filtroBusqueda.FechaInicio = Convert.ToDateTime(model.FechaInicio);
+                filtroBusqueda.FechaFin = Convert.ToDateTime(model.FechaFin);
+                filtroBusqueda.Descripcion = model.Descripcion;
+                filtroBusqueda.Asistire = model.Asistire;
 
                 // Invoco al buscar del userProcess
+                List<Convocatoria> listaConvocatoriasPorFiltro = convocatoriaUserProcess.ObtenerConvocatoriasPorFiltro(filtroBusqueda);
+                
             }
 
             PopulateViewBag();

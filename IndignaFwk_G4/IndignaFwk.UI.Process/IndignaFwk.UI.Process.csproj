@@ -108,6 +108,9 @@
     <None Include="Service References\ConvocatoriaService\ConvocatoriaService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\GrupoService\GrupoService.wsdl" />
     <None Include="Service References\GrupoService\GrupoService.xsd">
       <SubType>Designer</SubType>

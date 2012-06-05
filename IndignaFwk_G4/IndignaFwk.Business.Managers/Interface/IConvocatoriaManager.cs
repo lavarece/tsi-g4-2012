@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IndignaFwk.Common.Entities;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.Business.Managers
 {
@@ -38,6 +39,8 @@ namespace IndignaFwk.Business.Managers
         void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
 
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
+
+        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda);
 
         // Operaciones MarcaContenido
         MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);

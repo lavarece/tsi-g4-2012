@@ -6,6 +6,7 @@ using IndignaFwk.Common.Entities;
 using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
 using IndignaFwk.Common.Util;
+using IndignaFwk.Common.Filter;
 
 namespace IndignaFwk.Business.Managers
 {
@@ -473,6 +474,25 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        public List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ConvocatoriaADO.ObtenerConvocatoriasPorFiltro(filtroBusqueda, conexion);
+            }
+            catch (Exception ex)
+            {
+                UtilesBD.RollbackTransaccion(transaccion);
+
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }            
+        }
 
         public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)
         {
