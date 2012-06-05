@@ -71,7 +71,7 @@
         </ComboBox>
         <Label Background="#00000000" Content="Layouts:" Foreground="#FF00FFF9" Margin="0,0,644.59,416" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
         <Label Background="#00000000" Content="Temas:" Foreground="#FF00FFF9" Margin="0,0,645.59,371" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
-        <Button x:Name="btn_abrirMapa" Content="Elegir Ubicación" HorizontalAlignment="Right" Margin="0,0,21,383.5" Width="106" Height="24" VerticalAlignment="Bottom" Click="btn_abrirMapa_Click" d:LayoutOverrides="HorizontalAlignment">
+        <Button x:Name="btn_abrirMapa" Content="Elegir Ubicación" HorizontalAlignment="Right" Margin="0,0,21,459.5" Width="106" Height="24" VerticalAlignment="Bottom" Click="btn_abrirMapa_Click" d:LayoutOverrides="HorizontalAlignment">
         	<Button.Background>
         		<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
         			<GradientStop Color="Black" Offset="1"/>
@@ -79,5 +79,15 @@
         		</LinearGradientBrush>
         	</Button.Background>
         </Button>
+        <Button x:Name="btn_refrescarCoordenadas" Content="Refrescar Coordenadas" HorizontalAlignment="Right" Margin="0,0,136,459.5" Width="134" Height="24" VerticalAlignment="Bottom" Click="btn_refrescarCoordenadas_Click" d:LayoutOverrides="HorizontalAlignment">
+        	<Button.Background>
+        		<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+        			<GradientStop Color="Black" Offset="1"/>
+        			<GradientStop Color="#FF00F9FF" Offset="0.8"/>
+        		</LinearGradientBrush>
+        	</Button.Background>
+        </Button>
+        <Label x:Name="latitud" Background="#00000000" Content="Latitud:" Foreground="#FF00FFF9" Margin="0,216.5,132.59,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
+        <Label x:Name="longitud" Background="#00000000" Content="Longitud:" Foreground="#FF00FFF9" Margin="0,188.5,132.59,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
     </Grid>
 </Window>
