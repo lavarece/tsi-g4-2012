@@ -158,11 +158,11 @@ namespace IndignaFwk.Persistence.DataAccess
                     consulta += "INNER JOIN AsistenciaConvocatoria ac ON c.Id = ac.FK_Id_Convocatoria ";
                 }
 
-                consulta += "WHERE @idGrupo = s.Id ";
+                consulta += "WHERE @idGrupo = s.Id";
 
                 if (filtroBusqueda.Asistire)
                 {
-                    consulta += "AND @idUsuario = ac.FK_Id_Usuario ";
+                    consulta += " AND @idUsuario = ac.FK_Id_Usuario";
                 }
 
                 if (filtroBusqueda.Titulo != null)
@@ -195,8 +195,11 @@ namespace IndignaFwk.Persistence.DataAccess
                     consulta += " AND @tematica = s.FK_Id_Tematica";                
                 }
 
+                //Seteo la consulta final en la variable command
                 command.CommandText = consulta;
- 
+                
+
+                //Referencio las variables utilizadas en la consulta con los atributos del filtro
                 UtilesBD.SetParameter(command, "idGrupo", filtroBusqueda.IdGrupo);
                 
                 if (filtroBusqueda.Asistire)
@@ -233,6 +236,7 @@ namespace IndignaFwk.Persistence.DataAccess
                 {
                     UtilesBD.SetParameter(command, "tematica", filtroBusqueda.Tematica);
                 }
+
 
                 reader = command.ExecuteReader();
 
