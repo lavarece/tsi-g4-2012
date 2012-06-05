@@ -14,6 +14,8 @@ using IndignaFwk.UI;
 using IndignaFwk.Common.Entities;
 using IndignaFwk.UI.Process;
 using IndignaFwk.Common.Util;
+using GoogleMapsFlashInWpf;
+using GoogleMapsFlashInWpf.Properties;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -23,10 +25,14 @@ namespace IndignaFwk_WPF_BackOffice
     public partial class CrearGrupo : Window
     {
         private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
+
         private SistemaUserProcess sistemaUserProcess = UserProcessFactory.Instance.SistemaUserProcess;
+
         private Boolean editando;
+
         private Grupo grupoEditando;
 
+        Window1 win = new Window1();
 
         public CrearGrupo()
         {
@@ -49,6 +55,14 @@ namespace IndignaFwk_WPF_BackOffice
             {
                 txt_descripcion.Text = grupo.Descripcion;
             }
+
+            List<Layout> listaLayouts = sistemaUserProcess.ObtenerListadoLayouts();
+            comboBox_layouts.ItemsSource = listaLayouts;
+            comboBox_layouts.SelectedItem = grupo.Layout;
+
+            List<Tematica> listaTematica = sistemaUserProcess.ObtenerListadoTematicas();
+            comboBox_temas.ItemsSource = listaTematica;
+            comboBox_temas.SelectedItem = grupo.Tematica;
 
             grupoEditando = grupo;
 
@@ -115,10 +129,14 @@ namespace IndignaFwk_WPF_BackOffice
         }
 
         private void btn_abrirMapa_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Mapa win = new Mapa();
-           
+        {           
             win.Show();
+        }
+
+        private void btn_refrescarCoordenadas_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            longitud.Content ="Longitud: " + win.longitud;
+            latitud.Content = "Latitud: " + win.latitud;
         }
     }
 }

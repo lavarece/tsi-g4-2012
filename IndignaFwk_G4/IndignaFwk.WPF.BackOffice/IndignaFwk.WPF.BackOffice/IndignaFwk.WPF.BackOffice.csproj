@@ -242,10 +242,6 @@
     <Compile Include="CrearGrupo.xaml.cs">
       <DependentUpon>CrearGrupo.xaml</DependentUpon>
     </Compile>
-    <Page Include="Mapa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MensajeError.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -272,9 +268,6 @@
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Mapa.xaml.cs">
-      <DependentUpon>Mapa.xaml</DependentUpon>
     </Compile>
     <Compile Include="MensajeError.xaml.cs">
       <DependentUpon>MensajeError.xaml</DependentUpon>
@@ -307,6 +300,10 @@
     </BlendEmbeddedFont>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\Downloads\GoogleMapsFlashInWpf_Src\GoogleMapsFlashInWpf\GoogleMapsFlashInWpf.csproj">
+      <Project>{10137A8C-0FEB-4006-B776-A83907E3F78D}</Project>
+      <Name>GoogleMapsFlashInWpf</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\IndignaFwk.Common\IndignaFwk.Common.csproj">
       <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
       <Name>IndignaFwk.Common</Name>
@@ -345,13 +342,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="GoogleMaps.swf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="lib\AxShockwaveFlashObjects.dll" />
-    <Content Include="lib\ShockwaveFlashObjects.dll" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
