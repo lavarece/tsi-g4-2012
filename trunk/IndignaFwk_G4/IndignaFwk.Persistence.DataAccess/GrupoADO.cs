@@ -13,6 +13,49 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
         
+        // DEPENDENCIAS
+        private IImagenADO _imagenADO;
+        protected IImagenADO ImagenADO
+        {
+            get
+            {
+                if (_imagenADO == null)
+                {
+                    _imagenADO = new ImagenADO();
+                }
+
+                return _imagenADO;
+            }
+        }
+
+        private ITematicaADO _tematicaADO;
+        protected ITematicaADO TematicaADO
+        {
+            get
+            {
+                if (_tematicaADO == null)
+                {
+                    _tematicaADO = new TematicaADO();
+                }
+
+                return _tematicaADO;
+            }
+        }
+
+        private ILayoutADO _layoutADO;
+        protected ILayoutADO LayoutADO
+        {
+            get
+            {
+                if (_layoutADO == null)
+                {
+                    _layoutADO = new LayoutADO();
+                }
+
+                return _layoutADO;
+            }
+        }
+
         public void Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -125,11 +168,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
+                    grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
-                    grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
+                    grupo.Tematica = TematicaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Tematica", reader), conexion);
 
-                    grupo.Imagen = new Imagen { Id = UtilesBD.GetIntFromReader("FK_Id_Imagen", reader) };
+                    grupo.Imagen = ImagenADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Imagen", reader), conexion);
 
                     return grupo;
                 }
@@ -175,11 +218,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
+                    grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
-                    grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
+                    grupo.Tematica = TematicaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Tematica", reader), conexion);
 
-                    grupo.Imagen = new Imagen { Id = UtilesBD.GetIntFromReader("FK_Id_Imagen", reader) };
+                    grupo.Imagen = ImagenADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Imagen", reader), conexion);
 
                     return grupo;
                 }
@@ -225,11 +268,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    grupo.Layout = new Layout { Id = UtilesBD.GetIntFromReader("FK_Id_Layout", reader) };
+                    grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
-                    grupo.Tematica = new Tematica { Id = UtilesBD.GetIntFromReader("FK_Id_Tematica", reader) };
+                    grupo.Tematica = TematicaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Tematica", reader), conexion);
 
-                    grupo.Imagen = new Imagen { Id = UtilesBD.GetIntFromReader("FK_Id_Imagen", reader) };
+                    grupo.Imagen = ImagenADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Imagen", reader), conexion);
 
                     listaGrupos.Add(grupo);
                 }

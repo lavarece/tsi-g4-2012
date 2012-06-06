@@ -79,7 +79,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuTematica.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    // las referencias como siempre del os otors ado
                     return usuTematica;
                 }
 

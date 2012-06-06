@@ -13,6 +13,35 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
 
+        //DEPENDENCIAS
+        private IUsuarioADO _usuarioADO;
+        protected IUsuarioADO UsuarioADO
+        {
+            get
+            {
+                if (_usuarioADO == null)
+                {
+                    _usuarioADO = new UsuarioADO();
+                }
+
+                return _usuarioADO;
+            }
+        }
+
+        private IContenidoADO _contenidoADO;
+        protected IContenidoADO ContenidoADO
+        {
+            get
+            {
+                if(_contenidoADO == null)
+                {
+                    _contenidoADO = new ContenidoADO();
+                }
+
+                return _contenidoADO;
+            }
+        }
+
         public void Crear(MarcaContenido marcaContenido, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -95,9 +124,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     marcaContenido.TipoMarca = UtilesBD.GetStringFromReader("TipoMarca", reader);
 
-                    marcaContenido.UsuarioMarca = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    marcaContenido.UsuarioMarca = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
-                    marcaContenido.Contenido = new Contenido { Id = UtilesBD.GetIntFromReader("FK_Id_Contenido", reader) };
+                    marcaContenido.Contenido = ContenidoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Contenido", reader), conexion);
 
                     return marcaContenido;
                 }
@@ -139,9 +168,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     marcaContenido.TipoMarca = UtilesBD.GetStringFromReader("TipoMarca", reader);
 
-                    marcaContenido.UsuarioMarca = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    marcaContenido.UsuarioMarca = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
-                    marcaContenido.Contenido = new Contenido { Id = UtilesBD.GetIntFromReader("FK_Id_Contenido", reader) };
+                    marcaContenido.Contenido = ContenidoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Contenido", reader), conexion);
 
                     return marcaContenido;
                 }
@@ -181,9 +210,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     marcaContenido.TipoMarca = UtilesBD.GetStringFromReader("TipoMarca", reader);
 
-                    marcaContenido.UsuarioMarca = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    marcaContenido.UsuarioMarca = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
-                    marcaContenido.Contenido = new Contenido { Id = UtilesBD.GetIntFromReader("FK_Id_Contenido", reader) };
+                    marcaContenido.Contenido = ContenidoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Contenido", reader), conexion);
 
                     listaMarcaContenido.Add(marcaContenido);
                 }

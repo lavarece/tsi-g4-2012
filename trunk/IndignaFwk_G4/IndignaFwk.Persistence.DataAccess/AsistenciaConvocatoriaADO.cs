@@ -13,6 +13,35 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
+        // DEPENDENCIAS
+        private IUsuarioADO _usuarioADO;
+        protected IUsuarioADO UsuarioADO
+        {
+            get
+            {
+                if (_usuarioADO == null)
+                {
+                    _usuarioADO = new UsuarioADO();
+                }
+
+                return _usuarioADO;
+            }
+        }
+
+        private IConvocatoriaADO _convocatoriaADO;
+        protected IConvocatoriaADO ConvocatoriaADO
+        {
+            get
+            {
+                if (_convocatoriaADO == null)
+                {
+                    _convocatoriaADO = new ConvocatoriaADO();
+                }
+
+                return _convocatoriaADO;
+            }
+        }
+
         public void Crear(AsistenciaConvocatoria asistenciaConvocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -95,9 +124,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
+                    asistenciaC.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
-                    asistenciaC.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    asistenciaC.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
                     return asistenciaC;
                 }
@@ -137,9 +166,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
+                    asistenciaC.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
-                    asistenciaC.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    asistenciaC.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
                     listaAsistenciaC.Add(asistenciaC);
                 }
@@ -180,9 +209,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
+                    asistenciaC.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
-                    asistenciaC.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    asistenciaC.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
                     return asistenciaC;
                 }
@@ -220,9 +249,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     asistenciaC.Id = UtilesBD.GetIntFromReader("Id", reader);
 
-                    asistenciaC.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
+                    asistenciaC.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
-                    asistenciaC.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    asistenciaC.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
                     listaAsistenciaC.Add(asistenciaC);
                 }

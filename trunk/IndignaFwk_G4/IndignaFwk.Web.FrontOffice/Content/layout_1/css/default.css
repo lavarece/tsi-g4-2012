@@ -13,6 +13,7 @@ body
 input, select, textarea
 {
     border: 1px #000000 solid;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
 }
 
 #wrapper 
@@ -553,7 +554,7 @@ input, select, textarea
     color: #3C3C3C;
 }
 
-.conversacionChat
+.wrapperConversacionChat
 {
     margin-left: 5px;
     border: 1px solid #ACEF2F;
@@ -564,18 +565,41 @@ input, select, textarea
     max-height: 300px;
 }
 
-.conversacionChat textarea
+.wrapperConversacionChat .datosUsuarioConversacion
 {
-    margin-left: 5px;
-    margin-top: 5px;
-    height: 285px;
-    width: 645px;
-    resize: none;
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding-left: 10px;
+    padding-top: 8px;
+    font-size: 13px;
+    font-weight: bold;    
 }
 
-.mensajeChat
+.wrapperConversacionChat .conversacionPanel
+{
+    margin-left: 7px;
+    margin-top: 5px;
+    height: 260px;
+    width: 645px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 13px;
+    word-wrap: break-word;
+}
+
+.wrapperConversacionChat .conversacionPanel b
+{
+    float: left;
+    padding-right: 4px;
+}
+
+.wrapperConversacionChat .conversacionPanel span
+{
+    float: left;
+    width: 95%;
+}
+
+.wrapperMensajeChat
 {
     margin-top: 12px;
     margin-left: 5px;
@@ -587,8 +611,13 @@ input, select, textarea
     max-height: 85px;
     line-height: 80px;
  }
- 
- .mensajeChat textarea
+
+.wrapperMensajeChat .boton
+{
+    float: right;
+}
+
+.wrapperMensajeChat textarea
 {
     margin-left: 5px;
     margin-top: 5px;
@@ -597,9 +626,4 @@ input, select, textarea
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
-}
-
-.mensajeChat .boton
-{
-    float: right;
 }

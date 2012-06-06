@@ -15,6 +15,34 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
+        private IUsuarioADO _usuarioADO;
+        protected IUsuarioADO UsuarioADO
+        {
+            get
+            {
+                if (_usuarioADO == null)
+                {
+                    _usuarioADO = new UsuarioADO();
+                }
+
+                return _usuarioADO;
+            }
+        }
+
+        private IGrupoADO _grupoADO;
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
+            }
+        }
+
         public void Crear(Contenido contenido, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -118,9 +146,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    contenido.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+                    contenido.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
 
-                    contenido.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
+                    contenido.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
 
                     return contenido;
                 }
@@ -188,7 +216,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    contenido.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+                    contenido.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+
+                    contenido.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
 
                     listaContenido.Add(contenido);
                 }

@@ -14,6 +14,35 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
+        // DEPENDENCIAS
+        private IUsuarioADO _usuarioADO;
+        protected IUsuarioADO UsuarioADO
+        {
+            get
+            {
+                if (_usuarioADO == null)
+                {
+                    _usuarioADO = new UsuarioADO();
+                }
+
+                return _usuarioADO;
+            }
+        }
+
+        private IGrupoADO _grupoADO;
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
+            }
+        }
+
         public void Crear(Convocatoria convocatoria, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -118,8 +147,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);                                        
                     convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
-                    convocatoria.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
-                    convocatoria.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+                    convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+                    convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
                     
                     return convocatoria;
                 }
@@ -252,12 +281,11 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
                     convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
-                    convocatoria.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
-                    convocatoria.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+                    convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+                    convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
 
                     listaConvocatorias.Add(convocatoria);
                 }
-
 
                 return listaConvocatorias;
             }
@@ -299,8 +327,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
                     convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
-                    convocatoria.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
-                    convocatoria.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+                    convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+                    convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
 
                     listaConvocatorias.Add(convocatoria);
                 }
@@ -346,8 +374,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
                     convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
-                    convocatoria.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
-                    convocatoria.UsuarioCreacion = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader) };
+                    convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+                    convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
 
                     listaConvocatorias.Add(convocatoria);
                 }

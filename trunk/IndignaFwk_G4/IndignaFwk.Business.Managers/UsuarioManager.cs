@@ -101,11 +101,7 @@ namespace IndignaFwk.Business.Managers
              {
                  conexion = UtilesBD.ObtenerConexion(true);
 
-                 List<Usuario> usuarios = new List<Usuario>();
-
-                 usuarios = UsuarioADO.ObtenerListado(conexion);
-
-                 return usuarios;
+                 return UsuarioADO.ObtenerListado(conexion);
              }
              catch (Exception ex)
              {
