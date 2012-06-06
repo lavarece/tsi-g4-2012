@@ -20,9 +20,9 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("RegistrosTiempo")]
+    [global::System.Xml.Serialization.XmlRootAttribute("RegistroTiempo")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class RegistrosTiempo : global::System.Data.DataSet {
+    public partial class RegistroTiempo : global::System.Data.DataSet {
         
         private UsuarioDataTable tableUsuario;
         
@@ -34,7 +34,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public RegistrosTiempo() {
+        public RegistroTiempo() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected RegistrosTiempo(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected RegistroTiempo(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -144,7 +144,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            RegistrosTiempo cln = ((RegistrosTiempo)(base.Clone()));
+            RegistroTiempo cln = ((RegistroTiempo)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -226,9 +226,9 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "RegistrosTiempo";
+            this.DataSetName = "RegistroTiempo";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/RegistrosTiempo.xsd";
+            this.Namespace = "http://tempuri.org/RegistroTiempo.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableUsuario = new UsuarioDataTable();
@@ -264,7 +264,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            RegistrosTiempo ds = new RegistrosTiempo();
+            RegistroTiempo ds = new RegistroTiempo();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -698,7 +698,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                RegistrosTiempo ds = new RegistrosTiempo();
+                RegistroTiempo ds = new RegistroTiempo();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1067,7 +1067,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                RegistrosTiempo ds = new RegistrosTiempo();
+                RegistroTiempo ds = new RegistroTiempo();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1699,7 +1699,7 @@ namespace IndignaFwk_WPF_BackOffice.Reportes {
         }
     }
 }
-namespace IndignaFwk_WPF_BackOffice.Reportes.RegistrosTiempoTableAdapters {
+namespace IndignaFwk_WPF_BackOffice.Reportes.RegistroTiempoTableAdapters {
     
     
     /// <summary>
@@ -1943,7 +1943,7 @@ SELECT Id, Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Apellido, Passwor
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::IndignaFwk_WPF_BackOffice.Properties.Settings.Default.IndignadoFDbConnectionString;
+            this._connection.ConnectionString = global::IndignaFwk_WPF_BackOffice.Properties.Settings.Default.IndignadoFDbConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1962,7 +1962,7 @@ SELECT Id, Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Apellido, Passwor
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RegistrosTiempo.UsuarioDataTable dataTable) {
+        public virtual int Fill(RegistroTiempo.UsuarioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1975,9 +1975,9 @@ SELECT Id, Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Apellido, Passwor
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RegistrosTiempo.UsuarioDataTable GetData() {
+        public virtual RegistroTiempo.UsuarioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            RegistrosTiempo.UsuarioDataTable dataTable = new RegistrosTiempo.UsuarioDataTable();
+            RegistroTiempo.UsuarioDataTable dataTable = new RegistroTiempo.UsuarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1985,14 +1985,14 @@ SELECT Id, Conectado, Descripcion, Email, FK_Id_Sitio, Nombre, Apellido, Passwor
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RegistrosTiempo.UsuarioDataTable dataTable) {
+        public virtual int Update(RegistroTiempo.UsuarioDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RegistrosTiempo dataSet) {
+        public virtual int Update(RegistroTiempo dataSet) {
             return this.Adapter.Update(dataSet, "Usuario");
         }
         
@@ -2612,7 +2612,7 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::IndignaFwk_WPF_BackOffice.Properties.Settings.Default.IndignadoFDbConnectionString;
+            this._connection.ConnectionString = global::IndignaFwk_WPF_BackOffice.Properties.Settings.Default.IndignadoFDbConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2630,7 +2630,7 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RegistrosTiempo.SitioDataTable dataTable) {
+        public virtual int Fill(RegistroTiempo.SitioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2643,9 +2643,9 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RegistrosTiempo.SitioDataTable GetData() {
+        public virtual RegistroTiempo.SitioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            RegistrosTiempo.SitioDataTable dataTable = new RegistrosTiempo.SitioDataTable();
+            RegistroTiempo.SitioDataTable dataTable = new RegistroTiempo.SitioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2653,14 +2653,14 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RegistrosTiempo.SitioDataTable dataTable) {
+        public virtual int Update(RegistroTiempo.SitioDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RegistrosTiempo dataSet) {
+        public virtual int Update(RegistroTiempo dataSet) {
             return this.Adapter.Update(dataSet, "Sitio");
         }
         
@@ -2988,7 +2988,7 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(RegistrosTiempo dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(RegistroTiempo dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._sitioTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Sitio.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -3016,7 +3016,7 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(RegistrosTiempo dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(RegistroTiempo dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._sitioTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Sitio.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -3042,7 +3042,7 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(RegistrosTiempo dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(RegistroTiempo dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._usuarioTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Usuario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -3092,7 +3092,7 @@ SELECT Id, Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(RegistrosTiempo dataSet) {
+        public virtual int UpdateAll(RegistroTiempo dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
