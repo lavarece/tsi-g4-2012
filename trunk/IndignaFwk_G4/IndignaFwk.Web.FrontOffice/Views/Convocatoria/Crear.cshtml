@@ -12,7 +12,7 @@
 
 <h2>Crear convocatoria</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(null, "Convocatoria", FormMethod.Post, new { @id = "formCrearConvocatoria" })) 
 {
     <div class="areaFormulario">    
         <table>
@@ -96,7 +96,7 @@
         <ul>            
             <li>
                 <div class="boton">
-                    <a href="#" onclick="submit();">Crear</a>
+                    <a href="#" onclick="submitForm('Crear');">Crear</a>
                 </div>       
             </li>
             <li>
@@ -118,5 +118,10 @@
             showMapaSelector('txtCoordenadasConvocatoria');
         });
     });
+
+    function submitForm(method) {
+        $("#formCrearConvocatoria")[0].action = '' + method;
+        $("#formCrearConvocatoria")[0].submit();
+    }
 
 </script>

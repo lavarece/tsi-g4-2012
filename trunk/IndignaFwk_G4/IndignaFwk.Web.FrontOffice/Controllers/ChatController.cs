@@ -37,36 +37,45 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         [HttpGet]
         public ActionResult CargarListaUsuarios()
         {
-            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
-
-            List<Usuario> listadoUsuarios = usuarioUserProcess.ObtenerUsuariosPorIdGrupo(site.Grupo.Id);
-
             StringBuilder sbContent = new StringBuilder();
 
-            if (listadoUsuarios != null && listadoUsuarios.Count > 0)
+            if (ControllerContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                foreach (Usuario usuario in listadoUsuarios)
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                List<Usuario> listadoUsuarios = usuarioUserProcess.ObtenerUsuariosPorIdGrupo(site.Grupo.Id);
+
+                if (listadoUsuarios != null && listadoUsuarios.Count > 0)
                 {
-                    if (usuario.Id != ci.Id)
+                    foreach (Usuario usuario in listadoUsuarios)
                     {
-                        string claseDiv = "nombreUsuarioChat " + (usuario.Conectado ? "usuarioOnline" : "usuarioOffline");
-                        sbContent.Append("<ul>")
-                                 .Append("<li>")
-                                 .Append("<div class=\"" + claseDiv + "\">")
-                                 .Append("<a href=\"#\" onclick=\"iniciarChat(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")
-                                 .Append("</div>")
-                                 .Append("</li>")
-                                 .Append("</ul>");
+                        if (usuario.Id != ci.Id)
+                        {
+                            string claseDiv = "nombreUsuarioChat " + (usuario.Conectado ? "usuarioOnline" : "usuarioOffline");
+                            sbContent.Append("<ul>")
+                                     .Append("<li>")
+                                     .Append("<div class=\"" + claseDiv + "\">")
+                                     .Append("<a href=\"#\" onclick=\"iniciarChat(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")
+                                     .Append("</div>")
+                                     .Append("</li>")
+                                     .Append("</ul>");
+                        }
                     }
                 }
+
+                // Si no se agrego ningun usuario muestro un msje
+                if (sbContent.Length == 0)
+                {
+                    sbContent.Append("<div class=\"mensajeCargandoChat\">")
+                             .Append("No existen usuarios")
+                             .Append("</div>");
+                }
             }
-            
-            // Si no se agrego ningun usuario muestro un msje
-            if(sbContent.Length == 0)
+            else
             {
                 sbContent.Append("<div class=\"mensajeCargandoChat\">")
-                         .Append("No existen usuarios")
-                         .Append("</div>");
+                             .Append("No existen usuarios")
+                             .Append("</div>");
             }
 
             return Content(sbContent.ToString(), "text/html");
@@ -95,7 +104,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                          .Append("<div class=\"datosUsuarioConversacion\">Conversando con: ")
                          .Append(usuario.NombreCompleto)
                          .Append("</div>")
-                         .Append("<div class=\"conversacionPanel\" id=\"txt_conversacion\">");
+                         .Append("<div class=\"conversacionPanel\" id=\"txt_conversacion_" + idUsuario + "\">");
 
                 // Agrego los mensajes existentes
                 foreach(Mensaje mensaje in conversacion.ListaMensajes)

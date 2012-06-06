@@ -83,7 +83,7 @@
         }
         else
         {
-            SubmitForm("MarcarNoLeida");
+            submitForm("MarcarNoLeida");
         }        
     }
 
@@ -95,7 +95,7 @@
         }
         else
         {
-            SubmitForm("MarcarLeida");
+            submitForm("MarcarLeida");
         }
     }
 
@@ -109,7 +109,7 @@
         {
             if (confirm("¿Seguro desea eliminar las notificaciones seleccionadas?")) 
             {
-                SubmitForm("Eliminar");
+                submitForm("Eliminar");
             }
         }
     }
@@ -133,7 +133,7 @@
         });
     }
 
-    function SubmitForm(method) 
+    function submitForm(method) 
     {
         $("#formListadoNotificaciones")[0].action = '' + method;
         $("#formListadoNotificaciones")[0].submit();
