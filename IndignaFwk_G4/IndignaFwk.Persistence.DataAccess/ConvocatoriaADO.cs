@@ -175,9 +175,9 @@ namespace IndignaFwk.Persistence.DataAccess
                     consulta += " AND @descripcion = c.Descripcion";
                 }
 
-                if (filtroBusqueda.Quorum != null)
+                if (filtroBusqueda.Quorum != -1)
                 {
-                    consulta += "AND @quorum = c.Quorum";
+                    consulta += " AND @quorum = c.Quorum";
                 }
 
                 if (filtroBusqueda.FechaInicio != null)
@@ -217,7 +217,7 @@ namespace IndignaFwk.Persistence.DataAccess
                     UtilesBD.SetParameter(command, "descripcion", filtroBusqueda.Descripcion);
                 }
 
-                if (filtroBusqueda.Quorum != null)
+                if (filtroBusqueda.Quorum != -1)
                 {
                     UtilesBD.SetParameter(command, "quorum", filtroBusqueda.Quorum);
                 }
