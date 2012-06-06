@@ -30,120 +30,125 @@
         </ul>
     </div>
 
-    <!-- Filtro de convocatorias -->
-    <div class="areaFormulario" id="divFiltroConvocatorias" style="display: none">    
-        <fieldset><legend>Filtro de convocatorias</legend>
-            <table>
-                <tr>    
-                    <td>
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.Titulo)
-                        </div>
-                        <div class="fieldValue">
-                            @Html.TextBoxFor(m => m.Titulo)
-                            @Html.ValidationMessageFor(m => m.Titulo)
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.Descripcion)
-                        </div>
-                        <div class="fieldValue">
-                            @Html.TextBoxFor(m => m.Descripcion)
-                            @Html.ValidationMessageFor(m => m.Descripcion)
-                        </div>
-                    </td>
-                </tr>
-                <tr>    
-                    <td>
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.Quorum)
-                        </div>
-                        <div class="fieldValue">
-                            @Html.TextBoxFor(m => m.Quorum)
-                            @Html.ValidationMessageFor(m => m.Quorum)
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.Tematica)
-                        </div>
-                        <div class="fieldValue">
-                            @Html.TextBoxFor(m => m.Tematica)
-                            @Html.ValidationMessageFor(m => m.Tematica)
-                        </div>
-                    </td>
-                </tr>
-                <tr>    
-                    <td>
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.FechaInicio)
-                        </div>
-                        <div class="fieldValue">
-                            @Html.TextBoxFor(m => m.FechaInicio, new { id = "filtroFechaInicio" })
-                            @Html.ValidationMessageFor(m => m.FechaInicio)
-                        </div>
-                    </td>
-                    <td>
-                        <div class="fieldLabel">
-                            @Html.LabelFor(m => m.FechaFin)
-                        </div>
-                        <div class="fieldValue">
-                            @Html.TextBoxFor(m => m.FechaFin, new { id = "filtroFechaFin" })
-                            @Html.ValidationMessageFor(m => m.FechaFin)
-                        </div>
-                    </td>
-                </tr>                
-            </table>
-            <div style="text-align: right; margin: 5px 0px;">
-                <div class="boton">
-                    <a href="@Url.Action("Filtrar", "Convocatoria")">Buscar</a>
-                </div>
-            </div>
-        </fieldset>
-    </div>
-
-    <!-- Listado de convocatorias -->  
-    if (ViewBag.ListadoConvocatoriasGrupo != null && ViewBag.ListadoConvocatoriasGrupo.Count > 0)
+    using (Html.BeginForm(null, "Convocatoria", FormMethod.Post, new { @id = "formListadoConvocatoria" }))
     {
-        <div class="wrapperDataTable">  
-            <div class="fieldLabel">
-                @Html.CheckBoxFor(m => m.Asistire)
-                @Html.LabelFor(m => m.Asistire)                
-            </div>            
-            <table class="dataTable">
-                <thead>
-                    <tr>            
-                        <th>Título</th>              
-                        <th>Comienza</th>
-                        <th>Finaliza</th>
-                        <th></th>
+        <!-- Filtro de convocatorias -->
+        <div class="areaFormulario" id="divFiltroConvocatorias" style="display: none">    
+            <fieldset><legend>Filtro de convocatorias</legend>
+                <table>
+                    <tr>    
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Titulo)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Titulo)
+                                @Html.ValidationMessageFor(m => m.Titulo)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Descripcion)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Descripcion)
+                                @Html.ValidationMessageFor(m => m.Descripcion)
+                            </div>
+                        </td>
                     </tr>
-                </thead>
-                @foreach (Convocatoria convocatoria in ViewBag.ListadoConvocatoriasGrupo)
-                {
-                    string claseTR = ViewBag.ListadoConvocatoriasGrupo.IndexOf(convocatoria) % 2 == 0 ? "odd" : "even";
-                    <tbody>        
-                        <tr class="@claseTR">
-                            <td>@convocatoria.Titulo</td>
-                            <td>@convocatoria.FechaInicio.ToString()</td>     
-                            <td>@convocatoria.FechaFin.ToString()</td>
-                            <td class="fieldIcono">                                
-                                <a href="@Url.Action("UbicarConvocatoria", "Convocatoria", new { idConvocatoriaAUbicar = convocatoria.Id })" title="Ubicar en mapa">
-                                    <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
-                                </a>
-                            </td>       
-                        </tr>            
-                    </tbody>
-                }
-            </table>
-        </div>  
-    }
-    else
-    {
-        <div class="mensajeListadoVacio">
-            El grupo no tiene convocatorias.            
-        </div>     
+                    <tr>    
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Quorum)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Quorum)
+                                @Html.ValidationMessageFor(m => m.Quorum)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Tematica)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Tematica)
+                                @Html.ValidationMessageFor(m => m.Tematica)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.FechaInicio)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.FechaInicio, new { id = "filtroFechaInicio" })
+                                @Html.ValidationMessageFor(m => m.FechaInicio)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.FechaFin)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.FechaFin, new { id = "filtroFechaFin" })
+                                @Html.ValidationMessageFor(m => m.FechaFin)
+                            </div>
+                        </td>
+                    </tr>                
+                </table>
+                <div style="text-align: right; margin: 5px 0px;">
+                    <div class="boton">
+                        <a href="#" onclick="clickFiltrarConvocatoria();">Buscar</a>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    
+    
+    
+        <!-- Listado de convocatorias -->  
+        if (ViewBag.ListadoConvocatoriasGrupo != null && ViewBag.ListadoConvocatoriasGrupo.Count > 0)
+        {
+            <div class="wrapperDataTable">  
+                <div class="fieldLabel">
+                    @Html.CheckBoxFor(m => m.Asistire)
+                    @Html.LabelFor(m => m.Asistire)                
+                </div>            
+                <table class="dataTable">
+                    <thead>
+                        <tr>            
+                            <th>Título</th>              
+                            <th>Comienza</th>
+                            <th>Finaliza</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (Convocatoria convocatoria in ViewBag.ListadoConvocatoriasGrupo)
+                    {
+                        string claseTR = ViewBag.ListadoConvocatoriasGrupo.IndexOf(convocatoria) % 2 == 0 ? "odd" : "even";
+                        <tbody>        
+                            <tr class="@claseTR">
+                                <td>@convocatoria.Titulo</td>
+                                <td>@convocatoria.FechaInicio.ToString()</td>     
+                                <td>@convocatoria.FechaFin.ToString()</td>
+                                <td class="fieldIcono">                                
+                                    <a href="@Url.Action("UbicarConvocatoria", "Convocatoria", new { idConvocatoriaAUbicar = convocatoria.Id })" title="Ubicar en mapa">
+                                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
+                                    </a>
+                                </td>       
+                            </tr>            
+                        </tbody>
+                    }
+                </table>
+            </div>  
+        }
+        else
+        {
+            <div class="mensajeListadoVacio">
+                El grupo no tiene convocatorias.            
+            </div>     
+        }
     } 
 
     <!-- Mapa de convocatorias -->
@@ -242,6 +247,25 @@ else
             botonOcultarFiltro.css("display", "block");
             divFiltroConvocatorias.css("display", "block");
         }
+    }
+
+    function clickMarcarLeida() {
+        if (cantidadNotificacionesSeleccionadas() == 0) {
+            alert("Debe seleccionar al menos una notificación.");
+        }
+        else {
+            SubmitForm("MarcarLeida");
+        }
+    }
+
+    function clickFiltrarConvocatoria()
+    {
+        SubmitForm("Filtrar");
+    }
+
+    function SubmitForm(method) {
+        $("#formListadoConvocatoria")[0].action = '' + method;
+        $("#formListadoConvocatoria")[0].submit();
     }
 
 </script>
