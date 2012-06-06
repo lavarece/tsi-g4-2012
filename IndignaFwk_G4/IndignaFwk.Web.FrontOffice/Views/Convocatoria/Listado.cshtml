@@ -231,39 +231,33 @@ else
         $("#filtroFechaFin").datepicker();
     });
 
-    function mostrarOcultarFiltroConvocatorias(mostrar) {
+    function mostrarOcultarFiltroConvocatorias(mostrar)
+    {
         var botonVerFiltro = $("#botonVerFiltro");
         var botonOcultarFiltro = $("#botonOcultarFiltro");
         var divFiltroConvocatorias = $("#divFiltroConvocatorias");
 
-        if (mostrar == 0) {
+        if (mostrar == 0) 
+        {
             botonVerFiltro.css("display", "block");
             botonOcultarFiltro.css("display", "none");
             divFiltroConvocatorias.css("display", "none");
 
         }
-        else if (mostrar == 1) {
+        else if (mostrar == 1) 
+        {
             botonVerFiltro.css("display", "none");
             botonOcultarFiltro.css("display", "block");
             divFiltroConvocatorias.css("display", "block");
         }
     }
-
-    function clickMarcarLeida() {
-        if (cantidadNotificacionesSeleccionadas() == 0) {
-            alert("Debe seleccionar al menos una notificación.");
-        }
-        else {
-            SubmitForm("MarcarLeida");
-        }
-    }
-
+        
     function clickFiltrarConvocatoria()
     {
-        SubmitForm("Filtrar");
+        submitForm("Filtrar");
     }
 
-    function SubmitForm(method) {
+    function submitForm(method) {
         $("#formListadoConvocatoria")[0].action = '' + method;
         $("#formListadoConvocatoria")[0].submit();
     }

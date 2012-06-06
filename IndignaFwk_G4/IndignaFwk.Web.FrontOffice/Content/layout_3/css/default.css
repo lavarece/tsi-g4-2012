@@ -338,12 +338,11 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #C0DC8C;
-    border: 2px inset #7BA331;
-    color: #3C3C3C;
+    background-color: #2F6358;
+    border: 1px inset #EBEBEB;
+    color: #FFFFFF;
     font-size: 13px;    
     font-weight: bold;    
-    border-radius: 7px 7px 7px 7px;
     cursor: default;
 }
 
@@ -515,7 +514,7 @@ input, select, textarea
 .nombreUsuarioChat
 {
     display: inline;
-    line-height: 38px;
+    line-height: 39px;
 }
 
 .nombreUsuarioChat a
@@ -537,7 +536,20 @@ input, select, textarea
     background: url('../images/ico_online.png') no-repeat 2% 50%;
 }
 
+.usuarioOnline a:hover
+{
+    background: url('../images/ico_online.png') no-repeat 2% 50%;
+    background-color: #EBEBEB;    
+}
+
 .usuarioOffline
 {
     background: url('../images/ico_offline.png') no-repeat 2% 50%;
 }
+
+.usuarioOffline a:hover
+{
+    background: url('../images/ico_offline.png') no-repeat 2% 50%;
+    background-color: #EBEBEB;    
+}
+

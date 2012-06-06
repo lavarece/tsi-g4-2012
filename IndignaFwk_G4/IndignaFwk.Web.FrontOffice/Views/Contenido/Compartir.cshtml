@@ -12,7 +12,7 @@
 
 <h2>Compartir contenido</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(null, "Contenido", FormMethod.Post, new { @id = "formCompartirContenido" }))
 {
     <div class="areaFormulario">    
         <table>
@@ -74,7 +74,7 @@
         <ul>            
             <li>
                 <div class="boton">
-                    <a href="#" onclick="submit();">Compartir</a>
+                    <a href="#" onclick="submitForm('Compartir');">Compartir</a>
                 </div>       
             </li>
             <li>
@@ -85,3 +85,10 @@
         </ul>        
     </div>              
 }
+
+<script type="text/javascript">
+    function submitForm(method) {
+        $("#formCompartirContenido")[0].action = '' + method;
+        $("#formCompartirContenido")[0].submit();
+    }
+</script>

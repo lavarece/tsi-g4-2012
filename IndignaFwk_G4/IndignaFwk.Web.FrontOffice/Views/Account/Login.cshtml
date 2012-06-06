@@ -9,7 +9,7 @@
 
 <h3>Inicio de sesión</h3>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, "Account", FormMethod.Post, new { @id = "formLogin" }))
 {
     <div class="areaFormulario">
         <table>
@@ -44,7 +44,7 @@
         <ul>    
             <li>
                 <div class="boton">
-                    <a href="#" onclick="submit();">Acceder</a>
+                    <a href="#" onclick="submitForm('Login');">Acceder</a>
                 </div>       
             </li>
             <li>
@@ -55,3 +55,13 @@
         </ul>     
     </div>
 }
+
+<script type="text/javascript">
+
+    function submitForm(method) 
+    {
+        $("#formLogin")[0].action = '' + method;
+        $("#formLogin")[0].submit();
+    }
+
+</script>

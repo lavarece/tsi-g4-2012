@@ -81,18 +81,21 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult LogOff()
         {
-            // Seteo la propiedad conectado del usuario a false
-            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+            if (User.Identity.IsAuthenticated)
+            {
+                // Seteo la propiedad conectado del usuario a false
+                CustomIdentity ci = (CustomIdentity) User.Identity;
 
-            Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
 
-            usuario.Conectado = false;
+                usuario.Conectado = false;
 
-            usuarioUserProcess.EditarUsuario(usuario);
+                usuarioUserProcess.EditarUsuario(usuario);
 
-            FormsAuthentication.SignOut();
+                FormsAuthentication.SignOut();
 
-            PopulateViewBag();
+                PopulateViewBag();
+            }
 
             return RedirectToAction("Index", "Home");
         }
