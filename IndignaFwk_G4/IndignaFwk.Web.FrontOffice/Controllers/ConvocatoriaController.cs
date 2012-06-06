@@ -183,30 +183,42 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         [HttpPost]
         public ActionResult Filtrar(FiltroConvocatoriaModel model)
         {
-            if(ModelState.IsValid)
+            // Armo un filtroBusquedaConvocatorias con la info del model
+            FiltroBusqueda filtroBusquedaConvocatoria = new FiltroBusqueda();
+
+            CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+            int idUsuario = ci.Id;
+
+            filtroBusquedaConvocatoria.IdUsuario = idUsuario;
+            filtroBusquedaConvocatoria.IdGrupo = site.Grupo.Id;
+            filtroBusquedaConvocatoria.Titulo = model.Titulo;
+            filtroBusquedaConvocatoria.Tematica = model.Tematica;
+
+            if (model.Quorum != null)
             {
-                // Armo un filtroBusquedaConvocatorias con la info del model
-                FiltroBusqueda filtroBusqueda = new FiltroBusqueda();
-
-                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
-
-                int idUsuario = ci.Id;
-
-
-                filtroBusqueda.IdUsuario = idUsuario;
-                filtroBusqueda.IdGrupo = site.Grupo.Id;
-                filtroBusqueda.Titulo = model.Titulo;
-                filtroBusqueda.Tematica = model.Tematica;
-                filtroBusqueda.Quorum = Int32.Parse(model.Quorum);
-                filtroBusqueda.FechaInicio = Convert.ToDateTime(model.FechaInicio);
-                filtroBusqueda.FechaFin = Convert.ToDateTime(model.FechaFin);
-                filtroBusqueda.Descripcion = model.Descripcion;
-                filtroBusqueda.Asistire = model.Asistire;
-
-                // Invoco al buscar del userProcess
-                List<Convocatoria> listaConvocatoriasPorFiltro = convocatoriaUserProcess.ObtenerConvocatoriasPorFiltro(filtroBusqueda);
-                
+                filtroBusquedaConvocatoria.Quorum = Int32.Parse(model.Quorum);
             }
+            else
+            {
+                filtroBusquedaConvocatoria.Quorum = -1;
+            }
+
+            if (model.FechaInicio != null)
+            {
+                filtroBusquedaConvocatoria.FechaInicio = Convert.ToDateTime(model.FechaInicio);
+            }
+
+            if (model.FechaFin != null)
+            {
+                filtroBusquedaConvocatoria.FechaFin = Convert.ToDateTime(model.FechaFin);
+            }
+
+            filtroBusquedaConvocatoria.Descripcion = model.Descripcion;
+            filtroBusquedaConvocatoria.Asistire = model.Asistire;
+
+            ViewBag.ListadoConvocatoriasGrupo = BuscarConvocatorias(filtroBusquedaConvocatoria);
+            
 
             PopulateViewBag();
 
@@ -214,10 +226,14 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         }
 
         // Operacion auxiliar para buscar las convocatorias a partir de un filtro de busqueda
-        private List<Convocatoria> BuscarConvocatorias()
+        private List<Convocatoria> BuscarConvocatorias(FiltroBusqueda filtroConvocatoria)
         {
-            return convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
+            return convocatoriaUserProcess.ObtenerConvocatoriasPorFiltro(filtroConvocatoria);
         }
 
+        private List<Convocatoria> BuscarConvocatorias()
+        {
+            return convocatoriaUserProcess.ObtenerListadoConvocatorias();
+        }
     }
 }
