@@ -33,5 +33,16 @@ namespace IndignaFwk_WPF_BackOffice.Properties {
                 return ((string)(this["IndignadoFDbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Vanessa-PC\\SQLEXPRESS;Initial Catalog=IndignadoFDb;Persist Security I" +
+            "nfo=True;User ID=indigna_usr;Password=indigna_usr")]
+        public string IndignadoFDbConnectionString1 {
+            get {
+                return ((string)(this["IndignadoFDbConnectionString1"]));
+            }
+        }
     }
 }

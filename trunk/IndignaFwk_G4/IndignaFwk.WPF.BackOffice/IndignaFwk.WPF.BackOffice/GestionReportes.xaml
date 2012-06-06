@@ -20,7 +20,7 @@
 			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Reporte de Registros en el Tiempo"/>
 			<ListBoxItem x:Name="listboxItem_contenidoInadecuado" Content="Reporte de Contenido Inadecuado"/>
 		</ListBox>
-		<Button x:Name="boton_generarReporte" Content="Generar Reporte" HorizontalAlignment="Right" Height="25" Margin="0,0,15,5" VerticalAlignment="Bottom" Width="139">
+		<Button x:Name="boton_generarReporte" Content="Generar Reporte" HorizontalAlignment="Right" Height="25" Margin="0,0,15,5" VerticalAlignment="Bottom" Width="139" Click="boton_generarReporte_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
@@ -36,5 +36,5 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-	</Grid>
+    </Grid>
 </Window>
