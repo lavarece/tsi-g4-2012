@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="94f99d9e-3ab5-4bde-86a2-ca23c3b97a75" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1281/AdministradorService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AdministradorService.xsd" MetadataType="Schema" ID="7cdeb546-972e-44e6-a6b5-b805ad42d5f8" SourceId="1" SourceUrl="http://localhost:1281/AdministradorService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AdministradorService.wsdl" MetadataType="Wsdl" ID="c8ef7117-d8b7-4cf7-9495-e0a6b33224d3" SourceId="1" SourceUrl="http://localhost:1281/AdministradorService.svc?wsdl" />
+    <MetadataFile FileName="AdministradorService.disco" MetadataType="Disco" ID="a8bf3705-eae6-4d2b-8029-1e61e7cbaebd" SourceId="1" SourceUrl="http://localhost:1281/AdministradorService.svc?disco" />
+    <MetadataFile FileName="AdministradorService1.xsd" MetadataType="Schema" ID="e9daef11-ca42-4976-80e5-827fbe0cb5ad" SourceId="1" SourceUrl="http://localhost:1281/AdministradorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AdministradorService2.xsd" MetadataType="Schema" ID="3f6fe03e-9f5c-45a6-adcc-83b4c553bdbb" SourceId="1" SourceUrl="http://localhost:1281/AdministradorService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

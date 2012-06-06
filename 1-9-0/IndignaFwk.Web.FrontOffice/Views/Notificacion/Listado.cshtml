@@ -1,0 +1,141 @@
+﻿@using IndignaFwk.Common.Entities;
+
+@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Notificaciones";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+@using (Html.BeginForm(null, "Notificacion", FormMethod.Post, new { @id = "formListadoNotificaciones" }))
+{
+    <div>
+        <div>
+            <h3>Listado de notificaciones</h3>
+        </div>
+
+        @if (ViewBag.ListadoNotificacionesUsuario != null && ViewBag.ListadoNotificacionesUsuario.Count > 0)
+        {        
+            <div class="areaBotones">
+                <ul>
+                    <li>
+                        <div class="boton">                            
+                            <a href="#" onclick="clickMarcarLeida();">Marcar como leída</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="boton">
+                            <a href="#" onclick="clickMarcarNoLeida();">Marcar como no leída</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="boton">
+                            <a href="#" onclick="clickEliminarNotificacion();">Eliminar</a>
+                        </div>
+                    </li>            
+                </ul>
+            </div>
+
+            <div class="wrapperDataTable">    
+                <table class="dataTable">
+                    <thead>
+                        <tr>            
+                            <th><input type="checkbox" id="chk_marcarTodos" onclick="marcarTodosCheck(this);"/></th>
+                            <th>Notificación</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        @foreach (Notificacion notificacion in ViewBag.ListadoNotificacionesUsuario)
+                        {
+                            string claseTR = ViewBag.ListadoNotificacionesUsuario.IndexOf(notificacion) % 2 == 0 ? "odd" : "even";
+                            string claseTDContenido = notificacion.Visto == false ? "notificacionNoLeida" : "";
+                            <tr class="@claseTR">
+                                <td class="fieldCheckbox @claseTDContenido"> 
+                                    @Html.CheckBox("chk_notificacion", false, new { @value = notificacion.Id })
+                                </td>
+                                <td class="@claseTDContenido">
+                                    @notificacion.Contenido
+                                </td>                       
+                                <td class="@claseTDContenido">
+                                    @notificacion.FechaCreacion.ToString()
+                                </td>   
+                            </tr>
+                        }                    
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="mensajeListadoVacio">
+                No tiene ninguna notificación.
+            </div>
+        }
+    </div>
+}
+
+<script type="text/javascript">
+
+    function clickMarcarNoLeida() 
+    {
+        if (cantidadNotificacionesSeleccionadas() == 0) 
+        {
+            alert("Debe seleccionar al menos una notificación.");
+        }
+        else
+        {
+            submitForm("MarcarNoLeida");
+        }        
+    }
+
+    function clickMarcarLeida() 
+    {
+        if (cantidadNotificacionesSeleccionadas() == 0) 
+        {
+            alert("Debe seleccionar al menos una notificación.");
+        }
+        else
+        {
+            submitForm("MarcarLeida");
+        }
+    }
+
+    function clickEliminarNotificacion() 
+    {
+        if (cantidadNotificacionesSeleccionadas() == 0) 
+        {
+            alert("Debe seleccionar al menos una notificación.");
+        }
+        else
+        {
+            if (confirm("¿Seguro desea eliminar las notificaciones seleccionadas?")) 
+            {
+                submitForm("Eliminar");
+            }
+        }
+    }
+
+    function cantidadNotificacionesSeleccionadas() 
+    {
+        var cont = 0;
+
+        $("input[name=chk_notificacion]:checked").each(function (i) {
+            $("#formListadoNotificaciones").append("<input type=\"hidden\" name=\"notificacionesSel\" value=\"" + this.value + "\" />");
+            cont++;
+        });
+
+        return cont
+    }
+
+    function marcarTodosCheck(comp) 
+    {
+        $("input[name=chk_notificacion]").each(function (i) {
+            this.checked = comp.checked;
+        });
+    }
+
+    function submitForm(method) 
+    {
+        $("#formListadoNotificaciones")[0].action = '' + method;
+        $("#formListadoNotificaciones")[0].submit();
+    }
+</script>

@@ -1,0 +1,21 @@
+﻿@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+<div id="ventanasChat"></div>
+
+<script type="text/javascript">
+
+    function iniciarChat(idUsuario) 
+    {
+        $.ajax({
+            url: '@Url.Action("IniciarChat", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#ventanasChat").append("<div id='dialogoChat_" + idUsuario + "' style='display:none;'>asdasd</div>");
+                    $("#dialogoChat_" + idUsuario).dialog();
+                }
+            }
+        });
+    }
+</script>
