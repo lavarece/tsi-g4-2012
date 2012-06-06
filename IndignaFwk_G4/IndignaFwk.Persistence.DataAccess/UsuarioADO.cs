@@ -13,6 +13,21 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;
 
+        // DEPENDENCIAS
+        private IGrupoADO _grupoADO;
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
+            }
+        }
+
         public void Crear(Usuario usuario, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -140,7 +155,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    // Las referecias cargaras con los otros dao
                     return usuario;
                 }
 
@@ -202,7 +216,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    // Las referecias cargaras con los otros dao
                     listaUsuarioGrupo.Add(usuario);
                 }
                 return listaUsuarioGrupo;
@@ -258,7 +271,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    // Las referecias cargaras con los otros dao
                     listaUsuarios.Add(usuario);
                 }
 
@@ -375,7 +387,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    usuario.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
+                    usuario.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
                     
                     return usuario;
                 }

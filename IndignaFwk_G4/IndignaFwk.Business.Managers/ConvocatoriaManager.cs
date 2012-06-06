@@ -299,14 +299,7 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                List<Contenido> listadoContenidos = ContenidoADO.ObtenerListadoPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido);
-
-                foreach (Contenido c in listadoContenidos)
-                {
-                    c.UsuarioCreacion = UsuarioADO.Obtener(c.UsuarioCreacion.Id, conexion);
-                }
-
-                return listadoContenidos;
+                return ContenidoADO.ObtenerListadoPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido);
             }
             catch (Exception ex)
             {
@@ -326,12 +319,7 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                Contenido contenido = ContenidoADO.Obtener(idContenido, conexion);
-
-                // Obtengo las relaciones del contenido con otras entidades
-                contenido.UsuarioCreacion = UsuarioADO.Obtener(contenido.UsuarioCreacion.Id, conexion);
-
-                return contenido;
+                return ContenidoADO.Obtener(idContenido, conexion);
             }
             catch (Exception ex)
             {
@@ -351,9 +339,7 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                MarcaContenido marcaContenido = MarcaContenidoADO.ObtenerPorUsuarioYContenido(idUsuario, idContenido, conexion);
-
-                return marcaContenido;
+                return MarcaContenidoADO.ObtenerPorUsuarioYContenido(idUsuario, idContenido, conexion);
             }
             catch (Exception ex)
             {
@@ -450,17 +436,7 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                List<AsistenciaConvocatoria> listaDeAsistencias = AsistenciaConvocatoriaADO.ObtenerListadoPorIdUsuario(idUsuario, conexion);
-
-
-                foreach (AsistenciaConvocatoria asistencia in listaDeAsistencias)
-                {
-                    asistencia.Convocatoria = ConvocatoriaADO.Obtener(asistencia.Convocatoria.Id, conexion);
-                }
-
-                return listaDeAsistencias;
-
-
+                return AsistenciaConvocatoriaADO.ObtenerListadoPorIdUsuario(idUsuario, conexion);
             }
             catch (Exception ex)
             {

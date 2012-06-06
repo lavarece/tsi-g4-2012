@@ -13,6 +13,35 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         private SqlCommand command;    
 
+        //DEPENDENCIAS
+        private IUsuarioADO _usuarioADO;
+        protected IUsuarioADO UsuarioADO
+        {
+            get
+            {
+                if (_usuarioADO == null)
+                {
+                    _usuarioADO = new UsuarioADO();
+                }
+
+                return _usuarioADO;
+            }
+        }
+
+        private IConvocatoriaADO _convocatoriaADO;
+        protected IConvocatoriaADO ConvocatoriaADO
+        {
+            get
+            {
+                if (_convocatoriaADO == null)
+                {
+                    _convocatoriaADO = new ConvocatoriaADO();
+                }
+
+                return _convocatoriaADO;
+            }
+        }
+        
         public void Crear(Notificacion notificacion, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -103,9 +132,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    notificacion.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader)};
+                    notificacion.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
-                    notificacion.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader)};
+                    notificacion.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
                     return notificacion;
                 }
@@ -149,9 +178,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    notificacion.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader)};
+                    notificacion.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
-                    notificacion.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader)};
+                    notificacion.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
                     listaNotificaciones.Add(notificacion);
                 }
@@ -197,9 +226,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    notificacion.Usuario = new Usuario { Id = UtilesBD.GetIntFromReader("FK_Id_Usuario", reader) };
+                    notificacion.Usuario = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Usuario", reader), conexion);
 
-                    notificacion.Convocatoria = new Convocatoria { Id = UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader) };
+                    notificacion.Convocatoria = ConvocatoriaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Convocatoria", reader), conexion);
 
                     listaNotificaciones.Add(notificacion);
                 }

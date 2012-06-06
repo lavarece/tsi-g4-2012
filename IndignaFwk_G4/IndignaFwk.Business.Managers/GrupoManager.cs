@@ -116,27 +116,7 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               List<Grupo> listadoGrupos = GrupoADO.ObtenerListado(conexion);
-
-               foreach (Grupo grupo in listadoGrupos)
-               {
-                   if (grupo.Imagen != null && grupo.Imagen.Id != 0)
-                   {
-                       grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
-                   }
-
-                   if (grupo.Layout != null && grupo.Layout.Id != 0)
-                   {
-                       grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
-                   }
-
-                   if (grupo.Tematica != null && grupo.Tematica.Id != 0)
-                   {
-                       grupo.Tematica = TematicaADO.Obtener(grupo.Tematica.Id, conexion);
-                   }
-               }
-
-               return listadoGrupos;
+               return GrupoADO.ObtenerListado(conexion);
            }
            catch (Exception ex)
            {
@@ -160,24 +140,7 @@ namespace IndignaFwk.Business.Managers
            {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                Grupo grupo = GrupoADO.Obtener(idGrupo, conexion);
-
-                if (grupo.Imagen != null && grupo.Imagen.Id != 0)
-                {
-                    grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
-                }
-
-                if (grupo.Layout != null && grupo.Layout.Id != 0)
-                {
-                    grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
-                }
-
-                if (grupo.Tematica != null && grupo.Tematica.Id != 0)
-                {
-                    grupo.Tematica = TematicaADO.Obtener(grupo.Tematica.Id, conexion);
-                }
-                
-                return grupo; 
+                return GrupoADO.Obtener(idGrupo, conexion);                 
            }
            catch (Exception ex)
            {
@@ -200,24 +163,7 @@ namespace IndignaFwk.Business.Managers
            {
                conexion = UtilesBD.ObtenerConexion(true);
 
-               Grupo grupo = GrupoADO.ObtenerPorUrl(url, conexion);
-
-               if (grupo.Imagen != null && grupo.Imagen.Id != 0)
-               {
-                   grupo.Imagen = ImagenADO.Obtener(grupo.Imagen.Id, conexion);
-               }
-
-               if (grupo.Layout != null && grupo.Layout.Id != 0)
-               {
-                   grupo.Layout = LayoutADO.Obtener(grupo.Layout.Id, conexion);
-               }
-
-               if (grupo.Tematica != null && grupo.Tematica.Id != 0)
-               {
-                   grupo.Tematica = TematicaADO.Obtener(grupo.Tematica.Id, conexion);
-               }
-
-               return grupo;
+               return GrupoADO.ObtenerPorUrl(url, conexion);
            }
            catch (Exception ex)
            {

@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Chat";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<h2>Chat del grupo</h2>
+
+@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+<div id="divContainerChat"></div>
+
+<script type="text/javascript">
+
+    var idIntervalChat;
+
+    function iniciarChat(idUsuario) 
+    {
+        if (idIntervalChat != null)
+        {
+            clearInterval(idIntervalChat);
+        }
+
+        $.ajax({
+            url: '@Url.Action("IniciarChat", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#divContainerChat").html(data);                    
+                }
+            }
+        });
+
+        idIntervalChat = setInterval('refrescarConversacion(' + idUsuario + ')', 10000);
+    }
+
+    function enviarMensaje(idUsuario) 
+    {
+        var msj = $("#txt_msj").val()
+
+        if (msj == null || msj == '') 
+        {
+            alert("Debe ingresar el mensaje a enviar");
+        }
+        else
+        {
+            $.ajax({
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + msj,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        var txtConversacion = $("#txt_conversacion");
+                        txtConversacion.append(data);
+                        $("#txt_msj").val("");
+                    }
+                }
+            });
+        }
+    }
+
+    // Utilizada por el set interval
+    function refrescarConversacion(idUsuario)
+    {
+        $.ajax({
+            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#txt_conversacion").html(data);
+                }
+            }
+        });
+    }
+
+</script>

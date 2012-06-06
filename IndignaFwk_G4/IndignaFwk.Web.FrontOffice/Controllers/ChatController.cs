@@ -27,7 +27,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             ViewBag.OpcionMenu = "Chat";
         }
 
-        public ActionResult SalaGrupo()
+        public ActionResult SalaChat()
         {
             PopulateViewBag();
 
@@ -74,8 +74,168 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         [HttpGet]
         public ActionResult IniciarChat()
+        {            
+            string idUsuario = Request["idUsuario"];
+
+            StringBuilder sbContent = new StringBuilder();
+
+            if (!String.IsNullOrEmpty(idUsuario))
+            {
+                int idUsuarioB = Int32.Parse(idUsuario);
+
+                // Obtengo la conversacion
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB); 
+
+                // Obtengo el usuario
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(idUsuarioB);
+
+                sbContent.Append("<div class=\"wrapperConversacionChat\">")
+                         .Append("<div class=\"datosUsuarioConversacion\">Conversando con: ")
+                         .Append(usuario.NombreCompleto)
+                         .Append("</div>")
+                         .Append("<div class=\"conversacionPanel\" id=\"txt_conversacion\">");
+
+                // Agrego los mensajes existentes
+                foreach(Mensaje mensaje in conversacion.ListaMensajes)
+                {
+                    sbContent.Append((mensaje.IdRemitente == ci.Id ? "<b>Yo: </b>" : "<b>El: </b>"))
+                             .Append("<span>").Append(mensaje.Contenido).Append("</span><br/>");
+                }
+
+                sbContent.Append("</div>")
+                         .Append("</div>")
+                         .Append("<div class=\"wrapperMensajeChat\">")
+                         .Append("<textarea cols=\"30\" rows=\"30\" id=\"txt_msj\"></textarea>")
+                         .Append("<div class=\"boton\">")
+                         .Append("<a href=\"#\" onclick=\"enviarMensaje(" + usuario.Id + ")\">Enviar</a>")
+                         .Append("</div>")
+                         .Append("</div>");
+
+            }
+
+            return Content(sbContent.ToString(), "text/html");
+        }
+
+        [HttpGet]
+        public ActionResult EnviarMensaje()
         {
-            return Content("", "text/html");
+            string idUsuario = Request["idUsuario"];
+
+            string msj = Request["msj"];
+
+            StringBuilder sbContent = new StringBuilder();
+
+            if (!String.IsNullOrEmpty(idUsuario))
+            {
+                int idUsuarioB = Int32.Parse(idUsuario);
+
+                // Obtengo la conversacion
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB);
+
+                Mensaje mensaje = new Mensaje();
+
+                mensaje.Id = ObtenerSiguienteIdMensaje(conversacion);
+
+                mensaje.IdRemitente = ci.Id;
+
+                mensaje.Contenido = msj;
+
+                conversacion.ListaMensajes.Add(mensaje);
+
+                sbContent.Append((mensaje.IdRemitente == ci.Id ? "<b>Yo: </b>" : "<b>El: </b>"))
+                         .Append("<span>").Append(mensaje.Contenido).Append("</span>").Append("<br/>");
+            }
+
+            return Content(sbContent.ToString(), "text/html");
+        }
+
+        [HttpGet]
+        public ActionResult RefrescarConversacion()
+        {
+            string idUsuario = Request["idUsuario"];
+
+            StringBuilder sbContent = new StringBuilder();
+
+            if (!String.IsNullOrEmpty(idUsuario))
+            {
+                int idUsuarioB = Int32.Parse(idUsuario);
+
+                // Obtengo la conversacion
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB);
+
+                // Agrego los mensajes existentes
+                foreach (Mensaje mensaje in conversacion.ListaMensajes)
+                {
+                    sbContent.Append((mensaje.IdRemitente == ci.Id ? "<b>Yo: </b>" : "<b>El: </b>"))
+                             .Append("<span>").Append(mensaje.Contenido).Append("</span><br/>");
+                }
+            }
+
+            return Content(sbContent.ToString(), "text/html");
+        }
+
+        private Conversacion ObtenerConversacion(int idUsuarioA, int idUsuarioB)
+        {
+            List<Conversacion> listaConversaciones = null;
+
+            if (HttpContext.Application["ListaConversacionesChat"] == null)
+            {
+                listaConversaciones = new List<Conversacion>();
+
+                HttpContext.Application["ListaConversacionesChat"] = listaConversaciones;
+            }
+            else
+            {
+                listaConversaciones = (List<Conversacion>) HttpContext.Application["ListaConversacionesChat"];
+
+                foreach(Conversacion iterConv in listaConversaciones)
+                {
+                    if (iterConv.IdGrupo == site.Grupo.Id)
+                    {
+                        if ((iterConv.IdUsuarioA == idUsuarioA && iterConv.IdUsuarioB == idUsuarioB) ||
+                           (iterConv.IdUsuarioA == idUsuarioB && iterConv.IdUsuarioB == idUsuarioA))
+                        {
+                            return iterConv;
+                        }
+                    }
+                }
+            }
+
+            Conversacion nuevaConv = new Conversacion();
+
+            nuevaConv.IdGrupo = site.Grupo.Id;
+
+            nuevaConv.IdUsuarioA = idUsuarioA;
+
+            nuevaConv.IdUsuarioB = idUsuarioB;
+
+            listaConversaciones.Add(nuevaConv);
+
+            return nuevaConv;            
+        }
+
+        private int ObtenerSiguienteIdMensaje(Conversacion conversacion)
+        {
+            int nextId = 0;
+
+            if (conversacion.ListaMensajes != null && conversacion.ListaMensajes.Count > 0)
+            {
+                foreach (Mensaje mensaje in conversacion.ListaMensajes)
+                {
+                    if (mensaje.Id > nextId)
+                    {
+                        nextId = mensaje.Id;
+                    }
+                }
+            }
+
+            return nextId + 1;
         }
     }
 }

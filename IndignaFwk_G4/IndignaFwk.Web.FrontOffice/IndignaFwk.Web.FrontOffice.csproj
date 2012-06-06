@@ -152,7 +152,6 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\js.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Web.config">
@@ -216,7 +215,7 @@
     <Content Include="Views\Contenido\Compartir.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Chat\SalaGrupo.cshtml" />
+    <Content Include="Views\Chat\SalaChat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\layout_3\layout.cshtml" />
@@ -229,6 +228,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\MapaSelector.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Chat\EmbedChat.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

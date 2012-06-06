@@ -115,7 +115,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     administrador.Region = UtilesBD.GetStringFromReader("Region", reader);
 
-                    // Las referecias cargaras con los otros dao
                     return administrador;
                 }
 
@@ -166,7 +165,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     administrador.Region = UtilesBD.GetStringFromReader("Region", reader);
 
-                    // Las referecias cargaras con los otros dao
                     return administrador;
                 }
 
@@ -215,7 +213,6 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     administrador.Region = UtilesBD.GetStringFromReader("Region", reader);
 
-                    // Las referecias cargaras con los otros dao
                     listaAdminstrador.Add(administrador);
                 }
 
