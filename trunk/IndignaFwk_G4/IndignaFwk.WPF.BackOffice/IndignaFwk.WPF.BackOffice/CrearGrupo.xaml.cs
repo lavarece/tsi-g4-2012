@@ -64,6 +64,8 @@ namespace IndignaFwk_WPF_BackOffice
             comboBox_temas.ItemsSource = listaTematica;
             comboBox_temas.SelectedItem = grupo.Tematica;
 
+            coordenadas.Content = grupo.Coordenadas;
+
             grupoEditando = grupo;
 
             editando = true;
@@ -93,6 +95,11 @@ namespace IndignaFwk_WPF_BackOffice
                 mensaje = new MensajeError("El campo Temas es obligatorio");
                 mensaje.Show();
             }
+            else if (win.latitud == null)
+            {
+                mensaje = new MensajeError("La ubicación del grupo es obligatoria");
+                mensaje.Show();
+            }
             else
             {
                 Grupo grupo = new Grupo();
@@ -101,10 +108,12 @@ namespace IndignaFwk_WPF_BackOffice
 
                 grupo.Descripcion = txt_descripcion.Text;
 
+                grupo.Coordenadas = "(" + win.longitud + "," + win.latitud + ")";
+
                 grupo.Url = txt_url.Text;
 
                 grupo.Layout = (Layout)comboBox_layouts.SelectedItem;
-
+                 
                 grupo.Tematica = (Tematica)comboBox_temas.SelectedItem;
 
                 if (editando)
@@ -135,8 +144,7 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void btn_refrescarCoordenadas_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            longitud.Content ="Longitud: " + win.longitud;
-            latitud.Content = "Latitud: " + win.latitud;
+            coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
         }
     }
 }

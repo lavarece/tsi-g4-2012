@@ -87,7 +87,7 @@
         		</LinearGradientBrush>
         	</Button.Background>
         </Button>
-        <Label x:Name="latitud" Background="#00000000" Content="Latitud:" Foreground="#FF00FFF9" Margin="0,216.5,132.59,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
-        <Label x:Name="longitud" Background="#00000000" Content="Longitud:" Foreground="#FF00FFF9" Margin="0,188.5,132.59,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
+        <Label x:Name="coordenadas" Background="#00000000" Content="( , )" Foreground="#FF00FFF9" Margin="0,213,45,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Width="174" />
+        <Label x:Name="coord" Background="#00000000" Content="Coordenadas: " Foreground="#FF00FFF9" Margin="0,188.5,132.59,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
     </Grid>
 </Window>
