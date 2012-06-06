@@ -491,7 +491,7 @@ input, select, textarea
     overflow: auto;
     width: 15%;
     float: right;
-    min-height: 400px;
+    min-height: 600px;
     max-height: 1024px;
     position: relative;
     top: 38px;
