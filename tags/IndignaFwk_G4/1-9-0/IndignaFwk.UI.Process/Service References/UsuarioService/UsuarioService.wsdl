@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UsuarioService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1281/UsuarioService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1281/UsuarioService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1281/UsuarioService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUsuarioService_CrearNuevoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_CrearNuevoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerListadoUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerListadoUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorId" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EditarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EditarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuariosPorIdGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuariosPorIdGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuariosPorIdGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuariosPorIdGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailYPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailYPass" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailYPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailYPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerListadoNotificacionesPorUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoNotificacionesPorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerListadoNotificacionesPorUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoNotificacionesPorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerNotificacionPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNotificacionPorId" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ObtenerNotificacionPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNotificacionPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EditarNotificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarNotificacion" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EditarNotificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarNotificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarNotificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacion" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_EliminarNotificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUsuarioService">
+    <wsdl:operation name="CrearNuevoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/CrearNuevoUsuario" message="tns:IUsuarioService_CrearNuevoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/CrearNuevoUsuarioResponse" message="tns:IUsuarioService_CrearNuevoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoUsuarios" message="tns:IUsuarioService_ObtenerListadoUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoUsuariosResponse" message="tns:IUsuarioService_ObtenerListadoUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorId" message="tns:IUsuarioService_ObtenerUsuarioPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorIdResponse" message="tns:IUsuarioService_ObtenerUsuarioPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EditarUsuario" message="tns:IUsuarioService_EditarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EditarUsuarioResponse" message="tns:IUsuarioService_EditarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EliminarUsuario" message="tns:IUsuarioService_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EliminarUsuarioResponse" message="tns:IUsuarioService_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuariosPorIdGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupo" message="tns:IUsuarioService_ObtenerUsuariosPorIdGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupoResponse" message="tns:IUsuarioService_ObtenerUsuariosPorIdGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioPorEmailYPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPass" message="tns:IUsuarioService_ObtenerUsuarioPorEmailYPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPassResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmailYPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioPorEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail" message="tns:IUsuarioService_ObtenerUsuarioPorEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoNotificacionesPorUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario" message="tns:IUsuarioService_ObtenerListadoNotificacionesPorUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuarioResponse" message="tns:IUsuarioService_ObtenerListadoNotificacionesPorUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNotificacionPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorId" message="tns:IUsuarioService_ObtenerNotificacionPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorIdResponse" message="tns:IUsuarioService_ObtenerNotificacionPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarNotificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EditarNotificacion" message="tns:IUsuarioService_EditarNotificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EditarNotificacionResponse" message="tns:IUsuarioService_EditarNotificacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/EliminarNotificacion" message="tns:IUsuarioService_EliminarNotificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/EliminarNotificacionResponse" message="tns:IUsuarioService_EliminarNotificacion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUsuarioService" type="tns:IUsuarioService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearNuevoUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/CrearNuevoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerListadoUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioPorId">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EditarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuariosPorIdGrupo">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioPorEmailYPass">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarioPorEmail">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoNotificacionesPorUsuario">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerListadoNotificacionesPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNotificacionPorId">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerNotificacionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarNotificacion">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EditarNotificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacion">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/EliminarNotificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UsuarioService">
+    <wsdl:port name="BasicHttpBinding_IUsuarioService" binding="tns:BasicHttpBinding_IUsuarioService">
+      <soap:address location="http://localhost:1281/UsuarioService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

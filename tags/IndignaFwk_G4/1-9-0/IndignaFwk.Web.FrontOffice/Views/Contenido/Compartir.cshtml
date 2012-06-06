@@ -1,0 +1,94 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.ContenidoModel 
+
+@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + "- Contenidos";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@Html.ValidationSummary(true, "El contenido no es válido, intente nuevamente.")
+
+<h2>Compartir contenido</h2>
+
+@using (Html.BeginForm(null, "Contenido", FormMethod.Post, new { @id = "formCompartirContenido" }))
+{
+    <div class="areaFormulario">    
+        <table>
+            <tr>    
+                <td>
+                     <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Tipo)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.DropDownListFor(m => m.Tipo, new SelectList(ViewBag.ListaTiposContenido, "Valor", "Etiqueta"))
+                        @Html.ValidationMessageFor(m => m.Tipo)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Titulo)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Titulo)
+                        @Html.ValidationMessageFor(m => m.Titulo)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Comentario)
+                    </div>            
+                    <div class="fieldValue">
+                        @Html.TextAreaFor(m => m.Comentario)
+                        @Html.ValidationMessageFor(m => m.Comentario)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m=>m.Url)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Url)
+                        @Html.ValidationMessageFor(m => m.Url)
+                    </div>
+                </td>
+            </tr>    
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m=>m.Visibilidad)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.DropDownListFor(m => m.Visibilidad, new SelectList(ViewBag.ListaNivelesVisibilidad, "Valor", "Etiqueta"))
+                        @Html.ValidationMessageFor(m => m.Visibilidad)
+                    </div>
+                </td>
+            </tr>                    
+        </table>   
+    </div>
+    
+    <div class="areaBotones">
+        <ul>            
+            <li>
+                <div class="boton">
+                    <a href="#" onclick="submitForm('Compartir');">Compartir</a>
+                </div>       
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="@Url.Action("Index","Home")">Volver</a>
+                </div>       
+            </li>
+        </ul>        
+    </div>              
+}
+
+<script type="text/javascript">
+    function submitForm(method) {
+        $("#formCompartirContenido")[0].action = '' + method;
+        $("#formCompartirContenido")[0].submit();
+    }
+</script>
