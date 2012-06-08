@@ -17,6 +17,7 @@ namespace GoogleMapsFlashInWpf
 
         public Window1()
         {
+
             InitializeComponent();
         }
 
@@ -32,7 +33,6 @@ namespace GoogleMapsFlashInWpf
         void axFlash_FlashCall(object sender, AxShockwaveFlashObjects._IShockwaveFlashEvents_FlashCallEvent e)
         {
             XDocument call = XDocument.Parse(e.request);
-
             var q = from c in call.Elements("invoke")
                     select new
                     {
@@ -45,6 +45,7 @@ namespace GoogleMapsFlashInWpf
                 {
                     lat.Text = i.Arguments.ElementAt(0).Value;
                     lng.Text = i.Arguments.ElementAt(1).Value;
+
                     latitud = i.Arguments.ElementAt(0).Value;
                     longitud = i.Arguments.ElementAt(1).Value;
                 }
@@ -70,6 +71,11 @@ namespace GoogleMapsFlashInWpf
                     )
                 );
             axFlash.CallFunction(call.ToString(SaveOptions.DisableFormatting));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
