@@ -10,10 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.CrystalReports;
-using CrystalDecisions.Shared;
-using CrystalDecisions.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Windows.Forms;
 
@@ -31,7 +27,7 @@ namespace IndignaFwk_WPF_BackOffice
     
     public partial class GestionReportes : Window
     {
-        private SqlCommand command;   
+       
         
         public GestionReportes()
 		{
