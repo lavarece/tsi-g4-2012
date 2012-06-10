@@ -16,6 +16,7 @@ using IndignaFwk.UI.Process;
 using IndignaFwk.Common.Util;
 using GoogleMapsFlashInWpf;
 using GoogleMapsFlashInWpf.Properties;
+using System.Windows.Threading;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -44,6 +45,11 @@ namespace IndignaFwk_WPF_BackOffice
             
             List<Tematica> listaTematica = sistemaUserProcess.ObtenerListadoTematicas();
             comboBox_temas.ItemsSource = listaTematica;
+
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
         }
 
         public CrearGrupo(Grupo grupo)
@@ -143,6 +149,11 @@ namespace IndignaFwk_WPF_BackOffice
         }
 
         private void btn_refrescarCoordenadas_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
         }

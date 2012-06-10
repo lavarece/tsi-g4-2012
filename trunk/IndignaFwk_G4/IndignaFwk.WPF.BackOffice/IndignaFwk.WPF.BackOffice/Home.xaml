@@ -71,7 +71,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework, " Margin="0,29,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontSize="14" UseLayoutRounding="False" DataContext="{Binding}" Height="39" FontStretch="Normal">
+		<Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework, " Margin="0,29,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontSize="14" DataContext="{Binding}" Height="39" FontStretch="Normal">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
