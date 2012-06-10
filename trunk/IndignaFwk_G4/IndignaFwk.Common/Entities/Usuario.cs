@@ -50,6 +50,9 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public List<Tematica> ListaTematicas { get; set; }
 
+        [DataMember]
+        public DateTime FechaRegistro { get; set; }
+
         // Retorna el nombre competo del usuario (Nombre + " " + Apellido)
         public string NombreCompleto { get { return Nombre + " " + Apellido; } }
 
