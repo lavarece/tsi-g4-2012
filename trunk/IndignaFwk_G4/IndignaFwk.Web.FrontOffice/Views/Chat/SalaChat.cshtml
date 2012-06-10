@@ -11,17 +11,17 @@
 
 <script type="text/javascript">
 
-    var idIntervalChat;
+    var idIntervalConversacion;
 
-    function iniciarChat(idUsuario) 
+    function iniciarConversacion(idUsuario) 
     {
-        if (idIntervalChat != null)
+        if (idIntervalConversacion != null)
         {
-            clearInterval(idIntervalChat);
+            clearInterval(idIntervalConversacion);
         }
 
         $.ajax({
-            url: '@Url.Action("IniciarChat", "Chat")' + "?idUsuario=" + idUsuario,
+            url: '@Url.Action("IniciarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
             dataType: "html",
             method: "POST",
             success: function (data, textStatus, jqXHR) {
@@ -36,23 +36,22 @@
 
     function enviarMensaje(idUsuario) 
     {
-        var msj = $("#txt_msj").val()
+        var ingresoMsj = $("#txt_ingresoMsj_" + idUsuario)
 
-        if (msj == null || msj == '') 
+        if (ingresoMsj.val() == null || ingresoMsj.val() == '') 
         {
             alert("Debe ingresar el mensaje a enviar");
         }
         else
         {
             $.ajax({
-                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + msj,
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj,
                 dataType: "html",
                 method: "POST",
                 success: function (data, textStatus, jqXHR) {
                     if (data != null) {
-                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
-                        txtConversacion.append(data);
-                        $("#txt_msj").val("");
+                        $("#txt_conversacion_" + idUsuario).append(data);
+                        $("#txt_ingresoMsj_" + idUsuario).val("");
                     }
                 }
             });
