@@ -18,12 +18,7 @@ using System.Windows.Forms;
 
 namespace IndignaFwk_WPF_BackOffice
 {
-	/// <summary>
-	/// Interaction logic for GestionReportes.xaml
-	/// </summary>
-	//RegistroTiempoReporte objRpt;
- 
-//CrystalReportViewer crystalReportViewer1;
+
     
     public partial class GestionReportes : Window
     {
@@ -42,7 +37,11 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void boton_generarReporte_Click(object sender, RoutedEventArgs e)
         {
-
+            if (listboxItem_registroTiempo.IsSelected)
+            {
+                VentanaReporte ventanaReporte = new VentanaReporte();
+                ventanaReporte.Show();
+            }
         }
         
 	}
