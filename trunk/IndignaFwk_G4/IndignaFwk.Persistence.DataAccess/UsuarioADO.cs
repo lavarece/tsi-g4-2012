@@ -155,6 +155,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+
                     return usuario;
                 }
 
@@ -216,6 +218,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+
                     listaUsuarioGrupo.Add(usuario);
                 }
                 return listaUsuarioGrupo;
@@ -270,6 +274,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
 
                     listaUsuarios.Add(usuario);
                 }
@@ -328,6 +334,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     usuario.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
+
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
                     
                     return usuario;            
                 }
@@ -388,7 +396,9 @@ namespace IndignaFwk.Persistence.DataAccess
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
                     usuario.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
-                    
+
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+
                     return usuario;
                 }
 
