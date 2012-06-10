@@ -585,6 +585,7 @@ input, select, textarea
     color: #000000;
     font-size: 13px;
     word-wrap: break-word;
+    text-overflow:ellipsis;
 }
 
 .wrapperConversacionChat .conversacionPanel b

@@ -489,12 +489,11 @@ input, select, textarea
     border-left: 1px solid #448E7F;
     border-bottom: 1px solid #448E7F; 
     overflow: auto;
-    width: 15%;
-    float: right;
-    min-height: 600px;
-    max-height: 1024px;
-    position: relative;
+    width: 217px;
+    position: fixed;
     top: 38px;
+    bottom: 0px;
+    right: 0px;
 }
 
 .listaUsuariosChat ul
@@ -553,3 +552,74 @@ input, select, textarea
     background-color: #EBEBEB;    
 }
 
+.wrapperConversacionChat
+{
+    float: left;
+    min-height: 140px;
+    max-height: 140px;
+    float: left;
+}
+
+.wrapperConversacionChat .conversacionPanel
+{    
+    height: 140px;
+    width: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 11px;
+    word-wrap: break-word;
+    text-overflow:ellipsis;
+}
+
+.wrapperConversacionChat .conversacionPanel b
+{
+    float: left;
+    padding-right: 4px;
+}
+
+.wrapperConversacionChat .conversacionPanel span
+{
+    float: left;
+    width: 90%;
+}
+
+.wrapperMensajeChat
+{
+    margin-top: 4px;    
+    border-top: 1px solid #000000;
+    width: 300px;
+    min-height: 20px;
+    max-height: 20px;
+    line-height: 20px;
+    float: left;    
+ }
+
+.wrapperMensajeChat .boton
+{
+    float: right;
+    margin: 1px 1px;
+}
+
+.wrapperMensajeChat .boton a
+{
+    padding: 1px 5px;
+}
+
+.wrapperMensajeChat textarea
+{    
+    height: 17px;
+    width: 235px;
+    border: 0px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 11px;
+}
+
+.wrapperMensajeChat textarea:focus 
+{
+    outline:0;
+    outline:none;
+}

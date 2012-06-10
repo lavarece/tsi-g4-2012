@@ -55,7 +55,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                             sbContent.Append("<ul>")
                                      .Append("<li>")
                                      .Append("<div class=\"" + claseDiv + "\">")
-                                     .Append("<a href=\"#\" onclick=\"iniciarChat(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")
+                                     .Append("<a href=\"#\" onclick=\"iniciarConversacion(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")
                                      .Append("</div>")
                                      .Append("</li>")
                                      .Append("</ul>");
@@ -82,8 +82,19 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         }
 
         [HttpGet]
-        public ActionResult IniciarChat()
+        public ActionResult IniciarConversacion()
         {            
+            return Content(GetConversacionContent(false), "text/html");
+        }
+
+        [HttpGet]
+        public ActionResult IniciarConversacionEmbed()
+        {
+            return Content(GetConversacionContent(true), "text/html");
+        }
+
+        private string GetConversacionContent(bool isEmbed)
+        {
             string idUsuario = Request["idUsuario"];
 
             StringBuilder sbContent = new StringBuilder();
@@ -95,19 +106,30 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Obtengo la conversacion
                 CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
-                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB); 
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB);
 
                 // Obtengo el usuario
                 Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(idUsuarioB);
 
-                sbContent.Append("<div class=\"wrapperConversacionChat\">")
-                         .Append("<div class=\"datosUsuarioConversacion\">Conversando con: ")
-                         .Append(usuario.NombreCompleto)
-                         .Append("</div>")
-                         .Append("<div class=\"conversacionPanel\" id=\"txt_conversacion_" + idUsuario + "\">");
+                // Si es embed agrego un div para el ui.dialog
+                if (isEmbed)
+                {
+                    sbContent.Append("<div id='dialogConversacion_" + idUsuario + "' title='" + usuario.NombreCompleto + "' style='display:none; padding: 0px; overflow: hidden;'>");
+                }
+
+                sbContent.Append("<div class=\"wrapperConversacionChat\">");
+
+                if (!isEmbed)
+                {
+                    sbContent.Append("<div class=\"datosUsuarioConversacion\">Conversando con: ")
+                             .Append(usuario.NombreCompleto)
+                             .Append("</div>");
+                }
+                         
+                sbContent.Append("<div class=\"conversacionPanel\" id=\"txt_conversacion_" + idUsuario + "\">");
 
                 // Agrego los mensajes existentes
-                foreach(Mensaje mensaje in conversacion.ListaMensajes)
+                foreach (Mensaje mensaje in conversacion.ListaMensajes)
                 {
                     sbContent.Append((mensaje.IdRemitente == ci.Id ? "<b>Yo: </b>" : "<b>El: </b>"))
                              .Append("<span>").Append(mensaje.Contenido).Append("</span><br/>");
@@ -116,17 +138,21 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 sbContent.Append("</div>")
                          .Append("</div>")
                          .Append("<div class=\"wrapperMensajeChat\">")
-                         .Append("<textarea cols=\"30\" rows=\"30\" id=\"txt_msj\"></textarea>")
+                         .Append("<textarea cols=\"30\" rows=\"30\" id=\"txt_ingresoMsj_" + idUsuario + "\"></textarea>")
                          .Append("<div class=\"boton\">")
                          .Append("<a href=\"#\" onclick=\"enviarMensaje(" + usuario.Id + ")\">Enviar</a>")
                          .Append("</div>")
                          .Append("</div>");
 
+                if (isEmbed)
+                {
+                    sbContent.Append("</div>");
+                }
+
             }
 
-            return Content(sbContent.ToString(), "text/html");
+            return sbContent.ToString();
         }
-
         [HttpGet]
         public ActionResult EnviarMensaje()
         {
