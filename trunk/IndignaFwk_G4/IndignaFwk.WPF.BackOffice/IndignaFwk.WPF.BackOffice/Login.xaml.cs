@@ -35,7 +35,7 @@ namespace IndignaFwk_WPF_BackOffice
 
             Administrador admin = adminUserProcess.ObtenerAdministradorPorEmailYPass(txt_usuario.Text, passEncriptado);
 
-            if (admin == null)
+            if (admin != null)
             {
                 Home homeWindow = new Home(txt_usuario.Text);
 
