@@ -33,6 +33,10 @@ namespace IndignaFwk_WPF_BackOffice
 
         private Grupo grupoEditando;
 
+        string latitud;
+
+        string longitud;
+
         Window1 win = new Window1();
 
         public CrearGrupo()
@@ -46,14 +50,12 @@ namespace IndignaFwk_WPF_BackOffice
             List<Tematica> listaTematica = sistemaUserProcess.ObtenerListadoTematicas();
             comboBox_temas.ItemsSource = listaTematica;
 
-            DispatcherTimer dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
         }
 
         public CrearGrupo(Grupo grupo)
         {
+            int indexAux = 0;
+
             this.InitializeComponent();
             txt_nombre.Text = grupo.Nombre;
             txt_url.Text = grupo.Url;
@@ -64,11 +66,38 @@ namespace IndignaFwk_WPF_BackOffice
 
             List<Layout> listaLayouts = sistemaUserProcess.ObtenerListadoLayouts();
             comboBox_layouts.ItemsSource = listaLayouts;
-            comboBox_layouts.SelectedItem = grupo.Layout;
+
+            for (int i = 0; i < listaLayouts.Count; i++)
+            {
+                if (listaLayouts[0].Id == grupo.Layout.Id)
+                {
+                    indexAux = i;
+                    break;
+                }
+            }
+
+            comboBox_layouts.SelectedIndex = indexAux;
 
             List<Tematica> listaTematica = sistemaUserProcess.ObtenerListadoTematicas();
             comboBox_temas.ItemsSource = listaTematica;
-            comboBox_temas.SelectedItem = grupo.Tematica;
+            
+            for (int i = 0; i < listaTematica.Count; i++)
+            {
+                if (listaTematica[0].Id == grupo.Tematica.Id)
+                {
+                    indexAux = i;
+                    break;
+                }
+            }
+
+            comboBox_temas.SelectedIndex = indexAux;
+
+            char[] delimiterChars = {','};
+
+            string[] arrayCoordenadas = grupo.Coordenadas.Split(delimiterChars);
+
+            longitud = arrayCoordenadas[0];
+            latitud = arrayCoordenadas[1];
 
             coordenadas.Content = grupo.Coordenadas;
 
@@ -101,7 +130,7 @@ namespace IndignaFwk_WPF_BackOffice
                 mensaje = new MensajeError("El campo Temas es obligatorio");
                 mensaje.Show();
             }
-            else if (win.latitud == null)
+            else if (!editando && win.latitud == null)
             {
                 mensaje = new MensajeError("La ubicación del grupo es obligatoria");
                 mensaje.Show();
@@ -114,7 +143,7 @@ namespace IndignaFwk_WPF_BackOffice
 
                 grupo.Descripcion = txt_descripcion.Text;
 
-                grupo.Coordenadas = "(" + win.longitud + "," + win.latitud + ")";
+                grupo.Coordenadas = longitud + "," + latitud;
 
                 grupo.Url = txt_url.Text;
 
@@ -144,7 +173,12 @@ namespace IndignaFwk_WPF_BackOffice
         }
 
         private void btn_abrirMapa_Click(object sender, System.Windows.RoutedEventArgs e)
-        {           
+        {
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+
             win.Show();
         }
 
@@ -156,6 +190,8 @@ namespace IndignaFwk_WPF_BackOffice
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
+            latitud = win.latitud;
+            longitud = win.longitud;
         }
     }
 }
