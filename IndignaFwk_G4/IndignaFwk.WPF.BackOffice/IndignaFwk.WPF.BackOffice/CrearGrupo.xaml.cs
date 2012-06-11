@@ -69,7 +69,7 @@ namespace IndignaFwk_WPF_BackOffice
 
             for (int i = 0; i < listaLayouts.Count; i++)
             {
-                if (listaLayouts[0].Id == grupo.Layout.Id)
+                if (listaLayouts[i].Id == grupo.Layout.Id)
                 {
                     indexAux = i;
                     break;
@@ -83,7 +83,7 @@ namespace IndignaFwk_WPF_BackOffice
             
             for (int i = 0; i < listaTematica.Count; i++)
             {
-                if (listaTematica[0].Id == grupo.Tematica.Id)
+                if (listaTematica[i].Id == grupo.Tematica.Id)
                 {
                     indexAux = i;
                     break;

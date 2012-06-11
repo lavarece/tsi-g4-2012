@@ -100,12 +100,12 @@ namespace IndignaFwk.Persistence.DataAccess
             command.CommandText = " UPDATE Sitio SET " +
                                   " Nombre = @nombre, " +                                    
                                   " Descripcion = @descripcion, " +
-                                  " Url = @url " +
-                                  " Coordenadas = @coordenadas" +                                  
-                                  " FK_Id_Layout = @idLayout," +
-                                  " FK_Id_Tematica = @idTematica," +
-                                  " FK_Id_Imagen = @idImagen," +
-                                  " WHERE Id = @id";
+                                  " Url = @url, " +
+                                  " Coordenadas = @coordenadas, " +                                  
+                                  " FK_Id_Layout = @idLayout, " +
+                                  " FK_Id_Tematica = @idTematica, " +
+                                  " FK_Id_Imagen = @idImagen " +
+                                  " WHERE Id = @id ";
 
             UtilesBD.SetParameter(command, "id", grupo.Id);
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);       
