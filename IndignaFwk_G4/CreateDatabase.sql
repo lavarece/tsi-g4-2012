@@ -215,7 +215,7 @@ CREATE TABLE [dbo].[Usuario](
 	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int],
-	[FechaRegistro] [Date] NOT NULL DEFAULT CURRENT_TIMESTAMP
+	[FechaRegistro] [DateTime] NOT NULL DEFAULT CURRENT_TIMESTAMP
 CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
