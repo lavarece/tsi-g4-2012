@@ -95,7 +95,15 @@
                                 @Html.ValidationMessageFor(m => m.FechaFin)
                             </div>
                         </td>
-                    </tr>                
+                    </tr>     
+                    <tr>
+                        <td colspan="2">
+                            <div class="fieldLabel">
+                                @Html.CheckBoxFor(m => m.Asistire)
+                                @Html.LabelFor(m => m.Asistire)                
+                            </div>
+                        </td>
+                    </tr>           
                 </table>
                 <div style="text-align: right; margin: 5px 0px;">
                     <div class="boton">
@@ -110,11 +118,7 @@
         <!-- Listado de convocatorias -->  
         if (ViewBag.ListadoConvocatoriasGrupo != null && ViewBag.ListadoConvocatoriasGrupo.Count > 0)
         {
-            <div class="wrapperDataTable">  
-                <div class="fieldLabel">
-                    @Html.CheckBoxFor(m => m.Asistire)
-                    @Html.LabelFor(m => m.Asistire)                
-                </div>            
+            <div class="wrapperDataTable">                              
                 <table class="dataTable">
                     <thead>
                         <tr>            
@@ -227,8 +231,8 @@ else
 <script type="text/javascript">
 
     $(function () {
-        $("#filtroFechaInicio").datepicker();
-        $("#filtroFechaFin").datepicker();
+        $("#filtroFechaInicio").datepicker({ dateFormat: "dd/mm/yy" });
+        $("#filtroFechaFin").datepicker({ dateFormat: "dd/mm/yy" });
     });
 
     function mostrarOcultarFiltroConvocatorias(mostrar)

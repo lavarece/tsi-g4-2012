@@ -1,10 +1,10 @@
 ﻿@if (ViewBag.ControllerMessages != null && ViewBag.ControllerMessages.Count > 0)
 {
     <div id="divControllerMessages" title="Mensajes">
-	    <ul>
+	    <ul style="padding: 10px; list-style: none;">
             @foreach (string msj in ViewBag.ControllerMessages)
             {
-                <li>@msj</li>
+                <li>@Html.Raw(msj)</li>
             }
         </ul>
     </div>
