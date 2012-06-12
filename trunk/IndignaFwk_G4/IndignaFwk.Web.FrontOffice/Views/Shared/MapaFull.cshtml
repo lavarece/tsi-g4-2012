@@ -2,22 +2,22 @@
 
 <input type="hidden" id="hiddenDataConvocatoriasMapaFull" value="@ViewBag.DataConvocatoriasMapaFull" /></input>
 
-<div id="divMapaFullScreen">
+<div id="divMapaFullScreen" style="display: none;">   
 </div>  
     
 <script type="text/javascript">
 
     function showMapaFullScreen() 
-    {               
+    {        
         var divMapaFull = $("#divMapaFullScreen");
         divMapaFull.fadeIn();
 
+        initializeMapaFullScreen();
+
         $("#linkShowMapaFull").css("display", "none");
         $("#linkHideMapaFull").css("display", "block");
-
-        initializeMapaFullScreen();
-        divMapaFull.css("position", "absolute");
         $("body").css("overflow", "hidden");
+        divMapaFull.css("position", "absolute");        
     }
 
     function hideMapaFullScreen()
@@ -58,10 +58,11 @@
     function addMarkerConvocatoria(id, titulo, descripcion, latitud, longitud, mapa) 
     {
         var markerLatLng = new google.maps.LatLng(latitud, longitud);
-        var contentString = "<h3>" + titulo + "</h3>" +
-                            "<div style=\"font-style: italic;\">Descripcion</div>" +
-                            "<div style=\"font-style: bold;\">" + descripcion + "</div>" +
-                            "<a style=\"float: right;\" href=\"/Convocatoria/UbicarConvocatoria?idConvocatoriaAUbicar=" + id + "\">Ir a convocatoria</a>";
+        var contentString = "<div style=\"color: #000000\">" + 
+                            "<div style=\"font-weight: bold;\">" + titulo + "</div>" +
+                            "<div style=\"font-style: italic;\">" + descripcion + "</div>" +
+                            "<div style=\"margin-top: 5px;\"class=\"boton\"><a style=\"float: right;\" href=\"/Convocatoria/UbicarConvocatoria?idConvocatoriaAUbicar=" + id + "\">Ir a convocatoria</a></div>" +                             
+                            "</div>";
                             
 
         var infowindow = new google.maps.InfoWindow({

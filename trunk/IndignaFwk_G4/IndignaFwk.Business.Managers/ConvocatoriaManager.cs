@@ -168,8 +168,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -188,8 +186,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -208,8 +204,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -303,8 +297,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -323,8 +315,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -343,8 +333,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -440,8 +428,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -460,8 +446,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally
@@ -480,8 +464,6 @@ namespace IndignaFwk.Business.Managers
             }
             catch (Exception ex)
             {
-                UtilesBD.RollbackTransaccion(transaccion);
-
                 throw ex;
             }
             finally

@@ -29,6 +29,7 @@
 <body>
     @RenderPage(Url.Content("~/Views/Shared/Mensajes.cshtml"))
     @RenderPage(Url.Content("~/Views/Shared/MapaSelector.cshtml"))
+    @RenderPage(Url.Content("~/Views/Shared/MapaFull.cshtml"))
 
     <div id="wrapper">
         <div id="header">
@@ -38,10 +39,20 @@
             <div id="login">
                 @if (User.Identity.IsAuthenticated)
                 {
+                    <!-- Botones mapa de convocatorias -->                    
                     <ul> 
                         <li class="usuarioAutenticado">
                             Bienvenido, @User.Identity.Name
-                        </li>                          
+                        </li>  
+                        
+                        <!-- Mapa full screen -->
+                        <li id="linkShowMapaFull">
+                            <a href="#" onclick="showMapaFullScreen();">Ver Mapa</a>
+                        </li>
+                        <li id="linkHideMapaFull" style="display: none;">
+                            <a href="#" onclick="hideMapaFullScreen();">Ocultar mapa</a>
+                        </li>
+                                                                 
                         <li>                        
                             <a href="@Url.Action("LogOff", "Account")">Editar perfil</a>
                         </li>                   

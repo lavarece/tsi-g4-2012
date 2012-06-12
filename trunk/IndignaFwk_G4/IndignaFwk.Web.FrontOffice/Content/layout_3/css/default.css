@@ -12,6 +12,7 @@ body
 input, select, textarea
 {
     border: 1px #BEE0D9 solid;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
 }
 
 #divMapaFullScreen
