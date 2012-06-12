@@ -8,12 +8,12 @@
     var countConversaciones = 0;
     function iniciarConversacion(idUsuario) 
     {
-        if (countConversaciones == 3) 
-        {
-            alert("Demasiadas conversaciones simultaneas cierre algunas.");
+        var dialogConversacion = $("#dialogConversacion_" + idUsuario);
+
+        if (dialogConversacion[0]) {
+            $("#txt_ingresoMsj_" + idUsuario).focus();
         }
-        else 
-        {
+        else {
             $.ajax({
                 url: '@Url.Action("IniciarConversacionEmbed", "Chat")' + "?idUsuario=" + idUsuario,
                 dataType: "html",
@@ -22,7 +22,8 @@
                     if (data != null) {
                         $("#divContainerChat").append(data);
 
-                        var dialogConversacion = $("#dialogConversacion_" + idUsuario);
+                        dialogConversacion = $("#dialogConversacion_" + idUsuario);
+
                         dialogConversacion.dialog({
                             autoOpen: false,
                             resizable: false,
@@ -33,7 +34,17 @@
                             }
                         });
 
-                        var rightDialog = (countConversaciones == 0 ? 220 : 220 + (308 * countConversaciones)) + "px";
+                        var rightDialog = "0px";
+                        if (countConversaciones == 0) {
+                            rightDialog = 220 + "px";
+                        }
+                        else if (countConversaciones >= 2) {
+                            rightDialog = 220 + (308 * 2) + "px";                            
+                        }
+                        else {
+                            rightDialog = 220 + (308 * countConversaciones) + "px";
+                        }
+
                         dialogConversacion.parent().css({ position: "fixed", bottom: "0px", right: rightDialog });
                         dialogConversacion.dialog("open");
                         dialogConversacion.parent()[0].style.removeProperty("top");

@@ -7,12 +7,15 @@ using IndignaFwk.Web.FrontOffice.MultiTenant;
 using IndignaFwk.Web.FrontOffice.Util;
 using IndignaFwk.UI.Process;
 using IndignaFwk.Common.Entities;
+using System.Text;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
     public class BaseController : Controller
     {
         private UsuarioUserProcess usuarioUserProcess = UserProcessFactory.Instance.UsuarioUserProcess;
+
+        private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
 
         protected IApplicationTenant site;
 
@@ -37,6 +40,26 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 }
 
                 ViewBag.NotificacionesNoLeidas = notificacionesNoLeidas;
+
+                // Listado de convocatorias
+                List<Convocatoria> listaConvocatorias = convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
+                StringBuilder sbDataConvocatorias = new StringBuilder();
+
+                foreach(Convocatoria conv in listaConvocatorias)
+                {
+                    if(sbDataConvocatorias.Length > 0)
+                    {
+                        sbDataConvocatorias.Append(";");
+                    }
+
+                    sbDataConvocatorias.Append(conv.Id).Append(",")
+                                       .Append(conv.Titulo).Append(",")
+                                       .Append(conv.Descripcion).Append(",")
+                                       .Append(conv.GetLatitud()).Append(",")
+                                       .Append(conv.GetLongitud());
+                }
+
+                ViewBag.DataConvocatoriasMapaFull = sbDataConvocatorias.ToString();
             }
 
             ViewBag.ControllerMessages = controllerMessages;

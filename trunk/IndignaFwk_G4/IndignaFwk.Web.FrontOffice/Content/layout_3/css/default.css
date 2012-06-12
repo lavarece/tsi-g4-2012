@@ -14,6 +14,15 @@ input, select, textarea
     border: 1px #BEE0D9 solid;
 }
 
+#divMapaFullScreen
+{
+    left: 0px;             
+    top: 38px; 
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
 #wrapper 
 {
 	width: 100%;

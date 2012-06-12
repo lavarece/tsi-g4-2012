@@ -1,7 +1,4 @@
-﻿
-<input type="hidden" id="latitudGrupo" value="@ViewBag.GrupoSite.GetLatitud()" />
-<input type="hidden" id="longitudGrupo" value="@ViewBag.GrupoSite.GetLongitud()" />
-<div id="divMapaSelector" title="Selector de coordenadas" style="display: none;"></div>  
+﻿<div id="divMapaSelector" title="Selector de coordenadas" style="display: none;"></div>  
     
 <script type="text/javascript">
 
@@ -23,8 +20,8 @@
 
     function initializeMapaSelector(idCampoSelector) 
     {
-        var latitud = $("#latitudGrupo").val();
-        var longitud = $("#longitudGrupo").val();
+        var latitud = '@ViewBag.GrupoSite.GetLatitud()';
+        var longitud = '@ViewBag.GrupoSite.GetLongitud()';
         var campoSelector = $("#" + idCampoSelector);
 
         var myOptions = {
