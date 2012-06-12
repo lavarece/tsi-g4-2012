@@ -155,7 +155,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+                 //   usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
 
                     return usuario;
                 }
@@ -218,7 +218,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+                 //   usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
 
                     listaUsuarioGrupo.Add(usuario);
                 }
@@ -397,7 +397,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
 
-                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+                    usuario.FechaRegistro = (DateTime) UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
 
                     return usuario;
                 }
