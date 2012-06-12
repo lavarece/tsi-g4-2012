@@ -11,6 +11,11 @@ namespace IndignaFwk.Common.Entities
     [Serializable]
     public class VariableSistema
     {
+        public static readonly int N = 1;
+        public static readonly int M = 2;
+        public static readonly int Y = 3;
+        public static readonly int Z = 4;
+
         [DataMember]
         public int Id { get; set; }
 

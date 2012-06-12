@@ -412,7 +412,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[VariableSistema]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[VariableSistema](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int] NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Valor] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
