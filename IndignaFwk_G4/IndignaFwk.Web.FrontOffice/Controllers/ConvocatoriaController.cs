@@ -40,6 +40,26 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             if(ModelState.IsValid)
             {
+                // Si la fecha inicla es menor a la fecha actual
+                if (DateTime.Compare((DateTime) model.FechaInicio, DateTime.Now) < 0)
+                {
+                    ModelState.AddModelError("", "La fecha inicio debe ser mayor a la fecha actual");
+
+                    PopulateViewBag();
+
+                    return View(model);
+                }
+
+                // Si la fecha final es menor a la fecha inicial
+                if (DateTime.Compare((DateTime) model.FechaFin, (DateTime) model.FechaInicio) < 0)
+                {
+                    ModelState.AddModelError("", "La fecha final debe ser mayor a la fecha inicial");
+
+                    PopulateViewBag();
+
+                    return View(model);
+                }
+
                 Convocatoria convocatoria = new Convocatoria();
 
                 convocatoria.Titulo = model.Titulo;

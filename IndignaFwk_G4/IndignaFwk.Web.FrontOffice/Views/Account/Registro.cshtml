@@ -82,7 +82,7 @@
                         @Html.LabelFor(m => m.PreguntaSecreta)
                     </div>
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.PreguntaSecreta)
+                        @Html.DropDownListFor(m => m.PreguntaSecreta, new SelectList(ViewBag.ListadoPreguntasSecretas, "Valor", "Valor"), "---")
                         @Html.ValidationMessageFor(m => m.PreguntaSecreta)
                     </div>
                 </td>
@@ -102,7 +102,7 @@
                         @Html.LabelFor(m=>m.Coordenadas)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasUsuario", @readonly = true} )
+                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasUsuario", @readonly = true, @style = "cursor: pointer;"} )
                         @Html.ValidationMessageFor(m => m.Coordenadas)                         
                     </div>
                 </td>

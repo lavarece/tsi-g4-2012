@@ -11,6 +11,7 @@ using IndignaFwk.Common.Entities;
 using IndignaFwk.Common.Util;
 using IndignaFwk.UI.Process;
 using IndignaFwk.Web.FrontOffice.Util;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
@@ -26,6 +27,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         protected override void PopulateViewBag()
         {
             base.PopulateViewBag();
+
+            ViewBag.ListadoPreguntasSecretas = PreguntaSecretaEnum.ObtenerListado();
         }
 
         public ActionResult Login()
@@ -131,7 +134,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 {
                     usuarioUserProcess.CrearNuevoUsuario(usuario);
 
-                    AddControllerMessage("Usuario registrado correctamente.");
+                    AddControllerMessage("Usuario registrado correctamente." + 
+                                         "<div style=\"margin-top: 20px; float: right;\" class=\"boton\">" +
+                                         "<a href=\"" + Url.Action("Login", "Account") + "\">Ir a login</a></div>");
                 }
                 else
                 {
