@@ -233,7 +233,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private List<Convocatoria> BuscarConvocatorias()
         {
-            return convocatoriaUserProcess.ObtenerListadoConvocatorias();
+            return convocatoriaUserProcess.ObtenerListadoConvocatoriasPorGrupo(site.Grupo.Id);
         }
     }
 }

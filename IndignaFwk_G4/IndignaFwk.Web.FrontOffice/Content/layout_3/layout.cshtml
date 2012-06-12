@@ -28,45 +28,52 @@
 <body>
     @RenderPage(Url.Content("~/Views/Shared/Mensajes.cshtml"))
     @RenderPage(Url.Content("~/Views/Shared/MapaSelector.cshtml"))
+    @RenderPage(Url.Content("~/Views/Shared/MapaFull.cshtml"))
 
     <div id="wrapper">
         <div id="header">
             <div id="logoHeader">
-                @ViewBag.GrupoSite.Nombre
+                @ViewBag.GrupoSite.Nombre                
             </div>            
             <div id="login">
+                <ul>                    
                 @if (User.Identity.IsAuthenticated)
-                {
-                    <ul>
-                        <li class="usuarioAutenticado">
-                            Bienvenido, @User.Identity.Name
-                        </li>
-                        <li>                        
-                            <a href="@Url.Action("LogOff", "Account")">Editar perfil</a>
-                        </li>                   
-                        <li>                        
-                            <a href="@Url.Action("LogOff", "Account")">Cerrar sesión</a>
-                        </li>                                                
-                    </ul>
+                {                    
+                    <li class="usuarioAutenticado">
+                        Bienvenido, @User.Identity.Name
+                    </li>
+                    
+                    <!-- Botones mapa de convocatorias -->
+                    <li id="linkShowMapaFull">
+                        <a href="#" onclick="showMapaFullScreen();">Ver Mapa</a>
+                    </li>
+                    <li id="linkHideMapaFull" style="display: none;">
+                        <a href="#" onclick="hideMapaFullScreen();">Ocultar Mapa</a>
+                    </li>
+                    <li>                        
+                        <a href="@Url.Action("LogOff", "Account")">Editar perfil</a>
+                    </li>                   
+                    <li>                        
+                        <a href="@Url.Action("LogOff", "Account")">Cerrar sesión</a>
+                    </li>                                                
                 }
                 else
                 {
-                    <ul>
-                        <li>                        
-                            <a href="@Url.Action("Login", "Account")">Acceder</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Registro", "Account")">Registrarme</a>
-                        </li>
-                    </ul>
-                }                
+                    <li>                        
+                        <a href="@Url.Action("Login", "Account")">Acceder</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Registro", "Account")">Registrarme</a>
+                    </li>
+                }        
+                </ul>        
             </div>
         </div>
 
          @{
-            string claseMenuInicio = "Inicio".Equals(ViewBag.OpcionMenu) ? "selected" : "";
-            string claseMenuConvocatoria = "Convocatoria".Equals(ViewBag.OpcionMenu) ? "selected" : "";
-            string claseMenuNotificacion = "Notificacion".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+             string claseMenuInicio = "Inicio".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+             string claseMenuConvocatoria = "Convocatoria".Equals(ViewBag.OpcionMenu) ? "selected" : "";
+             string claseMenuNotificacion = "Notificacion".Equals(ViewBag.OpcionMenu) ? "selected" : "";
         }
         <div id="menu">
             <ul>    

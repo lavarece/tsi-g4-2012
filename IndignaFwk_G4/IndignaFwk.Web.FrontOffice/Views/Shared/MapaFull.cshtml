@@ -1,0 +1,84 @@
+﻿@using IndignaFwk.Common.Entities;
+
+<input type="hidden" id="hiddenDataConvocatoriasMapaFull" value="@ViewBag.DataConvocatoriasMapaFull" /></input>
+
+<div id="divMapaFullScreen">
+</div>  
+    
+<script type="text/javascript">
+
+    function showMapaFullScreen() 
+    {               
+        var divMapaFull = $("#divMapaFullScreen");
+        divMapaFull.fadeIn();
+
+        $("#linkShowMapaFull").css("display", "none");
+        $("#linkHideMapaFull").css("display", "block");
+
+        initializeMapaFullScreen();
+        divMapaFull.css("position", "absolute");
+        $("body").css("overflow", "hidden");
+    }
+
+    function hideMapaFullScreen()
+    {
+        $("#divMapaFullScreen").fadeOut();
+
+        $("#linkShowMapaFull").css("display", "block");
+        $("#linkHideMapaFull").css("display", "none");
+        $("body").css("overflow", "auto");
+    }
+
+    function initializeMapaFullScreen() 
+    {
+        var latitud = '@ViewBag.GrupoSite.GetLatitud()';
+        var longitud = '@ViewBag.GrupoSite.GetLongitud()';
+
+        var myOptions = {
+            center: new google.maps.LatLng(latitud, longitud),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var mapFull = new google.maps.Map(document.getElementById("divMapaFullScreen"), myOptions);
+
+        // Agrego los marcadores para las convocatorias del grupo
+        var dataConvocatorias = $("#hiddenDataConvocatoriasMapaFull").val();
+
+        var iterConvocatorias = dataConvocatorias.split(";");
+
+        for (i = 0; i < iterConvocatorias.length; i++) 
+        {
+            var iterData = iterConvocatorias[i].split(",");
+
+            addMarkerConvocatoria(iterData[0], iterData[1], iterData[2], iterData[3], iterData[4], mapFull);
+        }
+    }
+
+    function addMarkerConvocatoria(id, titulo, descripcion, latitud, longitud, mapa) 
+    {
+        var markerLatLng = new google.maps.LatLng(latitud, longitud);
+        var contentString = "<h3>" + titulo + "</h3>" +
+                            "<div style=\"font-style: italic;\">Descripcion</div>" +
+                            "<div style=\"font-style: bold;\">" + descripcion + "</div>" +
+                            "<a style=\"float: right;\" href=\"/Convocatoria/UbicarConvocatoria?idConvocatoriaAUbicar=" + id + "\">Ir a convocatoria</a>";
+                            
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: markerLatLng,
+            title: titulo,
+            map: mapa,
+            draggable: false
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(mapa, marker);
+        }); 
+    }
+
+
+</script>
