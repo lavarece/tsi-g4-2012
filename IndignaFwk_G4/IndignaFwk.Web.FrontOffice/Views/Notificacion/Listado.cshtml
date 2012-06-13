@@ -79,7 +79,7 @@
     {
         if (cantidadNotificacionesSeleccionadas() == 0) 
         {
-            alert("Debe seleccionar al menos una notificación.");
+            alertDialog("Debe seleccionar al menos una notificación.");
         }
         else
         {
@@ -91,7 +91,7 @@
     {
         if (cantidadNotificacionesSeleccionadas() == 0) 
         {
-            alert("Debe seleccionar al menos una notificación.");
+            alertDialog("Debe seleccionar al menos una notificación.");
         }
         else
         {
@@ -103,16 +103,18 @@
     {
         if (cantidadNotificacionesSeleccionadas() == 0) 
         {
-            alert("Debe seleccionar al menos una notificación.");
+            alertDialog("Debe seleccionar al menos una notificación.");
         }
         else
         {
-            if (confirm("¿Seguro desea eliminar las notificaciones seleccionadas?")) 
-            {
-                submitForm("Eliminar");
-            }
+            confirmDialog("¿Seguro desea eliminar las notificaciones seleccionadas?", callbackEliminarNotificacion) 
         }
     }
+
+    function callbackEliminarNotificacion()
+    {
+        submitForm("Eliminar")
+    }   
 
     function cantidadNotificacionesSeleccionadas() 
     {

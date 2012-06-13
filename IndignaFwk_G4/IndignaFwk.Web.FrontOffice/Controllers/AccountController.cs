@@ -122,7 +122,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 usuario.Email = model.Email;
 
                 //Encripto contraseña para guardar en la base
-                usuario.Password = UtilesSeguridad.Encriptar(model.Contraseña);
+                usuario.Password = UtilesSeguridad.Encriptar(model.Contrasenia);
                 usuario.Pregunta = model.PreguntaSecreta;
                 usuario.Respuesta = model.RespuestaSecreta;
                 usuario.Coordenadas = model.Coordenadas;
@@ -134,8 +134,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 {
                     usuarioUserProcess.CrearNuevoUsuario(usuario);
 
+                    model.Nombre = "";
+                    model.Apellido = "";
+
                     AddControllerMessage("Usuario registrado correctamente." + 
-                                         "<div style=\"margin-top: 20px; float: right;\" class=\"boton\">" +
+                                         "<div style=\"margin-top: 10px; float: right;\" class=\"boton\">" +
                                          "<a href=\"" + Url.Action("Login", "Account") + "\">Ir a login</a></div>");
                 }
                 else
@@ -147,6 +150,64 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             PopulateViewBag();
 
             return View(model);
-        }    
+        }
+
+        public ActionResult EditarPerfil()
+        {
+            PopulateViewBag();
+
+            EditarPerfilModel model = new EditarPerfilModel();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                Usuario usuarioLogueado = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+
+                model.Nombre = usuarioLogueado.Nombre;
+
+                model.Apellido = usuarioLogueado.Apellido;
+
+                model.Descripcion = usuarioLogueado.Descripcion;
+
+                model.PreguntaSecreta = usuarioLogueado.Pregunta;
+
+                model.RespuestaSecreta = usuarioLogueado.Respuesta;
+            }
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditarPerfil(EditarPerfilModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                    Usuario usuarioLogueado = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+
+                    usuarioLogueado.Nombre = model.Nombre;
+
+                    usuarioLogueado.Apellido = model.Apellido;
+
+                    usuarioLogueado.Descripcion = model.Descripcion;
+
+                    usuarioLogueado.Pregunta = model.PreguntaSecreta;
+
+                    usuarioLogueado.Respuesta = model.RespuestaSecreta;
+
+                    usuarioUserProcess.EditarUsuario(usuarioLogueado);
+
+                    AddControllerMessage("Usuario editado correctamente");
+                }
+            }
+
+            PopulateViewBag();
+
+            return View(model);
+        }
     }
 }
