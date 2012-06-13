@@ -184,9 +184,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="VentanaReporte.xaml.cs">
-      <DependentUpon>VentanaReporte.xaml</DependentUpon>
-    </Compile>
     <Page Include="CrearAdministrador.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -236,10 +233,6 @@
     <Page Include="MensajeError.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="VentanaReporte.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
