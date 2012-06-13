@@ -1,0 +1,58 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.CambioContraseniaModel 
+
+<div id="divCambioContrasenia" style="display: none;" title="Cambiar contraseña">    
+    <div class="areaFormulario">
+        <table>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.ContraseniaActual)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.ContraseniaActual)
+                        @Html.ValidationMessageFor(m => m.ContraseniaActual)
+                    </div>
+                </td>                
+            </tr>   
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.NuevaContrasenia)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.NuevaContrasenia)
+                        @Html.ValidationMessageFor(m => m.NuevaContrasenia)
+                    </div>
+                </td>                
+            </tr>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.ConfirmarNuevaContrasenia)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.ConfirmarNuevaContrasenia)
+                        @Html.ValidationMessageFor(m => m.ConfirmarNuevaContrasenia)
+                    </div>
+                </td>                
+            </tr>
+        </table>
+    </div>
+
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">
+                    <a href="#" onclick="aceptarCambioContrasenia();">Aceptar</a>
+                </div>
+            </li>
+        </ul>    
+    </div>
+</div>
+
+<script type="text/javascript">
+    function aceptarCambioContrasenia() 
+    {
+        alert("Valido y guardo");
+    }
+</script>
