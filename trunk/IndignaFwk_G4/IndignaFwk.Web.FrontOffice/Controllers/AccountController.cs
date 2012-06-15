@@ -12,6 +12,7 @@ using IndignaFwk.Common.Util;
 using IndignaFwk.UI.Process;
 using IndignaFwk.Web.FrontOffice.Util;
 using IndignaFwk.Common.Enumeration;
+using System.Security.Principal;
 
 namespace IndignaFwk.Web.FrontOffice.Controllers
 {
@@ -154,8 +155,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         public ActionResult EditarPerfil()
         {
-            PopulateViewBag();
-
             EditarPerfilModel model = new EditarPerfilModel();
 
             if (User.Identity.IsAuthenticated)
@@ -174,7 +173,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 model.RespuestaSecreta = usuarioLogueado.Respuesta;
             }
-            
+
+            PopulateViewBag();
+
             return View(model);
         }
 
@@ -202,12 +203,74 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                     usuarioUserProcess.EditarUsuario(usuarioLogueado);
 
                     AddControllerMessage("Usuario editado correctamente");
+
+                    // Edito la cookie de login y el custom identity
+                    FormsAuthentication.SetAuthCookie(usuarioLogueado.NombreCompleto, true);
+
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, usuarioLogueado.NombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(30), true, usuarioLogueado.Id.ToString());
+
+                    string encTicket = FormsAuthentication.Encrypt(ticket);
+
+                    HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+
+                    HttpContext.Response.Cookies.Add(authCookie);
+
+                    CustomIdentity newIdentity = new CustomIdentity(usuarioLogueado.NombreCompleto, ci.Id.ToString());
+
+                    GenericPrincipal newUser = new GenericPrincipal(newIdentity, new string[] { });
+
+                    HttpContext.User = newUser;
                 }
             }
 
             PopulateViewBag();
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult CambiarContrasenia()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string cActual = Request["cActual"];
+                string cNueva = Request["cNueva"];
+                string ccNueva = Request["ccNueva"];
+
+                string cActualEnc = UtilesSeguridad.Encriptar(cActual);
+                string cNuevaEnc = UtilesSeguridad.Encriptar(cNueva);
+                string ccNuevaEnc = UtilesSeguridad.Encriptar(ccNueva);
+
+                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                Usuario usuarioLogueado = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+               
+                if (!usuarioLogueado.Password.Equals(cActualEnc))
+                {
+                    return Content("La contraseña actual no es correcta.", "text/html");
+                }
+                else
+                {
+                    if (cNueva.Length < 6)
+                    {
+                        return Content("El largo mínimo de la contraseña es de 6 caracteres.", "text/html");
+                    }
+                    else if (!cNuevaEnc.Equals(ccNuevaEnc))
+                    {
+                        return Content("Las nuevas contraseñas no cohinciden.", "text/html");
+                    }
+                    else
+                    {
+                        usuarioLogueado.Password = cNuevaEnc;
+
+                        usuarioUserProcess.EditarUsuario(usuarioLogueado);
+
+                        return Content("OK", "text/html");
+                    }
+                }
+            }
+            
+            return Content("Debe autenticarse.", "text/html");
         }
     }
 }

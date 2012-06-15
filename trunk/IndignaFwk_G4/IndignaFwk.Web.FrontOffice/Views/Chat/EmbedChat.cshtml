@@ -11,6 +11,7 @@
         var dialogConversacion = $("#dialogConversacion_" + idUsuario);
 
         if (dialogConversacion[0]) {
+            dialogConversacion.parent().css("display", "block");
             $("#txt_ingresoMsj_" + idUsuario).focus();
         }
         else {

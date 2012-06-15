@@ -16,16 +16,7 @@
 {
     <div class="areaFormulario">    
         <table>
-            <tr>    
-                <td>
-                     <div class="fieldLabel">
-                        @Html.LabelFor(m => m.Tipo)
-                    </div>
-                    <div class="fieldValue">
-                        @Html.DropDownListFor(m => m.Tipo, new SelectList(ViewBag.ListaTiposContenido, "Valor", "Etiqueta"))
-                        @Html.ValidationMessageFor(m => m.Tipo)
-                    </div>
-                </td>
+            <tr>                    
                 <td>
                     <div class="fieldLabel">
                         @Html.LabelFor(m => m.Titulo)
@@ -33,6 +24,15 @@
                     <div class="fieldValue">
                         @Html.TextBoxFor(m => m.Titulo)
                         @Html.ValidationMessageFor(m => m.Titulo)
+                    </div>
+                </td>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m=>m.Visibilidad)
+                    </div>    
+                    <div class="fieldValue">
+                        @Html.DropDownListFor(m => m.Visibilidad, new SelectList(ViewBag.ListaNivelesVisibilidad, "Valor", "Etiqueta"), "---")
+                        @Html.ValidationMessageFor(m => m.Visibilidad)
                     </div>
                 </td>
             </tr>
@@ -51,22 +51,12 @@
                         @Html.LabelFor(m=>m.Url)
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Url)
+                        @Html.TextBoxFor(m => m.Url, new { @id = "txtUrlContenido", @onblur = "checkUrlContenido();" })
                         @Html.ValidationMessageFor(m => m.Url)
                     </div>
-                </td>
-            </tr>    
-            <tr>
-                <td>
-                    <div class="fieldLabel">
-                        @Html.LabelFor(m=>m.Visibilidad)
-                    </div>    
-                    <div class="fieldValue">
-                        @Html.DropDownListFor(m => m.Visibilidad, new SelectList(ViewBag.ListaNivelesVisibilidad, "Valor", "Etiqueta"))
-                        @Html.ValidationMessageFor(m => m.Visibilidad)
-                    </div>
-                </td>
-            </tr>                    
+                    <div id="divPreviewContenido" style="display: none;"></div>                    
+                </td>                                    
+            </tr>             
         </table>   
     </div>
     
@@ -90,5 +80,30 @@
     function submitForm(method) {
         $("#formCompartirContenido")[0].action = '' + method;
         $("#formCompartirContenido")[0].submit();
+    }
+
+    function checkUrlContenido() 
+    {
+        var urlContenido = $("#txtUrlContenido").val();
+
+        if (urlContenido && urlContenido != "") {
+            $.ajax({
+                url: '@Url.Action("CheckUrlContenido", "Contenido")' + "?urlContenido=" + urlContenido,
+                dataType: "html",
+                method: "GET",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        var divPreview = $("#divPreviewContenido");
+                        divPreview.html(data);
+                        divPreview.show("slide", { direction: "up" }, "normal", null)
+                    }
+                }
+            });
+        }
+        else {
+            if ($("#divPreviewContenido").css("display") != "none") {
+                $("#divPreviewContenido").hide("slide", { direction: "up" }, "normal", null)
+            }            
+        }
     }
 </script>

@@ -55,8 +55,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 contenido.NivelVisibilidad = model.Visibilidad;
 
-                contenido.TipoContenido = model.Tipo;
-
                 contenido.FechaCreacion = DateTime.Now;
 
                 CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
@@ -186,6 +184,89 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             }
 
             return listadoContenidos;
+        }
+
+        /*
+         * Invocado por la vista mediante ajax para chequear si la url es valida de que tipo de 
+         * contenido es y mostrar un preview de la misma  
+         */
+        [HttpGet]
+        public ActionResult CheckUrlContenido()
+        {
+            string urlContenido = Request["urlContenido"];
+
+            if(IsUrlContenidoValida(urlContenido))
+            {
+                TipoContenidoEnum tipoContenido = ObtenerTipoContenidoUrl(urlContenido);
+
+                string embedUrl = ObtenerEmbedUrlPorTipoContenido(urlContenido, tipoContenido);
+
+                return Content("Tipo de contenido: " + tipoContenido.Etiqueta + "<br/>Embed Url: " + embedUrl, "text/html");
+            }
+            
+            return Content("<div style=\"font-weight:bold; color: #FF0000;\">Url no válida para compartir</div>", "text/html");
+        }
+
+        /*
+         * Verifica si la url del contenido es valida, basicamente si comienza con 'http://'
+         */
+        private bool IsUrlContenidoValida(string urlContenido)
+        {
+            if(!urlContenido.StartsWith("http://"))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /*
+         * Devuelve el tipo de contenido segun la url del contenido
+         */
+        private TipoContenidoEnum ObtenerTipoContenidoUrl(string urlContenido)
+        {
+            // Si es un video de youtube
+            if(urlContenido.StartsWith("http://www.youtube.com"))
+            {
+                return TipoContenidoEnum.VIDEO_YOU_TUBE;
+            }
+            else if(urlContenido.EndsWith(".gif") ||
+                    urlContenido.EndsWith(".png") ||
+                    urlContenido.EndsWith(".bmp") ||
+                    urlContenido.EndsWith(".jpg") ||
+                    urlContenido.EndsWith(".jpeg"))
+            {
+                return TipoContenidoEnum.IMAGEN;
+            }
+            else
+            {
+                return TipoContenidoEnum.LINK;
+            }
+        }
+
+        /*
+         * La url de algunos contenidos debe modificarse para embeberse en el sitio, este metodo
+         * realiza dicha tarea y devuelve la Url para embeber
+         */
+        private string ObtenerEmbedUrlPorTipoContenido(string urlContenido, TipoContenidoEnum tipoContenido)
+        {
+            if (TipoContenidoEnum.VIDEO_YOU_TUBE.Equals(tipoContenido))
+            {
+                Uri uri = new Uri(urlContenido);
+                string[] paramsUri = uri.Query.Replace("?", "").Split('&');
+                
+                foreach(string param in paramsUri)
+                {
+                    if(param.StartsWith("v="))
+                    {
+                        return "http://www.youtube.com/embed/" + param.Substring(2);
+                    }
+                }
+
+                return "";
+            }
+
+            return urlContenido;
         }
     }
 }

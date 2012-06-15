@@ -10,7 +10,7 @@ namespace IndignaFwk.Common.Enumeration
     {
         public static readonly TipoContenidoEnum IMAGEN = new TipoContenidoEnum("IMAGEN", "Imagen");
 
-        public static readonly TipoContenidoEnum VIDEO = new TipoContenidoEnum("VIDEO", "Video");
+        public static readonly TipoContenidoEnum VIDEO_YOU_TUBE = new TipoContenidoEnum("VIDEO_YOU_TUBE", "Video YouTube");
 
         public static readonly TipoContenidoEnum LINK = new TipoContenidoEnum("LINK", "Link");
 
@@ -31,9 +31,9 @@ namespace IndignaFwk.Common.Enumeration
             {
                 return IMAGEN;
             }
-            else if (VIDEO.Valor.Equals(strTipo))
+            else if (VIDEO_YOU_TUBE.Valor.Equals(strTipo))
             {
-                return VIDEO;
+                return VIDEO_YOU_TUBE;
             }
             else if (LINK.Valor.Equals(strTipo))
             {
@@ -51,7 +51,7 @@ namespace IndignaFwk.Common.Enumeration
 
             listado.Add(IMAGEN);
 
-            listado.Add(VIDEO);
+            listado.Add(VIDEO_YOU_TUBE);
 
             listado.Add(LINK);
 

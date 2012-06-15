@@ -73,18 +73,18 @@
         </table>   
     </div>
     
-    @Html.Partial("CambioContrasenia", new CambioContraseniaModel())
+    @RenderPage("CambioContrasenia.cshtml")
                                     
     <div class="areaBotones">
         <ul>
             <li>
                 <div class="boton">
-                    <a href="#" onclick="cambioContrasenia()">Cambiar contraseña</a>
+                    <a href="#" onclick="showCambioContrasenia()">Cambiar contraseña</a>
                 </div>       
             </li>
             <li>
                 <div class="boton">
-                    <a href="#" onclick="submitForm('Registro');">Finalizar</a>
+                    <a href="#" onclick="submitForm('EditarPerfil');">Finalizar</a>
                 </div>       
             </li>
         </ul>        
@@ -94,16 +94,8 @@
 <script type="text/javascript">
 
     function submitForm(method) {
-        $("#formRegistro")[0].action = '' + method;
-        $("#formRegistro")[0].submit();
-    }
-
-    function cambioContrasenia() 
-    {
-        $("#divCambioContrasenia").dialog({
-            resizable: false,
-            modal: true
-        });
+        $("#formEdicionPerfil")[0].action = '' + method;
+        $("#formEdicionPerfil")[0].submit();
     }
 
 </script>
