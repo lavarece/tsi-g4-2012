@@ -85,24 +85,4 @@ namespace IndignaFwk.Web.FrontOffice.Models
         [Display(Name = "Respuesta secreta:")]
         public string RespuestaSecreta { get; set; }
     }
-
-    public class CambioContraseniaModel
-    {
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Contraseña actual")]
-        public string ContraseniaActual { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [StringLength(100, ErrorMessage = "El password debe ser mayor a 6 caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Nueva contraseña")]
-        public string NuevaContrasenia  { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirmar nueva contraseña")]
-        [Compare("NuevaContrasenia", ErrorMessage = "El usuario y contraseña no coinciden.")]
-        public string ConfirmarNuevaContrasenia { get; set; }
-    }
 }

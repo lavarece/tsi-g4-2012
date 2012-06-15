@@ -11,10 +11,6 @@ namespace IndignaFwk.Web.FrontOffice.Models
     public class ContenidoModel
     {
         [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Tipo:")]
-        public string Tipo { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Nivel de visibilidad:")]
         public string Visibilidad { get; set; }
 

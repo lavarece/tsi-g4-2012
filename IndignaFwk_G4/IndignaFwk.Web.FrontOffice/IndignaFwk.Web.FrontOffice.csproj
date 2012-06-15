@@ -98,6 +98,19 @@
     <Content Include="Content\layout_1\images\ico_vineta.gif" />
     <Content Include="Content\layout_1\images\user_no_image.png" />
     <Content Include="Content\layout_1\css\default.css" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-icons_999999_256x240.png" />
+    <Content Include="Content\layout_1\jquery-theme\images\ui-icons_fbc856_256x240.png" />
+    <Content Include="Content\layout_1\jquery-theme\jquery-ui-1.8.21.css" />
     <Content Include="Content\layout_2\images\header.png" />
     <Content Include="Content\layout_2\images\ico_offline.png" />
     <Content Include="Content\layout_2\images\ico_online.png" />
@@ -127,6 +140,19 @@
     <Content Include="Content\layout_3\images\ico_vineta.png" />
     <Content Include="Content\layout_3\images\user_no_image.png" />
     <Content Include="Content\layout_3\css\default.css" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-icons_999999_256x240.png" />
+    <Content Include="Content\layout_3\jquery-theme\images\ui-icons_fbc856_256x240.png" />
+    <Content Include="Content\layout_3\jquery-theme\jquery-ui-1.8.21.css" />
     <Content Include="Global.asax" />
     <Content Include="MultiTenant\Library\StructureMap.dll" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
@@ -224,10 +250,7 @@
   <ItemGroup>
     <Content Include="Views\Account\CambioContrasenia.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\layout_1\jquery-theme\" />
-    <Folder Include="Content\layout_3\jquery-theme\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
