@@ -1,4 +1,5 @@
 Maxi:
+- Cambiar el borrado de contenidos y usuarios a bajas logicas
 - Filtrar los N recursos más rankeados.
 - Fuentes de datos
 - Integracion con nosotros mismos
@@ -14,9 +15,6 @@ Juan
 - Documento
 - Terminar Layout 2
 - Usar el SVN de facultad
-
-Gonzalo 
-- WIndows phone
 
 Andres
 - Facebook
