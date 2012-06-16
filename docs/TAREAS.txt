@@ -1,0 +1,22 @@
+Maxi:
+- Filtrar los N recursos más rankeados.
+- Fuentes de datos
+- Integracion con nosotros mismos
+- Tematicas
+- Upload de imagen para grupo y usuario
+
+Vanessa
+- Watchdog
+- Reportes backoffice
+
+Juan
+- IIS (configurar en todas las maquinas)
+- Documento
+- Terminar Layout 2
+- Usar el SVN de facultad
+
+Gonzalo 
+- WIndows phone
+
+Andres
+- Facebook
