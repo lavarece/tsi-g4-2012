@@ -32,5 +32,7 @@ namespace IndignaFwk.Business.Managers
         void EditarNotificacion(Notificacion notificacion);
 
         void EliminarNotificacion(int idNotificacion);
+
+        List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo);
     }
 }

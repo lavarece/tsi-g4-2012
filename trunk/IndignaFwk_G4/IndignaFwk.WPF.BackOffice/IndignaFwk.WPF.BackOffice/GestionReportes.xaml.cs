@@ -39,7 +39,7 @@ namespace IndignaFwk_WPF_BackOffice
         {
             if (listboxItem_registroTiempo.IsSelected)
             {
-                VentanaReporte ventanaReporte = new VentanaReporte();
+                ReporteUsuariosRegistradosTiempo ventanaReporte = new ReporteUsuariosRegistradosTiempo();
                 ventanaReporte.Show();
             }
         }

@@ -73,5 +73,10 @@ namespace IndignaFwk.Business.Services
         {
             usuarioManager.EliminarNotificacion(idNotificacion);
         }
+
+        public List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo)
+        {
+            return usuarioManager.ObtenerUsuariosAgrupandoFechaRegistro(idGrupo);
+        }
     }
 }

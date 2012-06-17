@@ -108,6 +108,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerUsuariosAgrupandoFechaRegistro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idGrupo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerUsuariosAgrupandoFechaRegistroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerUsuariosAgrupandoFechaRegistroResult" nillable="true" type="q8:ArrayOfUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ObtenerListadoNotificacionesPorUsuario">
     <xs:complexType>
       <xs:sequence>
@@ -118,7 +132,7 @@
   <xs:element name="ObtenerListadoNotificacionesPorUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerListadoNotificacionesPorUsuarioResult" nillable="true" type="q8:ArrayOfNotificacion" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerListadoNotificacionesPorUsuarioResult" nillable="true" type="q9:ArrayOfNotificacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -132,14 +146,14 @@
   <xs:element name="ObtenerNotificacionPorIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerNotificacionPorIdResult" nillable="true" type="q9:Notificacion" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerNotificacionPorIdResult" nillable="true" type="q10:Notificacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditarNotificacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="notificacion" nillable="true" type="q10:Notificacion" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="notificacion" nillable="true" type="q11:Notificacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
