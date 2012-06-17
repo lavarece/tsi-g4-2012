@@ -56,6 +56,12 @@
   <wsdl:message name="IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosPorGrupoYVisibilidadResponse" />
   </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerXContenidosMasRankeadosPorGrupoYVisibilidadResponse" />
+  </wsdl:message>
   <wsdl:message name="IConvocatoriaService_ObtenerContenidoPorId_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerContenidoPorId" />
   </wsdl:message>
@@ -148,6 +154,10 @@
     <wsdl:operation name="ObtenerListadoContenidosPorGrupoYVisibilidad">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibilidad" message="tns:IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibilidadResponse" message="tns:IConvocatoriaService_ObtenerListadoContenidosPorGrupoYVisibilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad" message="tns:IConvocatoriaService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerXContenidosMasRankeadosPorGrupoYVisibilidadResponse" message="tns:IConvocatoriaService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerContenidoPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId" message="tns:IConvocatoriaService_ObtenerContenidoPorId_InputMessage" />
@@ -257,6 +267,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerListadoContenidosPorGrupoYVisibilidad">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoContenidosPorGrupoYVisibilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

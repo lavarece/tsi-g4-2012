@@ -42,6 +42,11 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
             "dadResponse")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerXContenidosMasRankeadosPorGrupoYVi" +
+            "sibilidad", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerXContenidosMasRankeadosPorGrupoYVi" +
+            "sibilidadResponse")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorIdResponse")]
         IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido);
         
@@ -136,6 +141,10 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido) {
             return base.Channel.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, visibilidadContenido);
+        }
+        
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x) {
+            return base.Channel.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, visibilidadContenido, x);
         }
         
         public IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido) {

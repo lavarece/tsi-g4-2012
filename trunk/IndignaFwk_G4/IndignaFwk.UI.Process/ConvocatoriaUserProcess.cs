@@ -109,6 +109,17 @@ namespace IndignaFwk.UI.Process
             return listado;
         }
 
+        public List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x)
+        {
+            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
+
+            List<Contenido> listado = proxy.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, visibilidadContenido, x);
+
+            proxy.Close();
+
+            return listado;
+        }
+
         public Contenido ObtenerContenidoPorId(int idContenido)
         {
             ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();

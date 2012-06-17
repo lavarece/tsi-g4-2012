@@ -53,6 +53,9 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public DateTime FechaRegistro { get; set; }
 
+        [DataMember]
+        public bool Eliminado { get; set; }
+
         // Retorna el nombre competo del usuario (Nombre + " " + Apellido)
         public string NombreCompleto { get { return Nombre + " " + Apellido; } }
 

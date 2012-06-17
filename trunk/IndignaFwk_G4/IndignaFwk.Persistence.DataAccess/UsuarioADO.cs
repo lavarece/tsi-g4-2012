@@ -36,8 +36,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Apellido, Password, Pregunta, Coordenadas, Respuesta, FK_Id_Sitio, FK_Id_Imagen) " +
-                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Apellido, @Password, @Pregunta, @Coordenadas, @Respuesta, @IdSitio, @IdImagen); " +
+            command.CommandText = "INSERT INTO Usuario (Conectado, Descripcion, Email, Nombre, Apellido, Password, Pregunta, Coordenadas, Respuesta, Eliminado, FK_Id_Sitio, FK_Id_Imagen) " +
+                                  "values(@Conectado, @Descripcion, @Email, @Nombre, @Apellido, @Password, @Pregunta, @Coordenadas, @Respuesta, @Eliminado, @IdSitio, @IdImagen); " +
                                   " select @idGen = SCOPE_IDENTITY() FROM Usuario; ";
 
             
@@ -50,6 +50,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "Coordenadas", usuario.Coordenadas);
             UtilesBD.SetParameter(command, "Respuesta", usuario.Respuesta);
             UtilesBD.SetParameter(command, "Pregunta", usuario.Pregunta);
+            UtilesBD.SetParameter(command, "Eliminado", false);
             UtilesBD.SetParameter(command, "IdSitio", usuario.Grupo.Id);
 
             if(usuario.Imagen != null)
@@ -108,7 +109,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "DELETE FROM Usuario WHERE Id = @id";
+            command.CommandText = "UPTADE Usuario Set Eliminado = 1 WHERE Id = @id";
 
             UtilesBD.SetParameter(command, "id", id);
 
@@ -125,7 +126,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE Id = @id";
+                command.CommandText = "SELECT * FROM Usuario WHERE Id = @id and Eliminado = 0";
 
                 command.Parameters.AddWithValue("id", id);
 
@@ -155,7 +156,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                 //   usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
 
                     return usuario;
                 }
@@ -188,7 +189,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE FK_Id_Sitio = @id";
+                command.CommandText = "SELECT * FROM Usuario WHERE FK_Id_Sitio = @id and Eliminado = 0";
 
                 command.Parameters.AddWithValue("id", idGrupo);
 
@@ -247,7 +248,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario";
+                command.CommandText = "SELECT * FROM Usuario where Eliminado = 0";
 
                 reader = command.ExecuteReader();
 
@@ -303,7 +304,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email";
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Eliminado = 0";
 
                 UtilesBD.SetParameter(command, "email", email);
 
@@ -363,7 +364,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Password = @pass";
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Password = @pass and Eliminado = 0";
 
                 UtilesBD.SetParameter(command, "email", email);
 

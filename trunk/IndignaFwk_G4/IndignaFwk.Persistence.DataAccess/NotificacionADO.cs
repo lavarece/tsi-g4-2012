@@ -55,7 +55,7 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " select @idGen = SCOPE_IDENTITY() FROM Notificacion; ";
 
             UtilesBD.SetParameter(command, "contenido", notificacion.Contenido);
-            UtilesBD.SetParameter(command, "visto", (notificacion.Visto == true ? "1" : "0"));
+            UtilesBD.SetParameter(command, "visto", notificacion.Visto);
             UtilesBD.SetParameter(command, "idConvocatoria", notificacion.Convocatoria.Id);
             UtilesBD.SetParameter(command, "idUsuario", notificacion.Usuario.Id);
             UtilesBD.SetParameter(command, "fechaCreacion", notificacion.FechaCreacion);
@@ -84,7 +84,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             UtilesBD.SetParameter(command, "id", notificacion.Id);
             UtilesBD.SetParameter(command, "contenido", notificacion.Contenido);
-            UtilesBD.SetParameter(command, "visto", (notificacion.Visto == true ? "1" : "0"));
+            UtilesBD.SetParameter(command, "visto", notificacion.Visto);
             
             command.ExecuteNonQuery();
         }
@@ -128,7 +128,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.Contenido = UtilesBD.GetStringFromReader("Contenido", reader);
 
-                    notificacion.Visto = ("1".Equals(UtilesBD.GetStringFromReader("Visto", reader)) ? true : false);
+                    notificacion.Visto = UtilesBD.GetBoolFromReader("Visto", reader);
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
@@ -174,7 +174,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.Contenido = UtilesBD.GetStringFromReader("Contenido", reader);
 
-                    notificacion.Visto = ("1".Equals(UtilesBD.GetStringFromReader("Visto", reader)) ? true : false);
+                    notificacion.Visto = UtilesBD.GetBoolFromReader("Visto", reader);
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
@@ -222,7 +222,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     notificacion.Contenido = UtilesBD.GetStringFromReader("Contenido", reader);
 
-                    notificacion.Visto = ("1".Equals(UtilesBD.GetStringFromReader("Visto", reader)) ? true : false);
+                    notificacion.Visto = UtilesBD.GetBoolFromReader("Visto", reader);
 
                     notificacion.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
