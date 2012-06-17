@@ -34,10 +34,19 @@ namespace IndignaFwk.Common.Entities
         public DateTime? FechaCreacion { get; set; }
 
         [DataMember]
+        public bool Eliminado { get; set; }
+
+        [DataMember]
         public Usuario UsuarioCreacion { get; set; }
 
         [DataMember]
         public Grupo Grupo { get; set; }
+
+        [DataMember]
+        public int CantidadMeGusta { get; set; }
+
+        [DataMember]
+        public int CantidadInadecuado { get; set; }
 
         // Dato utilizado por la logica de presentacion 
         public MarcaContenido MarcaContenidoUsuario { get; set; }

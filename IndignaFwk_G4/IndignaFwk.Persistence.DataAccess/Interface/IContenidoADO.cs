@@ -19,5 +19,7 @@ namespace IndignaFwk.Persistence.DataAccess
         Contenido Obtener(int id, SqlConnection conexion);
 
         List<Contenido> ObtenerListadoPorGrupoYVisibilidad(SqlConnection conexion, int idGrupo, string visibilidadContenido);
+
+        List<Contenido> ObtenerXPorGrupoYVisibilidad(SqlConnection conexion, int idGrupo, string visibilidadContenido, int x);
     }
 }

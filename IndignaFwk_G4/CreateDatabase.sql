@@ -182,7 +182,8 @@ CREATE TABLE [dbo].[Contenido](
 	[TipoContenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Sitio] [int],
 	[FechaCreacion] [DateTime], 
-	[FK_Id_UsuarioCreacion] [int]
+	[FK_Id_UsuarioCreacion] [int],
+	[Eliminado] [bit] NOT NULL DEFAULT 0
 CONSTRAINT FK_Contenido_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
@@ -215,7 +216,8 @@ CREATE TABLE [dbo].[Usuario](
 	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Respuesta] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Imagen] [int],
-	[FechaRegistro] [DateTime] NOT NULL DEFAULT CURRENT_TIMESTAMP
+	[FechaRegistro] [DateTime] NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	[Eliminado] [bit] NOT NULL DEFAULT 0
 CONSTRAINT FK_Usuario_FK_Id_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id)
 ) ON [PRIMARY]
 END
@@ -337,7 +339,7 @@ BEGIN
 CREATE TABLE [dbo].[Notificacion](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[Contenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[Visto] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
+	[Visto] [bit] DEFAULT 0,
 	[FK_Id_Convocatoria] [int],
 	[FK_Id_Usuario] [int],
 	[FechaCreacion] [DateTime],
@@ -365,7 +367,7 @@ CREATE TABLE [dbo].[MarcaContenido](
 	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
 	[FK_Id_Contenido] [int],
 	[TipoMarca] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
-	[FK_Id_Usuario] [int],
+	[FK_Id_Usuario] [int]
 CONSTRAINT FK_MarcaContenido_FK_Id_Contenido FOREIGN KEY (FK_Id_Contenido) REFERENCES Contenido(Id),
 CONSTRAINT FK_MarcaContenido_FK_Id_Usuario FOREIGN KEY (FK_Id_Usuario) REFERENCES Usuario(Id),
 ) ON [PRIMARY]

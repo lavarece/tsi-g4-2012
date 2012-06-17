@@ -97,6 +97,16 @@ namespace IndignaFwk.Common.Util
             return 0;
         }
 
+        public static bool GetBoolFromReader(string key, SqlDataReader reader)
+        {
+            if (reader != null && reader[key].ToString().Length > 0)
+            {
+                return (bool)reader[key];
+            }
+
+            return false;
+        }
+
         public static void SetParameter(SqlCommand command, string key, object value)
         {
             if (value != null)

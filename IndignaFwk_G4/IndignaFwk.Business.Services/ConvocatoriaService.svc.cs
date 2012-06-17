@@ -104,5 +104,10 @@ namespace IndignaFwk.Business.Services
         {
             convocatoriaManager.EliminarAsistenciaConvocatoria(idAsistenciaConvocatoria);
         }
+
+        public List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x)
+        {
+            return convocatoriaManager.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, visibilidadContenido, x);
+        }
     }
 }

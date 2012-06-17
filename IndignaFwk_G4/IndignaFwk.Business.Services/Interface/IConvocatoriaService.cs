@@ -39,6 +39,9 @@ namespace IndignaFwk.Business.Services
         List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido);
 
         [OperationContract]
+        List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x);
+
+        [OperationContract]
         Contenido ObtenerContenidoPorId(int idContenido);
 
         // Operaciones AsistenciaConvocatoria

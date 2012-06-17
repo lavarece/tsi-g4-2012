@@ -519,5 +519,24 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
+
+
+        public List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ContenidoADO.ObtenerXPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido, x);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
     }
 }

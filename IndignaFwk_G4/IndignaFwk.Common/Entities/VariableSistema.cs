@@ -11,10 +11,10 @@ namespace IndignaFwk.Common.Entities
     [Serializable]
     public class VariableSistema
     {
-        public static readonly int N = 1;
-        public static readonly int M = 2;
-        public static readonly int Y = 3;
-        public static readonly int Z = 4;
+        public static readonly int N = 1; // Cantidad de contenidos mejor rankeados a mostrar
+        public static readonly int M = 2; // Cantidad de contenidos a mostrar temporalmente
+        public static readonly int X = 3; // Cantidad de marcas inadecuado para dar de baja contenido
+        public static readonly int Z = 4; // Cantidad de contenidos eliminados para dar de baja usuario
 
         [DataMember]
         public int Id { get; set; }

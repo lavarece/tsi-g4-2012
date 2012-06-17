@@ -6,6 +6,7 @@
       <xs:element minOccurs="0" name="Conectado" type="xs:boolean" />
       <xs:element minOccurs="0" name="Coordenadas" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Eliminado" type="xs:boolean" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:Grupo" />
