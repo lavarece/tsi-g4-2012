@@ -17,6 +17,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
     {
         private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
 
+        private SistemaUserProcess sistemaUserProcess = UserProcessFactory.Instance.SistemaUserProcess;
+
         public ContenidoController(IApplicationTenant site)
         {
             this.site = site;
@@ -45,27 +47,41 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                Contenido contenido = new Contenido();
+                if (IsUrlContenidoValida(model.Url))
+                {
+                    TipoContenidoEnum tipoContenido = ObtenerTipoContenidoUrl(model.Url);
 
-                contenido.Titulo = model.Titulo;
+                    string embedUrl = ObtenerEmbedUrlPorTipoContenido(model.Url, tipoContenido);
 
-                contenido.Comentario = model.Comentario;
+                    Contenido contenido = new Contenido();
 
-                contenido.Url = model.Url;
+                    contenido.Titulo = model.Titulo;
 
-                contenido.NivelVisibilidad = model.Visibilidad;
+                    contenido.Comentario = model.Comentario;
 
-                contenido.FechaCreacion = DateTime.Now;
+                    contenido.Url = embedUrl;
 
-                CustomIdentity ci = (CustomIdentity) ControllerContext.HttpContext.User.Identity;
+                    contenido.TipoContenido = tipoContenido.Valor;
 
-                contenido.UsuarioCreacion = new Usuario { Id = ci.Id };
+                    contenido.NivelVisibilidad = model.Visibilidad;
 
-                contenido.Grupo = site.Grupo;
+                    contenido.FechaCreacion = DateTime.Now;
 
-                convocatoriaUserProcess.CrearNuevoContenido(contenido);
+                    CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
-                AddControllerMessage("Operación exitosa.");
+                    contenido.UsuarioCreacion = new Usuario { Id = ci.Id };
+
+                    contenido.Grupo = site.Grupo;
+
+                    convocatoriaUserProcess.CrearNuevoContenido(contenido);
+
+                    // Limpio el model         
+                    AddControllerMessage("Contenido compartido correctamente.");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "La url ingresada no es válida.");
+                }
             }
 
             PopulateViewBag();
@@ -171,7 +187,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string nivelVisibilidad, Boolean isAutenticated)
         {
-            List<Contenido> listadoContenidos = convocatoriaUserProcess.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad);
+            // Obtengo la variable de sitema que indica cuantos recursos compartidos se visualizaran
+            VariableSistema variableN = sistemaUserProcess.ObtenerVariablePorId(VariableSistema.N);
+
+            List<Contenido> listadoContenidos = convocatoriaUserProcess.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad, Int32.Parse(variableN.Valor));
 
             if (isAutenticated)
             {
@@ -201,7 +220,22 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 string embedUrl = ObtenerEmbedUrlPorTipoContenido(urlContenido, tipoContenido);
 
-                return Content("Tipo de contenido: " + tipoContenido.Etiqueta + "<br/>Embed Url: " + embedUrl, "text/html");
+                string htmlPreview = "";
+
+                if (tipoContenido.Valor.Equals(TipoContenidoEnum.VIDEO_YOU_TUBE.Valor))
+                {
+                    htmlPreview = "<iframe src=\"" + embedUrl + "\" wmode=\"transparent\" width=\"305px\" height=\"210px\" onLoad=\"autoResizeIframe(this)\"/>";
+                }
+                else if (tipoContenido.Valor.Equals(TipoContenidoEnum.IMAGEN.Valor))
+                {
+                    htmlPreview = "<img src=\"" + embedUrl + "\" width=\"305px\" height=\"210px\"/>";
+                }
+                else
+                {
+                    htmlPreview = "<iframe src=\"" + embedUrl + "\" width=\"305px\" height=\"210px\" onLoad=\"autoResizeIframe(this)\"/>"; ;
+                }
+
+                return Content("<div>Tipo de contenido: " + tipoContenido.Etiqueta + "</div>" + htmlPreview);                               
             }
             
             return Content("<div style=\"font-weight:bold; color: #FF0000;\">Url no válida para compartir</div>", "text/html");
@@ -253,6 +287,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             if (TipoContenidoEnum.VIDEO_YOU_TUBE.Equals(tipoContenido))
             {
                 Uri uri = new Uri(urlContenido);
+
                 string[] paramsUri = uri.Query.Replace("?", "").Split('&');
                 
                 foreach(string param in paramsUri)

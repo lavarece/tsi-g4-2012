@@ -14,7 +14,12 @@
         $(function () {
             $("#divControllerMessages").dialog({
                 modal: true,
-                resizable: false
+                resizable: false,
+                buttons: {
+                    "Aceptar": function () {
+                        $(this).dialog("close");
+                    }
+                }
             });
         });
     </script>

@@ -10,11 +10,15 @@ using System.Web.Security;
 using System.Security.Principal;
 using IndignaFwk.Web.FrontOffice.MultiTenant;
 using IndignaFwk.Web.FrontOffice.Util;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.UI.Process;
 
 namespace IndignaFwk.Web.FrontOffice
 {    
     public class WebFrontOffice : System.Web.HttpApplication
     {
+        private UsuarioUserProcess usuarioUserProcess = new UsuarioUserProcess();
+
         protected void Application_Start()
         {
             // Default            
@@ -37,6 +41,23 @@ namespace IndignaFwk.Web.FrontOffice
                 GenericPrincipal newUser = new GenericPrincipal(identity, new string[] { });
 
                 Context.User = newUser;
+            }
+        }
+
+        protected void Session_End()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                // Seteo la propiedad conectado del usuario a false
+                CustomIdentity ci = (CustomIdentity)User.Identity;
+
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+
+                usuario.Conectado = false;
+
+                usuarioUserProcess.EditarUsuario(usuario);
+
+                FormsAuthentication.SignOut();
             }
         }
 
