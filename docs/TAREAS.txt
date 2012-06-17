@@ -2,9 +2,9 @@ Maxi:
 - Cambiar el borrado de contenidos y usuarios a bajas logicas
 - Filtrar los N recursos más rankeados.
 - Fuentes de datos
-- Integracion con nosotros mismos
 - Tematicas
 - Upload de imagen para grupo y usuario
+- Integracion con nosotros mismos
 
 Vanessa
 - Watchdog
@@ -18,3 +18,4 @@ Juan
 
 Andres
 - Facebook
+- Twitter
