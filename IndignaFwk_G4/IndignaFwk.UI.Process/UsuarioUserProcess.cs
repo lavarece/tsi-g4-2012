@@ -132,5 +132,17 @@ namespace IndignaFwk.UI.Process
 
             proxy.Close();
         }
+
+        public List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo)
+        {
+            UsuarioServiceClient proxy = new UsuarioServiceClient();
+
+            List<Usuario> usuarios = proxy.ObtenerUsuariosAgrupandoFechaRegistro(idGrupo);
+
+            proxy.Close();
+
+            return usuarios;
+        }
+       
     }
 }

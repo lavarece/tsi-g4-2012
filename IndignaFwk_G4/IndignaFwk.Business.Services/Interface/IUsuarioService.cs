@@ -36,6 +36,9 @@ namespace IndignaFwk.Business.Services
         [OperationContract]
         Usuario ObtenerUsuarioPorEmail(string email);
 
+        [OperationContract]
+        List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo);
+
         // Operaciones con notificaciones
         [OperationContract]
         List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
@@ -48,5 +51,7 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         void EliminarNotificacion(int idNotificacion);
+
+
     }
 }

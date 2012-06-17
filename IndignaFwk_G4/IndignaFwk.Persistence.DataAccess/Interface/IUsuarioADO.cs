@@ -24,5 +24,7 @@ namespace IndignaFwk.Persistence.DataAccess
         Usuario ObtenerPorEmail(string email, SqlConnection conexion);
 
         List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo, SqlConnection conexion, SqlTransaction transaccion = null);
+
+        List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo, SqlConnection conexion, SqlTransaction transaccion = null);
     }
 }

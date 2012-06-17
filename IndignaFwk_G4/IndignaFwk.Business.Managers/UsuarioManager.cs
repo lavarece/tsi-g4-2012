@@ -335,5 +335,25 @@ namespace IndignaFwk.Business.Managers
                  UtilesBD.CerrarConexion(conexion);
              }
          }
+
+         public List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo)
+         {
+             try
+             {
+                 conexion = UtilesBD.ObtenerConexion(true);
+
+                 return UsuarioADO.ObtenerUsuariosAgrupandoFechaRegistro(idGrupo, conexion);
+
+             }
+             catch (Exception ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 UtilesBD.CerrarConexion(conexion);
+             }
+         }
+
     }
 }

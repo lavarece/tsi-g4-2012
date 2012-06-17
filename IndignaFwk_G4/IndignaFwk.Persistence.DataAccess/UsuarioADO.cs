@@ -218,7 +218,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                 //   usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
 
                     listaUsuarioGrupo.Add(usuario);
                 }
@@ -412,6 +412,71 @@ namespace IndignaFwk.Persistence.DataAccess
                 }
             }
         }
+
+        public List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo, SqlConnection conexion, SqlTransaction transaccion = null)
+        {
+            SqlDataReader reader = reader = null;
+
+            List<Usuario> listaUsuarioGrupo = new List<Usuario>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                if (transaccion != null)
+                {
+                    command.Transaction = transaccion;
+                }
+
+                command.Connection = conexion;
+
+                command.CommandText = "Select CONVERT (varchar(10), U.FechaRegistro, 120), U.Nombre from [IndignadoFDb].[dbo].[Usuario] AS U where U.FK_Id_Sitio = '@id' group by CONVERT (varchar(10), U.FechaRegistro, 120), U.Nombre";
+
+                command.Parameters.AddWithValue("id", idGrupo);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    usuario.Nombre = UtilesBD.GetStringFromReader("Nombre", reader);
+
+                    usuario.Apellido = UtilesBD.GetStringFromReader("Apellido", reader);
+
+                    usuario.Conectado = ("1".Equals(UtilesBD.GetStringFromReader("Conectado", reader)) ? true : false);
+
+                    usuario.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+
+                    usuario.Email = UtilesBD.GetStringFromReader("Email", reader);
+
+                    usuario.Password = UtilesBD.GetStringFromReader("Password", reader);
+
+                    usuario.Pregunta = UtilesBD.GetStringFromReader("Pregunta", reader);
+
+                    usuario.Respuesta = UtilesBD.GetStringFromReader("Respuesta", reader);
+
+                    usuario.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+
+                    usuario.FechaRegistro = (DateTime)UtilesBD.GetDateTimeFromReader("FechaRegistro", reader);
+
+                    listaUsuarioGrupo.Add(usuario);
+                }
+                return listaUsuarioGrupo;
+
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
+
     }
 
        
