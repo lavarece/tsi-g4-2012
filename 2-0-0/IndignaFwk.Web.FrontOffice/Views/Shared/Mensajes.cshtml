@@ -1,0 +1,70 @@
+﻿<!-- Mensajes en el stack de los controllers -->
+@if (ViewBag.ControllerMessages != null && ViewBag.ControllerMessages.Count > 0)
+{
+    <div id="divControllerMessages" title="Mensajes">
+	    <ul style="padding: 10px; list-style: none;">
+            @foreach (string msj in ViewBag.ControllerMessages)
+            {
+                <li>@Html.Raw(msj)</li>
+            }
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#divControllerMessages").dialog({
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "Aceptar": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    </script>
+}
+
+<!-- Mensajes de las view para no utilizar los alert y confirm de javascript -->
+<div id="divClientMessage" title="Mensajes" style="display: none;"></div>
+
+<script type="text/javascript">
+    function alertDialog(mensaje) 
+    {
+        var alertDialog = $("#divClientMessage");
+        alertDialog.html("<p>" + mensaje + "</p>");
+        alertDialog.dialog({
+            modal: true,
+            resizable: false,
+            closeOnEscape: false,
+            buttons: { 
+                "Aceptar": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
+
+    function confirmDialog(mensaje, callbackOk) 
+    {
+        var confirmDialog = $("#divClientMessage");
+        confirmDialog.html("<p>" + mensaje + "</p>");
+
+        confirmDialog.dialog({
+            modal: true,
+            resizable: false,
+            closeOnEscape: false,
+            buttons: {
+                "Aceptar": function () {
+                    callbackOk();
+                },
+                "Cancelar": function() {
+                    $(this).dialog("close");
+                }                    
+            }
+        });
+    }
+
+</script>
+
+    

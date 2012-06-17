@@ -1,0 +1,101 @@
+﻿@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+<div id="divContainerChat">
+</div>
+
+<script type="text/javascript">
+
+    var countConversaciones = 0;
+    function iniciarConversacion(idUsuario) 
+    {
+        var dialogConversacion = $("#dialogConversacion_" + idUsuario);
+
+        if (dialogConversacion[0]) {
+            dialogConversacion.parent().css("display", "block");
+            $("#txt_ingresoMsj_" + idUsuario).focus();
+        }
+        else {
+            $.ajax({
+                url: '@Url.Action("IniciarConversacionEmbed", "Chat")' + "?idUsuario=" + idUsuario,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        $("#divContainerChat").append(data);
+
+                        dialogConversacion = $("#dialogConversacion_" + idUsuario);
+
+                        dialogConversacion.dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            closeOnEscape: false,
+                            draggable: false,
+                            close: function (event, ui) {
+                                countConversaciones--;
+                            }
+                        });
+
+                        var rightDialog = "0px";
+                        if (countConversaciones == 0) {
+                            rightDialog = 220 + "px";
+                        }
+                        else if (countConversaciones >= 2) {
+                            rightDialog = 220 + (308 * 2) + "px";                            
+                        }
+                        else {
+                            rightDialog = 220 + (308 * countConversaciones) + "px";
+                        }
+
+                        dialogConversacion.parent().css({ position: "fixed", bottom: "0px", right: rightDialog });
+                        dialogConversacion.dialog("open");
+                        dialogConversacion.parent()[0].style.removeProperty("top");
+                        dialogConversacion.parent()[0].style.removeProperty("left");
+                        countConversaciones++;
+                    }
+                }
+            });
+
+            setInterval('refrescarConversacion(' + idUsuario + ')', 5000);
+        }
+    }
+
+    function enviarMensaje(idUsuario)
+    {
+        var ingresoMsj = $("#txt_ingresoMsj_" + idUsuario)
+
+        if (ingresoMsj.val() == null || ingresoMsj.val() == '') 
+        {
+            alert("Debe ingresar el mensaje a enviar");
+        }
+        else 
+        {
+            $.ajax({
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj.val(),
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        $("#txt_conversacion_" + idUsuario).append(data);
+                        $("#txt_ingresoMsj_" + idUsuario).val("");
+                        $("#txt_ingresoMsj_" + idUsuario).focus();
+                    }
+                }
+            });
+        }
+    }
+
+    // Utilizada por el set interval
+    function refrescarConversacion(idUsuario) {
+        $.ajax({
+            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#txt_conversacion_" + idUsuario).html(data);
+                }
+            }
+        });
+    }
+
+</script>

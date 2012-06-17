@@ -1,0 +1,108 @@
+﻿<div id="divCambioContrasenia" style="display: none;" title="Cambiar contraseña">    
+    <div id="divMensajeCambioContrasenia" 
+         style="display: none; 
+                position: relative;
+                top: 0px;
+                left: -12px;
+                width: 105%;                
+                padding: 5px;
+                border-radius: 5px 5px 5px 5px;
+                font-weight: bold;">
+    </div>
+
+    <div class="areaFormulario">
+        <table>
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        <label for="contraseniaActual">Contraseña actual</label>
+                    </div>
+                    <div class="fieldValue">
+                        <input type="password" name="contraseniaActual" id="contraseniaActual" />
+                    </div>
+                </td>                
+            </tr>   
+            <tr>    
+                <td>
+                    <div class="fieldLabel">
+                        <label for="nuevaContrasenia">Nueva contraseña</label>
+                    </div>
+                    <div class="fieldValue">
+                        <input type="password" name="nuevaContrasenia" id="nuevaContrasenia" />
+                    </div>
+                </td>                
+            </tr>
+            <tr>                   
+                <td>
+                    <div class="fieldLabel">
+                        <label for="confirmacionNevaContrasenia">Confirmar nueva contraseña</label>
+                    </div>
+                    <div class="fieldValue">
+                        <input type="password" name="confirmacionNevaContrasenia" id="confirmacionNuevaContrasenia" />
+                    </div>
+                </td>               
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function showCambioContrasenia()
+    {
+        $("#divMensajeCambioContrasenia").css("display", "none");
+        $("#contraseniaActual").val("");
+        $("#nuevaContrasenia").val("");
+        $("#confirmacionNuevaContrasenia").val("");
+
+        $("#divCambioContrasenia").dialog({
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Aceptar": function () {
+                    cambiarContrasenia();
+                }
+            }
+        });
+    }
+
+    function cambiarContrasenia()
+    {
+        var contraseniaActual = $("#contraseniaActual").val();
+        var nuevaContrasenia = $("#nuevaContrasenia").val();
+        var confNuevaContrasenia = $("#confirmacionNuevaContrasenia").val();
+
+        if (!contraseniaActual || contraseniaActual == "") {
+            alertDialog("Debe ingresar la contraseña actual");
+        }
+        else if (!nuevaContrasenia || nuevaContrasenia == "") {
+            alertDialog("Debe ingresar la nueva contraseña");
+        }
+        else if (!confNuevaContrasenia || confNuevaContrasenia == "") {
+            alertDialog("Debe ingresar la confirmación de la nueva contraseña");
+        }
+        else {
+            $.ajax({
+                url: '@Url.Action("CambiarContrasenia", "Account")' + "?cActual=" + contraseniaActual + "&cNueva=" + nuevaContrasenia + "&ccNueva=" + confNuevaContrasenia,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        var divMsj = $("#divMensajeCambioContrasenia");
+                        if (data == "OK") {
+                            divMsj.html("Contraseña modificada correctamente");
+                            divMsj.css("background-color", "#74E153");
+                            divMsj.show("slide", { direction: "up" }, "normal", null)
+                        }
+                        else {
+                            divMsj.html(data);
+                            divMsj.css("background-color", "#E93535");
+                            divMsj.show("slide", { direction: "up" }, "normal", null)
+                        }
+                    }
+                }
+            });
+        }
+
+    }
+</script>
