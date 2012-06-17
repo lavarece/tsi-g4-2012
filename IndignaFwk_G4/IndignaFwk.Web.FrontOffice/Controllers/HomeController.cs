@@ -18,6 +18,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
 
+        private SistemaUserProcess sistemaUserProcess = UserProcessFactory.Instance.SistemaUserProcess;
+
         public HomeController(IApplicationTenant site)
         { 
             this.site = site;
@@ -42,15 +44,23 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         private List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string nivelVisibilidad, Boolean isAutenticated)
         {
-            List<Contenido> listadoContenidos = convocatoriaUserProcess.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad);
+            // Obtengo la variable de sitema que indica cuantos recursos compartidos se visualizaran
+            VariableSistema variableN = sistemaUserProcess.ObtenerVariablePorId(VariableSistema.N);
 
-            if(isAutenticated)
+            List<Contenido> listadoContenidos = new List<Contenido>();
+
+            if (variableN != null)
             {
-                CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+                listadoContenidos = convocatoriaUserProcess.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad, Int32.Parse(variableN.Valor));
 
-                foreach(Contenido c in listadoContenidos)
+                if (isAutenticated)
                 {
-                    c.MarcaContenidoUsuario = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(ci.Id, c.Id);
+                    CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
+
+                    foreach (Contenido c in listadoContenidos)
+                    {
+                        c.MarcaContenidoUsuario = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(ci.Id, c.Id);
+                    }
                 }
             }
 

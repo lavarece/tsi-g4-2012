@@ -22,7 +22,7 @@
                         @Html.LabelFor(m => m.Titulo)
                     </div>
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Titulo)
+                        @Html.TextBoxFor(m => m.Titulo, new { @tabIndex = "1" } )
                         @Html.ValidationMessageFor(m => m.Titulo)
                     </div>
                 </td>
@@ -31,7 +31,7 @@
                         @Html.LabelFor(m=>m.Visibilidad)
                     </div>    
                     <div class="fieldValue">
-                        @Html.DropDownListFor(m => m.Visibilidad, new SelectList(ViewBag.ListaNivelesVisibilidad, "Valor", "Etiqueta"), "---")
+                        @Html.DropDownListFor(m => m.Visibilidad, new SelectList(ViewBag.ListaNivelesVisibilidad, "Valor", "Etiqueta"), "---", new { @tabIndex = "2" } )
                         @Html.ValidationMessageFor(m => m.Visibilidad)
                     </div>
                 </td>
@@ -42,18 +42,22 @@
                         @Html.LabelFor(m => m.Comentario)
                     </div>            
                     <div class="fieldValue">
-                        @Html.TextAreaFor(m => m.Comentario)
+                        @Html.TextAreaFor(m => m.Comentario, new { @tabIndex = "3" } )
                         @Html.ValidationMessageFor(m => m.Comentario)
                     </div>
                 </td>
                 <td>
-                    <div class="fieldLabel">
-                        @Html.LabelFor(m=>m.Url)
+                    <div class="fieldLabel">                        
+                        @Html.LabelFor(m=>m.Url)                                                
+                        <span style="font-style:normal;">
+                            (Si necesita ayuda con la URL, presione 
+                            <a href="#" onclick="showAyudaUrl()" style="color:#DBDBD5;"><b>aquí</b></a>) 
+                        </span> 
                     </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Url, new { @id = "txtUrlContenido", @onblur = "checkUrlContenido();" })
+                        @Html.TextBoxFor(m => m.Url, new { @id = "txtUrlContenido", @onblur = "checkUrlContenido();", @tabIndex = "4" })
                         @Html.ValidationMessageFor(m => m.Url)
-                    </div>
+                    </div>                      
                     <div id="divPreviewContenido" style="display: none;"></div>                    
                 </td>                                    
             </tr>             
@@ -61,7 +65,7 @@
     </div>
     
     <div class="areaBotones">
-        <ul>            
+        <ul>                     
             <li>
                 <div class="boton">
                     <a href="#" onclick="submitForm('Compartir');">Compartir</a>
@@ -73,10 +77,50 @@
                 </div>       
             </li>
         </ul>        
-    </div>              
+    </div>  
+    
+    <div id="divAyudaUrl" style="display:none; font-size: 12px;" title="Ayuda URL de contenido">
+        <p>
+            Que desea compartir?            
+        </p>
+        <ul>            
+            <li>
+                <b>Un link:</b>
+                <p style="margin-top: 0px;">Pegue cualquier link que comience con <i>'http://'.</i></p>
+            </li>
+            <li>
+                <b>Una imagen: </b>
+                <p style="margin-top: 0px;">
+                    Copie el link de cualquier imagen de la web y peguelo en 
+                    la caja de texto.
+                </p>
+            </li>
+            <li>
+                <b>Un video de YouTube: </b>
+                <p style="margin-top: 0px;">
+                    Copie la URL de la barra de direcciones tal cual está
+                    de cualquier video de YouTube y peguela en la caja de texto.
+                </p>
+            </li>
+        </ul>
+        <p>
+            <i><u>
+                Si la URL es válida se presentara un preview debajo a la caja de texto, 
+                en caso contrario el error correspondiente.
+            </u></i>
+        </p>
+    </div>            
 }
 
 <script type="text/javascript">
+
+    function showAyudaUrl() {
+        $("#divAyudaUrl").dialog({
+            modal: true,
+            resizable: false
+        });
+    }
+
     function submitForm(method) {
         $("#formCompartirContenido")[0].action = '' + method;
         $("#formCompartirContenido")[0].submit();

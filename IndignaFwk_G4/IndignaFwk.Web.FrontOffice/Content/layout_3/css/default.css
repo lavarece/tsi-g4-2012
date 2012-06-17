@@ -446,8 +446,8 @@ input, select, textarea
 {
     margin: 10px 10px 0px 10px;
     float: left;
-    width: 60%;
-    max-height: 400px;
+    width: 50%;
+    height: 300px;
 }
 
 .contenido iframe,

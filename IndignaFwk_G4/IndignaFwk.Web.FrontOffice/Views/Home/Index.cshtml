@@ -50,7 +50,7 @@
                     }
                     else if (contenido.TipoContenido.Equals(TipoContenidoEnum.IMAGEN.Valor))
                     {
-                        <img src="@contenido.Url" alt="Imagen" />
+                        <img width="100%" height="100%" src="@contenido.Url" alt="Imagen" />
                     }
                     else if (contenido.TipoContenido.Equals(TipoContenidoEnum.LINK.Valor))
                     {
@@ -63,6 +63,8 @@
                     <div class="fieldLabel">Comentario: <span class="fieldValue">@contenido.Comentario</span></div>
                     <div class="fieldLabel">Visibilidad: <span class="fieldValue">@VisibilidadContenidoEnum.FromString(contenido.NivelVisibilidad).Etiqueta</span></div>
                     <div class="fieldLabel">Fecha creación: <span class="fieldValue">@contenido.FechaCreacion.ToString()</span></div>
+                    <div class="fieldLabel">Me gusta: <span class="fieldValue">@contenido.CantidadMeGusta</span></div>
+                    <div class="fieldLabel">Inadecuado: <span class="fieldValue">@contenido.CantidadInadecuado</span></div>
 
                     @if (User.Identity.IsAuthenticated)
                     {

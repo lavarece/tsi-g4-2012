@@ -139,7 +139,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                     model.Apellido = "";
 
                     AddControllerMessage("Usuario registrado correctamente." + 
-                                         "<div style=\"margin-top: 10px; float: right;\" class=\"boton\">" +
+                                         "<div style=\"float: right; margin-top: 20px;\">" + 
                                          "<a href=\"" + Url.Action("Login", "Account") + "\">Ir a login</a></div>");
                 }
                 else

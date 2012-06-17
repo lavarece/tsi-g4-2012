@@ -138,7 +138,7 @@
                                 <td>@convocatoria.FechaFin.ToString()</td>
                                 <td class="fieldIcono">                                
                                     <a href="@Url.Action("UbicarConvocatoria", "Convocatoria", new { idConvocatoriaAUbicar = convocatoria.Id })" title="Ubicar en mapa">
-                                        <img src="@Url.Content("~/Content/layout_1/images/ico_posMapa.png")" alt="Ubicar en mapa" />
+                                        <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.Layout.NombreLayout + "/images/ico_posMapa.png")" alt="Ubicar en mapa" />
                                     </a>
                                 </td>       
                             </tr>            
