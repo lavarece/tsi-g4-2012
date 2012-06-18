@@ -48,6 +48,9 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public int CantidadInadecuado { get; set; }
 
+        [DataMember]
+        public bool Externo { get; set; }
+
         // Dato utilizado por la logica de presentacion 
         public MarcaContenido MarcaContenidoUsuario { get; set; }
     }
