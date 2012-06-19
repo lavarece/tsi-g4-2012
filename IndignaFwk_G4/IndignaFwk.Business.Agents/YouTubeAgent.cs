@@ -7,6 +7,8 @@ using Google.GData.Extensions;
 using Google.GData.YouTube;
 using Google.GData.Extensions.MediaRss;
 using Google.YouTube;
+using IndignaFwk.Common.Entities;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Business.Agents
 {
@@ -14,7 +16,7 @@ namespace IndignaFwk.Business.Agents
     {
         private static readonly string DEVELOPER_KEY = "AIzaSyB6nBteJRoEKT3lgTW9TqwCD47WWgDpxUo-5t3MzOgIjcvDvPf4hHE7SyQpQ5n-Rqc6aSpNV7w";
 
-        public void ObtenerVideosParaGrupo()
+        public List<Contenido> ObtenerContenidosDeGrupo(Grupo grupo)
         {
             // Youtube request
             YouTubeRequestSettings settings = new YouTubeRequestSettings("example app", DEVELOPER_KEY);
@@ -23,12 +25,32 @@ namespace IndignaFwk.Business.Agents
             // Youtube query
             YouTubeQuery query = new YouTubeQuery(YouTubeQuery.DefaultVideoUri);
             query.OrderBy = "viewCount";
-            query.Query = "puppy";
+            query.Query = "Reggaton";
             query.SafeSearch = YouTubeQuery.SafeSearchValues.None;
 
             Feed<Video> videoFeed = request.Get<Video>(query);
-        }
 
-        
+            // Genero la lista de contenidos
+            List<Contenido> listaContenidos = new List<Contenido>();
+
+            foreach (Video video in videoFeed.Entries)
+            {
+                Contenido contenido = new Contenido();
+
+                contenido.Titulo = video.Title;
+
+                contenido.TipoContenido = TipoContenidoEnum.VIDEO_YOU_TUBE.Valor;
+
+                contenido.Grupo = grupo;
+
+                contenido.Externo = true;
+
+                contenido.Url = video.ComplaintUri.AbsolutePath;
+
+                listaContenidos.Add(contenido);
+            }
+
+            return listaContenidos;
+        }   
     }
 }
