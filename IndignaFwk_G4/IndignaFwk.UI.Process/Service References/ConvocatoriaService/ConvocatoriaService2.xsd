@@ -90,6 +90,7 @@
       <xs:element minOccurs="0" name="CantidadMeGusta" type="xs:int" />
       <xs:element minOccurs="0" name="Comentario" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Eliminado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Externo" type="xs:boolean" />
       <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:Grupo" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />

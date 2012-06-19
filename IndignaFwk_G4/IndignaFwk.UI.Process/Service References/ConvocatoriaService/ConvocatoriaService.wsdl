@@ -68,6 +68,18 @@
   <wsdl:message name="IConvocatoriaService_ObtenerContenidoPorId_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerContenidoPorIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerContenidoConMarcas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoConMarcas" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerContenidoConMarcas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoConMarcasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IConvocatoriaService_ObtenerListadoPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupoResponse" />
+  </wsdl:message>
   <wsdl:message name="IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_InputMessage">
     <wsdl:part name="parameters" element="tns:CrearNuevaAsistenciaConvocatoria" />
   </wsdl:message>
@@ -162,6 +174,14 @@
     <wsdl:operation name="ObtenerContenidoPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId" message="tns:IConvocatoriaService_ObtenerContenidoPorId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorIdResponse" message="tns:IConvocatoriaService_ObtenerContenidoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoConMarcas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoConMarcas" message="tns:IConvocatoriaService_ObtenerContenidoConMarcas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoConMarcasResponse" message="tns:IConvocatoriaService_ObtenerContenidoConMarcas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoPorGrupo" message="tns:IConvocatoriaService_ObtenerListadoPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoPorGrupoResponse" message="tns:IConvocatoriaService_ObtenerListadoPorGrupo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CrearNuevaAsistenciaConvocatoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria" message="tns:IConvocatoriaService_CrearNuevaAsistenciaConvocatoria_InputMessage" />
@@ -285,6 +305,24 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerContenidoPorId">
       <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoConMarcas">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoConMarcas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoPorGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

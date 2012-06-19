@@ -86,6 +86,7 @@ namespace IndignaFwk.UI.Process
             proxy.Close();
         }
 
+
         /* Operaciones AsistenciaConvocatoria */
         public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
         {

@@ -33,5 +33,11 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         void EditarMarcaContenido(MarcaContenido marcaContenido);
+
+        [OperationContract]
+        Contenido ObtenerContenidoConMarcas(int id);
+
+        [OperationContract]
+        List<Contenido> ObtenerListadoPorGrupo(int idGrupo);
     }
 }
