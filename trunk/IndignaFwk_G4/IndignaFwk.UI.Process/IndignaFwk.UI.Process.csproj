@@ -38,9 +38,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AdministradorUserProcess.cs" />
+    <Compile Include="ContenidoUserProcess.cs" />
     <Compile Include="ConvocatoriaUserProcess.cs" />
     <Compile Include="GrupoUserProcess.cs" />
     <Compile Include="Service References\AdministradorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ContenidoService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -98,6 +104,16 @@
     <None Include="Service References\AdministradorService\AdministradorService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ContenidoService\ContenidoService.wsdl" />
+    <None Include="Service References\ContenidoService\ContenidoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContenidoService\ContenidoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContenidoService\ContenidoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ConvocatoriaService\ConvocatoriaService.wsdl" />
     <None Include="Service References\ConvocatoriaService\ConvocatoriaService.xsd">
       <SubType>Designer</SubType>
@@ -153,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AdministradorService\" />
+    <WCFMetadataStorage Include="Service References\ContenidoService\" />
     <WCFMetadataStorage Include="Service References\ConvocatoriaService\" />
     <WCFMetadataStorage Include="Service References\GrupoService\" />
     <WCFMetadataStorage Include="Service References\SistemaService\" />
@@ -229,6 +246,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\SistemaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContenidoService\ContenidoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContenidoService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContenidoService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContenidoService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

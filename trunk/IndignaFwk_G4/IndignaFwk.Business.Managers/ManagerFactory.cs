@@ -26,6 +26,21 @@ namespace IndignaFwk.Business.Managers
         }
 
         // MANAGERS
+        private IContenidoManager _contenidoManager;
+
+        public IContenidoManager ContenidoManager
+        {
+            get
+            {
+                if (_contenidoManager == null)
+                {
+                    _contenidoManager = new ContenidoManager();
+                }
+
+                return _contenidoManager;
+            }
+        }
+
         private IConvocatoriaManager _convocatoriaManager;
 
         public IConvocatoriaManager ConvocatoriaManager

@@ -25,6 +25,22 @@ namespace IndignaFwk.UI.Process
             }
         }
 
+        // ContenidoUserProcess
+        private ContenidoUserProcess _contenidoUserProcess;
+
+        public ContenidoUserProcess ContenidoUserProcess
+        {
+            get
+            {
+                if (_contenidoUserProcess == null)
+                {
+                    _contenidoUserProcess = new ContenidoUserProcess();
+                }
+
+                return _contenidoUserProcess;
+            }
+        }
+
         // ConvocatoriaUserProcess
         private ConvocatoriaUserProcess _convocatoriaUserProcess;
 

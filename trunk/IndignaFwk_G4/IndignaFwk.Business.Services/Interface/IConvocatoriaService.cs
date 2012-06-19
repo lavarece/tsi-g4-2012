@@ -31,19 +31,6 @@ namespace IndignaFwk.Business.Services
         [OperationContract]
         void EliminarConvocatoria(int idConvocatoria);
         
-        // Operaciones Contenidos
-        [OperationContract]
-        int CrearNuevoContenido(Contenido contenido);
-
-        [OperationContract]
-        List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido);
-
-        [OperationContract]
-        List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x);
-
-        [OperationContract]
-        Contenido ObtenerContenidoPorId(int idContenido);
-
         // Operaciones AsistenciaConvocatoria
         [OperationContract]
         int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
@@ -62,15 +49,5 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
-
-        // Operaciones MarcarContenido
-        [OperationContract]
-        MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
-
-        [OperationContract]
-        int CrearNuevaMarcaContenido(MarcaContenido marcaContenido);
-
-        [OperationContract]
-        void EditarMarcaContenido(MarcaContenido marcaContenido);
     }
 }
