@@ -4,14 +4,14 @@
 	x:Class="IndignaFwk_WPF_BackOffice.Home"
 	x:Name="Window"
 	Title="Home"
-	Width="480" Height="364">
+	Width="480" Height="393">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Height="550">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="343.876"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-        <Rectangle Margin="22,108,236,34" Stroke="#FF00FFF9">
+        <Rectangle Margin="22,108,236,0" Stroke="#FF00FFF9">
 			<Rectangle.Effect>
 				<DropShadowEffect/>
 			</Rectangle.Effect>
@@ -97,5 +97,16 @@
                 <DropShadowEffect />
             </Label.Effect>
         </Label>
+        <Button Content="Watchdog" Height="28" Margin="36,0,247,17" Name="button1" VerticalAlignment="Bottom" Click="button1_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FF00FFF9" Offset="0.8" />
+                    <GradientStop Color="Black" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect />
+            </Button.Effect>
+        </Button>
     </Grid>
 </Window>

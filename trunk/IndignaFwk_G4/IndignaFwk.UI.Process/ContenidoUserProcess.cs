@@ -85,5 +85,26 @@ namespace IndignaFwk.UI.Process
 
             proxy.Close();
         }
+
+        public Contenido ObtenerContenidoConMarcas(int id)
+        {
+            ContenidoServiceClient proxy = new ContenidoServiceClient();
+            Contenido contenido = proxy.ObtenerContenidoConMarcas(id);
+
+            proxy.Close();
+
+            return contenido;
+        }
+
+        public List<Contenido> ObtenerListadoPorGrupo(int idGrupo)
+        {
+            ContenidoServiceClient proxy = new ContenidoServiceClient();
+
+            List<Contenido> contenido = proxy.ObtenerListadoPorGrupo(idGrupo);
+
+            proxy.Close();
+
+            return contenido;
+        }
     }
 }

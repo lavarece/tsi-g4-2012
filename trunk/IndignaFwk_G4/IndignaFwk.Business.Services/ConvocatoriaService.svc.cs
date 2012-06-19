@@ -74,5 +74,7 @@ namespace IndignaFwk.Business.Services
         {
             convocatoriaManager.EliminarAsistenciaConvocatoria(idAsistenciaConvocatoria);
         }
+
+     
     }
 }

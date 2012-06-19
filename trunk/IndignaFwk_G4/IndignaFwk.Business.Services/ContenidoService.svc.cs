@@ -47,5 +47,16 @@ namespace IndignaFwk.Business.Services
         {
             contenidoManager.EditarMarcaContenido(marcaContenido);
         }
+
+        public Contenido ObtenerContenidoConMarcas(int id)
+        {
+            return contenidoManager.ObtenerContenidoConMarcas(id);
+        }
+
+        public List<Contenido> ObtenerListadoPorGrupo(int idGrupo)
+        {
+            return contenidoManager.ObtenerListadoPorGrupo(idGrupo);
+        }
+        
     }
 }

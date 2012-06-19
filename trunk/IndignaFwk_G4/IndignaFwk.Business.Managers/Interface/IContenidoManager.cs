@@ -23,5 +23,9 @@ namespace IndignaFwk.Business.Managers
         int CrearNuevaMarcaContenido(MarcaContenido marcaContenido);
 
         void EditarMarcaContenido(MarcaContenido marcaContenido);
+
+        Contenido ObtenerContenidoConMarcas(int id);
+
+        List<Contenido> ObtenerListadoPorGrupo(int idGrupo);
     }
 }

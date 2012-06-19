@@ -174,6 +174,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ContenidosABorrar.xaml.cs">
+      <DependentUpon>ContenidosABorrar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,9 +187,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ReporteContenidoInadecuado.xaml.cs">
+      <DependentUpon>ReporteContenidoInadecuado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReporteUsuariosRegistradosTiempo.xaml.cs">
       <DependentUpon>ReporteUsuariosRegistradosTiempo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WatchDog.xaml.cs">
+      <DependentUpon>WatchDog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ContenidosABorrar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrearAdministrador.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -237,7 +250,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ReporteContenidoInadecuado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReporteUsuariosRegistradosTiempo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WatchDog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

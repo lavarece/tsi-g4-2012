@@ -31,6 +31,8 @@ namespace IndignaFwk.Business.Services
         [OperationContract]
         void EliminarConvocatoria(int idConvocatoria);
         
+
+
         // Operaciones AsistenciaConvocatoria
         [OperationContract]
         int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);

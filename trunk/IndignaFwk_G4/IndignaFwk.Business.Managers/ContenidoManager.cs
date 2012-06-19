@@ -217,5 +217,41 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
+
+        public Contenido ObtenerContenidoConMarcas(int id)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ContenidoADO.ObtenerContenidoConMarcas(id, conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
+        public List<Contenido> ObtenerListadoPorGrupo(int idGrupo)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ContenidoADO.ObtenerListadoPorGrupo(conexion, idGrupo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
     }
 }

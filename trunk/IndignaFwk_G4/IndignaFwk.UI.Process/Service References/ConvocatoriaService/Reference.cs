@@ -50,6 +50,12 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorId", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoPorIdResponse")]
         IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerContenidoConMarcas", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerContenidoConMarcasResponse")]
+        IndignaFwk.Common.Entities.Contenido ObtenerContenidoConMarcas(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoPorGrupo", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoPorGrupoResponse")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoPorGrupo(int idGrupo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/CrearNuevaAsistenciaConvocatoriaResponse")]
         int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria);
         
@@ -149,6 +155,14 @@ namespace IndignaFwk.UI.Process.ConvocatoriaService {
         
         public IndignaFwk.Common.Entities.Contenido ObtenerContenidoPorId(int idContenido) {
             return base.Channel.ObtenerContenidoPorId(idContenido);
+        }
+        
+        public IndignaFwk.Common.Entities.Contenido ObtenerContenidoConMarcas(int id) {
+            return base.Channel.ObtenerContenidoConMarcas(id);
+        }
+        
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoPorGrupo(int idGrupo) {
+            return base.Channel.ObtenerListadoPorGrupo(idGrupo);
         }
         
         public int CrearNuevaAsistenciaConvocatoria(IndignaFwk.Common.Entities.AsistenciaConvocatoria asistenciaConvocatoria) {

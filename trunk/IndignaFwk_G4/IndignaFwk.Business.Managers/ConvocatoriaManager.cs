@@ -362,5 +362,7 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
+
+        
     }
 }
