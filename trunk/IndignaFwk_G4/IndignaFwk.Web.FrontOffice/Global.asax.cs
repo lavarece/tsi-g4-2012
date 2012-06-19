@@ -30,17 +30,24 @@ namespace IndignaFwk.Web.FrontOffice
 
         protected void Application_PostAuthenticateRequest()
         {
-            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-
-            if (authCookie != null)
+            if (Request.Browser.Cookies)
             {
-                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
-                CustomIdentity identity = new CustomIdentity(authTicket.Name, authTicket.UserData);
+                if (authCookie != null)
+                {
+                    FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
 
-                GenericPrincipal newUser = new GenericPrincipal(identity, new string[] { });
+                    CustomIdentity identity = new CustomIdentity(authTicket.Name, authTicket.UserData);
 
-                Context.User = newUser;
+                    GenericPrincipal newUser = new GenericPrincipal(identity, new string[] { });
+
+                    Context.User = newUser;
+                }
+            }
+            else
+            {
+                
             }
         }
 

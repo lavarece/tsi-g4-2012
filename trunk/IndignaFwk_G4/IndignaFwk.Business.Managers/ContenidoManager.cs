@@ -6,6 +6,7 @@ using IndignaFwk.Common.Entities;
 using IndignaFwk.Common.Util;
 using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
+using IndignaFwk.Business.Agents;
 
 namespace IndignaFwk.Business.Managers
 {
@@ -42,6 +43,20 @@ namespace IndignaFwk.Business.Managers
                 }
 
                 return _marcaContenidoADO;
+            }
+        }
+
+        private IGrupoADO _grupoADO;
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
             }
         }
 
@@ -113,7 +128,17 @@ namespace IndignaFwk.Business.Managers
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                return ContenidoADO.ObtenerXPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido, x);
+                List<Contenido> listaContenidos = new List<Contenido>();
+
+                // Agrego los contenidos locales
+                listaContenidos.AddRange(ContenidoADO.ObtenerXPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido, x));
+
+                // Agrego los contenidos de las fuentes externas
+                Grupo grupo = GrupoADO.Obtener(idGrupo, conexion);
+
+                //listaContenidos.AddRange(new YouTubeAgent().ObtenerContenidosDeGrupo(grupo));
+
+                return listaContenidos;                
             }
             catch (Exception ex)
             {

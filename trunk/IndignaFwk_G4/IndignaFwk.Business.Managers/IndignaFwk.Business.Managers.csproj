@@ -57,6 +57,10 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IndignaFwk.Business.Agents\IndignaFwk.Business.Agents.csproj">
+      <Project>{8CCF2996-2876-4B4A-8CCC-62E224F4CAEC}</Project>
+      <Name>IndignaFwk.Business.Agents</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
       <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
       <Name>IndignaFwk.Common</Name>

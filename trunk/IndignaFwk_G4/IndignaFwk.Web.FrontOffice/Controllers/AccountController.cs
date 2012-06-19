@@ -41,7 +41,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         [HttpPost]
         public ActionResult Login(LoginModel model)
-        {
+        {            
             if (ModelState.IsValid)
             {
                 //Encripto contraseña para compararla con la encriptada en la base.
@@ -76,7 +76,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 {
                     ModelState.AddModelError("", "El usuario indicado no existe en este grupo.");
                 }
-            }
+            }           
 
             PopulateViewBag();
 
