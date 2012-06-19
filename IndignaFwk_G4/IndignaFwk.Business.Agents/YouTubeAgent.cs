@@ -14,10 +14,21 @@ namespace IndignaFwk.Business.Agents
     {
         private static readonly string DEVELOPER_KEY = "AIzaSyB6nBteJRoEKT3lgTW9TqwCD47WWgDpxUo-5t3MzOgIjcvDvPf4hHE7SyQpQ5n-Rqc6aSpNV7w";
 
-        public void ObtenerVideosParaGrupo(int idGrupo)
+        public void ObtenerVideosParaGrupo()
         {
-            //YouTubeRequestSettings settings = new YouTubeRequestSettings("example app", clientID, developerKey);
-            //YouTubeRequest request = new YouTubeRequest(settings);
+            // Youtube request
+            YouTubeRequestSettings settings = new YouTubeRequestSettings("example app", DEVELOPER_KEY);
+            YouTubeRequest request = new YouTubeRequest(settings);
+
+            // Youtube query
+            YouTubeQuery query = new YouTubeQuery(YouTubeQuery.DefaultVideoUri);
+            query.OrderBy = "viewCount";
+            query.Query = "puppy";
+            query.SafeSearch = YouTubeQuery.SafeSearchValues.None;
+
+            Feed<Video> videoFeed = request.Get<Video>(query);
         }
+
+        
     }
 }

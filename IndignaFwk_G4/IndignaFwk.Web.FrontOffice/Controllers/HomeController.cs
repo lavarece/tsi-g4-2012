@@ -16,7 +16,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
     {
         private GrupoUserProcess grupoUserProcess = UserProcessFactory.Instance.GrupoUserProcess;
 
-        private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
+        private ContenidoUserProcess contenidoUserProcess = UserProcessFactory.Instance.ContenidoUserProcess;
 
         private SistemaUserProcess sistemaUserProcess = UserProcessFactory.Instance.SistemaUserProcess;
 
@@ -51,7 +51,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             if (variableN != null)
             {
-                listadoContenidos = convocatoriaUserProcess.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad, Int32.Parse(variableN.Valor));
+                listadoContenidos = contenidoUserProcess.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad, Int32.Parse(variableN.Valor));
 
                 if (isAutenticated)
                 {
@@ -59,7 +59,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                     foreach (Contenido c in listadoContenidos)
                     {
-                        c.MarcaContenidoUsuario = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(ci.Id, c.Id);
+                        c.MarcaContenidoUsuario = contenidoUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(ci.Id, c.Id);
                     }
                 }
             }

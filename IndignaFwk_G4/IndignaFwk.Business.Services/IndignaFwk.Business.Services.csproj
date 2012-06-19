@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministradorService.svc" />
+    <Content Include="ContenidoService.svc" />
     <Content Include="ConvocatoriaService.svc" />
     <Content Include="GrupoService.svc" />
     <Content Include="SistemaService.svc" />
@@ -70,6 +71,9 @@
     <Compile Include="AdministradorService.svc.cs">
       <DependentUpon>AdministradorService.svc</DependentUpon>
     </Compile>
+    <Compile Include="ContenidoService.svc.cs">
+      <DependentUpon>ContenidoService.svc</DependentUpon>
+    </Compile>
     <Compile Include="ConvocatoriaService.svc.cs">
       <DependentUpon>ConvocatoriaService.svc</DependentUpon>
     </Compile>
@@ -77,6 +81,7 @@
       <DependentUpon>GrupoService.svc</DependentUpon>
     </Compile>
     <Compile Include="Interface\IAdministradorService.cs" />
+    <Compile Include="Interface\IContenidoService.cs" />
     <Compile Include="Interface\IConvocatoriaService.cs" />
     <Compile Include="Interface\IGrupoService.cs" />
     <Compile Include="Interface\ISistemaService.cs" />

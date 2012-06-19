@@ -50,36 +50,6 @@ namespace IndignaFwk.Business.Services
             convocatoriaManager.EliminarConvocatoria(idConvocatoria);
         }
         
-        public int CrearNuevoContenido(Contenido contenido)
-        {
-            return convocatoriaManager.CrearNuevoContenido(contenido);
-        }
-
-        public List<Contenido> ObtenerListadoContenidosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido)
-        {
-            return convocatoriaManager.ObtenerListadoContenidosPorGrupoYVisibilidad(idGrupo, visibilidadContenido);
-        }
-
-        public Contenido ObtenerContenidoPorId(int idContenido)
-        {
-            return convocatoriaManager.ObtenerContenidoPorId(idContenido);
-        }
-
-        public MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido)
-        {
-            return convocatoriaManager.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenido);
-        }
-
-        public int CrearNuevaMarcaContenido(MarcaContenido marcaContenido)
-        {
-            return convocatoriaManager.CrearNuevaMarcaContenido(marcaContenido);
-        }
-
-        public void EditarMarcaContenido(MarcaContenido marcaContenido)
-        {
-            convocatoriaManager.EditarMarcaContenido(marcaContenido);
-        }
-
         public List <AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario)
         {
             return convocatoriaManager.ObtenerAsistenciaConvocatoriaPorIdUsuario(idUsuario);
@@ -103,11 +73,6 @@ namespace IndignaFwk.Business.Services
         public void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria)
         {
             convocatoriaManager.EliminarAsistenciaConvocatoria(idAsistenciaConvocatoria);
-        }
-
-        public List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x)
-        {
-            return convocatoriaManager.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, visibilidadContenido, x);
         }
     }
 }

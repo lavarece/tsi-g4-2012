@@ -15,7 +15,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 {
     public class ContenidoController : BaseController
     {
-        private ConvocatoriaUserProcess convocatoriaUserProcess = UserProcessFactory.Instance.ConvocatoriaUserProcess;
+        private ContenidoUserProcess contenidoUserProcess = UserProcessFactory.Instance.ContenidoUserProcess;
 
         private SistemaUserProcess sistemaUserProcess = UserProcessFactory.Instance.SistemaUserProcess;
 
@@ -73,7 +73,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                     contenido.Grupo = site.Grupo;
 
-                    convocatoriaUserProcess.CrearNuevoContenido(contenido);
+                    contenidoUserProcess.CrearNuevoContenido(contenido);
 
                     // Limpio el model         
                     AddControllerMessage("Contenido compartido correctamente.");
@@ -99,13 +99,13 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             int idContenidoMarcar = Int32.Parse(Request["idContenidoMarcar"]);
 
             // Verifico si existe una marcar entre el contenido y el usuario, si existe la edito si no la creo
-            MarcaContenido marcaContenido = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenidoMarcar);
+            MarcaContenido marcaContenido = contenidoUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenidoMarcar);
 
             if (marcaContenido != null)
             {
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
 
-                convocatoriaUserProcess.EditarMarcaContenido(marcaContenido);
+                contenidoUserProcess.EditarMarcaContenido(marcaContenido);
             }
             else
             {
@@ -117,7 +117,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
 
-                convocatoriaUserProcess.CrearNuevaMarcaContenido(marcaContenido);
+                contenidoUserProcess.CrearNuevaMarcaContenido(marcaContenido);
             }
 
             AddControllerMessage("Gracias por su opinión.");
@@ -147,13 +147,13 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             int idContenidoMarcar = Int32.Parse(Request["idContenidoMarcar"]);
 
             // Verifico si existe una marcar entre el contenido y el usuario, si existe la edito si no la creo
-            MarcaContenido marcaContenido = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenidoMarcar);
+            MarcaContenido marcaContenido = contenidoUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(idUsuario, idContenidoMarcar);
 
             if (marcaContenido != null)
             {
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.INADECUADO.Valor;
 
-                convocatoriaUserProcess.EditarMarcaContenido(marcaContenido);
+                contenidoUserProcess.EditarMarcaContenido(marcaContenido);
             }
             else
             {
@@ -165,7 +165,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.INADECUADO.Valor;
 
-                convocatoriaUserProcess.CrearNuevaMarcaContenido(marcaContenido);
+                contenidoUserProcess.CrearNuevaMarcaContenido(marcaContenido);
             }
 
             AddControllerMessage("Gracias por su opinión.");
@@ -190,7 +190,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             // Obtengo la variable de sitema que indica cuantos recursos compartidos se visualizaran
             VariableSistema variableN = sistemaUserProcess.ObtenerVariablePorId(VariableSistema.N);
 
-            List<Contenido> listadoContenidos = convocatoriaUserProcess.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad, Int32.Parse(variableN.Valor));
+            List<Contenido> listadoContenidos = contenidoUserProcess.ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(idGrupo, nivelVisibilidad, Int32.Parse(variableN.Valor));
 
             if (isAutenticated)
             {
@@ -198,7 +198,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 foreach (Contenido c in listadoContenidos)
                 {
-                    c.MarcaContenidoUsuario = convocatoriaUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(ci.Id, c.Id);
+                    c.MarcaContenidoUsuario = contenidoUserProcess.ObtenerMarcaContenidoPorUsuarioYContenido(ci.Id, c.Id);
                 }
             }
 

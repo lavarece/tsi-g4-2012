@@ -38,9 +38,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AdministradorManager.cs" />
+    <Compile Include="ContenidoManager.cs" />
     <Compile Include="ConvocatoriaManager.cs" />
     <Compile Include="GrupoManager.cs" />
     <Compile Include="Interface\IAdministradorManager.cs" />
+    <Compile Include="Interface\IContenidoManager.cs" />
     <Compile Include="Interface\IConvocatoriaManager.cs" />
     <Compile Include="Interface\IGrupoManager.cs" />
     <Compile Include="Interface\ISistemaManager.cs" />
