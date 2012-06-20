@@ -37,6 +37,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Service References\WikipediaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WikipediaAgent.cs" />
     <Compile Include="YouTubeAgent.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +59,10 @@
       <HintPath>lib\Google.GData.YouTube.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -61,12 +71,26 @@
     <Content Include="lib\Google.GData.Client.dll" />
     <Content Include="lib\Google.GData.Extensions.dll" />
     <Content Include="lib\Google.GData.YouTube.dll" />
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\WikipediaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WikipediaService\configuration.svcinfo" />
+    <None Include="Service References\WikipediaService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
       <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
       <Name>IndignaFwk.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WikipediaService\Service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WikipediaService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
