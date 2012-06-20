@@ -58,10 +58,11 @@
                         }
                     }
                     else
-                    {   
-                        <img src="@Url.Content("~/Content/shared/images/user_no_image.png")" alt="Imagen usuario" />    
+                    {                               
+                        <img src="@Url.Content("~/Content/shared/images/user_no_image.png")" alt="Imagen usuario" />                  
                         <span>
-                            El usuario <b>@contenido.UsuarioCreacion.NombreCompleto</b> ha compartido el siguiente enlace.                        
+                            El usuario <b>@contenido.UsuarioCreacion.NombreCompleto</b> ha compartido un enlace. <br />
+                            <a href="@contenido.Url" target="_blank">@contenido.Url</a>                                                                            
                         </span>                  
                     }
                 </div>
@@ -78,7 +79,7 @@
                     }
                     else if (contenido.TipoContenido.Equals(TipoContenidoEnum.LINK.Valor))
                     {
-                        <a target="_blank" href="@contenido.Url">@contenido.Url</a>
+                        <iframe width="100%" height="100%" src="@contenido.Url" frameborder="0"></iframe>
                     }                        
                 </div>  
                 
@@ -159,4 +160,4 @@
             }
         </div>        
     }
-</div>
+</div>       

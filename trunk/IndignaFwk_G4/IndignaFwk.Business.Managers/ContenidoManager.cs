@@ -168,7 +168,7 @@ namespace IndignaFwk.Business.Managers
 
                 //listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(grupo));
 
-                listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(grupo));
+                //listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(grupo));
 
                 return listaContenidos;                
             }
