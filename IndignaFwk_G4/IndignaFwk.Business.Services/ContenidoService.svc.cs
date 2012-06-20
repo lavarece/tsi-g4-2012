@@ -56,7 +56,6 @@ namespace IndignaFwk.Business.Services
         public List<Contenido> ObtenerListadoPorGrupo(int idGrupo)
         {
             return contenidoManager.ObtenerListadoPorGrupo(idGrupo);
-        }
-        
+        }        
     }
 }

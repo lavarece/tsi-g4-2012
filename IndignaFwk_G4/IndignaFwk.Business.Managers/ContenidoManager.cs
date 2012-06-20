@@ -60,6 +60,36 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        // AGENTS
+        private YouTubeAgent _youTubeAgent;
+        protected YouTubeAgent YouTubeAgent
+        {
+            get
+            {
+                if (_youTubeAgent == null)
+                {
+                    _youTubeAgent = new YouTubeAgent();
+                }
+
+                return _youTubeAgent;
+            }
+        }
+
+        private WikipediaAgent _wikipediaAgent;
+        protected WikipediaAgent WikipediaAgent
+        {
+            get
+            {
+                if (_wikipediaAgent == null)
+                {
+                    _wikipediaAgent = new WikipediaAgent();
+                }
+
+                return _wikipediaAgent;
+            }
+        }
+
+
         public int CrearNuevoContenido(Contenido contenido)
         {
             try
@@ -136,7 +166,9 @@ namespace IndignaFwk.Business.Managers
                 // Agrego los contenidos de las fuentes externas
                 Grupo grupo = GrupoADO.Obtener(idGrupo, conexion);
 
-                //listaContenidos.AddRange(new YouTubeAgent().ObtenerContenidosDeGrupo(grupo));
+                //listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(grupo));
+
+                listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(grupo));
 
                 return listaContenidos;                
             }

@@ -89,22 +89,23 @@ namespace IndignaFwk.UI.Process
         public Contenido ObtenerContenidoConMarcas(int id)
         {
             ContenidoServiceClient proxy = new ContenidoServiceClient();
-            Contenido contenido = proxy.ObtenerContenidoConMarcas(id);
+
+           // Contenido contenido = proxy.ObtenerContenidoConMarcas(id);
 
             proxy.Close();
 
-            return contenido;
+            return null;
         }
 
         public List<Contenido> ObtenerListadoPorGrupo(int idGrupo)
         {
             ContenidoServiceClient proxy = new ContenidoServiceClient();
 
-            List<Contenido> contenido = proxy.ObtenerListadoPorGrupo(idGrupo);
+            //List<Contenido> contenido = proxy.ObtenerListadoPorGrupo(idGrupo);
 
             proxy.Close();
 
-            return contenido;
+            return null;
         }
     }
 }

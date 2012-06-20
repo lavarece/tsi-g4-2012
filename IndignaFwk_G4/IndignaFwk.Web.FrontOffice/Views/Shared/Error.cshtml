@@ -2,19 +2,18 @@
 
 @{
     ViewBag.Title = "Error inesperado";
-    Layout = "~/Content/layout3/layout.cshtml";
 }
 
-<h2>Ha ocurrido un error inesperado del sistema:</h2>
+<h2 style="color: #FF0000;">Ha ocurrido un error inesperado del sistema:</h2><hr />
 
-<table>
+<table border="1">
     <tr>
-        <td class="fieldLabel" style="width: 120px">Tipo de error:</td>
-        <td class="fieldValue">@ViewBag.TipoError</td>
+        <td style="width: 120px; vertical-align:top;">Tipo de error</td>
+        <td>@ViewBag.TipoError</td>
     </tr>
     <tr>
-        <td class="fieldLabel">Mensaje del error:</td>
-        <td class="fieldValue">@ViewBag.MensajeError</td>
+        <td style="vertical-align: top;">Mensaje del error</td>
+        <td>@ViewBag.MensajeError</td>
     </tr>
 </table>
 

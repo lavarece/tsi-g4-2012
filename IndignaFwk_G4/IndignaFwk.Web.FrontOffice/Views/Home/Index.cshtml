@@ -9,7 +9,7 @@
 <div class="detalleGrupo">
     <h3>Bienvenido al grupo @ViewBag.GrupoSite.Nombre</h3>
     <div class="imagenGrupo">
-        <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.Layout.NombreLayout + "/images/group_no_image.png")" alt="Imagen grupo"/>
+        <img src="@Url.Content("~/Content/shared/images/group_no_image.png")" alt="Imagen grupo"/>
     </div>
     <div>
         @ViewBag.GrupoSite.Descripcion 
@@ -37,12 +37,36 @@
         foreach (Contenido contenido in ViewBag.ListadoContenidos)
         {
             <div class="itemContenido">
+                
+                <!-- Info del creador del contenido -->
                 <div class="creadorContenido">
-                    <img src="@Url.Content("~/Content/" + @ViewBag.GrupoSite.Layout.NombreLayout + "/images/user_no_image.png")" alt="Imagen usuario" />    
-                    <span>
-                        El usuario <b>@contenido.UsuarioCreacion.NombreCompleto</b> ha compartido el siguiente enlace.                        
-                    </span>                  
+                    @if(contenido.Externo)
+                    {
+                        if(FuenteExternaEnum.YOU_TUBE.Valor.Equals(contenido.FuenteExterna))
+                        {
+                            <img src="@Url.Content("~/Content/shared/images/ico_youtube.png")" alt="Imagen usuario" />    
+                            <span>
+                                Contenido extraído de YouTube.
+                            </span>
+                        }
+                        else if(FuenteExternaEnum.WIKIPEDIA.Valor.Equals(contenido.FuenteExterna))
+                        {
+                            <img src="@Url.Content("~/Content/shared/images/ico_youtube.png")" alt="Imagen usuario" />    
+                            <span>
+                                Contenido extraído de Wikipedia.
+                            </span>
+                        }
+                    }
+                    else
+                    {   
+                        <img src="@Url.Content("~/Content/shared/images/user_no_image.png")" alt="Imagen usuario" />    
+                        <span>
+                            El usuario <b>@contenido.UsuarioCreacion.NombreCompleto</b> ha compartido el siguiente enlace.                        
+                        </span>                  
+                    }
                 </div>
+
+                <!-- Contenido embebido -->
                 <div class="contenido">
                     @if (contenido.TipoContenido.Equals(TipoContenidoEnum.VIDEO_YOU_TUBE.Valor))
                     {
@@ -56,64 +80,70 @@
                     {
                         <a target="_blank" href="@contenido.Url">@contenido.Url</a>
                     }                        
-                </div>        
+                </div>  
+                
+                <!-- Detalle del contenido -->      
                 <div class="detalleContenido">
                     <div class="fieldLabel">Tipo: <span class="fieldValue">@TipoContenidoEnum.FromString(contenido.TipoContenido).Etiqueta</span></div>
                     <div class="fieldLabel">Titulo: <span class="fieldValue">@contenido.Titulo</span></div>
                     <div class="fieldLabel">Comentario: <span class="fieldValue">@contenido.Comentario</span></div>
-                    <div class="fieldLabel">Visibilidad: <span class="fieldValue">@VisibilidadContenidoEnum.FromString(contenido.NivelVisibilidad).Etiqueta</span></div>
-                    <div class="fieldLabel">Fecha creación: <span class="fieldValue">@contenido.FechaCreacion.ToString()</span></div>
-                    <div class="fieldLabel">Me gusta: <span class="fieldValue">@contenido.CantidadMeGusta</span></div>
-                    <div class="fieldLabel">Inadecuado: <span class="fieldValue">@contenido.CantidadInadecuado</span></div>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (!contenido.Externo)
                     {
-                        <div class="areaBotones">
-                            <ul>
-                                @if(contenido.MarcaContenidoUsuario == null) 
-                                {                                    
-                                    <li>
-                                        <div class="boton">       
-                                            <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="boton">       
-                                            <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
-                                        </div>
-                                    </li>               
-                                }
-                                else
-                                {
-                                    if(contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.ME_GUSTA.Valor))
-                                    {
-                                        <li>
-                                            <div class="botonPressed">       
-                                                <a href="#">Me gusta</a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="boton">       
-                                                <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
-                                            </div>
-                                        </li>  
-                                    }
-                                    else if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.INADECUADO.Valor))
-                                    {
+                        <div class="fieldLabel">Visibilidad: <span class="fieldValue">@VisibilidadContenidoEnum.FromString(contenido.NivelVisibilidad).Etiqueta</span></div>
+                        <div class="fieldLabel">Fecha creación: <span class="fieldValue">@contenido.FechaCreacion.ToString()</span></div>
+                        <div class="fieldLabel">Me gusta: <span class="fieldValue">@contenido.CantidadMeGusta</span></div>
+                        <div class="fieldLabel">Inadecuado: <span class="fieldValue">@contenido.CantidadInadecuado</span></div>
+
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="areaBotones">
+                                <ul>
+                                    @if (contenido.MarcaContenidoUsuario == null)
+                                    {                                    
                                         <li>
                                             <div class="boton">       
                                                 <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="botonPressed">       
-                                                <a href="#">Inadecuado</a>
+                                            <div class="boton">       
+                                                <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
                                             </div>
-                                        </li>
+                                        </li>               
                                     }
-                                }
-                            </ul>
-                        </div>
+                                    else
+                                    {
+                                        if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.ME_GUSTA.Valor))
+                                        {
+                                            <li>
+                                                <div class="botonPressed">       
+                                                    <a href="#">Me gusta</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="boton">       
+                                                    <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
+                                                </div>
+                                            </li>  
+                                        }
+                                        else if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.INADECUADO.Valor))
+                                        {
+                                            <li>
+                                                <div class="boton">       
+                                                    <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="botonPressed">       
+                                                    <a href="#">Inadecuado</a>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        }
                     }
                 </div>
             </div>

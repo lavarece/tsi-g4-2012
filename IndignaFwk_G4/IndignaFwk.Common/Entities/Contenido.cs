@@ -51,6 +51,9 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public bool Externo { get; set; }
 
+        [DataMember]
+        public string FuenteExterna { get; set; }
+
         // Dato utilizado por la logica de presentacion 
         public MarcaContenido MarcaContenidoUsuario { get; set; }
     }
