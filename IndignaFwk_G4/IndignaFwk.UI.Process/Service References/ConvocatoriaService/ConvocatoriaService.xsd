@@ -80,97 +80,10 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="CrearNuevoContenido">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="contenido" nillable="true" type="q6:Contenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CrearNuevoContenidoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CrearNuevoContenidoResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerListadoContenidosPorGrupoYVisibilidad">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idGrupo" type="xs:int" />
-        <xs:element minOccurs="0" name="visibilidadContenido" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerListadoContenidosPorGrupoYVisibilidadResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerListadoContenidosPorGrupoYVisibilidadResult" nillable="true" type="q7:ArrayOfContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idGrupo" type="xs:int" />
-        <xs:element minOccurs="0" name="visibilidadContenido" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="x" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidadResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidadResult" nillable="true" type="q8:ArrayOfContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerContenidoPorId">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idContenido" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerContenidoPorIdResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerContenidoPorIdResult" nillable="true" type="q9:Contenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerContenidoConMarcas">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerContenidoConMarcasResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerContenidoConMarcasResult" nillable="true" type="q10:Contenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerListadoPorGrupo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idGrupo" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerListadoPorGrupoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerListadoPorGrupoResult" nillable="true" type="q11:ArrayOfContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="CrearNuevaAsistenciaConvocatoria">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="asistenciaConvocatoria" nillable="true" type="q12:AsistenciaConvocatoria" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="asistenciaConvocatoria" nillable="true" type="q6:AsistenciaConvocatoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -192,14 +105,14 @@
   <xs:element name="ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoriaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoriaResult" nillable="true" type="q13:AsistenciaConvocatoria" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoriaResult" nillable="true" type="q7:AsistenciaConvocatoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditarAsistenciaConvocatoria">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="asistenciaConvocatoria" nillable="true" type="q14:AsistenciaConvocatoria" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="asistenciaConvocatoria" nillable="true" type="q8:AsistenciaConvocatoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -218,21 +131,21 @@
   <xs:element name="ObtenerAsistenciaConvocatoriaPorIdUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerAsistenciaConvocatoriaPorIdUsuarioResult" nillable="true" type="q15:ArrayOfAsistenciaConvocatoria" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerAsistenciaConvocatoriaPorIdUsuarioResult" nillable="true" type="q9:ArrayOfAsistenciaConvocatoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerConvocatoriasPorFiltro">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" minOccurs="0" name="filtroBusqueda" nillable="true" type="q16:FiltroBusqueda" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" minOccurs="0" name="filtroBusqueda" nillable="true" type="q10:FiltroBusqueda" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerConvocatoriasPorFiltroResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerConvocatoriasPorFiltroResult" nillable="true" type="q17:ArrayOfConvocatoria" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerConvocatoriasPorFiltroResult" nillable="true" type="q11:ArrayOfConvocatoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -244,47 +157,6 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarAsistenciaConvocatoriaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerMarcaContenidoPorUsuarioYContenido">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
-        <xs:element minOccurs="0" name="idContenido" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerMarcaContenidoPorUsuarioYContenidoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerMarcaContenidoPorUsuarioYContenidoResult" nillable="true" type="q18:MarcaContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CrearNuevaMarcaContenido">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q19:MarcaContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CrearNuevaMarcaContenidoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CrearNuevaMarcaContenidoResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EditarMarcaContenido">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="marcaContenido" nillable="true" type="q20:MarcaContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EditarMarcaContenidoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

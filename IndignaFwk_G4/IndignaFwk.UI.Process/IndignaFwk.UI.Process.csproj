@@ -82,7 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Administrador.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.AsistenciaConvocatoria.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Contenido.datasource" />
