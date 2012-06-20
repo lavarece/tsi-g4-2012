@@ -424,6 +424,7 @@ input, select, textarea
 
 .creadorContenido
 {
+    float: left;
     margin: 10px 10px 0px 10px;
     vertical-align: top;
     border-bottom: 1px solid #EBEBEB;
@@ -431,12 +432,30 @@ input, select, textarea
 
 .creadorContenido img
 {
+    float: left;
     padding-right: 10px;
     width: 50px;
     height: 70px;
 }
 
-.creadorContenido span,
+.creadorContenido span
+{
+    float: left;
+    vertical-align: top;
+}
+
+.creadorContenido span a
+{
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.creadorContenido span a:hover
+{
+    text-decoration: underline;
+}
+
 .creadorContenido b
 {
     vertical-align: top;
@@ -446,7 +465,7 @@ input, select, textarea
 {
     margin: 10px 10px 0px 10px;
     float: left;
-    width: 50%;
+    width: 60%;
     height: 300px;
 }
 
