@@ -55,6 +55,7 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\UsuTematica.cs" />
     <Compile Include="Entities\VariableSistema.cs" />
+    <Compile Include="Enumeration\FuenteExternaEnum.cs" />
     <Compile Include="Enumeration\PreguntaSecretaEnum.cs" />
     <Compile Include="Enumeration\VisibilidadContenidoEnum.cs" />
     <Compile Include="Enumeration\TipoContenidoEnum.cs" />
