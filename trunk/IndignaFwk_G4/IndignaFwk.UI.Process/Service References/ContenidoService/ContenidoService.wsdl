@@ -49,6 +49,18 @@
   <wsdl:message name="IContenidoService_EditarMarcaContenido_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditarMarcaContenidoResponse" />
   </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoConMarcas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoConMarcas" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoConMarcas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoConMarcasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContenidoService">
     <wsdl:operation name="CrearNuevoContenido">
       <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/CrearNuevoContenido" message="tns:IContenidoService_CrearNuevoContenido_InputMessage" />
@@ -77,6 +89,14 @@
     <wsdl:operation name="EditarMarcaContenido">
       <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/EditarMarcaContenido" message="tns:IContenidoService_EditarMarcaContenido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/EditarMarcaContenidoResponse" message="tns:IContenidoService_EditarMarcaContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoConMarcas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcas" message="tns:IContenidoService_ObtenerContenidoConMarcas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcasResponse" message="tns:IContenidoService_ObtenerContenidoConMarcas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupo" message="tns:IContenidoService_ObtenerListadoPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupoResponse" message="tns:IContenidoService_ObtenerListadoPorGrupo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContenidoService" type="tns:IContenidoService">
@@ -137,6 +157,24 @@
     </wsdl:operation>
     <wsdl:operation name="EditarMarcaContenido">
       <soap:operation soapAction="http://tempuri.org/IContenidoService/EditarMarcaContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoConMarcas">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

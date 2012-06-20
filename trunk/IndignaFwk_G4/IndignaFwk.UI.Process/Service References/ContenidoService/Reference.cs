@@ -40,6 +40,12 @@ namespace IndignaFwk.UI.Process.ContenidoService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContenidoService/EditarMarcaContenido", ReplyAction="http://tempuri.org/IContenidoService/EditarMarcaContenidoResponse")]
         void EditarMarcaContenido(IndignaFwk.Common.Entities.MarcaContenido marcaContenido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcas", ReplyAction="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcasResponse")]
+        IndignaFwk.Common.Entities.Contenido ObtenerContenidoConMarcas(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupo", ReplyAction="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupoResponse")]
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoPorGrupo(int idGrupo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -95,6 +101,14 @@ namespace IndignaFwk.UI.Process.ContenidoService {
         
         public void EditarMarcaContenido(IndignaFwk.Common.Entities.MarcaContenido marcaContenido) {
             base.Channel.EditarMarcaContenido(marcaContenido);
+        }
+        
+        public IndignaFwk.Common.Entities.Contenido ObtenerContenidoConMarcas(int id) {
+            return base.Channel.ObtenerContenidoConMarcas(id);
+        }
+        
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerListadoPorGrupo(int idGrupo) {
+            return base.Channel.ObtenerListadoPorGrupo(idGrupo);
         }
     }
 }
