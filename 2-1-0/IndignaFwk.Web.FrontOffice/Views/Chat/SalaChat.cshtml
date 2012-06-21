@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Chat";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<h2>Chat del grupo</h2>
+
+@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+<div id="divContainerChat"></div>
+
+<script type="text/javascript">
+
+    var idIntervalConversacion;
+
+    function iniciarConversacion(idUsuario) 
+    {
+        if (idIntervalConversacion != null)
+        {
+            clearInterval(idIntervalConversacion);
+        }
+
+        $.ajax({
+            url: '@Url.Action("IniciarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#divContainerChat").html(data);                    
+                }
+            }
+        });
+
+        idIntervalChat = setInterval('refrescarConversacion(' + idUsuario + ')', 5000);
+    }
+
+    function enviarMensaje(idUsuario) 
+    {
+        var ingresoMsj = $("#txt_ingresoMsj_" + idUsuario)
+
+        if (ingresoMsj.val() == null || ingresoMsj.val() == '') 
+        {
+            alert("Debe ingresar el mensaje a enviar");
+        }
+        else
+        {
+            $.ajax({
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        $("#txt_conversacion_" + idUsuario).append(data);
+                        $("#txt_ingresoMsj_" + idUsuario).val("");
+                    }
+                }
+            });
+        }
+    }
+
+    // Utilizada por el set interval
+    function refrescarConversacion(idUsuario)
+    {
+        $.ajax({
+            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#txt_conversacion_" + idUsuario).html(data);
+                }
+            }
+        });
+    }
+
+</script>
