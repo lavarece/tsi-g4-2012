@@ -3,17 +3,17 @@
 body
 {
     font-size: 12px;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+    font-family: Helvetica, Sans-Serif !important;
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;
-    background-color: #3C3C3C;    
+    background-color: #1D1D1D;    
 }
 
 input, select, textarea
 {
     border: 1px #000000 solid;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+    font-family: Helvetica, Sans-Serif !important;
 }
 
 #divMapaFullScreen
@@ -28,9 +28,10 @@ input, select, textarea
 {
 	width: 97%;
 	margin: 0px auto;
+	padding-bottom: 20px;
 	border-top: 0px;
 	border-bottom: 0px; 	
-    background-color: #3C3C3C;
+    background-color: #1D1D1D;
 }
 
 #header
@@ -47,7 +48,7 @@ input, select, textarea
     font-weight: bold;
     padding-left: 30px;
     float: left;
-    color: #3C3C3C;
+    color: #1D1D1D;
 }
 
 #login
@@ -79,12 +80,13 @@ input, select, textarea
     font-weight: bold;
     font-style: oblique;
     font-size: 13px;    
+    color: #1D1D1D;
 }
 
 #login a 
 {
 	text-decoration: none;
-	color: #DBDBD5;
+	color: #1D1D1D;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -99,13 +101,13 @@ input, select, textarea
 {
     position: fixed;
     width: 100%;
-    background-color: #898989;
+    background-color: #545454;
     bottom: 0px;
     left: 0px;
     right: 0px;
     line-height: 30px;
     border-top: 3px ridge #EB5E3B;
-    z-index: 2000;
+    z-index: 900;
 }
 
 #menu ul 
@@ -123,7 +125,7 @@ input, select, textarea
 #menu a 
 {
 	text-decoration: none;
-	color: #1A1A1A;
+	color: #DBDBD5;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -176,6 +178,7 @@ input, select, textarea
 #mapaConvocatorias
 {
     margin: 20px 10px;
+    height: 420px;
 }
 
 #mapaConvocatorias .mapa
@@ -200,7 +203,7 @@ input, select, textarea
     background-color: #F96D51;
     border: 1px solid #A62106;
     border-radius: 5px 5px 5px 5px;
-    color: #3C3C3C;
+    color: #1D1D1D;
 }
 
 .validation-summary-errors ul
@@ -299,7 +302,7 @@ input, select, textarea
 
 .areaBotones
 {
-    background-color: #777777;
+    background-color: #636363;
     width: 100%;
     height: 35px;
     line-height: 35px;
@@ -331,17 +334,17 @@ input, select, textarea
     text-decoration: none;
     background-color: #EB5E3B;
     border: 1px solid #212121;
-    color: #3C3C3C;
+    color: #1D1D1D;
     font-size: 13px;    
     font-weight: bold;    
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 3px 3px 3px 3px;
 }
 
 .boton a:hover
 {
     text-decoration: underline;
     border: 1px outset #EB5E3B;
-    background-color: #C8E199;
+    background-color: #F18F77;
 }
 
 .botonPressed
@@ -356,7 +359,7 @@ input, select, textarea
     text-decoration: none;
     background-color: #5C7A40;
     border: 2px inset #7BA331;
-    color: #3C3C3C;
+    color: #1D1D1D;
     font-size: 13px;    
     font-weight: bold;    
     border-radius: 7px 7px 7px 7px;
@@ -383,7 +386,7 @@ input, select, textarea
     text-align: center;
     font-weight: bold;
     font-size: 13px;
-    color: #3C3C3C;
+    color: #1D1D1D;
 }
 
 .dataTable thead tr th
@@ -519,8 +522,8 @@ input, select, textarea
     overflow: auto;
     width: 25%;
     float: left;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 450px;
+    max-height: 450px;
 }
 
 .listaUsuariosChat ul
@@ -548,7 +551,7 @@ input, select, textarea
     text-decoration: none;
     color: #DBDBD5;  
     border-bottom: 1px solid #686868;  
-    padding: 10px 100% 10px 25px;
+    padding: 12px 100% 11px 25px;
     text-align: left;    
 }
 
@@ -560,8 +563,8 @@ input, select, textarea
 .usuarioOnline a:hover
 {
     background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
-    background-color: #C4DF93;    
-    color: #3C3C3C;
+    background-color: #EE795C;    
+    color: #1D1D1D;
 }
 
 .usuarioOffline
@@ -572,8 +575,8 @@ input, select, textarea
 .usuarioOffline a:hover
 {
     background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
-    background-color: #C4DF93;    
-    color: #3C3C3C;
+    background-color: #EE795C;    
+    color: #1D1D1D;
 }
 
 .wrapperConversacionChat
@@ -581,10 +584,10 @@ input, select, textarea
     margin-left: 5px;
     border: 1px solid #EB5E3B;
     background-color: #515151;
-    width: 660px;
+    width: 74%;
     float: right;
-    min-height: 300px;
-    max-height: 300px;
+    min-height: 350px;
+    max-height: 350px;
 }
 
 .wrapperConversacionChat .datosUsuarioConversacion
@@ -597,10 +600,10 @@ input, select, textarea
 
 .wrapperConversacionChat .conversacionPanel
 {
-    margin-left: 7px;
+    margin-left: 10px;
     margin-top: 5px;
-    height: 260px;
-    width: 645px;
+    height: 310px;
+    width: 98%;
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #FFFFFF;
@@ -625,10 +628,10 @@ input, select, textarea
 .wrapperMensajeChat
 {
     margin-top: 12px;
-    margin-left: 5px;
+    margin-left: 10px;
     border: 1px solid #EB5E3B;
     background-color: #515151;
-    width: 660px;
+    width: 74%;
     float: right;
     min-height: 85px;
     max-height: 85px;
@@ -642,10 +645,10 @@ input, select, textarea
 
 .wrapperMensajeChat textarea
 {
-    margin-left: 5px;
+    margin-left: 10px;
     margin-top: 5px;
     height: 70px;
-    width: 564px;
+    width: 89%;
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
