@@ -105,25 +105,7 @@
     <Content Include="Content\layout_1\jquery-theme\images\ui-icons_999999_256x240.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-icons_fbc856_256x240.png" />
     <Content Include="Content\layout_1\jquery-theme\jquery-ui-1.8.21.css" />
-    <Content Include="Content\layout_2\images\header.png" />
-    <Content Include="Content\layout_2\images\img09.jpg" />
     <Content Include="Content\layout_2\css\default.css" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_gloss-wave_16_121212_500x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_highlight-hard_15_888888_1x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_highlight-hard_55_555555_1x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_highlight-soft_35_adadad_1x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_highlight-soft_60_dddddd_1x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-bg_inset-soft_15_121212_1x100.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_666666_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_aaaaaa_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_bbbbbb_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_c98000_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_cccccc_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\images\ui-icons_f29a00_256x240.png" />
-    <Content Include="Content\layout_2\jquery-theme\jquery-ui-1.8.21.css" />
     <Content Include="Content\layout_3\css\default.css" />
     <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
@@ -244,6 +226,7 @@
     <Content Include="Views\Account\CambioContrasenia.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\layout_2\images\" />
     <Folder Include="Content\layout_3\images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
