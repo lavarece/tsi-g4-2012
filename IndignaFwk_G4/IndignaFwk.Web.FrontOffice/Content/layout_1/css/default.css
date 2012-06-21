@@ -445,6 +445,7 @@ input, select, textarea
 
 .creadorContenido
 {
+    width: 100%;
     float: left;
     padding: 10px;
     vertical-align: top;

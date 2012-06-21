@@ -51,7 +51,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM FuenteExternaSitio where FK_Id_Sitio";
+                command.CommandText = "SELECT * FROM FuenteExternaSitio where FK_Id_Sitio = @idSitio ";
+
+                UtilesBD.SetParameter(command, "idSitio", idGrupo);
 
                 reader = command.ExecuteReader();
 

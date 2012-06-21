@@ -16,7 +16,7 @@ namespace IndignaFwk.Business.Agents
     {
         private static readonly string DEVELOPER_KEY = "AI39si4YVTBLXrlE15S5N_t3Su_hQBXxkRWz3HmsgcQlJKRj3RRIVtrOU8-5t3MzOgIjcvDvPf4hHE7SyQpQ5n-Rqc6aSpNV7w";
         
-        public List<Contenido> ObtenerContenidosDeGrupo(Grupo grupo)
+        public List<Contenido> ObtenerContenidosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
         {
             // Youtube request
             YouTubeRequestSettings settings = new YouTubeRequestSettings("TSI_2012", DEVELOPER_KEY);
@@ -25,7 +25,7 @@ namespace IndignaFwk.Business.Agents
             // Youtube query
             YouTubeQuery query = new YouTubeQuery(YouTubeQuery.DefaultVideoUri);
             query.OrderBy = "viewCount";
-            query.Query = "Reggaton";
+            query.Query = fuenteExternaGrupo.QueryString;
             query.SafeSearch = YouTubeQuery.SafeSearchValues.None;
 
             Feed<Video> videoFeed = request.Get<Video>(query);
@@ -37,7 +37,7 @@ namespace IndignaFwk.Business.Agents
             foreach (Video video in videoFeed.Entries)
             {
                 // Permito agregar tantos contenidos como indique el grupo
-                if (count == 3)
+                if (count == fuenteExternaGrupo.CantidadResultados)
                     break;
 
                 Contenido contenido = new Contenido();
@@ -48,7 +48,7 @@ namespace IndignaFwk.Business.Agents
 
                 contenido.TipoContenido = TipoContenidoEnum.VIDEO_YOU_TUBE.Valor;
 
-                contenido.Grupo = grupo;
+                contenido.Grupo = fuenteExternaGrupo.Grupo;
 
                 contenido.Url = "http://www.youtube.com/embed/" + video.VideoId;
 

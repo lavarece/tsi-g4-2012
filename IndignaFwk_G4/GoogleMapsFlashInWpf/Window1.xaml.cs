@@ -24,7 +24,7 @@ namespace GoogleMapsFlashInWpf
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
             AxShockwaveFlashObjects.AxShockwaveFlash axFlash = wfh.Child as AxShockwaveFlashObjects.AxShockwaveFlash;
-            axFlash.FlashVars = "key= your_api_key";
+            axFlash.FlashVars = "key=AIzaSyB6nBteJRoEKT3lgTW9TqwCD47WWgDpxUo";
             axFlash.Movie = System.Windows.Forms.Application.StartupPath + "\\GoogleMaps.swf";
 
             axFlash.FlashCall += new AxShockwaveFlashObjects._IShockwaveFlashEvents_FlashCallEventHandler(axFlash_FlashCall);

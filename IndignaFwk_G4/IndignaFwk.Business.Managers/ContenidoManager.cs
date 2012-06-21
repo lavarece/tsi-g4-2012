@@ -7,6 +7,7 @@ using IndignaFwk.Common.Util;
 using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
 using IndignaFwk.Business.Agents;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk.Business.Managers
 {
@@ -163,13 +164,24 @@ namespace IndignaFwk.Business.Managers
                 // Agrego los contenidos locales
                 listaContenidos.AddRange(ContenidoADO.ObtenerXPorGrupoYVisibilidad(conexion, idGrupo, visibilidadContenido, x));
 
-                // Agrego los contenidos de las fuentes externas
+                // Verifico las fuentes externas del grupo y cargo las que correspondan
                 Grupo grupo = GrupoADO.Obtener(idGrupo, conexion);
 
-                //listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(grupo));
-
-                //listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(grupo));
-
+                if (grupo.FuentesExternas != null)
+                {
+                    foreach (FuenteExternaGrupo fuenteExternaGrupo in grupo.FuentesExternas)
+                    {
+                        if (fuenteExternaGrupo.FuenteExterna.Equals(FuenteExternaEnum.YOU_TUBE.Valor))
+                        {
+                            listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));
+                        }
+                        else if (fuenteExternaGrupo.FuenteExterna.Equals(FuenteExternaEnum.WIKIPEDIA.Valor))
+                        {
+                            listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));
+                        }
+                    }
+                }
+                
                 return listaContenidos;                
             }
             catch (Exception ex)

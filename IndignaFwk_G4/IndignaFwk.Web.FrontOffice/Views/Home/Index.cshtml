@@ -46,14 +46,16 @@
                         {
                             <img src="@Url.Content("~/Content/shared/images/ico_youtube.png")" alt="Imagen usuario" />    
                             <span>
-                                Contenido extraído de YouTube.
+                                Contenido extraído de YouTube. <br />
+                                <a href="@contenido.Url" target="_blank">@contenido.Url</a>                                                                            
                             </span>
                         }
                         else if(FuenteExternaEnum.WIKIPEDIA.Valor.Equals(contenido.FuenteExterna))
                         {
-                            <img src="@Url.Content("~/Content/shared/images/ico_youtube.png")" alt="Imagen usuario" />    
+                            <img src="@Url.Content("~/Content/shared/images/ico_wikipedia.png")" alt="Imagen usuario" />    
                             <span>
-                                Contenido extraído de Wikipedia.
+                                Contenido extraído de Wikipedia. <br />
+                                <a href="@contenido.Url" target="_blank">@contenido.Url</a>                                                                            
                             </span>
                         }
                     }
