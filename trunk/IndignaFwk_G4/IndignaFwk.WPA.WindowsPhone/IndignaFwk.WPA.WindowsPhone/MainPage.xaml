@@ -5,7 +5,7 @@
 	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
 	x:Class="IndignaFwk_WPA_WindowsPhone.MainPage"
 	FontFamily="{StaticResource PhoneFontFamilyNormal}"
 	FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -33,8 +33,9 @@
 			<TextBox x:Name="textBox_pass" Height="76" Margin="21,198,21,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
 			<TextBlock HorizontalAlignment="Left" Height="32" Margin="33,51,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="153"/>
 			<TextBlock HorizontalAlignment="Left" Height="32" Margin="33,172,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="153"/>
-			<Button x:Name="boton_login" Content="Login" HorizontalAlignment="Right" Margin="0,291,21,237" Width="193"/>
+			<Button x:Name="boton_login" Content="Login" HorizontalAlignment="Right" Margin="0,291,21,237" Width="193" Click="boton_login_Click" />
 			<Button x:Name="boton_salir" Content="Salir" HorizontalAlignment="Left" Margin="20,290,0,238" Width="193"/>
 		</Grid>
+		<Image Margin="17,0,17,32" Source="fondo-4-Indignados.png" Stretch="Fill" Grid.Row="1" Height="189" VerticalAlignment="Bottom"/>
 	</Grid>
 </phone:PhoneApplicationPage>
