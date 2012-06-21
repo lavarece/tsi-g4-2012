@@ -1,6 +1,6 @@
 ﻿@using IndignaFwk.Common.Entities;
 
-<input type="hidden" id="hiddenDataConvocatoriasMapaFull" value="@ViewBag.DataConvocatoriasMapaFull" /></input>
+<input type="hidden" id="hiddenDataConvocatoriasMapaFull" value="@ViewBag.DataConvocatoriasMapaFull" />
 
 <div id="divMapaFullScreen" style="display: none;">   
 </div>  
@@ -51,16 +51,18 @@
         {
             var iterData = iterConvocatorias[i].split(",");
 
-            addMarkerConvocatoria(iterData[0], iterData[1], iterData[2], iterData[3], iterData[4], mapFull);
+            addMarkerConvocatoria(iterData[0], iterData[1], iterData[2], iterData[3], iterData[4], iterData[5], iterData[6], mapFull);
         }
     }
 
-    function addMarkerConvocatoria(id, titulo, descripcion, latitud, longitud, mapa) 
+    function addMarkerConvocatoria(id, titulo, descripcion, latitud, longitud, quorum, asistencias, mapa) 
     {
         var markerLatLng = new google.maps.LatLng(latitud, longitud);
         var contentString = "<div style=\"color: #000000\">" + 
-                            "<div style=\"font-weight: bold;\">" + titulo + "</div>" +
-                            "<div style=\"font-style: italic;\">" + descripcion + "</div>" +
+                            "<div style=\"font-weight: bold; text-decoration: underline;\">" + titulo + "</div>" +
+                            "<div style=\"font-style: italic;\">Descripción: " + descripcion + "</div>" +
+                            "<div style=\"font-style: italic;\">Quorum: " + quorum + "</div>" +
+                            "<div style=\"font-style: italic;\">Asistirán: " + asistencias + "</div>" +
                             "<div style=\"margin-top: 5px;\"class=\"boton\"><a style=\"float: right;\" href=\"/Convocatoria/UbicarConvocatoria?idConvocatoriaAUbicar=" + id + "\">Ir a convocatoria</a></div>" +                             
                             "</div>";
                             

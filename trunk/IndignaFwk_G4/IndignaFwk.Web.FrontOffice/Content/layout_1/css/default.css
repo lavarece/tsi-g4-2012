@@ -73,7 +73,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('../images/ico_vineta.gif') no-repeat left 50%;    
+    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
 }
 
 #login .usuarioAutenticado
@@ -562,24 +562,24 @@ input, select, textarea
 
 .usuarioOnline
 {
-    background: url('../images/ico_online.png') no-repeat 2% 50%;
+    background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
 }
 
 .usuarioOnline a:hover
 {
-    background: url('../images/ico_online.png') no-repeat 2% 50%;
+    background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
     background-color: #C4DF93;    
     color: #3C3C3C;
 }
 
 .usuarioOffline
 {
-    background: url('../images/ico_offline.png') no-repeat 2% 50%;
+    background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
 }
 
 .usuarioOffline a:hover
 {
-    background: url('../images/ico_offline.png') no-repeat 2% 50%;
+    background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
     background-color: #C4DF93;    
     color: #3C3C3C;
 }

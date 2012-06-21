@@ -41,6 +41,9 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public Usuario UsuarioCreacion { get; set; }
 
+        [DataMember]
+        public int CantidadAsistencias { get; set; }
+
         // Atributo utilizado por la presentacion
         public Boolean ExisteAsistenciaUsuario { get; set; }
 
