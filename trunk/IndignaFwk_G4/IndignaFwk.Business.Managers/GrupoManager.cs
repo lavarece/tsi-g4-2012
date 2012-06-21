@@ -72,7 +72,20 @@ namespace IndignaFwk.Business.Managers
                return _layoutADO;
            }
        }
-       
+
+       private IFuenteExternaGrupoADO _fuenteExternaGrupoADO;
+       protected IFuenteExternaGrupoADO FuenteExternaGrupoADO
+       {
+           get
+           {
+               if (_fuenteExternaGrupoADO == null)
+               {
+                   _fuenteExternaGrupoADO = new FuenteExternaGrupoADO();
+               }
+
+               return _fuenteExternaGrupoADO;
+           }
+       }
 
        /*
         * Metodo que se llama desde la capa de servicio para
@@ -90,6 +103,13 @@ namespace IndignaFwk.Business.Managers
 
                GrupoADO.Crear(grupo, conexion, transaccion);
 
+               if (grupo.FuentesExternas != null)
+               {
+                   foreach (FuenteExternaGrupo fuenteExternaGrupo in grupo.FuentesExternas)
+                   {
+                       FuenteExternaGrupoADO.Crear(fuenteExternaGrupo, conexion, transaccion);
+                   }
+               }
                UtilesBD.CommitTransaccion(transaccion);
 
                return grupo.Id;

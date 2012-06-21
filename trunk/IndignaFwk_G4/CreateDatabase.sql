@@ -159,6 +159,31 @@ CREATE TABLE [dbo].[Sitio](
 END
 GO
 
+-- FUENTE EXTERNA SITIO
+USE [IndignadoFDb]
+GO
+/****** Object:  Table [dbo].[FuenteExternaSitio]    Script Date: 04/16/2012 19:10:17 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FuenteExternaSitio]') AND type in (N'U'))
+DROP TABLE [dbo].FuenteExternaSitio
+GO
+/****** Object:  Table [dbo].[FuenteExternaSitio]    Script Date: 04/16/2012 19:10:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FuenteExternaSitio]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].FuenteExternaSitio(
+	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[FuenteExterna] [nvarchar](250) NOT NULL,
+	[FK_Id_Sitio] [int] NOT NULL,
+	[QueryString] [nvarchar](250) NOT NULL,
+	[CantidadResultados] [int] NOT NULL
+ CONSTRAINT FK_Fuente_FK_Sitio FOREIGN KEY (FK_Id_Sitio) REFERENCES Sitio(Id) 
+) ON [PRIMARY]
+END
+GO
+
 --Contenido
 USE [IndignadoFDb]
 GO
