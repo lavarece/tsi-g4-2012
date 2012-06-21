@@ -45,13 +45,14 @@
         else
         {
             $.ajax({
-                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj,
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj.val(),
                 dataType: "html",
                 method: "POST",
                 success: function (data, textStatus, jqXHR) {
                     if (data != null) {
                         $("#txt_conversacion_" + idUsuario).append(data);
                         $("#txt_ingresoMsj_" + idUsuario).val("");
+                        $("#txt_ingresoMsj_" + idUsuario).focus();
                     }
                 }
             });
