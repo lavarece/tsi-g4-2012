@@ -33,5 +33,11 @@ namespace IndignaFwk_WPF_BackOffice
         {
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UsuariosABorrar uBorrar = new UsuariosABorrar();
+            uBorrar.Show();
+        }
     }
 }

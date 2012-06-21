@@ -20,7 +20,7 @@
                 <DropShadowEffect />
             </Label.Effect>
         </Label>
-        <Button Content="Listar Usuarios a Borrar" Height="24" Margin="81,0,102,58"  VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment">
+        <Button Content="Listar Usuarios a Borrar" Height="24" Margin="81,0,102,58"  VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Click="Button_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="Black" Offset="0.986" />

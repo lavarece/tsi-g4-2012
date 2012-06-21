@@ -28,19 +28,19 @@ namespace IndignaFwk_WPF_BackOffice
 
             //Cargar valores de la variables
             
-            VariableSistema vsistema = sistemaUserProcess.ObtenerVariablePorId(4);
+            VariableSistema vsistema = sistemaUserProcess.ObtenerVariablePorId(1);
             if (vsistema.Valor != null)
                 Recursos_mas_rankeados.Text = vsistema.Valor;
            
-            vsistema = sistemaUserProcess.ObtenerVariablePorId(5);
+            vsistema = sistemaUserProcess.ObtenerVariablePorId(2);
             if (vsistema.Valor != null)
                 Recursos_compartidos.Text = vsistema.Valor;
               
-            vsistema = sistemaUserProcess.ObtenerVariablePorId(6);
+            vsistema = sistemaUserProcess.ObtenerVariablePorId(3);
             if (vsistema.Valor != null)
                 Dar_de_baja_contenido.Text = vsistema.Valor;
                     
-            vsistema = sistemaUserProcess.ObtenerVariablePorId(7);
+            vsistema = sistemaUserProcess.ObtenerVariablePorId(4);
             if (vsistema.Valor != null)
                 Dar_de_baja_usuario.Text = vsistema.Valor;
         }
@@ -80,16 +80,16 @@ namespace IndignaFwk_WPF_BackOffice
                 }
                 else
                 {
-                    VariableSistema vsistema1 = sistemaUserProcess.ObtenerVariablePorId(4);
+                    VariableSistema vsistema1 = sistemaUserProcess.ObtenerVariablePorId(1);
                     vsistema1.Valor = Recursos_mas_rankeados.Text;
                     EditarVariables(vsistema1);
-                    VariableSistema vsistema2 = sistemaUserProcess.ObtenerVariablePorId(5);
+                    VariableSistema vsistema2 = sistemaUserProcess.ObtenerVariablePorId(2);
                     vsistema2.Valor = Recursos_compartidos.Text;
                     EditarVariables(vsistema2);
-                    VariableSistema vsistema3 = sistemaUserProcess.ObtenerVariablePorId(6);
+                    VariableSistema vsistema3 = sistemaUserProcess.ObtenerVariablePorId(3);
                     vsistema3.Valor = Dar_de_baja_contenido.Text;
                     EditarVariables(vsistema3);
-                    VariableSistema vsistema4 = sistemaUserProcess.ObtenerVariablePorId(7);
+                    VariableSistema vsistema4 = sistemaUserProcess.ObtenerVariablePorId(4);
                     vsistema4.Valor = Dar_de_baja_usuario.Text;
                     EditarVariables(vsistema4);
 
