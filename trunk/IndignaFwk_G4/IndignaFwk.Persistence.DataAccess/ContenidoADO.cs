@@ -106,7 +106,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
             
-            command.CommandText = "update contendido set Eliminado = 1 WHERE Id = @id";
+            command.CommandText = "update Contenido set Eliminado = 1 WHERE Id = @id";
             
             UtilesBD.SetParameter(command, "id", id);
 
@@ -346,7 +346,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 sbQuery.Append(" SELECT c.*, ")
                        .Append(" (select COUNT(mc.id) from MarcaContenido mc where mc.FK_Id_Contenido = c.Id and mc.TipoMarca = '" + TipoMarcaContenidoEnum.INADECUADO.Valor + "') cantidadInadecuado ")
-                       .Append(" FROM Contenido c WHERE Id = @id and Eliminado = 0 ");
+                       .Append(" FROM Contenido c WHERE Id = @id and Eliminado = 1");
 
                 command.CommandText = sbQuery.ToString();
 
@@ -382,6 +382,69 @@ namespace IndignaFwk.Persistence.DataAccess
                 }
 
                 return null;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
+
+        public List<Contenido> ObtenerListadoPorGrupoNoEliminado(SqlConnection conexion, int idGrupo)
+        {
+            SqlDataReader reader = null;
+
+            List<Contenido> listaContenido = new List<Contenido>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                StringBuilder sbQuery = new StringBuilder();
+
+                sbQuery.Append(" SELECT c.*, ")
+                       .Append(" (select COUNT(mc.id) from MarcaContenido mc where mc.FK_Id_Contenido = c.Id and mc.TipoMarca = '" + TipoMarcaContenidoEnum.INADECUADO.Valor + "') cantidadInadecuado ")
+                       .Append(" FROM Contenido c where FK_Id_sitio = @idGrupo and Eliminado = 0 ");
+
+                command.CommandText = sbQuery.ToString();
+
+                UtilesBD.SetParameter(command, "idGrupo", idGrupo);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Contenido contenido = new Contenido();
+
+                    contenido.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    contenido.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
+
+                    contenido.Comentario = UtilesBD.GetStringFromReader("Comentario", reader);
+
+                    contenido.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    contenido.NivelVisibilidad = UtilesBD.GetStringFromReader("NivelVisibilidad", reader);
+
+                    contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
+
+                    contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
+
+                    contenido.CantidadInadecuado = UtilesBD.GetIntFromReader("cantidadInadecuado", reader);
+
+                    contenido.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+
+                    contenido.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+
+                    listaContenido.Add(contenido);
+                }
+
+                return listaContenido;
             }
             finally
             {
@@ -434,6 +497,70 @@ namespace IndignaFwk.Persistence.DataAccess
                     contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
 
                     contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
+
+                    contenido.CantidadInadecuado = UtilesBD.GetIntFromReader("cantidadInadecuado", reader);
+
+                    contenido.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+
+                    contenido.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+
+                    listaContenido.Add(contenido);
+                }
+
+                return listaContenido;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
+
+
+        public List<Contenido> ObtenerContenidoEliminadoPorUsuario(int id, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            List<Contenido> listaContenido = new List<Contenido>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                StringBuilder sbQuery = new StringBuilder();
+
+                sbQuery.Append(" SELECT c.*")
+                       .Append(" FROM Contenido c WHERE FK_Id_UsuarioCreacion = @id and Eliminado = 1");
+
+                command.CommandText = sbQuery.ToString();
+
+                UtilesBD.SetParameter(command, "id", id);
+
+                reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Contenido contenido = new Contenido();
+
+                    contenido.Id = UtilesBD.GetIntFromReader("Id", reader);
+
+                    contenido.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
+
+                    contenido.Comentario = UtilesBD.GetStringFromReader("Comentario", reader);
+
+                    contenido.Url = UtilesBD.GetStringFromReader("Url", reader);
+
+                    contenido.NivelVisibilidad = UtilesBD.GetStringFromReader("NivelVisibilidad", reader);
+
+                    contenido.TipoContenido = UtilesBD.GetStringFromReader("TipoContenido", reader);
+
+                    contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
+
+                    contenido.CantidadMeGusta = UtilesBD.GetIntFromReader("cantidadMeGusta", reader);
 
                     contenido.CantidadInadecuado = UtilesBD.GetIntFromReader("cantidadInadecuado", reader);
 

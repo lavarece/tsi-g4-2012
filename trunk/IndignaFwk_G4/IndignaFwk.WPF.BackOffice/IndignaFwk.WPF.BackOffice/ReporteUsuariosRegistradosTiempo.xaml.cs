@@ -27,8 +27,6 @@ namespace IndignaFwk_WPF_BackOffice
 		{
 			this.InitializeComponent();
 
-           // List<Usuario> listaUsuarios = usuarioUserProcess.ObtenerListadoUsuarios();
-            //datagrid_usuariosR.ItemsSource = listaUsuarios;
             foreach(Grupo grupo in grupoUserProcess.ObtenerListadoGrupos())
             {
                 comboBox_SitiosR.Items.Add(grupo.Url);

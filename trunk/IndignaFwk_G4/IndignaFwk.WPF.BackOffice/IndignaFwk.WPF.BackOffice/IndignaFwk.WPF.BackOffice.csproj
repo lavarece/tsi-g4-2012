@@ -193,6 +193,9 @@
     <Compile Include="ReporteUsuariosRegistradosTiempo.xaml.cs">
       <DependentUpon>ReporteUsuariosRegistradosTiempo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsuariosABorrar.xaml.cs">
+      <DependentUpon>UsuariosABorrar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WatchDog.xaml.cs">
       <DependentUpon>WatchDog.xaml</DependentUpon>
     </Compile>
@@ -255,6 +258,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReporteUsuariosRegistradosTiempo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsuariosABorrar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -57,5 +57,19 @@ namespace IndignaFwk.Business.Services
         {
             return contenidoManager.ObtenerListadoPorGrupo(idGrupo);
         }        
+        public void EliminarListaContenido(int idContenido)
+        {
+            contenidoManager.EliminarListaContenido(idContenido);
+        }
+        
+        public List<Contenido> ObtenerListadoPorGrupoNoEliminado(int idGrupo)
+        {
+            return contenidoManager.ObtenerListadoPorGrupoNoEliminado(idGrupo);
+        }
+
+        public List<Contenido> ObtenerContenidoEliminadoPorUsuario(int idUsuario)
+        {
+            return contenidoManager.ObtenerContenidoEliminadoPorUsuario(idUsuario);
+        }
     }
 }

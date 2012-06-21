@@ -17,6 +17,12 @@ namespace IndignaFwk.Business.Managers
 
         List<Contenido> ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad(int idGrupo, string visibilidadContenido, int x);
 
+        void EliminarListaContenido(int idContenido);
+
+        List<Contenido> ObtenerListadoPorGrupoNoEliminado(int idGrupo);
+
+        List<Contenido> ObtenerContenidoEliminadoPorUsuario(int id);
+
         // Operaciones MarcaContenido
         MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
 

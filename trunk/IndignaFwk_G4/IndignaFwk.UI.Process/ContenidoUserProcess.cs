@@ -107,5 +107,37 @@ namespace IndignaFwk.UI.Process
 
             return contenido;
         }
+        
+        public void EliminarListaContenido(int idContenido)
+        {
+            ContenidoServiceClient proxy = new ContenidoServiceClient();
+
+            proxy.EliminarListaContenido(idContenido);
+
+            proxy.Close();  
+          
+        }
+
+        public List<Contenido> ObtenerListadoPorGrupoNoEliminado(int IdGrupo)
+        {
+            ContenidoServiceClient proxy = new ContenidoServiceClient();
+
+            List<Contenido> listado = proxy.ObtenerListadoPorGrupoNoEliminado(IdGrupo);
+
+            proxy.Close();
+
+            return listado;
+        }
+
+        public List<Contenido> ObtenerContenidoEliminadoPorUsuario(int IdUsuario)
+        {
+            ContenidoServiceClient proxy = new ContenidoServiceClient();
+
+            List<Contenido> listado = proxy.ObtenerContenidoEliminadoPorUsuario(IdUsuario);
+
+            proxy.Close();
+
+            return listado;
+        }
     }
 }
