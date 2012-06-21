@@ -1,10 +1,14 @@
 Maxi:
-- Cambiar el borrado de contenidos y usuarios a bajas logicas
-- Filtrar los N recursos más rankeados.
-- Fuentes de datos
+- Cambiar el borrado de contenidos y usuarios a bajas logicas. OK!
+- Filtrar los N recursos más rankeados. OK!
+- Fuentes de datos. OK! (falta corregir errores de mapa en back office para terminar de probar)
+- Cargar asistencias en convocatoria y mostrarlas en markers mapa full y en detalle convocatoria.
+- Arreglar layout 2.
 - Tematicas
 - Upload de imagen para grupo y usuario
 - Integracion con nosotros mismos
+- Mensajes de chat FLag visto y no visto, que en las pantallas de mensajes vaya al final si llegan nuevos
+  que aparezcan carteles de nuevos mensajes no vistos
 
 Vanessa
 - Watchdog
