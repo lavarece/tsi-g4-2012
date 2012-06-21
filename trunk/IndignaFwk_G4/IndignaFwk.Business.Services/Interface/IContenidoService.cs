@@ -24,6 +24,15 @@ namespace IndignaFwk.Business.Services
         [OperationContract]
         Contenido ObtenerContenidoPorId(int idContenido);
 
+        [OperationContract]
+        void EliminarListaContenido(int idContenido);
+
+        [OperationContract]
+        List<Contenido> ObtenerListadoPorGrupoNoEliminado(int idGrupo);
+
+        [OperationContract]
+        List<Contenido> ObtenerContenidoEliminadoPorUsuario(int idUsuario);
+
         // Operaciones MarcarContenido
         [OperationContract]
         MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
