@@ -35,6 +35,9 @@ namespace IndignaFwk.Common.Entities
         [DataMember]
         public Imagen Imagen { get; set; }
 
+        [DataMember]
+        public List<FuenteExternaGrupo> FuentesExternas { get; set; }
+
         // Funciones auxiliares
         public string GetLatitud()
         {

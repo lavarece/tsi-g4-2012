@@ -45,6 +45,7 @@
     <Compile Include="Entities\Contenido.cs" />
     <Compile Include="Entities\Conversacion.cs" />
     <Compile Include="Entities\Convocatoria.cs" />
+    <Compile Include="Entities\FuenteExternaGrupo.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\Imagen.cs" />
     <Compile Include="Entities\Layout.cs" />

@@ -41,7 +41,9 @@
     <Compile Include="AsistenciaConvocatoriaADO.cs" />
     <Compile Include="ContenidoADO.cs" />
     <Compile Include="ConvocatoriaADO.cs" />
+    <Compile Include="FuenteExternaGrupoADO.cs" />
     <Compile Include="GrupoADO.cs" />
+    <Compile Include="Interface\IFuenteExternaGrupoADO.cs" />
     <Compile Include="Interface\ILayoutADO.cs" />
     <Compile Include="Interface\IAdministradoADO.cs" />
     <Compile Include="Interface\IAsistenciaConvocatoriaADO.cs" />

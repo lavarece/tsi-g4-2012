@@ -56,6 +56,20 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
+        private IFuenteExternaGrupoADO _fuenteExternaGrupoADO;
+        protected IFuenteExternaGrupoADO FuenteExternaGrupoADO
+        {
+            get
+            {
+                if (_fuenteExternaGrupoADO == null)
+                {
+                    _fuenteExternaGrupoADO = new FuenteExternaGrupoADO();
+                }
+
+                return _fuenteExternaGrupoADO;
+            }
+        }
+
         public void Crear(Grupo grupo, SqlConnection conexion, SqlTransaction transaccion)
         {
             command = conexion.CreateCommand();
@@ -174,6 +188,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Imagen = ImagenADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Imagen", reader), conexion);
 
+                    grupo.FuentesExternas = FuenteExternaGrupoADO.ObtenerListadoPorGrupo(grupo.Id, conexion);
+
                     return grupo;
                 }
 
@@ -224,6 +240,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Imagen = ImagenADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Imagen", reader), conexion);
 
+                    grupo.FuentesExternas = FuenteExternaGrupoADO.ObtenerListadoPorGrupo(grupo.Id, conexion);
+
                     return grupo;
                 }
 
@@ -273,6 +291,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     grupo.Tematica = TematicaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Tematica", reader), conexion);
 
                     grupo.Imagen = ImagenADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Imagen", reader), conexion);
+
+                    grupo.FuentesExternas = FuenteExternaGrupoADO.ObtenerListadoPorGrupo(grupo.Id, conexion);
 
                     listaGrupos.Add(grupo);
                 }
