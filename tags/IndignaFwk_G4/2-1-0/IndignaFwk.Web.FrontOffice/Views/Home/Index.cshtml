@@ -1,0 +1,165 @@
+﻿@using IndignaFwk.Common.Entities;
+@using IndignaFwk.Common.Enumeration;
+
+@{
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Inicio";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<div class="detalleGrupo">
+    <h3>Bienvenido al grupo @ViewBag.GrupoSite.Nombre</h3>
+    <div class="imagenGrupo">
+        <img src="@Url.Content("~/Content/shared/images/group_no_image.png")" alt="Imagen grupo"/>
+    </div>
+    <div>
+        @ViewBag.GrupoSite.Descripcion 
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">       
+                    <a href="@Url.Action("Compartir", "Contenido")">Compartir contenido</a>
+                </div>
+            </li>            
+        </ul>
+    </div>
+}
+  
+<div class="listadoContenidos">
+    @if (ViewBag.ListadoContenidos != null && ViewBag.ListadoContenidos.Count > 0)
+    {
+        foreach (Contenido contenido in ViewBag.ListadoContenidos)
+        {
+            <div class="itemContenido">
+                
+                <!-- Info del creador del contenido -->
+                <div class="creadorContenido">
+                    @if(contenido.Externo)
+                    {
+                        if(FuenteExternaEnum.YOU_TUBE.Valor.Equals(contenido.FuenteExterna))
+                        {
+                            <img src="@Url.Content("~/Content/shared/images/ico_youtube.png")" alt="Imagen usuario" />    
+                            <span>
+                                Contenido extraído de YouTube. <br />
+                                <a href="@contenido.Url" target="_blank">@contenido.Url</a>                                                                            
+                            </span>
+                        }
+                        else if(FuenteExternaEnum.WIKIPEDIA.Valor.Equals(contenido.FuenteExterna))
+                        {
+                            <img src="@Url.Content("~/Content/shared/images/ico_wikipedia.png")" alt="Imagen usuario" />    
+                            <span>
+                                Contenido extraído de Wikipedia. <br />
+                                <a href="@contenido.Url" target="_blank">@contenido.Url</a>                                                                            
+                            </span>
+                        }
+                    }
+                    else
+                    {                               
+                        <img src="@Url.Content("~/Content/shared/images/user_no_image.png")" alt="Imagen usuario" />                  
+                        <span>
+                            El usuario <b>@contenido.UsuarioCreacion.NombreCompleto</b> ha compartido un enlace. <br />
+                            <a href="@contenido.Url" target="_blank">@contenido.Url</a>                                                                            
+                        </span>                  
+                    }
+                </div>
+
+                <!-- Contenido embebido -->
+                <div class="contenido">
+                    @if (contenido.TipoContenido.Equals(TipoContenidoEnum.VIDEO_YOU_TUBE.Valor))
+                    {
+                        <iframe width="100%" height="100%" src="@contenido.Url" frameborder="0" wmode="transparent"></iframe>            
+                    }
+                    else if (contenido.TipoContenido.Equals(TipoContenidoEnum.IMAGEN.Valor))
+                    {
+                        <img width="100%" height="100%" src="@contenido.Url" alt="Imagen" />
+                    }
+                    else if (contenido.TipoContenido.Equals(TipoContenidoEnum.LINK.Valor))
+                    {
+                        <iframe width="100%" height="100%" src="@contenido.Url" frameborder="0"></iframe>
+                    }                        
+                </div>  
+                
+                <!-- Detalle del contenido -->      
+                <div class="detalleContenido">
+                    <div class="fieldLabel">Tipo: <span class="fieldValue">@TipoContenidoEnum.FromString(contenido.TipoContenido).Etiqueta</span></div>
+                    <div class="fieldLabel">Titulo: <span class="fieldValue">@contenido.Titulo</span></div>
+                    <div class="fieldLabel">Comentario: <span class="fieldValue">@contenido.Comentario</span></div>
+
+                    @if (!contenido.Externo)
+                    {
+                        <div class="fieldLabel">Visibilidad: <span class="fieldValue">@VisibilidadContenidoEnum.FromString(contenido.NivelVisibilidad).Etiqueta</span></div>
+                        <div class="fieldLabel">Fecha creación: <span class="fieldValue">@contenido.FechaCreacion.ToString()</span></div>
+                        <div class="fieldLabel">Me gusta: <span class="fieldValue">@contenido.CantidadMeGusta</span></div>
+                        <div class="fieldLabel">Inadecuado: <span class="fieldValue">@contenido.CantidadInadecuado</span></div>
+
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="areaBotones">
+                                <ul>
+                                    @if (contenido.MarcaContenidoUsuario == null)
+                                    {                                    
+                                        <li>
+                                            <div class="boton">       
+                                                <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="boton">       
+                                                <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
+                                            </div>
+                                        </li>               
+                                    }
+                                    else
+                                    {
+                                        if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.ME_GUSTA.Valor))
+                                        {
+                                            <li>
+                                                <div class="botonPressed">       
+                                                    <a href="#">Me gusta</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="boton">       
+                                                    <a href="@Url.Action("ContenidoInadecuado", "Contenido", new { idContenidoMarcar = contenido.Id })">Inadecuado</a>
+                                                </div>
+                                            </li>  
+                                        }
+                                        else if (contenido.MarcaContenidoUsuario.TipoMarca.Equals(TipoMarcaContenidoEnum.INADECUADO.Valor))
+                                        {
+                                            <li>
+                                                <div class="boton">       
+                                                    <a href="@Url.Action("MeGustaContenido", "Contenido", new { idContenidoMarcar = contenido.Id })">Me gusta</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="botonPressed">       
+                                                    <a href="#">Inadecuado</a>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="mensajeListadoVacio">
+            El grupo no tiene contenidos. 
+            @if (!User.Identity.IsAuthenticated)
+            {
+                @:Para agregarlos debe autenticarse.
+            }
+        </div>        
+    }
+</div>       
