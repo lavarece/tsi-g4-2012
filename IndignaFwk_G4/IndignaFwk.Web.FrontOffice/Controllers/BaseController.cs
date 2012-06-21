@@ -56,7 +56,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                                        .Append(conv.Titulo).Append(",")
                                        .Append(conv.Descripcion).Append(",")
                                        .Append(conv.GetLatitud()).Append(",")
-                                       .Append(conv.GetLongitud());
+                                       .Append(conv.GetLongitud()).Append(",")
+                                       .Append(conv.Quorum).Append(",")
+                                       .Append(conv.CantidadAsistencias);
                 }
 
                 ViewBag.DataConvocatoriasMapaFull = sbDataConvocatorias.ToString();

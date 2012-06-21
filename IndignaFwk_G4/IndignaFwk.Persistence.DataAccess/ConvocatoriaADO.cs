@@ -129,7 +129,13 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Convocatoria WHERE Id = @id";
+                StringBuilder sbQuery = new StringBuilder();
+
+                sbQuery.Append(" SELECT c.*, ")
+                       .Append(" (select count(ac.Id) from AsistenciaConvocatoria ac where ac.FK_Id_Convocatoria = c.Id) cantidadAsistencias ")
+                       .Append(" FROM Convocatoria c WHERE c.Id = @id ");
+
+                command.CommandText = sbQuery.ToString();
 
                 UtilesBD.SetParameter(command, "id", id);
 
@@ -149,7 +155,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
                     convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
                     convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
-                    
+                    convocatoria.CantidadAsistencias = UtilesBD.GetIntFromReader("cantidadAsistencias", reader);
+
                     return convocatoria;
                 }
 
@@ -180,52 +187,56 @@ namespace IndignaFwk.Persistence.DataAccess
                 /* Consulta dinamica que devuelve una lista de convocatorias. Esta consulta varia dependiendo de
                  * los valores que se hayan ingresado en el filtro de busqueda de convocatorias.
                  */
-                string consulta = "SELECT * FROM Convocatoria c INNER JOIN Sitio s ON c.FK_Id_Sitio = s.Id ";
+                StringBuilder sbQuery = new StringBuilder();
+                
+                sbQuery.Append(" SELECT c.*, ")
+                       .Append(" (select count(ac.Id) from AsistenciaConvocatoria ac where ac.FK_Id_Convocatoria = c.Id) cantidadAsistencias ")
+                       .Append(" FROM Convocatoria c INNER JOIN Sitio s ON c.FK_Id_Sitio = s.Id ");
 
                 if (filtroBusqueda.Asistire)
                 {
-                    consulta += "INNER JOIN AsistenciaConvocatoria ac ON c.Id = ac.FK_Id_Convocatoria ";
+                    sbQuery.Append(" INNER JOIN AsistenciaConvocatoria ac ON c.Id = ac.FK_Id_Convocatoria ");
                 }
 
-                consulta += "WHERE @idGrupo = s.Id";
+                sbQuery.Append(" WHERE @idGrupo = s.Id ");
 
                 if (filtroBusqueda.Asistire)
                 {
-                    consulta += " AND @idUsuario = ac.FK_Id_Usuario";
+                    sbQuery.Append(" AND @idUsuario = ac.FK_Id_Usuario ");
                 }
 
                 if (filtroBusqueda.Titulo != null)
                 {
-                    consulta += " AND @titulo = c.Titulo";
+                    sbQuery.Append(" AND @titulo = c.Titulo ");
                 }
 
                 if (filtroBusqueda.Descripcion != null)
                 {
-                    consulta += " AND @descripcion = c.Descripcion";
+                    sbQuery.Append(" AND @descripcion = c.Descripcion ");
                 }
 
                 if (filtroBusqueda.Quorum != -1)
                 {
-                    consulta += " AND @quorum = c.Quorum";
+                    sbQuery.Append(" AND @quorum = c.Quorum ");
                 }
 
                 if (filtroBusqueda.FechaInicio != null)
                 {
-                    consulta += " AND @fechaInicio = c.FechaInicio";
+                    sbQuery.Append(" AND @fechaInicio = c.FechaInicio ");
                 }
 
                 if (filtroBusqueda.FechaFin != null)
                 {
-                    consulta += " AND @fechaFin = c.FechaFin";
+                    sbQuery.Append(" AND @fechaFin = c.FechaFin ");
                 }
 
                 if (filtroBusqueda.Tematica != null)
                 {
-                    consulta += " AND @tematica = s.FK_Id_Tematica";                
+                    sbQuery.Append(" AND @tematica = s.FK_Id_Tematica ");                
                 }
 
                 //Seteo la consulta final en la variable command
-                command.CommandText = consulta;
+                command.CommandText = sbQuery.ToString();
                 
 
                 //Referencio las variables utilizadas en la consulta con los atributos del filtro
@@ -283,6 +294,7 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
                     convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
                     convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+                    convocatoria.CantidadAsistencias = UtilesBD.GetIntFromReader("cantidadAsistencias", reader);
 
                     listaConvocatorias.Add(convocatoria);
                 }
@@ -311,7 +323,13 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Convocatoria";
+                StringBuilder sbQuery = new StringBuilder();
+
+                sbQuery.Append(" SELECT c.*, ")
+                       .Append(" (select count(ac.Id) from AsistenciaConvocatoria ac where ac.FK_Id_Convocatoria = c.Id) cantidadAsistencias ")
+                       .Append(" FROM Convocatoria c ");
+
+                command.CommandText = sbQuery.ToString();
 
                 reader = command.ExecuteReader();
 
@@ -329,6 +347,7 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
                     convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
                     convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+                    convocatoria.CantidadAsistencias = UtilesBD.GetIntFromReader("cantidadAsistencias", reader);
 
                     listaConvocatorias.Add(convocatoria);
                 }
@@ -356,7 +375,13 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Convocatoria c where c.FK_Id_Sitio = @idGrupo";
+                StringBuilder sbQuery = new StringBuilder();
+
+                sbQuery.Append(" SELECT c.*, ")
+                       .Append(" (select count(ac.Id) from AsistenciaConvocatoria ac where ac.FK_Id_Convocatoria = c.Id) cantidadAsistencias ")
+                       .Append(" FROM Convocatoria c WHERE c.FK_Id_Sitio = @idGrupo ");
+
+                command.CommandText = sbQuery.ToString();
 
                 UtilesBD.SetParameter(command, "idGrupo", idGrupo);
 
@@ -376,6 +401,7 @@ namespace IndignaFwk.Persistence.DataAccess
                     convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
                     convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
                     convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+                    convocatoria.CantidadAsistencias = UtilesBD.GetIntFromReader("cantidadAsistencias", reader);
 
                     listaConvocatorias.Add(convocatoria);
                 }
