@@ -17,6 +17,7 @@ using IndignaFwk.Common.Util;
 using GoogleMapsFlashInWpf;
 using GoogleMapsFlashInWpf.Properties;
 using System.Windows.Threading;
+using IndignaFwk.Common.Enumeration;
 
 namespace IndignaFwk_WPF_BackOffice
 {
@@ -135,6 +136,56 @@ namespace IndignaFwk_WPF_BackOffice
                 mensaje = new MensajeError("La ubicación del grupo es obligatoria");
                 mensaje.Show();
             }
+            else if (chk_fuente_youtube.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(txt_keywords_youtube.Text))
+                {
+                    mensaje = new MensajeError("El campo palabras claves you tube es obligatorio");
+                    mensaje.Show();
+                }
+                else if (String.IsNullOrEmpty(txt_resultados_youtube.Text))
+                {
+                    mensaje = new MensajeError("El campo resultados you tube es obligatorio");
+                    mensaje.Show();
+                }
+                else if(!String.IsNullOrEmpty(txt_resultados_youtube.Text))
+                {
+                    try
+                    {
+                        Int32.Parse(txt_resultados_youtube.Text);
+                    }
+                    catch(Exception e2)
+                    {
+                        mensaje = new MensajeError("El campo resultados you tube debe contener un número");
+                        mensaje.Show();
+                    }
+                }
+            }
+            else if (chk_fuente_wikipedia.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(txt_keywords_wikipedia.Text))
+                {
+                    mensaje = new MensajeError("El campo palabras claves wikipedia es obligatorio");
+                    mensaje.Show();
+                }
+                else if (String.IsNullOrEmpty(txt_resultados_wikipedia.Text))
+                {
+                    mensaje = new MensajeError("El campo resultados wikipedia es obligatorio");
+                    mensaje.Show();
+                }
+                else if (!String.IsNullOrEmpty(txt_resultados_wikipedia.Text))
+                {
+                    try
+                    {
+                        Int32.Parse(txt_resultados_wikipedia.Text);
+                    }
+                    catch (Exception e2)
+                    {
+                        mensaje = new MensajeError("El campo resultados wikipedia debe contener un número");
+                        mensaje.Show();
+                    }
+                }
+            }
             else
             {
                 Grupo grupo = new Grupo();
@@ -148,15 +199,47 @@ namespace IndignaFwk_WPF_BackOffice
                 grupo.Url = txt_url.Text;
 
                 grupo.Layout = (Layout)comboBox_layouts.SelectedItem;
-                 
+
                 grupo.Tematica = (Tematica)comboBox_temas.SelectedItem;
+
+                grupo.FuentesExternas = new List<FuenteExternaGrupo>();
+
+                if (chk_fuente_youtube.IsChecked == true)
+                {
+                    FuenteExternaGrupo fuenteExternaGrupo = new FuenteExternaGrupo();
+
+                    fuenteExternaGrupo.FuenteExterna = FuenteExternaEnum.YOU_TUBE.Valor;
+
+                    fuenteExternaGrupo.Grupo = grupo;
+
+                    fuenteExternaGrupo.QueryString = txt_keywords_youtube.Text;
+
+                    fuenteExternaGrupo.CantidadResultados = Int32.Parse(txt_resultados_youtube.Text);
+
+                    grupo.FuentesExternas.Add(fuenteExternaGrupo);
+                }
+                
+                if (chk_fuente_wikipedia.IsChecked == true)
+                {
+                    FuenteExternaGrupo fuenteExternaGrupo = new FuenteExternaGrupo();
+
+                    fuenteExternaGrupo.FuenteExterna = FuenteExternaEnum.WIKIPEDIA.Valor;
+
+                    fuenteExternaGrupo.Grupo = grupo;
+
+                    fuenteExternaGrupo.QueryString = txt_keywords_wikipedia.Text;
+
+                    fuenteExternaGrupo.CantidadResultados = Int32.Parse(txt_resultados_wikipedia.Text);
+
+                    grupo.FuentesExternas.Add(fuenteExternaGrupo);
+                }
 
                 if (editando)
                 {
                     grupo.Id = grupoEditando.Id;
                     grupoUserProcess.EditarGrupo(grupo);
                 }
-                else 
+                else
                 {
                     grupoUserProcess.CrearNuevoGrupo(grupo);
                 }
@@ -192,6 +275,6 @@ namespace IndignaFwk_WPF_BackOffice
             coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
             latitud = win.latitud;
             longitud = win.longitud;
-        }
+        }        
     }
 }
