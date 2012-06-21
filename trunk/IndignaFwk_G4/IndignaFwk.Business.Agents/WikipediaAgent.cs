@@ -11,21 +11,26 @@ namespace IndignaFwk.Business.Agents
 {
     public class WikipediaAgent
     {
-        public List<Contenido> ObtenerContenidosDeGrupo(Grupo grupo)
+        public List<Contenido> ObtenerContenidosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
         {
             WikipediaService.ServiceSoapClient service = new WikipediaService.ServiceSoapClient();
 
-            uint iID = service.GetTopCandidateIDFromKeyword("Music", "English");
+            uint iID = service.GetTopCandidateIDFromKeyword(fuenteExternaGrupo.QueryString, "English");
 
             DataSet source = service.GetThesaurusDS(0, iID, 0, "English");
 
             // Creo la lista de contenidos
             List<Contenido> listaContenidos = new List<Contenido>();
 
+            int count = 0;
             foreach (DataTable table in source.Tables)
             {
                 foreach (DataRow row in table.Rows)
                 {
+                    // Permito agregar tantos contenidos como indique el grupo
+                    if (count == fuenteExternaGrupo.CantidadResultados)
+                        break;
+
                     string tagWiki = row.ItemArray[3].ToString();
 
                     Contenido contenido = new Contenido();
@@ -36,7 +41,7 @@ namespace IndignaFwk.Business.Agents
 
                     contenido.TipoContenido = TipoContenidoEnum.LINK.Valor;
 
-                    contenido.Grupo = grupo;
+                    contenido.Grupo = fuenteExternaGrupo.Grupo;
 
                     contenido.Url = "http://en.wikipedia.org/wiki/" + tagWiki;
 
@@ -45,6 +50,8 @@ namespace IndignaFwk.Business.Agents
                     contenido.FuenteExterna = FuenteExternaEnum.WIKIPEDIA.Valor;
 
                     listaContenidos.Add(contenido);
+
+                    count++;
                 }
             }
 

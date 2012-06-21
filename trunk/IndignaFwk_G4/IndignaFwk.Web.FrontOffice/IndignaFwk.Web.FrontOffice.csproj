@@ -143,6 +143,7 @@
     <Content Include="Content\shared\images\ico_online.png" />
     <Content Include="Content\shared\images\ico_posMapa.png" />
     <Content Include="Content\shared\images\ico_vineta.png" />
+    <Content Include="Content\shared\images\ico_wikipedia.png" />
     <Content Include="Content\shared\images\ico_youtube.png" />
     <Content Include="Content\shared\images\user_no_image.png" />
     <Content Include="Global.asax" />

@@ -18,10 +18,3 @@ INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (4, 'Dar de baja usuario'
 
 /*Administrador*/
 INSERT INTO Administrador (Nombre, Password, Pregunta, Respuesta, Email) VALUES ('Administrador1', 'Password', 'Pregunta Admin?', 'Esta es la respuesta', 'administrador1@hotmail.com')
-
-
-/*Variable Sistema*/
-INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (4, 'Recursos más rankeados', '5')
-INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (5, 'Recursos compartidos', '5')
-INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (6, 'Dar de baja contenido', '5')
-INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (7, 'Dar de baja usuario', '5')
