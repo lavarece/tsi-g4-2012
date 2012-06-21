@@ -1,69 +1,92 @@
-﻿body 
+/* Estilos estructura */
+
+body
 {
     font-size: 12px;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
     color: #DBDBD5;
-    background-color: #151515;
     text-align: justify;
     margin: 0px;
+    background-color: #3C3C3C;    
+}
+
+input, select, textarea
+{
+    border: 1px #000000 solid;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+}
+
+#divMapaFullScreen
+{             
+    top: 0px; 
+    bottom: 34px;
+    width: 100%;
+    z-index: 2000;
 }
 
 #wrapper 
 {
-	width: 920px;
-	margin: 0 auto;
+	width: 97%;
+	margin: 0px auto;
 	border-top: 0px;
-	border-left: 3px ridge #151515;
-	border-right: 3px ridge #151515;
-	border-bottom: 0px;
-	background-color:#FF0000;
+	border-bottom: 0px; 	
+    background-color: #3C3C3C;
 }
 
 #header
 {
-    width: 900px;    
-    background-color: #515151;
+    width: 100%;    
+    background-color: #EB5E3B;
     height: 90px;
-    line-height: 90px;
-    margin: auto;  
-    background: url('../images/header.png') no-repeat;     
+    line-height: 90px;  
 }
 
-#logo
+#logoHeader
 {
-    font-family:Chiller;
-    font-size: 50px;
+    font-size: 20px;
     font-weight: bold;
     padding-left: 30px;
     float: left;
-    color: #FFFFFF;
+    color: #3C3C3C;
 }
 
 #login
 {
-    float: right;    
+    float: right;  
+    position: relative;
+    top: 25px;  
 }
 
 #login ul
 {
     list-style: none;
-    margin: 25px;
+    margin: 0px;
 }
 
 #login li
 {
     float: left;
     margin: 0px 3px;
-    background: url('../images/ico_vineta.gif') no-repeat left 50%;    
+    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
+}
+
+#login .usuarioAutenticado
+{
+    float: left;
+    margin: 0px 3px;
+    background-image: none;
+    padding-right: 15px;    
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 13px;    
 }
 
 #login a 
 {
 	text-decoration: none;
 	color: #DBDBD5;
-	font-weight:bold;
-	font-style:italic;
-	font-size: 18px;
+	font-weight: bold;
+	font-size: 13px;
 	padding: 0px 15px;	
 }
 
@@ -74,11 +97,15 @@
 
 #menu
 {
-    width: 900px;
-    margin: 10px auto;
-    height: 31px;
-    line-height: 29px;
-    border-bottom: 1px solid #ACEF2F;
+    position: fixed;
+    width: 100%;
+    background-color: #898989;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    line-height: 30px;
+    border-top: 3px ridge #EB5E3B;
+    z-index: 2000;
 }
 
 #menu ul 
@@ -90,19 +117,13 @@
 
 #menu li 
 {
-	float: left;
-    background-color: #FF6600;	
-    margin: 0px 2px;	
-    border-left: 1px solid #FF6600;
-    border-right: 1px solid #FF6600;
-    border-top: 1px solid #FF6600;    
-    border-radius: 5px 5px 0px 0px;
+    float: left;	
 }
 
 #menu a 
 {
 	text-decoration: none;
-	color: #FFFFFF;
+	color: #1A1A1A;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -115,104 +136,35 @@
 
 #menu .selected
 {
-    background-color: #FFFF1F;
-    border-color: #FFFF1F;
+    background-color: #EB5E3B;
+    border-color: #EB5E3B;
 }
 
 #page 
 {
-	width: 900px;
+	width: 100%;
 	margin: 0px auto;
+	padding-bottom: 20px;
 }
 
-#content {
-	float: left;
-	width: 570px;
-}
-
-
-/* Sidebar */
-
-#sidebar 
-{   
-	float: right;
-	width: 300px;
-}
-
-#sidebar-bgtop {
-}
-
-#sidebar-bgbtm {
-}
-
-#sidebar-content {
-}
-
-#sidebar ul 
+#content
 {
-	padding: 0px 0 5px 0;
-	margin: 0px;
-	list-style: none;
-}
-
-#sidebar li li {
-	margin-right: 10px;
-	line-height: 30px;
-	padding-left: 15px;
-	border-bottom: 1px dashed #ACEF2F;
-}
-
-#sidebar li ul {
-	margin-bottom: 1.8em;
-	list-style: none;
-}
-
-#sidebar h2 {
-	background: url(images/img09.jpg) no-repeat left top;
-	padding: 7px 25px;
-	font-size: 1.4em;
-}
-
-#sidebar a {
-	text-decoration: none;
-}
-
-#sidebar a:hover {
-	text-decoration: underline;
-}
-
-/* Search */
-
-#search {
-}
-
-#search form {
-	margin-bottom: 1.8em;
-	padding: 0px;
-}
-
-#search fieldset {
-	margin-left: 20px;
-	padding: 0px;
-	border: none;
-}
-
-#search #s {
-	width: 160px;
+    margin-top: 10px;
+    width: 100%;  
 }
 
 #footer
 {
     width: 920px;
-    background-color: #151515;
+    background-color: #515151;
     margin: auto;
     height: 30px;
     line-height: 30px;
     text-align: center;
     border-top: 0px;
-	border-left: 3px ridge #151515;
-	border-right: 3px ridge #151515;
-	border-bottom: 3px ridge #151515;
+	border-left: 3px ridge #EB5E3B;
+	border-right: 3px ridge #EB5E3B;
+	border-bottom: 3px ridge #EB5E3B;
 	border-radius: 0px 0px 10px 10px;
 }
 
@@ -223,30 +175,105 @@
 
 #mapaConvocatorias
 {
-    margin: 10px 0px;
+    margin: 20px 10px;
 }
 
-#mapaConvocatorias iframe
+#mapaConvocatorias .mapa
 {
-    border:3px solid Black;
-    
+    float: left;
+    width: 62%;
+    height: 400px;
+}
+
+#mapaConvocatorias .detalleConvocatoria
+{
+    float: right;
+    width: 35%;
+}
+
+/* Estilos errores MVC */
+.validation-summary-errors
+{
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #F96D51;
+    border: 1px solid #A62106;
+    border-radius: 5px 5px 5px 5px;
+    color: #3C3C3C;
+}
+
+.validation-summary-errors ul
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.validation-summary-errors span
+{
+    padding-left: 12px;
+}
+
+.input-validation-error
+{
+    background-color: #FFEEEE;
+}
+
+.field-validation-error
+{
+    display: block;
+    color: #F96D51;
+}
+
+/* Estilos clases generales */
+.alertaNotificacionesPendientes
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #EB3B0F;
+    position: relative;
+    top: -12px;
+    right: 84px;
+    padding: 1px 3px;  
+    border: 1px outset #000000;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .fieldLabel
 {
     font-style: italic;
+    text-align: left;
+    vertical-align: top;
 }
 
 .fieldValue input[type="text"], 
 .fieldValue textarea,
-.fieldValue input[type="password"]
+.fieldValue input[type="password"],
+.fieldValue select
 {
     width: 70%;
+}
+
+.fieldValue
+{
+    font-weight: bold;
+    font-style: normal;
 }
 
 .fieldIcono
 {
     width: 30px;
+    text-align: center;
+    padding-left: 0px !important;
+}
+
+.fieldCheckbox
+{
+    width: 35px;
+    text-align: center;
+    padding-left: 0px !important;
 }
 
 .areaFormulario
@@ -257,7 +284,12 @@
 
 .areaFormulario table
 {
-    width: 65%
+    width: 100%
+}
+
+.areaFormulario tr
+{
+    vertical-align: top;
 }
 
 .areaFormulario td
@@ -267,24 +299,25 @@
 
 .areaBotones
 {
-    background-color: #FF6600;
+    background-color: #777777;
     width: 100%;
     height: 35px;
     line-height: 35px;
     margin-top: 15px;
-    margin-bottom:15px;
 }
 
 .areaBotones ul
 {
     list-style: none;
     margin: 0px;
+    float: right;
 }
 
 .areaBotones li
 {
-    float: right;
+    float: left;
 }
+
 
 .boton 
 {
@@ -296,9 +329,9 @@
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #FFFF1F;
-    border: 1px solid #FFFF1F;
-    color: #FFFFFF;
+    background-color: #EB5E3B;
+    border: 1px solid #212121;
+    color: #3C3C3C;
     font-size: 13px;    
     font-weight: bold;    
     border-radius: 7px 7px 7px 7px;
@@ -307,7 +340,7 @@
 .boton a:hover
 {
     text-decoration: underline;
-    border: 1px outset #A8CF5E;
+    border: 1px outset #EB5E3B;
     background-color: #C8E199;
 }
 
@@ -321,28 +354,36 @@
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #C0DC8C;
-    border: 1px solid #7BA331;
-    color: #FFFFFF;
+    background-color: #5C7A40;
+    border: 2px inset #7BA331;
+    color: #3C3C3C;
     font-size: 13px;    
     font-weight: bold;    
     border-radius: 7px 7px 7px 7px;
+    cursor: default;
+}
+
+.wrapperDataTable
+{
+    max-height: 400px;
+    overflow: auto;
+    padding-top: 5px;
+    width: 100%;
 }
 
 .dataTable
 {
     width: 100%;
     border: 0px;
-    margin-top: 10px;
 }
 
 .dataTable thead tr
 {
-    background-color: #FFFF1F;    
+    background-color: #EB5E3B;    
     text-align: center;
     font-weight: bold;
     font-size: 13px;
-    color: #FFFFFF;
+    color: #3C3C3C;
 }
 
 .dataTable thead tr th
@@ -365,76 +406,19 @@
     background-color: #515151;
 }
 
-.areaBotones2
+.notificacionNoLeida
 {
-    margin: 15px 0px 15px 127px;
+    font-weight: bold;
+    background-color: #C9786F;
+    color: #1A1A1A;
 }
 
-.areaBotones2 ul
-{
-    list-style: none;
-    margin: 0px;
-}
-
-.areaBotones2 li
+.detalleGrupo .imagenGrupo
 {
     float: left;
+    padding: 5px 15px 5px 5px;
 }
 
-.boton2 
-{
-    display: block;
-    margin: 15px 0px 10px 150px;
-}
-
-.boton2 a
-{
-    padding: 4px 15px;
-    text-decoration: none;
-    background-color: #FFFF1F;
-    border: 1px solid #FFFF1F;
-    color: #FFFFFF;
-    font-size: 13px;    
-    font-weight: bold;    
-    border-radius: 7px 7px 7px 7px;
-}
-
-#logfieldset
-{
-    background-color:#FF6600;
-    width:500px;
-    
-}
-
-.areaFormulario
-{
-    margin: 15px 0px 10px 150px;
-}
-
-.areaFormulario table
-{
-    width: 100%
-}
-
-.areaFormulario td
-{
-    width: 50%;
-}
-
-.areaFormulario2
-{
-    margin: 15px 0px 10px 20px;
-}
-
-.areaFormulario2 table
-{
-    width: 100%
-}
-
-.areaFormulario2 td
-{
-    width: 50%;
-}
 
 .listaContenidos
 {
@@ -444,34 +428,52 @@
 .itemContenido
 {
     float: left;
-    background-color: #FF0000;
+    background-color: #515151;
     display: block;
-    margin-bottom:10px;
-    border-bottom:1px dashed #8B0B0B;
+    border: 1px solid #EB5E3B;
     width: 100%;
-    margin:10px 0px 10px 0px;
+    margin: 10px 0px;
 }
 
 .creadorContenido
 {
+    width: 100%;
+    float: left;
     padding: 10px;
     vertical-align: top;
 }
 
 .creadorContenido img
 {
+    float: left;
     padding-right: 10px;
-    width: 25px;
-    height: 25px;
-    
+    width: 70px;
+    height: 70px;
 }
 
 .creadorContenido hr
 {
-    border: 1px solid #FFFF1F;
+    border: 1px solid #616161;
 }
 
-.creadorContenido span,
+.creadorContenido span
+{
+    float: left;
+    vertical-align: top;
+}
+
+.creadorContenido span a
+{
+    color: #DBDBD5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.creadorContenido span a:hover
+{
+    text-decoration: underline;
+}
+
 .creadorContenido b
 {
     vertical-align: top;
@@ -482,7 +484,7 @@
     padding: 5px 10px;
     float: left;
     width: 60%;
-    height: 200px;
+    height: 400px;
 }
 
 .detalleContenido
@@ -492,58 +494,30 @@
     width: 36%;
 }
 
-.areaBotones3
+.mensajeListadoVacio
 {
-    width: 100%;
-    height: 35px;
-    line-height: 35px;
-    margin-top: 15px;
-    margin-bottom:15px;
+    font-weight: bold;
+    font-style: oblique;
+    margin-top: 10px;
+    padding-top: 10px;
+    position: relative;
+    padding-left: 15px;
 }
 
-.areaBotones3 ul
+.mensajeCargandoChat
 {
-    list-style: none;
-    margin: 0px;
-}
-
-.areaBotones3 li
-{
-}
-
-.boton 
-{
-    display: block;
-    margin: 0px 5px;
-}
-
-.boton a
-{
-    padding: 4px 15px;
-    text-decoration: none;
-    background-color: #FFFF1F;
-    border: 1px solid #FFFF1F;
-    color: #FFFFFF;
-    font-size: 13px;    
-    font-weight: bold;    
-    border-radius: 7px 7px 7px 7px;
-    
-}
-
-.boton a:hover
-{
-    text-decoration: underline;
-    border: 1px outset #A8CF5E;
-    background-color: #C8E199;
+    font-weight: bold;
+    font-style: oblique;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .listaUsuariosChat
 {
     background-color: #515151;
-    border: 1px solid #ACEF2F;
-    float: left;
+    border: 1px solid #EB5E3B;
     overflow: auto;
-    width: 28%;
+    width: 25%;
     float: left;
     min-height: 400px;
     max-height: 400px;
@@ -556,74 +530,123 @@
     margin: 0px;
 }
 
+.listaUsuariosChat li
+{    
+    overflow: hidden;
+    padding-left: 0;
+    white-space: nowrap;    
+}
+
 .nombreUsuarioChat
 {
     display: inline;
-    line-height: 32px;
+    line-height: 39px;
 }
 
 .nombreUsuarioChat a
 {
     text-decoration: none;
-    color: #DBDBD5;    
-    padding: 7px 100px 7px 5px;
-    text-align: left;
+    color: #DBDBD5;  
+    border-bottom: 1px solid #686868;  
+    padding: 10px 100% 10px 25px;
+    text-align: left;    
 }
 
-.nombreUsuarioChat a:hover
+.usuarioOnline
 {
-    background-color: #A8CF5E;
+    background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
+}
+
+.usuarioOnline a:hover
+{
+    background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
+    background-color: #C4DF93;    
     color: #3C3C3C;
 }
 
-.conversacionChat
+.usuarioOffline
+{
+    background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
+}
+
+.usuarioOffline a:hover
+{
+    background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
+    background-color: #C4DF93;    
+    color: #3C3C3C;
+}
+
+.wrapperConversacionChat
 {
     margin-left: 5px;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #EB5E3B;
     background-color: #515151;
-    width: 400px;
+    width: 660px;
     float: right;
     min-height: 300px;
     max-height: 300px;
 }
 
-.conversacionChat textarea
+.wrapperConversacionChat .datosUsuarioConversacion
 {
-    margin-left: 5px;
-    margin-top: 5px;
-    height: 285px;
-    width: 387px;
-    resize: none;
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding-left: 10px;
+    padding-top: 8px;
+    font-size: 13px;
+    font-weight: bold;    
 }
 
-.mensajeChat
+.wrapperConversacionChat .conversacionPanel
+{
+    margin-left: 7px;
+    margin-top: 5px;
+    height: 260px;
+    width: 645px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 13px;
+    word-wrap: break-word;
+    text-overflow:ellipsis;
+}
+
+.wrapperConversacionChat .conversacionPanel b
+{
+    float: left;
+    padding-right: 4px;
+}
+
+.wrapperConversacionChat .conversacionPanel span
+{
+    float: left;
+    width: 95%;
+}
+
+.wrapperMensajeChat
 {
     margin-top: 12px;
     margin-left: 5px;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #EB5E3B;
     background-color: #515151;
-    width: 400px;
+    width: 660px;
     float: right;
     min-height: 85px;
     max-height: 85px;
     line-height: 80px;
  }
- 
- .mensajeChat textarea
+
+.wrapperMensajeChat .boton
+{
+    float: right;
+}
+
+.wrapperMensajeChat textarea
 {
     margin-left: 5px;
     margin-top: 5px;
     height: 70px;
-    width: 387px;
+    width: 564px;
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
-}
-
-.mensajeChat .boton
-{
-    margin-top:-30px;
-    float: right;
 }

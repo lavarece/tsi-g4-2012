@@ -50,7 +50,7 @@ namespace IndignaFwk.Business.Agents
 
                 contenido.Grupo = fuenteExternaGrupo.Grupo;
 
-                contenido.Url = "http://www.youtube.com/embed/" + video.VideoId;
+                contenido.Url = "http://www.youtube.com/embed/" + video.VideoId + "?wmode=transparent";
 
                 contenido.Externo = true;
 
