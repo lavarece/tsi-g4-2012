@@ -28,7 +28,7 @@ namespace IndignaFwk_WPA_WindowsPhone
         {
             UsuarioServiceClient proxy = new UsuarioServiceClient();
 
-            proxy.ObtenerUsuarioPorIdAsync(1);
+            proxy.ObtenerUsuarioPorIdAsync(4);
             proxy.ObtenerUsuarioPorIdCompleted += new EventHandler<ObtenerUsuarioPorIdCompletedEventArgs>(proxy_ObtenerUsuarioPorIdCompleted);
         }
         private void proxy_ObtenerUsuarioPorIdCompleted(object sender, ObtenerUsuarioPorIdCompletedEventArgs e)

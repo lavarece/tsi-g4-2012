@@ -111,9 +111,7 @@
     <None Include="Service References\ServiceReferenceUsuario\UsuarioService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="ServiceReferences.ClientConfig">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ApplicationIcon.png" />

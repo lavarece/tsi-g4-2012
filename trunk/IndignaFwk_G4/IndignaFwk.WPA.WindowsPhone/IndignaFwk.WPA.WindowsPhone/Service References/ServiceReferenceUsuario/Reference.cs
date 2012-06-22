@@ -264,6 +264,8 @@ namespace IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario {
         
         private string DescripcionField;
         
+        private System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario.FuenteExternaGrupo> FuentesExternasField;
+        
         private int IdField;
         
         private IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario.Imagen ImagenField;
@@ -298,6 +300,19 @@ namespace IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario {
                 if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
                     this.DescripcionField = value;
                     this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario.FuenteExternaGrupo> FuentesExternas {
+            get {
+                return this.FuentesExternasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FuentesExternasField, value) != true)) {
+                    this.FuentesExternasField = value;
+                    this.RaisePropertyChanged("FuentesExternas");
                 }
             }
         }
@@ -556,6 +571,96 @@ namespace IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario {
                 if ((object.ReferenceEquals(this.NombreLayoutField, value) != true)) {
                     this.NombreLayoutField = value;
                     this.RaisePropertyChanged("NombreLayout");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FuenteExternaGrupo", Namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities")]
+    public partial class FuenteExternaGrupo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int CantidadResultadosField;
+        
+        private string FuenteExternaField;
+        
+        private IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario.Grupo GrupoField;
+        
+        private int IdField;
+        
+        private string QueryStringField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CantidadResultados {
+            get {
+                return this.CantidadResultadosField;
+            }
+            set {
+                if ((this.CantidadResultadosField.Equals(value) != true)) {
+                    this.CantidadResultadosField = value;
+                    this.RaisePropertyChanged("CantidadResultados");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FuenteExterna {
+            get {
+                return this.FuenteExternaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FuenteExternaField, value) != true)) {
+                    this.FuenteExternaField = value;
+                    this.RaisePropertyChanged("FuenteExterna");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public IndignaFwk_WPA_WindowsPhone.ServiceReferenceUsuario.Grupo Grupo {
+            get {
+                return this.GrupoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GrupoField, value) != true)) {
+                    this.GrupoField = value;
+                    this.RaisePropertyChanged("Grupo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string QueryString {
+            get {
+                return this.QueryStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QueryStringField, value) != true)) {
+                    this.QueryStringField = value;
+                    this.RaisePropertyChanged("QueryString");
                 }
             }
         }
