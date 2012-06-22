@@ -89,8 +89,17 @@
     <Compile Include="Util\CustomIdentity.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\layout_1\images\bg_body.png" />
-    <Content Include="Content\layout_1\images\header.png" />
+    <Content Include="Content\layout_1\css\tecnologia.css" />
+    <Content Include="Content\layout_1\css\social.css" />
+    <Content Include="Content\layout_1\css\naturaleza.css" />
+    <Content Include="Content\layout_1\images\tecnologia\bg_body.png" />
+    <Content Include="Content\layout_1\images\tecnologia\header.png" />
+    <Content Include="Content\layout_1\images\social\bg_body.png" />
+    <Content Include="Content\layout_1\images\social\header.png" />
+    <Content Include="Content\layout_1\images\naturaleza\bg_body.png" />
+    <Content Include="Content\layout_1\images\naturaleza\header.png" />
+    <Content Include="Content\layout_1\images\default\bg_body.png" />
+    <Content Include="Content\layout_1\images\default\header.png" />
     <Content Include="Content\layout_1\css\default.css" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
@@ -105,6 +114,9 @@
     <Content Include="Content\layout_1\jquery-theme\images\ui-icons_999999_256x240.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-icons_fbc856_256x240.png" />
     <Content Include="Content\layout_1\jquery-theme\jquery-ui-1.8.21.css" />
+    <Content Include="Content\layout_2\css\tecnologia.css" />
+    <Content Include="Content\layout_2\css\social.css" />
+    <Content Include="Content\layout_2\css\naturaleza.css" />
     <Content Include="Content\layout_2\css\default.css" />
     <Content Include="Content\layout_2\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\layout_2\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
@@ -119,6 +131,9 @@
     <Content Include="Content\layout_2\jquery-theme\images\ui-icons_999999_256x240.png" />
     <Content Include="Content\layout_2\jquery-theme\images\ui-icons_fbc856_256x240.png" />
     <Content Include="Content\layout_2\jquery-theme\jquery-ui-1.8.21.css" />
+    <Content Include="Content\layout_3\css\tecnologia.css" />
+    <Content Include="Content\layout_3\css\social.css" />
+    <Content Include="Content\layout_3\css\naturaleza.css" />
     <Content Include="Content\layout_3\css\default.css" />
     <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\layout_3\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
@@ -239,8 +254,14 @@
     <Content Include="Views\Account\CambioContrasenia.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\layout_2\images\" />
-    <Folder Include="Content\layout_3\images\" />
+    <Folder Include="Content\layout_2\images\default\" />
+    <Folder Include="Content\layout_2\images\naturaleza\" />
+    <Folder Include="Content\layout_2\images\social\" />
+    <Folder Include="Content\layout_2\images\tecnologia\" />
+    <Folder Include="Content\layout_3\images\default\" />
+    <Folder Include="Content\layout_3\images\naturaleza\" />
+    <Folder Include="Content\layout_3\images\social\" />
+    <Folder Include="Content\layout_3\images\tecnologia\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
