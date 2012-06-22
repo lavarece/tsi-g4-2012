@@ -7,7 +7,7 @@ body
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;
-    background: url('../images/naturaleza/bg_body.png') repeat-x #3C3C3C;    
+    background: url('../images/naturaleza/bg_body.png') repeat-x #68B122;    
 }
 
 input, select, textarea
@@ -23,7 +23,7 @@ input, select, textarea
     width: 100%;
     height: 100%;
     z-index: 2000;
-    border-top: 3px ridge #ACEF2F;    
+    border-top: 3px ridge #70C125;    
 }
 
 #wrapper 
@@ -31,16 +31,16 @@ input, select, textarea
 	width: 920px;
 	margin: 0 auto;
 	border-top: 0px;
-	border-left: 3px ridge #ACEF2F;
-	border-right: 3px ridge #ACEF2F;
+	border-left: 3px ridge #1F5408;
+	border-right: 3px ridge #1F5408;
 	border-bottom: 0px; 	
-    background-color: #3C3C3C;
+    background-color: #515151;
 }
 
 #header
 {
     width: 900px;    
-    background-color: #515151;
+    background-color: #737373;
     height: 90px;
     line-height: 90px;
     margin: auto;  
@@ -53,7 +53,7 @@ input, select, textarea
     font-weight: bold;
     padding-left: 30px;
     float: left;
-    color: #3C3C3C;
+    color: #DBDBD5;
 }
 
 #login
@@ -72,8 +72,8 @@ input, select, textarea
 #login li
 {
     float: left;
-    margin: 0px 3px;
-    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
+    margin: 0px 3px;   
+    background: url('../images/naturaleza/ico_vineta.png') no-repeat left 50%; 
 }
 
 #login .usuarioAutenticado
@@ -84,13 +84,14 @@ input, select, textarea
     padding-right: 15px;    
     font-weight: bold;
     font-style: oblique;
-    font-size: 13px;    
+    font-size: 13px;  
+    color: #FFFFFF;  
 }
 
 #login a 
 {
 	text-decoration: none;
-	color: #DBDBD5;
+	color: #FFFFFF;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -107,7 +108,7 @@ input, select, textarea
     margin: 10px auto;
     height: 31px;
     line-height: 29px;
-    border-bottom: 1px solid #ACEF2F;
+    border-bottom: 1px solid #68B122;
 }
 
 #menu ul 
@@ -144,8 +145,8 @@ input, select, textarea
 
 #menu .selected
 {
-    background-color: #A8CF5E;
-    border-color: #A8CF5E;
+    background-color: #68B122;
+    border-color: #68B122;
 }
 
 #page 
@@ -164,15 +165,15 @@ input, select, textarea
 #footer
 {
     width: 920px;
-    background-color: #515151;
+    background-color: #737373;
     margin: auto;
     height: 30px;
     line-height: 30px;
     text-align: center;
     border-top: 0px;
-	border-left: 3px ridge #ACEF2F;
-	border-right: 3px ridge #ACEF2F;
-	border-bottom: 3px ridge #ACEF2F;
+	border-left: 3px ridge #1F5408;
+	border-right: 3px ridge #1F5408;
+	border-bottom: 3px ridge #1F5408;
 	border-radius: 0px 0px 10px 10px;
 }
 
@@ -337,7 +338,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #A8CF5E;
+    background-color: #68B122;
     border: 1px solid #212121;
     color: #3C3C3C;
     font-size: 13px;    
@@ -349,7 +350,7 @@ input, select, textarea
 {
     text-decoration: underline;
     border: 1px outset #A8CF5E;
-    background-color: #C8E199;
+    background-color: #7FD72D;
 }
 
 .botonPressed
@@ -387,7 +388,7 @@ input, select, textarea
 
 .dataTable thead tr
 {
-    background-color: #A8CF5E;    
+    background-color: #68B122;    
     text-align: center;
     font-weight: bold;
     font-size: 13px;
@@ -411,7 +412,7 @@ input, select, textarea
 
 .even
 {
-    background-color: #515151;
+    background-color: #737373;
 }
 
 .notificacionNoLeida
@@ -436,9 +437,9 @@ input, select, textarea
 .itemContenido
 {
     float: left;
-    background-color: #515151;
+    background-color: #737373;
     display: block;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #68B122;
     width: 100%;
     margin: 10px 0px;
 }
@@ -522,8 +523,8 @@ input, select, textarea
 
 .listaUsuariosChat
 {
-    background-color: #515151;
-    border: 1px solid #ACEF2F;
+    background-color: #737373;
+    border: 1px solid #68B122;
     overflow: auto;
     width: 25%;
     float: left;
@@ -568,7 +569,7 @@ input, select, textarea
 .usuarioOnline a:hover
 {
     background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
-    background-color: #C4DF93;    
+    background-color: #9DE05E;    
     color: #3C3C3C;
 }
 
@@ -580,15 +581,15 @@ input, select, textarea
 .usuarioOffline a:hover
 {
     background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
-    background-color: #C4DF93;    
+    background-color: #9DE05E;    
     color: #3C3C3C;
 }
 
 .wrapperConversacionChat
 {
     margin-left: 5px;
-    border: 1px solid #ACEF2F;
-    background-color: #515151;
+    border: 1px solid #68B122;
+    background-color: #737373;
     width: 660px;
     float: right;
     min-height: 300px;
@@ -634,8 +635,8 @@ input, select, textarea
 {
     margin-top: 12px;
     margin-left: 5px;
-    border: 1px solid #ACEF2F;
-    background-color: #515151;
+    border: 1px solid #68B122;
+    background-color: #737373;
     width: 660px;
     float: right;
     min-height: 85px;

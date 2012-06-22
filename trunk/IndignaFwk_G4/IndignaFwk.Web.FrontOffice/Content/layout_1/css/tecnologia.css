@@ -73,7 +73,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
+    background: url('../images/tecnologia/ico_vineta.png') no-repeat left 50%;
 }
 
 #login .usuarioAutenticado
