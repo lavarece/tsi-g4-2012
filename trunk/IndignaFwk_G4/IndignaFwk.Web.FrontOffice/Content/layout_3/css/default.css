@@ -68,7 +68,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('../images/ico_vineta.png') no-repeat left 50%;    
+    background: url('../images/default/ico_vineta.png') no-repeat left 50%;    
 }
 
 #login .usuarioAutenticado
