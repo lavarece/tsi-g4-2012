@@ -1,0 +1,666 @@
+/* Estilos estructura */
+
+body
+{
+    font-size: 12px;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+    color: #DBDBD5;
+    text-align: justify;
+    margin: 0px;
+    background: url('../images/naturaleza/bg_body.png') repeat-x #68B122;    
+}
+
+input, select, textarea
+{
+    border: 1px #000000 solid;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+}
+
+#divMapaFullScreen
+{
+    left: 0px;             
+    top: 100px; 
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    border-top: 3px ridge #70C125;    
+}
+
+#wrapper 
+{
+	width: 920px;
+	margin: 0 auto;
+	border-top: 0px;
+	border-left: 3px ridge #1F5408;
+	border-right: 3px ridge #1F5408;
+	border-bottom: 0px; 	
+    background-color: #515151;
+}
+
+#header
+{
+    width: 900px;    
+    background-color: #737373;
+    height: 90px;
+    line-height: 90px;
+    margin: auto;  
+    background: url('../images/naturaleza/header.png') no-repeat;     
+}
+
+#logoHeader
+{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 30px;
+    float: left;
+    color: #FFFFFF;
+}
+
+#login
+{
+    float: right;  
+    position: relative;
+    top: 25px;  
+}
+
+#login ul
+{
+    list-style: none;
+    margin: 0px;
+}
+
+#login li
+{
+    float: left;
+    margin: 0px 3px;   
+    background: url('../images/naturaleza/ico_vineta.png') no-repeat left 50%; 
+}
+
+#login .usuarioAutenticado
+{
+    float: left;
+    margin: 0px 3px;
+    background-image: none;
+    padding-right: 15px;    
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 13px;  
+    color: #FFFFFF;  
+}
+
+#login a 
+{
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 0px 15px;	
+}
+
+#login a:hover
+{
+    text-decoration: underline;
+}
+
+#menu
+{
+    width: 900px;
+    margin: 10px auto;
+    height: 31px;
+    line-height: 29px;
+    border-bottom: 1px solid #68B122;
+}
+
+#menu ul 
+{
+	margin: 0px;
+	list-style: none;
+	padding: 0px;
+}
+
+#menu li 
+{
+	float: left;
+    background-color: #898989;	
+    margin: 0px 2px;	
+    border-left: 1px solid #1A1A1A;
+    border-right: 1px solid #1A1A1A;
+    border-top: 1px solid #1A1A1A;    
+    border-radius: 5px 5px 0px 0px;
+}
+
+#menu a 
+{
+	text-decoration: none;
+	color: #1A1A1A;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 0px 15px;	
+}
+
+#menu a:hover
+{
+    text-decoration: underline;
+}
+
+#menu .selected
+{
+    background-color: #68B122;
+    border-color: #68B122;
+}
+
+#page 
+{
+	width: 900px;
+	margin: 0px auto;
+	padding-bottom: 20px;
+}
+
+#content
+{
+    margin-top: 10px;
+    width: 100%;  
+}
+
+#footer
+{
+    width: 920px;
+    background-color: #737373;
+    margin: auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-top: 0px;
+	border-left: 3px ridge #1F5408;
+	border-right: 3px ridge #1F5408;
+	border-bottom: 3px ridge #1F5408;
+	border-radius: 0px 0px 10px 10px;
+}
+
+#footer p
+{
+    margin: 0px;
+}
+
+#mapaConvocatorias
+{
+    margin: 20px 10px;
+}
+
+#mapaConvocatorias .mapa
+{
+    float: left;
+    width: 62%;
+    height: 400px;
+}
+
+#mapaConvocatorias .detalleConvocatoria
+{
+    float: right;
+    width: 35%;
+}
+
+/* Estilos errores MVC */
+.validation-summary-errors
+{
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #F96D51;
+    border: 1px solid #A62106;
+    border-radius: 5px 5px 5px 5px;
+    color: #3C3C3C;
+}
+
+.validation-summary-errors ul
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.validation-summary-errors span
+{
+    padding-left: 12px;
+}
+
+.input-validation-error
+{
+    background-color: #FFEEEE;
+}
+
+.field-validation-error
+{
+    display: block;
+    color: #F96D51;
+}
+
+/* Estilos clases generales */
+.alertaNotificacionesPendientes
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #EB3B0F;
+    position: relative;
+    top: -12px;
+    right: 84px;
+    padding: 1px 3px;  
+    border: 1px outset #000000;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.fieldLabel
+{
+    font-style: italic;
+    text-align: left;
+    vertical-align: top;
+}
+
+.fieldValue input[type="text"], 
+.fieldValue textarea,
+.fieldValue input[type="password"],
+.fieldValue select
+{
+    width: 70%;
+}
+
+.fieldValue
+{
+    font-weight: bold;
+    font-style: normal;
+}
+
+.fieldIcono
+{
+    width: 30px;
+    text-align: center;
+    padding-left: 0px !important;
+}
+
+.fieldCheckbox
+{
+    width: 35px;
+    text-align: center;
+    padding-left: 0px !important;
+}
+
+.areaFormulario
+{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.areaFormulario table
+{
+    width: 100%
+}
+
+.areaFormulario tr
+{
+    vertical-align: top;
+}
+
+.areaFormulario td
+{
+    width: 50%;
+}
+
+.areaBotones
+{
+    background-color: #777777;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 15px;
+}
+
+.areaBotones ul
+{
+    list-style: none;
+    margin: 0px;
+    float: right;
+}
+
+.areaBotones li
+{
+    float: left;
+}
+
+
+.boton 
+{
+    display: block;
+    margin: 0px 5px;
+}
+
+.boton a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #68B122;
+    border: 1px solid #212121;
+    color: #3C3C3C;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+}
+
+.boton a:hover
+{
+    text-decoration: underline;
+    border: 1px outset #A8CF5E;
+    background-color: #7FD72D;
+}
+
+.botonPressed
+{
+    display: block;
+    margin: 0px 5px;
+}
+
+.botonPressed a
+{
+    padding: 4px 15px;
+    text-decoration: none;
+    background-color: #5C7A40;
+    border: 2px inset #7BA331;
+    color: #3C3C3C;
+    font-size: 13px;    
+    font-weight: bold;    
+    border-radius: 7px 7px 7px 7px;
+    cursor: default;
+}
+
+.wrapperDataTable
+{
+    max-height: 400px;
+    overflow: auto;
+    padding-top: 5px;
+    width: 100%;
+}
+
+.dataTable
+{
+    width: 100%;
+    border: 0px;
+}
+
+.dataTable thead tr
+{
+    background-color: #68B122;    
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: #3C3C3C;
+}
+
+.dataTable thead tr th
+{
+    padding: 5px 0px;
+}
+
+.dataTable tbody tr td
+{
+    padding-left: 5px;
+}
+
+.odd
+{
+    background-color: #898989;
+}
+
+.even
+{
+    background-color: #737373;
+}
+
+.notificacionNoLeida
+{
+    font-weight: bold;
+    background-color: #C9786F;
+    color: #1A1A1A;
+}
+
+.detalleGrupo .imagenGrupo
+{
+    float: left;
+    padding: 5px 15px 5px 5px;
+}
+
+
+.listaContenidos
+{
+    width: 100%;
+}
+
+.itemContenido
+{
+    float: left;
+    background-color: #737373;
+    display: block;
+    border: 1px solid #68B122;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.creadorContenido
+{
+    width: 100%;
+    float: left;
+    padding: 10px;
+    vertical-align: top;
+}
+
+.creadorContenido img
+{
+    float: left;
+    padding-right: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+.creadorContenido hr
+{
+    border: 1px solid #616161;
+}
+
+.creadorContenido span
+{
+    float: left;
+    vertical-align: top;
+}
+
+.creadorContenido span a
+{
+    color: #DBDBD5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.creadorContenido span a:hover
+{
+    text-decoration: underline;
+}
+
+.creadorContenido b
+{
+    vertical-align: top;
+}
+
+.contenido
+{
+    padding: 5px 10px;
+    float: left;
+    width: 60%;
+    height: 300px;
+}
+
+.detalleContenido
+{
+    float: left;
+    display: inline;
+    width: 36%;
+}
+
+.mensajeListadoVacio
+{
+    font-weight: bold;
+    font-style: oblique;
+    margin-top: 10px;
+    padding-top: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.mensajeCargandoChat
+{
+    font-weight: bold;
+    font-style: oblique;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.listaUsuariosChat
+{
+    background-color: #737373;
+    border: 1px solid #68B122;
+    overflow: auto;
+    width: 25%;
+    float: left;
+    min-height: 400px;
+    max-height: 400px;
+}
+
+.listaUsuariosChat ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.listaUsuariosChat li
+{    
+    overflow: hidden;
+    padding-left: 0;
+    white-space: nowrap;    
+}
+
+.nombreUsuarioChat
+{
+    display: inline;
+    line-height: 39px;
+}
+
+.nombreUsuarioChat a
+{
+    text-decoration: none;
+    color: #DBDBD5;  
+    border-bottom: 1px solid #686868;  
+    padding: 10px 100% 10px 25px;
+    text-align: left;    
+}
+
+.usuarioOnline
+{
+    background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
+}
+
+.usuarioOnline a:hover
+{
+    background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
+    background-color: #9DE05E;    
+    color: #3C3C3C;
+}
+
+.usuarioOffline
+{
+    background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
+}
+
+.usuarioOffline a:hover
+{
+    background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
+    background-color: #9DE05E;    
+    color: #3C3C3C;
+}
+
+.wrapperConversacionChat
+{
+    margin-left: 5px;
+    border: 1px solid #68B122;
+    background-color: #737373;
+    width: 660px;
+    float: right;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.wrapperConversacionChat .datosUsuarioConversacion
+{
+    padding-left: 10px;
+    padding-top: 8px;
+    font-size: 13px;
+    font-weight: bold;    
+}
+
+.wrapperConversacionChat .conversacionPanel
+{
+    margin-left: 7px;
+    margin-top: 5px;
+    height: 260px;
+    width: 645px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 13px;
+    word-wrap: break-word;
+    text-overflow:ellipsis;
+}
+
+.wrapperConversacionChat .conversacionPanel b
+{
+    float: left;
+    padding-right: 4px;
+}
+
+.wrapperConversacionChat .conversacionPanel span
+{
+    float: left;
+    width: 95%;
+}
+
+.wrapperMensajeChat
+{
+    margin-top: 12px;
+    margin-left: 5px;
+    border: 1px solid #68B122;
+    background-color: #737373;
+    width: 660px;
+    float: right;
+    min-height: 85px;
+    max-height: 85px;
+    line-height: 80px;
+ }
+
+.wrapperMensajeChat .boton
+{
+    float: right;
+}
+
+.wrapperMensajeChat textarea
+{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 70px;
+    width: 564px;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.previewContenido iframe
+{
+    width: 303px;
+}

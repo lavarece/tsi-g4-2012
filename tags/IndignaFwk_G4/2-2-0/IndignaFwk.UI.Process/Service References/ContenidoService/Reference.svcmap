@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8049871e-c8ec-4d7f-bec7-a70ae7fef450" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1281/ContenidoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContenidoService.xsd" MetadataType="Schema" ID="101ec6ac-73c1-4cf1-9340-7f74677e02c8" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContenidoService.disco" MetadataType="Disco" ID="5e2eb948-ece6-48cc-bc2b-5343859e6d5b" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?disco" />
+    <MetadataFile FileName="ContenidoService1.xsd" MetadataType="Schema" ID="e3d8c7ee-b50a-48ee-9460-b700836c8848" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContenidoService2.xsd" MetadataType="Schema" ID="8c6b6d1c-db37-42d3-badc-4938dee6dd91" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContenidoService.wsdl" MetadataType="Wsdl" ID="cfde88b2-1d94-4fc2-b004-6677bf51a3cd" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

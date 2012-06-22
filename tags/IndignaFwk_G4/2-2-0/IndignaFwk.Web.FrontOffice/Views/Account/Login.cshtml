@@ -1,0 +1,78 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.LoginModel 
+
+@{
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Login";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+@Html.ValidationSummary(true, "Datos incorrectos, intente nuevamente.")
+
+<h3>Inicio de sesión</h3>
+
+@using (Html.BeginForm(null, "Account", FormMethod.Post, new { @id = "formLogin" }))
+{
+    <div class="areaFormulario">
+        <table>
+            <tr>
+                <td>
+                    <div id="fieldLabel">
+                        @Html.LabelFor(m => m.Email)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </td>                
+                <td></td>
+            </tr>   
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Contraseña)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.Contraseña)
+                        @Html.ValidationMessageFor(m => m.Contraseña)
+                    </div>
+                </td>
+                <td></td>
+            </tr>  
+            
+            <tr>
+                <td colspan="2">
+                    <div class="fieldLabel">
+                        <p> 
+                            * Debe habilitar el uso de Cookies en el navegador 
+                            para poder autenticarse correctamente.
+                        </p>
+                    </div> 
+                </td>
+            </tr>       
+        </table>        
+    </div>
+    
+    <div class="areaBotones">
+        <ul>    
+            <li>
+                <div class="boton">
+                    <a href="#" onclick="submitForm('Login');">Acceder</a>
+                </div>       
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="@Url.Action("Registro", "Account")">Registrarme</a>
+                </div>
+            </li>
+        </ul>     
+    </div>
+}
+
+<script type="text/javascript">
+
+    function submitForm(method) 
+    {
+        $("#formLogin")[0].action = '' + method;
+        $("#formLogin")[0].submit();
+    }
+
+</script>

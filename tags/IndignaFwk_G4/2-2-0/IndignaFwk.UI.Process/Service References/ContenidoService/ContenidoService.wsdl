@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ContenidoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1281/ContenidoService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1281/ContenidoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1281/ContenidoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IContenidoService_CrearNuevoContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoContenido" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_CrearNuevoContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevoContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoContenidosPorGrupoYVisibilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosPorGrupoYVisibilidad" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoContenidosPorGrupoYVisibilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoContenidosPorGrupoYVisibilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerXContenidosMasRankeadosPorGrupoYVisibilidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_EliminarListaContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarListaContenido" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_EliminarListaContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarListaContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoPorGrupoNoEliminado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupoNoEliminado" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoPorGrupoNoEliminado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupoNoEliminadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoEliminadoPorUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoEliminadoPorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoEliminadoPorUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoEliminadoPorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerMarcaContenidoPorUsuarioYContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMarcaContenidoPorUsuarioYContenido" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerMarcaContenidoPorUsuarioYContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMarcaContenidoPorUsuarioYContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_CrearNuevaMarcaContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaMarcaContenido" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_CrearNuevaMarcaContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearNuevaMarcaContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_EditarMarcaContenido_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarMarcaContenido" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_EditarMarcaContenido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarMarcaContenidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoConMarcas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoConMarcas" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerContenidoConMarcas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerContenidoConMarcasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IContenidoService_ObtenerListadoPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IContenidoService">
+    <wsdl:operation name="CrearNuevoContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/CrearNuevoContenido" message="tns:IContenidoService_CrearNuevoContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/CrearNuevoContenidoResponse" message="tns:IContenidoService_CrearNuevoContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoContenidosPorGrupoYVisibilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoContenidosPorGrupoYVisibilidad" message="tns:IContenidoService_ObtenerListadoContenidosPorGrupoYVisibilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoContenidosPorGrupoYVisibilidadResponse" message="tns:IContenidoService_ObtenerListadoContenidosPorGrupoYVisibilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad" message="tns:IContenidoService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerXContenidosMasRankeadosPorGrupoYVisibilidadResponse" message="tns:IContenidoService_ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoPorId" message="tns:IContenidoService_ObtenerContenidoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoPorIdResponse" message="tns:IContenidoService_ObtenerContenidoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/EliminarListaContenido" message="tns:IContenidoService_EliminarListaContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/EliminarListaContenidoResponse" message="tns:IContenidoService_EliminarListaContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupoNoEliminado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupoNoEliminado" message="tns:IContenidoService_ObtenerListadoPorGrupoNoEliminado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupoNoEliminadoResponse" message="tns:IContenidoService_ObtenerListadoPorGrupoNoEliminado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoEliminadoPorUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoEliminadoPorUsuario" message="tns:IContenidoService_ObtenerContenidoEliminadoPorUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoEliminadoPorUsuarioResponse" message="tns:IContenidoService_ObtenerContenidoEliminadoPorUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMarcaContenidoPorUsuarioYContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerMarcaContenidoPorUsuarioYContenido" message="tns:IContenidoService_ObtenerMarcaContenidoPorUsuarioYContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerMarcaContenidoPorUsuarioYContenidoResponse" message="tns:IContenidoService_ObtenerMarcaContenidoPorUsuarioYContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevaMarcaContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/CrearNuevaMarcaContenido" message="tns:IContenidoService_CrearNuevaMarcaContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/CrearNuevaMarcaContenidoResponse" message="tns:IContenidoService_CrearNuevaMarcaContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarMarcaContenido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/EditarMarcaContenido" message="tns:IContenidoService_EditarMarcaContenido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/EditarMarcaContenidoResponse" message="tns:IContenidoService_EditarMarcaContenido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoConMarcas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcas" message="tns:IContenidoService_ObtenerContenidoConMarcas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcasResponse" message="tns:IContenidoService_ObtenerContenidoConMarcas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupo" message="tns:IContenidoService_ObtenerListadoPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupoResponse" message="tns:IContenidoService_ObtenerListadoPorGrupo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IContenidoService" type="tns:IContenidoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearNuevoContenido">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/CrearNuevoContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoContenidosPorGrupoYVisibilidad">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerListadoContenidosPorGrupoYVisibilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerXContenidosMasRankeadosPorGrupoYVisibilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoPorId">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerContenidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarListaContenido">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/EliminarListaContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupoNoEliminado">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupoNoEliminado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoEliminadoPorUsuario">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerContenidoEliminadoPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMarcaContenidoPorUsuarioYContenido">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerMarcaContenidoPorUsuarioYContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearNuevaMarcaContenido">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/CrearNuevaMarcaContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarMarcaContenido">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/EditarMarcaContenido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerContenidoConMarcas">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerContenidoConMarcas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IContenidoService/ObtenerListadoPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ContenidoService">
+    <wsdl:port name="BasicHttpBinding_IContenidoService" binding="tns:BasicHttpBinding_IContenidoService">
+      <soap:address location="http://localhost:1281/ContenidoService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
