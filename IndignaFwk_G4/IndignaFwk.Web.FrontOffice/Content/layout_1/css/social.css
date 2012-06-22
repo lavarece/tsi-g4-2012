@@ -7,7 +7,7 @@ body
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;
-    background: url('../images/bg_body.png') repeat-x #3C3C3C;    
+    background: url('../images/social/bg_body.png') repeat-x #F9B445;    
 }
 
 input, select, textarea
@@ -23,7 +23,7 @@ input, select, textarea
     width: 100%;
     height: 100%;
     z-index: 2000;
-    border-top: 3px ridge #ACEF2F;    
+    border-top: 3px ridge #F9B445;    
 }
 
 #wrapper 
@@ -31,8 +31,8 @@ input, select, textarea
 	width: 920px;
 	margin: 0 auto;
 	border-top: 0px;
-	border-left: 3px ridge #ACEF2F;
-	border-right: 3px ridge #ACEF2F;
+	border-left: 3px ridge #DD8B07;
+	border-right: 3px ridge #DD8B07;
 	border-bottom: 0px; 	
     background-color: #3C3C3C;
 }
@@ -44,7 +44,7 @@ input, select, textarea
     height: 90px;
     line-height: 90px;
     margin: auto;  
-    background: url('../images/header.png') no-repeat;     
+    background: url('../images/social/header.png') no-repeat;     
 }
 
 #logoHeader
@@ -53,7 +53,7 @@ input, select, textarea
     font-weight: bold;
     padding-left: 30px;
     float: left;
-    color: #3C3C3C;
+    color: #F79F11;
 }
 
 #login
@@ -73,7 +73,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
+    background: url('../images/social/ico_vineta.png') no-repeat left 50%;
 }
 
 #login .usuarioAutenticado
@@ -84,13 +84,14 @@ input, select, textarea
     padding-right: 15px;    
     font-weight: bold;
     font-style: oblique;
-    font-size: 13px;    
+    font-size: 13px; 
+    color: #F79F11;   
 }
 
 #login a 
 {
 	text-decoration: none;
-	color: #DBDBD5;
+	color: #F79F11;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -107,7 +108,7 @@ input, select, textarea
     margin: 10px auto;
     height: 31px;
     line-height: 29px;
-    border-bottom: 1px solid #ACEF2F;
+    border-bottom: 1px solid #F9B445;
 }
 
 #menu ul 
@@ -144,8 +145,8 @@ input, select, textarea
 
 #menu .selected
 {
-    background-color: #A8CF5E;
-    border-color: #A8CF5E;
+    background-color: #F79F11;
+    border-color: #F79F11;
 }
 
 #page 
@@ -170,9 +171,9 @@ input, select, textarea
     line-height: 30px;
     text-align: center;
     border-top: 0px;
-	border-left: 3px ridge #ACEF2F;
-	border-right: 3px ridge #ACEF2F;
-	border-bottom: 3px ridge #ACEF2F;
+	border-left: 3px ridge #DD8B07;
+	border-right: 3px ridge #DD8B07;
+	border-bottom: 3px ridge #DD8B07;
 	border-radius: 0px 0px 10px 10px;
 }
 
@@ -337,7 +338,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #A8CF5E;
+    background-color: #F79F11;
     border: 1px solid #212121;
     color: #3C3C3C;
     font-size: 13px;    
@@ -348,8 +349,8 @@ input, select, textarea
 .boton a:hover
 {
     text-decoration: underline;
-    border: 1px outset #A8CF5E;
-    background-color: #C8E199;
+    border: 1px outset #F79F11;
+    background-color: #FAC36A;
 }
 
 .botonPressed
@@ -387,7 +388,7 @@ input, select, textarea
 
 .dataTable thead tr
 {
-    background-color: #A8CF5E;    
+    background-color: #F79F11;    
     text-align: center;
     font-weight: bold;
     font-size: 13px;
@@ -438,7 +439,7 @@ input, select, textarea
     float: left;
     background-color: #515151;
     display: block;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #F9B445;
     width: 100%;
     margin: 10px 0px;
 }
@@ -523,7 +524,7 @@ input, select, textarea
 .listaUsuariosChat
 {
     background-color: #515151;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #F9B445;
     overflow: auto;
     width: 25%;
     float: left;
@@ -568,7 +569,7 @@ input, select, textarea
 .usuarioOnline a:hover
 {
     background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
-    background-color: #C4DF93;    
+    background-color: #F79F11;    
     color: #3C3C3C;
 }
 
@@ -580,14 +581,14 @@ input, select, textarea
 .usuarioOffline a:hover
 {
     background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
-    background-color: #C4DF93;    
+    background-color: #FAC36A;    
     color: #3C3C3C;
 }
 
 .wrapperConversacionChat
 {
     margin-left: 5px;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #F9B445;
     background-color: #515151;
     width: 660px;
     float: right;
@@ -634,7 +635,7 @@ input, select, textarea
 {
     margin-top: 12px;
     margin-left: 5px;
-    border: 1px solid #ACEF2F;
+    border: 1px solid #F9B445;
     background-color: #515151;
     width: 660px;
     float: right;

@@ -92,6 +92,9 @@
     <Content Include="Content\layout_1\css\tecnologia.css" />
     <Content Include="Content\layout_1\css\social.css" />
     <Content Include="Content\layout_1\css\naturaleza.css" />
+    <Content Include="Content\layout_1\images\default\ico_vineta.png" />
+    <Content Include="Content\layout_1\images\naturaleza\ico_vineta.png" />
+    <Content Include="Content\layout_1\images\social\ico_vineta.png" />
     <Content Include="Content\layout_1\images\tecnologia\bg_body.png" />
     <Content Include="Content\layout_1\images\tecnologia\header.png" />
     <Content Include="Content\layout_1\images\social\bg_body.png" />
@@ -101,6 +104,7 @@
     <Content Include="Content\layout_1\images\default\bg_body.png" />
     <Content Include="Content\layout_1\images\default\header.png" />
     <Content Include="Content\layout_1\css\default.css" />
+    <Content Include="Content\layout_1\images\tecnologia\ico_vineta.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="Content\layout_1\jquery-theme\images\ui-bg_flat_55_c0402a_40x100.png" />
@@ -152,7 +156,6 @@
     <Content Include="Content\shared\images\ico_offline.png" />
     <Content Include="Content\shared\images\ico_online.png" />
     <Content Include="Content\shared\images\ico_posMapa.png" />
-    <Content Include="Content\shared\images\ico_vineta.png" />
     <Content Include="Content\shared\images\ico_wikipedia.png" />
     <Content Include="Content\shared\images\ico_youtube.png" />
     <Content Include="Content\shared\images\user_no_image.png" />
