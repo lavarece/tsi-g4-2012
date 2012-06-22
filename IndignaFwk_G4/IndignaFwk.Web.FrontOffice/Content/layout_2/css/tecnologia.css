@@ -3,17 +3,17 @@
 body
 {
     font-size: 12px;
-    font-family: Helvetica, Sans-Serif !important;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;
-    background-color: #1D1D1D;    
+    background: url('../images/tecnologia/bg_body.png') repeat-x #006ADC;    
 }
 
 input, select, textarea
 {
     border: 1px #000000 solid;
-    font-family: Helvetica, Sans-Serif !important;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
 }
 
 #divMapaFullScreen
@@ -26,7 +26,7 @@ input, select, textarea
 
 #wrapper 
 {
-	width: 97%;
+	width: 95%;
 	margin: 0px auto;
 	padding-bottom: 20px;
 	border-top: 0px;
@@ -36,10 +36,11 @@ input, select, textarea
 
 #header
 {
-    width: 100%;    
-    background-color: #EB5E3B;
+    width: 98%;
+    margin: 0 auto;  
     height: 90px;
     line-height: 90px;  
+    background: url('../images/tecnologia/header.png') no-repeat #006ADC;     
 }
 
 #logoHeader
@@ -48,7 +49,7 @@ input, select, textarea
     font-weight: bold;
     padding-left: 30px;
     float: left;
-    color: #1D1D1D;
+    color: #FFFFFF;
 }
 
 #login
@@ -68,7 +69,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
+    background: url('../images/tecnologia/ico_vineta.png') no-repeat left 50%;
 }
 
 #login .usuarioAutenticado
@@ -80,13 +81,13 @@ input, select, textarea
     font-weight: bold;
     font-style: oblique;
     font-size: 13px;    
-    color: #1D1D1D;
+    color: #FFFFFF;
 }
 
 #login a 
 {
 	text-decoration: none;
-	color: #1D1D1D;
+	color: #FFFFFF;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -106,7 +107,7 @@ input, select, textarea
     left: 0px;
     right: 0px;
     line-height: 30px;
-    border-top: 3px ridge #EB5E3B;
+    border-top: 3px ridge #006ADC;
     z-index: 900;
 }
 
@@ -138,14 +139,14 @@ input, select, textarea
 
 #menu .selected
 {
-    background-color: #EB5E3B;
-    border-color: #EB5E3B;
+    background-color: #006ADC;
+    border-color: #006ADC;
 }
 
 #page 
 {
-	width: 100%;
-	margin: 0px auto;
+	width: 98%;
+    margin: 0 auto;
 	padding-bottom: 20px;
 }
 
@@ -164,9 +165,9 @@ input, select, textarea
     line-height: 30px;
     text-align: center;
     border-top: 0px;
-	border-left: 3px ridge #EB5E3B;
-	border-right: 3px ridge #EB5E3B;
-	border-bottom: 3px ridge #EB5E3B;
+	border-left: 3px ridge #006ADC;
+	border-right: 3px ridge #006ADC;
+	border-bottom: 3px ridge #006ADC;
 	border-radius: 0px 0px 10px 10px;
 }
 
@@ -332,7 +333,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #EB5E3B;
+    background-color: #006ADC;
     border: 1px solid #212121;
     color: #1D1D1D;
     font-size: 13px;    
@@ -343,8 +344,8 @@ input, select, textarea
 .boton a:hover
 {
     text-decoration: underline;
-    border: 1px outset #EB5E3B;
-    background-color: #F18F77;
+    border: 1px outset #006ADC;
+    background-color: #3795F9;
 }
 
 .botonPressed
@@ -382,7 +383,7 @@ input, select, textarea
 
 .dataTable thead tr
 {
-    background-color: #EB5E3B;    
+    background-color: #006ADC;    
     text-align: center;
     font-weight: bold;
     font-size: 13px;
@@ -433,7 +434,7 @@ input, select, textarea
     float: left;
     background-color: #515151;
     display: block;
-    border: 1px solid #EB5E3B;
+    border: 1px solid #006ADC;
     width: 100%;
     margin: 10px 0px;
 }
@@ -518,7 +519,7 @@ input, select, textarea
 .listaUsuariosChat
 {
     background-color: #515151;
-    border: 1px solid #EB5E3B;
+    border: 1px solid #006ADC;
     overflow: auto;
     width: 25%;
     float: left;
@@ -563,7 +564,7 @@ input, select, textarea
 .usuarioOnline a:hover
 {
     background: url('../../shared/images/ico_online.png') no-repeat 2% 50%;
-    background-color: #EE795C;    
+    background-color: #90C4FC;    
     color: #1D1D1D;
 }
 
@@ -575,14 +576,14 @@ input, select, textarea
 .usuarioOffline a:hover
 {
     background: url('../../shared/images/ico_offline.png') no-repeat 2% 50%;
-    background-color: #EE795C;    
+    background-color: #90C4FC;    
     color: #1D1D1D;
 }
 
 .wrapperConversacionChat
 {
     margin-left: 5px;
-    border: 1px solid #EB5E3B;
+    border: 1px solid #006ADC;
     background-color: #515151;
     width: 74%;
     float: right;
@@ -629,7 +630,7 @@ input, select, textarea
 {
     margin-top: 12px;
     margin-left: 10px;
-    border: 1px solid #EB5E3B;
+    border: 1px solid #006ADC;
     background-color: #515151;
     width: 74%;
     float: right;
