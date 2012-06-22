@@ -294,7 +294,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 {
                     if(param.StartsWith("v="))
                     {
-                        return "http://www.youtube.com/embed/" + param.Substring(2);
+                        return "http://www.youtube.com/embed/" + param.Substring(2) + "?wmode=transparent";
                     }
                 }
 

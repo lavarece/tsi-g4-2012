@@ -653,3 +653,8 @@ input, select, textarea
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.previewContenido iframe
+{
+    width: 444px;
+}

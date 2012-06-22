@@ -58,7 +58,7 @@
                         @Html.TextBoxFor(m => m.Url, new { @id = "txtUrlContenido", @onblur = "checkUrlContenido();", @tabIndex = "4" })
                         @Html.ValidationMessageFor(m => m.Url)
                     </div>                      
-                    <div id="divPreviewContenido" style="display: none;"></div>                    
+                    <div id="divPreviewContenido" class="previewContenido" style="display: none;"></div>                    
                 </td>                                    
             </tr>             
         </table>   
@@ -128,21 +128,25 @@
 
     function checkUrlContenido() 
     {
+        var divPreview = $("#divPreviewContenido");
         var urlContenido = $("#txtUrlContenido").val();
 
-        if (urlContenido && urlContenido != "") {
-            $.ajax({
-                url: '@Url.Action("CheckUrlContenido", "Contenido")' + "?urlContenido=" + urlContenido,
-                dataType: "html",
-                method: "GET",
-                success: function (data, textStatus, jqXHR) {
-                    if (data != null) {
-                        var divPreview = $("#divPreviewContenido");
-                        divPreview.html(data);
-                        divPreview.show("slide", { direction: "up" }, "normal", null)
+        if (urlContenido && urlContenido != "") 
+        {
+            if (divPreview.css("display") == "none") 
+            {
+                $.ajax({
+                    url: '@Url.Action("CheckUrlContenido", "Contenido")' + "?urlContenido=" + urlContenido,
+                    dataType: "html",
+                    method: "GET",
+                    success: function (data, textStatus, jqXHR) {
+                        if (data != null) {
+                            divPreview.html(data);
+                            divPreview.show("slide", { direction: "up" }, "normal", null)
+                        }
                     }
-                }
-            });
+                });
+            }            
         }
         else {
             if ($("#divPreviewContenido").css("display") != "none") {
