@@ -53,7 +53,7 @@ input, select, textarea
     font-weight: bold;
     padding-left: 30px;
     float: left;
-    color: #F79F11;
+    color: #FFFFFF;
 }
 
 #login
@@ -85,13 +85,13 @@ input, select, textarea
     font-weight: bold;
     font-style: oblique;
     font-size: 13px; 
-    color: #F79F11;   
+    color: #FFFFFF;   
 }
 
 #login a 
 {
 	text-decoration: none;
-	color: #F79F11;
+	color: #FFFFFF;
 	font-weight: bold;
 	font-size: 13px;
 	padding: 0px 15px;	
@@ -658,4 +658,9 @@ input, select, textarea
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.previewContenido iframe
+{
+    width: 303px;
 }

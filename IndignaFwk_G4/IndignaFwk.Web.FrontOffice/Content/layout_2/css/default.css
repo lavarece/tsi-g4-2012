@@ -7,7 +7,7 @@ body
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;
-    background-color: #1D1D1D;    
+    background-color: #636363;    
 }
 
 input, select, textarea
@@ -26,7 +26,7 @@ input, select, textarea
 
 #wrapper 
 {
-	width: 97%;
+	width: 95%;
 	margin: 0px auto;
 	padding-bottom: 20px;
 	border-top: 0px;
@@ -36,7 +36,8 @@ input, select, textarea
 
 #header
 {
-    width: 100%;    
+    width: 98%;
+    margin: 0 auto;    
     background-color: #EB5E3B;
     height: 90px;
     line-height: 90px;  
@@ -68,7 +69,7 @@ input, select, textarea
 {
     float: left;
     margin: 0px 3px;
-    background: url('../../shared/images/ico_vineta.png') no-repeat left 50%;    
+    background: url('../images/default/ico_vineta.png') no-repeat left 50%;    
 }
 
 #login .usuarioAutenticado
@@ -144,8 +145,8 @@ input, select, textarea
 
 #page 
 {
-	width: 100%;
-	margin: 0px auto;
+	width: 98%;
+    margin: 0 auto; 
 	padding-bottom: 20px;
 }
 
@@ -652,4 +653,9 @@ input, select, textarea
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.previewContenido iframe
+{
+    width: 444px;
 }

@@ -122,6 +122,14 @@
     <Content Include="Content\layout_2\css\social.css" />
     <Content Include="Content\layout_2\css\naturaleza.css" />
     <Content Include="Content\layout_2\css\default.css" />
+    <Content Include="Content\layout_2\images\default\bg_body.png" />
+    <Content Include="Content\layout_2\images\default\ico_vineta.png" />
+    <Content Include="Content\layout_2\images\naturaleza\bg_body.png" />
+    <Content Include="Content\layout_2\images\naturaleza\header.png" />
+    <Content Include="Content\layout_2\images\naturaleza\ico_vineta.png" />
+    <Content Include="Content\layout_2\images\social\bg_body.png" />
+    <Content Include="Content\layout_2\images\social\header.png" />
+    <Content Include="Content\layout_2\images\social\ico_vineta.png" />
     <Content Include="Content\layout_2\jquery-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\layout_2\jquery-theme\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="Content\layout_2\jquery-theme\images\ui-bg_flat_55_c0402a_40x100.png" />
@@ -257,9 +265,6 @@
     <Content Include="Views\Account\CambioContrasenia.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\layout_2\images\default\" />
-    <Folder Include="Content\layout_2\images\naturaleza\" />
-    <Folder Include="Content\layout_2\images\social\" />
     <Folder Include="Content\layout_2\images\tecnologia\" />
     <Folder Include="Content\layout_3\images\default\" />
     <Folder Include="Content\layout_3\images\naturaleza\" />
