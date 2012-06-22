@@ -1,0 +1,47 @@
+﻿@using IndignaFwk.Common.Entities;
+
+@{
+    ViewBag.Title = "Error inesperado";
+}
+
+<h2 style="color: #FF0000;">Ha ocurrido un error inesperado del sistema:</h2><hr />
+
+<table border="1">
+    <tr>
+        <td style="width: 120px; vertical-align:top;">Tipo de error</td>
+        <td>@ViewBag.TipoError</td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top;">Mensaje del error</td>
+        <td>@ViewBag.MensajeError</td>
+    </tr>
+</table>
+
+<br /><hr />
+
+@if(ViewBag.ListadoGrupos != null)
+{    
+    <h3>Grupos disponibles en el sistema</h3>
+    <div class="wrapperDataTable">
+        <table class="dataTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Grupo grupo in ViewBag.ListadoGrupos)
+                {
+                    string estiloTR = (ViewBag.ListadoGrupos.IndexOf(grupo) % 2 == 0 ? "odd" : "even");              
+                    <tr class="@estiloTR">
+                        <td>@grupo.Nombre</td>
+                        <td>@grupo.Descripcion</td>
+                        <td>@grupo.Url</td>
+                    </tr>
+                }  
+            </tbody>              
+        </table>
+    </div>
+}
