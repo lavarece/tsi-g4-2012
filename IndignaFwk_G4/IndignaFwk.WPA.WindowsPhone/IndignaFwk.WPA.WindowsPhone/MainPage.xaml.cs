@@ -28,12 +28,24 @@ namespace IndignaFwk_WPA_WindowsPhone
         {
             UsuarioServiceClient proxy = new UsuarioServiceClient();
 
-            proxy.ObtenerUsuarioPorIdAsync(4);
-            proxy.ObtenerUsuarioPorIdCompleted += new EventHandler<ObtenerUsuarioPorIdCompletedEventArgs>(proxy_ObtenerUsuarioPorIdCompleted);
+            proxy.ObtenerUsuarioPorEmailYPassAsync(textBox_email.Text, textBox_pass.Text);
+            proxy.ObtenerUsuarioPorEmailYPassCompleted += new EventHandler<ObtenerUsuarioPorEmailYPassCompletedEventArgs>(proxy_ObtenerUsuarioPorEmailYPassCompleted);
         }
-        private void proxy_ObtenerUsuarioPorIdCompleted(object sender, ObtenerUsuarioPorIdCompletedEventArgs e)
+        private void proxy_ObtenerUsuarioPorEmailYPassCompleted(object sender, ObtenerUsuarioPorEmailYPassCompletedEventArgs e)
         {
             Usuario user = e.Result;
+            if (user == null)
+            {
+
+            }
+            else
+            {
+                Page1 convPivot = new Page1();
+
+                
+               
+                
+            }
             MessageBox.Show("Hola!");
         }
     }
