@@ -90,7 +90,7 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
             foreach(Convocatoria convocatoria in listaConvocatorias)
             {
                 this.Grupo1.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = convocatoria.Descripcion});
-                this.Grupo2.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = "Descripcion" + convocatoria.Descripcion, LineThree = "Fecha Inicio: " + convocatoria.FechaInicio,
+                this.Grupo2.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = "Descripcion: " + convocatoria.Descripcion, LineThree = "Fecha Inicio: " + convocatoria.FechaInicio,
                                                       LineFour = "Fecha Fin: " + convocatoria.FechaInicio, LineFive = "Localización: " + convocatoria.Coordenadas});
             }
         }
