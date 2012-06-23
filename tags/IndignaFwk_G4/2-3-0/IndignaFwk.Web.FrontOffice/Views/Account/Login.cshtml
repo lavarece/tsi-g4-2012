@@ -1,0 +1,188 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.LoginModel 
+
+@{
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Login";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+@Html.ValidationSummary(true, "Datos incorrectos, intente nuevamente.")
+
+<h3>Inicio de sesión</h3>
+
+@using (Html.BeginForm(null, "Account", FormMethod.Post, new { @id = "formLogin" }))
+{
+    <div class="areaFormulario">
+        <div id="conectar_facebook">
+            <a href="javascript:login(); return false;" onclick="login(); return false;">Conectarse por Facebook</a>
+        </div>
+        <div id="aceptar_facebook">
+          <a href="@Url.Action("LoginConFace", "Account")">Aceptar</a>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="fieldLabel">
+                        @Html.LabelFor(m => m.Email)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </td>                
+                <td></td>
+            </tr>   
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Contraseña)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.Contraseña)
+                        @Html.ValidationMessageFor(m => m.Contraseña)
+                    </div>
+                </td>
+                <td></td>
+            </tr>  
+            
+            <tr>
+                <td colspan="2">
+                    <div class="fieldLabel">
+                        <p> 
+                            * Debe habilitar el uso de Cookies en el navegador 
+                            para poder autenticarse correctamente.
+                        </p>
+                    </div> 
+                </td>
+            </tr>       
+        </table>        
+    </div>
+    
+    <div class="areaBotones">
+        <ul>    
+            <li>
+                <div class="boton">
+                    <a href="#" onclick="submitForm('Login');">Acceder</a>
+                </div>       
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="@Url.Action("Registro", "Account")">Registrarme</a>
+                </div>
+            </li>
+        </ul>     
+    </div>
+}
+
+<script type="text/javascript">
+
+    function submitForm(method) 
+    {
+        $("#formLogin")[0].action = '' + method;
+        $("#formLogin")[0].submit();
+    }
+
+    // Scripts facebook
+    var fb = {
+        config: {
+            //SE INTRODUCE EL ID DE LA APLICACIÓN
+            app_id: '140455639412027',
+            use_xfbml: true,
+            extendPermissions: 'publish_stream',
+            locale: 'es_ES'
+        },
+        perms: [],
+        hasPerm: function (perm) { for (var i = 0, l = fb.perms.length; i < l; i++) { if (fb.perms[i] == perm) { return true; } } return false; },
+        logged: false,
+        user: false,
+        login: function (callback) {
+            //FUNCIÓN QUE REALIZA EL LOGIN
+            FB.login(function (r) {
+                if (r.status == 'connected') {
+                    fb.logged = true;
+                    if (r.perms)
+                        fb.perms = r.perms.split(",");
+                    else
+                        fb.perms = [];
+                    fb.getUser(callback);
+                } else {
+                    fb.logged = false;
+                    fb.perms = [];
+                    callback();
+                }
+            }, { perms: fb.config.extendPermissions });
+            return false;
+        },
+        syncLogin: function (callback) {
+            if (!callback) callback = function () { };
+            FB.getLoginStatus(function (r) {
+                if (r.status == 'connected') {
+                    fb.logged = true;
+                    if (r.perms)
+                        fb.perms = r.perms.split(",");
+                    else
+                        fb.perms = [];
+                    fb.getUser(callback);
+                    return true;
+                } else {
+                    fb.logged = false;
+                    callback();
+                    return false;
+                }
+            });
+        },
+        logout: function (callback) { FB.logout(callback); },
+        getUser: function (callback) {
+            //SE OBTIENEN LOS DATOS DEL USUARIO CON ESTÁ FUNCIÓN
+            FB.api('/me', function (r) {
+                var user = r;
+                user.picture = "https://graph.facebook.com/" + user.id + "/picture";
+                fb.user = user; callback(user);
+            });
+
+        },
+        readyFuncs: [],
+        ready: function (func) { fb.readyFuncs.push(func) },
+        launchReadyFuncs: function () { for (var i = 0, l = fb.readyFuncs.length; i < l; i++) { fb.readyFuncs[i](); }; }
+    }
+    window.fbAsyncInit = function () {
+        if (fb.config.app_id) FB.init({ appId: fb.config.app_id, status: true, cookie: true, xfbml: fb.config.use_xfbml });
+        fb.syncLogin(fb.launchReadyFuncs);
+    };
+    var oldload = window.onload;
+    //SE CARGA EL API DE JAVASCRIPT DE FACEBOOK CONNECT
+    window.onload = function () {
+        var d = document.createElement('div'); d.id = "fb-root"; document.getElementsByTagName('body')[0].appendChild(d);
+        var e = document.createElement('script'); e.async = true; e.src = document.location.protocol + '//connect.facebook.net/' + fb.config.locale + '/all.js';
+        document.getElementById('fb-root').appendChild(e);
+        if (typeof oldload == 'function') oldload();
+    };
+
+    fb.ready(function () {
+        // SE COMPRUEBA AL CARGAR LA PÁGINA SI HAY USUARIO LOGUEADO.
+        if (fb.logged) {
+            // CAMBIAMOS EL LINK DE IDENTIFICARSE POR LOS DATOS DEL USUARIO.
+            html = "<p>Email " + fb.user.email + "</p>";
+            html += '<p><img src="' + fb.user.picture + '"/></p>';
+            document.getElementById("conectar_facebook").innerHTML = html;
+
+        }
+    });
+
+    function login() {
+        //FUNCIÓN QUE HACE EL LOGIN DEL FACEBOOK
+        fb.login(function () {
+            if (fb.logged) {
+                // CAMBIAMOS EL LINK DE IDENTIFICARSE POR LOS DATOS DEL USUARIO.
+                html = "<p>Email " + fb.user.email + "</p>";
+                html += "<p><img src='" + fb.user.picture + "'/></p>";
+                document.getElementById("conectar_facebook").innerHTML = html;
+
+            } else {
+                alert("No se ha identificado el usuario");
+            }
+        })
+    };
+
+</script>
+

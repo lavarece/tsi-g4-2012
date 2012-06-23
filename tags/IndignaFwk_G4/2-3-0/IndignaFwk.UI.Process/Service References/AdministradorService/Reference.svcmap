@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="94f99d9e-3ab5-4bde-86a2-ca23c3b97a75" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/AppServer/AdministradorService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AdministradorService3.xsd" MetadataType="Schema" ID="69716281-1c5c-4546-8219-ed4c8281a0ef" SourceId="1" SourceUrl="http://localhost/AppServer/AdministradorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AdministradorService31.xsd" MetadataType="Schema" ID="6cfd4802-c2de-420c-beee-d6f5d8bfa284" SourceId="1" SourceUrl="http://localhost/AppServer/AdministradorService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AdministradorService1.disco" MetadataType="Disco" ID="d4420ac5-59c0-41ce-9bb9-b2785e87f573" SourceId="1" SourceUrl="http://localhost/AppServer/AdministradorService.svc?disco" />
+    <MetadataFile FileName="AdministradorService32.xsd" MetadataType="Schema" ID="9ab2d94b-dc4d-4a59-a8cc-8700a1f95c95" SourceId="1" SourceUrl="http://localhost/AppServer/AdministradorService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AdministradorService1.wsdl" MetadataType="Wsdl" ID="3f408988-67f0-449a-89c8-5526ede3b646" SourceId="1" SourceUrl="http://localhost/AppServer/AdministradorService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
