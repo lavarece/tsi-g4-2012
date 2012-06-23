@@ -108,5 +108,16 @@
                 <DropShadowEffect />
             </Button.Effect>
         </Button>
+        <Button Content="menu" Height="23" Margin="368,79,27,0" Name="button2" VerticalAlignment="Top" Click="button2_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1" />
+                    <GradientStop Color="#FF00FFF9" Offset="0.8" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect />
+            </Button.Effect>
+        </Button>
     </Grid>
 </Window>

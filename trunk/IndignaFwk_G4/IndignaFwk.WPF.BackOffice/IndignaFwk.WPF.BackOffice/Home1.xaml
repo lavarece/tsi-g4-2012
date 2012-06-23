@@ -1,0 +1,42 @@
+﻿<Window x:Class="IndignaFwk_WPF_BackOffice.Home1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Home1" Height="361" Width="438" Loaded="Window_Loaded">
+    <Grid>
+        <Menu Background="#FF1B1B1B" >
+            <MenuItem Foreground="#FF00FFF9" Header="_Inicio">
+                <MenuItem Background="#969696" Header="_Cerrar Sesion..." Click="Click_Cerrar_Sesion" />
+                <MenuItem Background="#969696" Header="_Salir" Click="Click_Salir"/>
+            </MenuItem>
+            <MenuItem Foreground="#FF00FFF9" Header="_Altas">
+                <MenuItem Background="#969696" Header="_Administrador" Click="Click_Alta_Administrador"/>
+                <MenuItem Background="#969696" Header="_Grupo" Click="Click_Alta_Grupo" />
+            </MenuItem>
+            <MenuItem Foreground="#FF00FFF9" Header="_Listados">
+                <MenuItem Background="#969696" Header="_Usuarios" Click="Click_Listados_Usuarios"/>
+                <MenuItem Background="#969696" Header="_Grupos" Click="Click_Listados_Grupos" />
+                <MenuItem Background="#969696" Header="_Administradores" Click="Click_Listados_Administradores" />
+            </MenuItem>
+            <MenuItem Foreground="#FF00FFF9" Header="_Otros">
+                <MenuItem Background="#969696" Header="_Reportes" Click="Click_Reportes"/>
+                <MenuItem Background="#969696" Header="_Variables" Click="Click_Variables" />
+                <MenuItem Background="#969696" Header="_Watchdog" Click="Click_Watchdog" />
+            </MenuItem>
+        </Menu>
+        <Border BorderThickness="2" BorderBrush="#FF1B1B1B" Background="#969696" Margin="0,255,0,0" CornerRadius="0">
+           
+        </Border>
+        <Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework, " Margin="0,260,0,0" VerticalAlignment="Top" Foreground="#FF00FFF9" FontSize="14" DataContext="{Binding}" Height="39" FontStretch="Normal">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Label AllowDrop="False" Content="&quot;I have a dream...&quot;   Martin Luther King" FontStyle="Italic" Foreground="#FF00FFF9" Height="61" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="214">
+            <Label.Effect>
+                <DropShadowEffect />
+            </Label.Effect>
+        </Label>
+    </Grid>
+</Window>
+    
+
