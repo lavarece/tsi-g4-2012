@@ -3,7 +3,7 @@
 body
 {
     font-size: 12px;
-    font-family: Helvetica, Sans-Serif !important;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
     color: #DBDBD5;
     text-align: justify;
     margin: 0px;   
@@ -13,7 +13,7 @@ body
 input, select, textarea
 {
     border: 1px #000000 solid;
-    font-family: Helvetica, Sans-Serif !important;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
 }
 
 #divMapaFullScreen
