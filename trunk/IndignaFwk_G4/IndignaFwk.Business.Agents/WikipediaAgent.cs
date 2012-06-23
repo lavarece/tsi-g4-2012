@@ -13,49 +13,58 @@ namespace IndignaFwk.Business.Agents
     {
         public List<Contenido> ObtenerContenidosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
         {
-            WikipediaService.ServiceSoapClient service = new WikipediaService.ServiceSoapClient();
-
-            uint iID = service.GetTopCandidateIDFromKeyword(fuenteExternaGrupo.QueryString, "English");
-
-            DataSet source = service.GetThesaurusDS(0, iID, 0, "English");
-
-            // Creo la lista de contenidos
-            List<Contenido> listaContenidos = new List<Contenido>();
-
-            int count = 0;
-            foreach (DataTable table in source.Tables)
+            try
             {
-                foreach (DataRow row in table.Rows)
+                WikipediaService.ServiceSoapClient service = new WikipediaService.ServiceSoapClient();
+
+                uint iID = service.GetTopCandidateIDFromKeyword(fuenteExternaGrupo.QueryString, "English");
+
+                DataSet source = service.GetThesaurusDS(0, iID, 0, "English");
+
+                // Creo la lista de contenidos
+                List<Contenido> listaContenidos = new List<Contenido>();
+
+                int count = 0;
+                foreach (DataTable table in source.Tables)
                 {
-                    // Permito agregar tantos contenidos como indique el grupo
-                    if (count == fuenteExternaGrupo.CantidadResultados)
-                        break;
+                    foreach (DataRow row in table.Rows)
+                    {
+                        // Permito agregar tantos contenidos como indique el grupo
+                        if (count == fuenteExternaGrupo.CantidadResultados)
+                            break;
 
-                    string tagWiki = row.ItemArray[3].ToString();
+                        string tagWiki = row.ItemArray[3].ToString();
 
-                    Contenido contenido = new Contenido();
+                        Contenido contenido = new Contenido();
 
-                    contenido.Titulo = tagWiki;
+                        contenido.Titulo = tagWiki;
 
-                    contenido.Comentario = "Contenido wikipedia";
+                        contenido.Comentario = "Contenido wikipedia";
 
-                    contenido.TipoContenido = TipoContenidoEnum.LINK.Valor;
+                        contenido.TipoContenido = TipoContenidoEnum.LINK.Valor;
 
-                    contenido.Grupo = fuenteExternaGrupo.Grupo;
+                        contenido.Grupo = fuenteExternaGrupo.Grupo;
 
-                    contenido.Url = "http://en.wikipedia.org/wiki/" + tagWiki;
+                        contenido.Url = "http://en.wikipedia.org/wiki/" + tagWiki;
 
-                    contenido.Externo = true;
+                        contenido.Externo = true;
 
-                    contenido.FuenteExterna = FuenteExternaEnum.WIKIPEDIA.Valor;
+                        contenido.FuenteExterna = FuenteExternaEnum.WIKIPEDIA.Valor;
 
-                    listaContenidos.Add(contenido);
+                        listaContenidos.Add(contenido);
 
-                    count++;
+                        count++;
+                    }
                 }
-            }
 
-            return listaContenidos;
+                return listaContenidos;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+
+                return new List<Contenido>();
+            }            
         }
     }
 }
