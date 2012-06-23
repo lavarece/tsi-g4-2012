@@ -416,5 +416,61 @@ namespace IndignaFwk.Persistence.DataAccess
                 }
             }
         }
+
+        public List<Convocatoria> ObtenerListadoPorTematica(int idTematica, SqlConnection conexion)
+        {
+            SqlDataReader reader = null;
+
+            List<Convocatoria> listaConvocatorias = new List<Convocatoria>();
+
+            try
+            {
+                command = conexion.CreateCommand();
+
+                command.Connection = conexion;
+
+                StringBuilder sbQuery = new StringBuilder();
+
+                sbQuery.Append(" SELECT c.*, ")
+                       .Append(" (select count(ac.Id) from AsistenciaConvocatoria ac where ac.FK_Id_Convocatoria = c.Id) cantidadAsistencias ")
+                       .Append(" FROM Convocatoria c left join ")
+                       .Append(" Sitio s on c.FK_Id_Sitio = s.Id ") 
+                       .Append(" WHERE s.FK_Id_Tematica = @idTematica ");
+
+                command.CommandText = sbQuery.ToString();
+
+                UtilesBD.SetParameter(command, "idTematica", idTematica);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Convocatoria convocatoria = new Convocatoria();
+
+                    convocatoria.Id = UtilesBD.GetIntFromReader("Id", reader);
+                    convocatoria.Titulo = UtilesBD.GetStringFromReader("Titulo", reader);
+                    convocatoria.Descripcion = UtilesBD.GetStringFromReader("Descripcion", reader);
+                    convocatoria.Quorum = UtilesBD.GetIntFromReader("Quorum", reader);
+                    convocatoria.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+                    convocatoria.LogoUrl = UtilesBD.GetStringFromReader("LogoUrl", reader);
+                    convocatoria.FechaInicio = UtilesBD.GetDateTimeFromReader("FechaInicio", reader);
+                    convocatoria.FechaFin = UtilesBD.GetDateTimeFromReader("FechaFin", reader);
+                    convocatoria.Grupo = GrupoADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Sitio", reader), conexion);
+                    convocatoria.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
+                    convocatoria.CantidadAsistencias = UtilesBD.GetIntFromReader("cantidadAsistencias", reader);
+
+                    listaConvocatorias.Add(convocatoria);
+                }
+
+                return listaConvocatorias;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
     }
 }

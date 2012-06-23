@@ -166,6 +166,24 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        public List<Convocatoria> ObtenerListadoPorTematica(int idTematica)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ConvocatoriaADO.ObtenerListadoPorTematica(idTematica, conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+
         public Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria)
         {
             try
@@ -362,7 +380,5 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
-
-        
     }
 }

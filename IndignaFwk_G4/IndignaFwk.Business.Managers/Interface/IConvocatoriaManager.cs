@@ -16,6 +16,8 @@ namespace IndignaFwk.Business.Managers
 
         List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo);
 
+        List<Convocatoria> ObtenerListadoPorTematica(int idTematica);
+
         Convocatoria ObtenerConvocatoriaPorId(int idConvocatoria);
 
         void EditarConvocatoria(Convocatoria convocatoria);

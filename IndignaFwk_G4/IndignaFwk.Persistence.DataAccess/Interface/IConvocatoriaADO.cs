@@ -23,5 +23,7 @@ namespace IndignaFwk.Persistence.DataAccess
         List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda, SqlConnection conexion);
 
         List<Convocatoria> ObtenerListadoPorGrupo(SqlConnection conexion, int idGrupo);
+
+        List<Convocatoria> ObtenerListadoPorTematica(int idTematica, SqlConnection conexion);
     }
 }

@@ -23,6 +23,8 @@ namespace IndignaFwk.Business.Managers
 
         List<Contenido> ObtenerContenidoEliminadoPorUsuario(int id);
 
+        List<Contenido> ObtenerListadoPorTematica(int idTematica);
+
         // Operaciones MarcaContenido
         MarcaContenido ObtenerMarcaContenidoPorUsuarioYContenido(int idUsuario, int idContenido);
 

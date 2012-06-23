@@ -11,7 +11,7 @@ namespace IndignaFwk.Business.Agents
 {
     public class WikipediaAgent
     {
-        public List<Contenido> ObtenerContenidosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
+        public List<Contenido> ObtenerContenidosExternosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
         {
             try
             {
