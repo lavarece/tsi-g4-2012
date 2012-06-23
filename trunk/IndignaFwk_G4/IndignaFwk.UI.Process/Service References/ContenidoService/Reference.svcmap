@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1281/ContenidoService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/AppServer/ContenidoService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ContenidoService.xsd" MetadataType="Schema" ID="101ec6ac-73c1-4cf1-9340-7f74677e02c8" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ContenidoService.disco" MetadataType="Disco" ID="5e2eb948-ece6-48cc-bc2b-5343859e6d5b" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?disco" />
-    <MetadataFile FileName="ContenidoService1.xsd" MetadataType="Schema" ID="e3d8c7ee-b50a-48ee-9460-b700836c8848" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ContenidoService2.xsd" MetadataType="Schema" ID="8c6b6d1c-db37-42d3-badc-4938dee6dd91" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ContenidoService.wsdl" MetadataType="Wsdl" ID="cfde88b2-1d94-4fc2-b004-6677bf51a3cd" SourceId="1" SourceUrl="http://localhost:1281/ContenidoService.svc?wsdl" />
+    <MetadataFile FileName="ContenidoService3.xsd" MetadataType="Schema" ID="50271738-14d5-4725-a896-781006a0c1e7" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContenidoService1.wsdl" MetadataType="Wsdl" ID="d445346c-1772-4ffd-a2ba-35760b00bd65" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?wsdl" />
+    <MetadataFile FileName="ContenidoService31.xsd" MetadataType="Schema" ID="862bf7f7-fe2f-408c-b4fa-36b533c04dad" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContenidoService32.xsd" MetadataType="Schema" ID="15a07d2c-4055-44c8-a1a7-56f36ebe378f" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContenidoService1.disco" MetadataType="Disco" ID="356e6466-36f7-493e-ae78-0300ce571477" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

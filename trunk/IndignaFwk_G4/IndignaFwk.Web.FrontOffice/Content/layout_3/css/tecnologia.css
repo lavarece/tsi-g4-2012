@@ -427,7 +427,7 @@ input, select, textarea
     margin-top: 10px;
     position: relative;
     left: -20px;
-    height: 465px
+    height: 495px;
 }
 
 .creadorContenido
@@ -443,7 +443,7 @@ input, select, textarea
 {
     float: left;
     padding-right: 10px;
-    width: 50px;
+    width: 70px;
     height: 70px;
 }
 
