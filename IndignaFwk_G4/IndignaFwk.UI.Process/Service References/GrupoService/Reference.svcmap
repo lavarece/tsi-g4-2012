@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1281/GrupoService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/AppServer/GrupoService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GrupoService.disco" MetadataType="Disco" ID="e040e9ef-2923-42d0-8626-20e2fe525cdb" SourceId="1" SourceUrl="http://localhost:1281/GrupoService.svc?disco" />
-    <MetadataFile FileName="GrupoService1.xsd" MetadataType="Schema" ID="5b9fca43-2040-4d51-910c-96f8e27d18b2" SourceId="1" SourceUrl="http://localhost:1281/GrupoService.svc?xsd=xsd1" />
-    <MetadataFile FileName="GrupoService.xsd" MetadataType="Schema" ID="f9d7a036-b66d-45c4-b8ab-c727ebeab9c5" SourceId="1" SourceUrl="http://localhost:1281/GrupoService.svc?xsd=xsd0" />
-    <MetadataFile FileName="GrupoService.wsdl" MetadataType="Wsdl" ID="26c6c099-0fdc-466a-9b62-2232e9879074" SourceId="1" SourceUrl="http://localhost:1281/GrupoService.svc?wsdl" />
-    <MetadataFile FileName="GrupoService2.xsd" MetadataType="Schema" ID="43f2c543-a66e-4e88-99d7-6e429072f371" SourceId="1" SourceUrl="http://localhost:1281/GrupoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GrupoService1.disco" MetadataType="Disco" ID="eecd23e3-5495-45e9-8e79-de2ff3d1d8b7" SourceId="1" SourceUrl="http://localhost/AppServer/GrupoService.svc?disco" />
+    <MetadataFile FileName="GrupoService3.xsd" MetadataType="Schema" ID="b8d964b4-6d61-47f3-a81b-ac7396678d1c" SourceId="1" SourceUrl="http://localhost/AppServer/GrupoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GrupoService31.xsd" MetadataType="Schema" ID="08bfa109-0f9a-4e21-97f2-46a137f7851b" SourceId="1" SourceUrl="http://localhost/AppServer/GrupoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GrupoService1.wsdl" MetadataType="Wsdl" ID="598f0172-0074-4f2b-b95e-9fb11ee2837b" SourceId="1" SourceUrl="http://localhost/AppServer/GrupoService.svc?wsdl" />
+    <MetadataFile FileName="GrupoService32.xsd" MetadataType="Schema" ID="592b4695-6a0a-4089-9a16-5fa5a0256e35" SourceId="1" SourceUrl="http://localhost/AppServer/GrupoService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

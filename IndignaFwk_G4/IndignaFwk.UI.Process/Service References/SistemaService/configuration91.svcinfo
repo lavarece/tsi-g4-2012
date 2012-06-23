@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="uT6jXTvfJhnI5aLLZdwb/DEU3tI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="6T4tENOV9VRmcQfe/NBOYs6SJtA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ISistemaService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_ISistemaService" contract="SistemaService.ISistemaService" bindingType="basicHttpBinding" address="http://localhost:1281/SistemaService.svc" bindingConfiguration="BasicHttpBinding_ISistemaService">
+    <endpoint name="BasicHttpBinding_ISistemaService" contract="SistemaService.ISistemaService" bindingType="basicHttpBinding" address="http://localhost/AppServer/SistemaService.svc" bindingConfiguration="BasicHttpBinding_ISistemaService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1281/SistemaService.svc</serializedValue>
+          <serializedValue>http://localhost/AppServer/SistemaService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

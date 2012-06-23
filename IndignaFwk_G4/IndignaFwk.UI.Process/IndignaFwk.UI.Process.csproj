@@ -94,67 +94,67 @@
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Tematica.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.Usuario.datasource" />
     <None Include="Properties\DataSources\IndignaFwk.Common.Entities.VariableSistema.datasource" />
-    <None Include="Service References\AdministradorService\AdministradorService.wsdl" />
-    <None Include="Service References\AdministradorService\AdministradorService.xsd">
+    <None Include="Service References\AdministradorService\AdministradorService1.wsdl" />
+    <None Include="Service References\AdministradorService\AdministradorService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AdministradorService\AdministradorService1.xsd">
+    <None Include="Service References\AdministradorService\AdministradorService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\AdministradorService\AdministradorService2.xsd">
+    <None Include="Service References\AdministradorService\AdministradorService32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ContenidoService\ContenidoService.wsdl" />
-    <None Include="Service References\ContenidoService\ContenidoService.xsd">
+    <None Include="Service References\ContenidoService\ContenidoService1.wsdl" />
+    <None Include="Service References\ContenidoService\ContenidoService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ContenidoService\ContenidoService1.xsd">
+    <None Include="Service References\ContenidoService\ContenidoService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ContenidoService\ContenidoService2.xsd">
+    <None Include="Service References\ContenidoService\ContenidoService32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.wsdl" />
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.xsd">
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService1.wsdl" />
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService1.xsd">
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService2.xsd">
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService3.xsd">
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService43.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GrupoService\GrupoService.wsdl" />
-    <None Include="Service References\GrupoService\GrupoService.xsd">
+    <None Include="Service References\GrupoService\GrupoService1.wsdl" />
+    <None Include="Service References\GrupoService\GrupoService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GrupoService\GrupoService1.xsd">
+    <None Include="Service References\GrupoService\GrupoService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\GrupoService\GrupoService2.xsd">
+    <None Include="Service References\GrupoService\GrupoService32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SistemaService\SistemaService.wsdl" />
-    <None Include="Service References\SistemaService\SistemaService.xsd">
+    <None Include="Service References\SistemaService\SistemaService1.wsdl" />
+    <None Include="Service References\SistemaService\SistemaService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SistemaService\SistemaService1.xsd">
+    <None Include="Service References\SistemaService\SistemaService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SistemaService\SistemaService2.xsd">
+    <None Include="Service References\SistemaService\SistemaService32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
-    <None Include="Service References\UsuarioService\UsuarioService.xsd">
+    <None Include="Service References\UsuarioService\UsuarioService1.wsdl" />
+    <None Include="Service References\UsuarioService\UsuarioService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UsuarioService\UsuarioService1.xsd">
+    <None Include="Service References\UsuarioService\UsuarioService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UsuarioService\UsuarioService2.xsd">
+    <None Include="Service References\UsuarioService\UsuarioService32.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -176,9 +176,6 @@
     <WCFMetadataStorage Include="Service References\UsuarioService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\GrupoService\GrupoService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\GrupoService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -189,9 +186,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConvocatoriaService\ConvocatoriaService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ConvocatoriaService\configuration91.svcinfo" />
@@ -206,9 +200,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\UsuarioService\UsuarioService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\UsuarioService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +210,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\AdministradorService\AdministradorService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\AdministradorService\configuration91.svcinfo" />
@@ -236,9 +224,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SistemaService\SistemaService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\SistemaService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -251,9 +236,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ContenidoService\ContenidoService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\ContenidoService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +246,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdministradorService\AdministradorService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContenidoService\ContenidoService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConvocatoriaService\ConvocatoriaService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GrupoService\GrupoService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SistemaService\SistemaService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioService\UsuarioService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

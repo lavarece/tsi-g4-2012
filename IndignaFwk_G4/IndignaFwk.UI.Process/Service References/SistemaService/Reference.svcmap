@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1281/SistemaService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/AppServer/SistemaService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SistemaService.xsd" MetadataType="Schema" ID="c6b4de8e-5028-4ee6-8019-e26a82bdc622" SourceId="1" SourceUrl="http://localhost:1281/SistemaService.svc?xsd=xsd2" />
-    <MetadataFile FileName="SistemaService1.xsd" MetadataType="Schema" ID="bc813a97-fac4-45bb-829d-c1ded5ba81cd" SourceId="1" SourceUrl="http://localhost:1281/SistemaService.svc?xsd=xsd0" />
-    <MetadataFile FileName="SistemaService.wsdl" MetadataType="Wsdl" ID="81486416-1abf-4c50-a219-9d7d0fb6c596" SourceId="1" SourceUrl="http://localhost:1281/SistemaService.svc?wsdl" />
-    <MetadataFile FileName="SistemaService.disco" MetadataType="Disco" ID="f3a2d0de-0742-42f3-bc43-0242272ba059" SourceId="1" SourceUrl="http://localhost:1281/SistemaService.svc?disco" />
-    <MetadataFile FileName="SistemaService2.xsd" MetadataType="Schema" ID="baeaa73b-ff73-467d-8c48-389a66b21e82" SourceId="1" SourceUrl="http://localhost:1281/SistemaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SistemaService1.wsdl" MetadataType="Wsdl" ID="fb496357-6af2-4537-9f2d-9f56123f68b2" SourceId="1" SourceUrl="http://localhost/AppServer/SistemaService.svc?wsdl" />
+    <MetadataFile FileName="SistemaService3.xsd" MetadataType="Schema" ID="64477136-9bdc-4193-962b-c7741903b1f8" SourceId="1" SourceUrl="http://localhost/AppServer/SistemaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SistemaService1.disco" MetadataType="Disco" ID="c1ce9119-f3d9-45cf-85e3-cc77f77669e9" SourceId="1" SourceUrl="http://localhost/AppServer/SistemaService.svc?disco" />
+    <MetadataFile FileName="SistemaService31.xsd" MetadataType="Schema" ID="21073d6f-2f11-4051-a6e3-1bfc42c22d41" SourceId="1" SourceUrl="http://localhost/AppServer/SistemaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SistemaService32.xsd" MetadataType="Schema" ID="3184366b-5013-45a0-8948-e95bc1c26639" SourceId="1" SourceUrl="http://localhost/AppServer/SistemaService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:1281/ContenidoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
+  <xs:import schemaLocation="http://localhost/AppServer/ContenidoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" />
   <xs:element name="CrearNuevoContenido">
     <xs:complexType>
       <xs:sequence>
@@ -141,7 +141,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-<<<<<<< .mine
   <xs:element name="ObtenerContenidoConMarcas">
     <xs:complexType>
       <xs:sequence>
@@ -170,34 +169,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-=======
-  <xs:element name="ObtenerContenidoConMarcas">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerContenidoConMarcasResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerContenidoConMarcasResult" nillable="true" type="q8:Contenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerListadoPorGrupo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idGrupo" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerListadoPorGrupoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities" minOccurs="0" name="ObtenerListadoPorGrupoResult" nillable="true" type="q9:ArrayOfContenido" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
->>>>>>> .r327
 </xs:schema>

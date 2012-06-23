@@ -173,11 +173,25 @@ namespace IndignaFwk.Business.Managers
                     {
                         if (fuenteExternaGrupo.FuenteExterna.Equals(FuenteExternaEnum.YOU_TUBE.Valor))
                         {
-                            listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));
+                            try
+                            {
+                                listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));
+                            }
+                            catch (Exception e)
+                            {
+                                // Nothing
+                            }
                         }
                         else if (fuenteExternaGrupo.FuenteExterna.Equals(FuenteExternaEnum.WIKIPEDIA.Valor))
                         {
-                            listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));
+                            try
+                            {
+                                listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));
+                            }
+                            catch (Exception e)
+                            {
+                                // Nothing
+                            }
                         }
                     }
                 }

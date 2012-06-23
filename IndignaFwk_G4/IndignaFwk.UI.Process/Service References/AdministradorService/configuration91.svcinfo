@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="iBry2MKy2YAE/QUpKrJ+NoSMHw4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Acb+oe4kWXUMNs6sX4lY1YFbpb4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAdministradorService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IAdministradorService" contract="AdministradorService.IAdministradorService" bindingType="basicHttpBinding" address="http://localhost:1281/AdministradorService.svc" bindingConfiguration="BasicHttpBinding_IAdministradorService">
+    <endpoint name="BasicHttpBinding_IAdministradorService" contract="AdministradorService.IAdministradorService" bindingType="basicHttpBinding" address="http://localhost/AppServer/AdministradorService.svc" bindingConfiguration="BasicHttpBinding_IAdministradorService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1281/AdministradorService.svc</serializedValue>
+          <serializedValue>http://localhost/AppServer/AdministradorService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1281/UsuarioService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/AppServer/UsuarioService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UsuarioService.disco" MetadataType="Disco" ID="f4220d2b-c5f1-415a-9139-1e47e178a028" SourceId="1" SourceUrl="http://localhost:1281/UsuarioService.svc?disco" />
-    <MetadataFile FileName="UsuarioService.xsd" MetadataType="Schema" ID="8444b7ac-d71c-44b6-bdf2-7d5e3288e637" SourceId="1" SourceUrl="http://localhost:1281/UsuarioService.svc?xsd=xsd2" />
-    <MetadataFile FileName="UsuarioService1.xsd" MetadataType="Schema" ID="25b8117e-f2b6-4ccb-b17c-c7c440f7643b" SourceId="1" SourceUrl="http://localhost:1281/UsuarioService.svc?xsd=xsd1" />
-    <MetadataFile FileName="UsuarioService2.xsd" MetadataType="Schema" ID="7fcbb0a3-cfd3-430f-b428-1ce50dd5d72d" SourceId="1" SourceUrl="http://localhost:1281/UsuarioService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UsuarioService.wsdl" MetadataType="Wsdl" ID="ba995d75-25c1-474b-9503-2b502e5ea4ec" SourceId="1" SourceUrl="http://localhost:1281/UsuarioService.svc?wsdl" />
+    <MetadataFile FileName="UsuarioService1.disco" MetadataType="Disco" ID="cb4ee06f-f8eb-4546-8d51-640f7dbec31d" SourceId="1" SourceUrl="http://localhost/AppServer/UsuarioService.svc?disco" />
+    <MetadataFile FileName="UsuarioService3.xsd" MetadataType="Schema" ID="371dbb9e-714a-4bef-b738-c0396eadd93f" SourceId="1" SourceUrl="http://localhost/AppServer/UsuarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UsuarioService31.xsd" MetadataType="Schema" ID="893ddf69-80fc-4214-8003-b4887eeadb3b" SourceId="1" SourceUrl="http://localhost/AppServer/UsuarioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UsuarioService32.xsd" MetadataType="Schema" ID="1d8f7d1c-f070-44e9-9e79-f58c4082463d" SourceId="1" SourceUrl="http://localhost/AppServer/UsuarioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UsuarioService1.wsdl" MetadataType="Wsdl" ID="8a97f06d-10fa-49d5-ad82-7730f6788a9a" SourceId="1" SourceUrl="http://localhost/AppServer/UsuarioService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
