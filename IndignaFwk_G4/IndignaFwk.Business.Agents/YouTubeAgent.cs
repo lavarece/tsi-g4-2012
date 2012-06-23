@@ -18,50 +18,59 @@ namespace IndignaFwk.Business.Agents
         
         public List<Contenido> ObtenerContenidosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
         {
-            // Youtube request
-            YouTubeRequestSettings settings = new YouTubeRequestSettings("TSI_2012", DEVELOPER_KEY);
-            YouTubeRequest request = new YouTubeRequest(settings);
-
-            // Youtube query
-            YouTubeQuery query = new YouTubeQuery(YouTubeQuery.DefaultVideoUri);
-            query.OrderBy = "viewCount";
-            query.Query = fuenteExternaGrupo.QueryString;
-            query.SafeSearch = YouTubeQuery.SafeSearchValues.None;
-
-            Feed<Video> videoFeed = request.Get<Video>(query);
-
-            // Genero la lista de contenidos
-            List<Contenido> listaContenidos = new List<Contenido>();
-
-            int count = 0;
-            foreach (Video video in videoFeed.Entries)
+            try
             {
-                // Permito agregar tantos contenidos como indique el grupo
-                if (count == fuenteExternaGrupo.CantidadResultados)
-                    break;
+                // Youtube request
+                YouTubeRequestSettings settings = new YouTubeRequestSettings("TSI_2012", DEVELOPER_KEY);
+                YouTubeRequest request = new YouTubeRequest(settings);
 
-                Contenido contenido = new Contenido();
+                // Youtube query
+                YouTubeQuery query = new YouTubeQuery(YouTubeQuery.DefaultVideoUri);
+                query.OrderBy = "viewCount";
+                query.Query = fuenteExternaGrupo.QueryString;
+                query.SafeSearch = YouTubeQuery.SafeSearchValues.None;
 
-                contenido.Titulo = video.Title;
+                Feed<Video> videoFeed = request.Get<Video>(query);
 
-                contenido.Comentario = video.Description;
+                // Genero la lista de contenidos
+                List<Contenido> listaContenidos = new List<Contenido>();
 
-                contenido.TipoContenido = TipoContenidoEnum.VIDEO_YOU_TUBE.Valor;
+                int count = 0;
+                foreach (Video video in videoFeed.Entries)
+                {
+                    // Permito agregar tantos contenidos como indique el grupo
+                    if (count == fuenteExternaGrupo.CantidadResultados)
+                        break;
 
-                contenido.Grupo = fuenteExternaGrupo.Grupo;
+                    Contenido contenido = new Contenido();
 
-                contenido.Url = "http://www.youtube.com/embed/" + video.VideoId + "?wmode=transparent";
+                    contenido.Titulo = video.Title;
 
-                contenido.Externo = true;
+                    contenido.Comentario = video.Description;
 
-                contenido.FuenteExterna = FuenteExternaEnum.YOU_TUBE.Valor;
+                    contenido.TipoContenido = TipoContenidoEnum.VIDEO_YOU_TUBE.Valor;
 
-                listaContenidos.Add(contenido);
+                    contenido.Grupo = fuenteExternaGrupo.Grupo;
 
-                count++;
+                    contenido.Url = "http://www.youtube.com/embed/" + video.VideoId + "?wmode=transparent";
+
+                    contenido.Externo = true;
+
+                    contenido.FuenteExterna = FuenteExternaEnum.YOU_TUBE.Valor;
+
+                    listaContenidos.Add(contenido);
+
+                    count++;
+                }
+
+                return listaContenidos;
             }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
 
-            return listaContenidos;
+                return new List<Contenido>();
+            }
         }   
     }
 }
