@@ -173,11 +173,11 @@ namespace IndignaFwk.Business.Managers
                     {
                         if (fuenteExternaGrupo.FuenteExterna.Equals(FuenteExternaEnum.YOU_TUBE.Valor))
                         {                            
-                            listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));                            
+                            listaContenidos.AddRange(YouTubeAgent.ObtenerContenidosExternosDeGrupo(fuenteExternaGrupo));                            
                         }
                         else if (fuenteExternaGrupo.FuenteExterna.Equals(FuenteExternaEnum.WIKIPEDIA.Valor))
                         {                            
-                            listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosDeGrupo(fuenteExternaGrupo));                            
+                            listaContenidos.AddRange(WikipediaAgent.ObtenerContenidosExternosDeGrupo(fuenteExternaGrupo));                            
                         }
                     }
                 }
@@ -355,5 +355,24 @@ namespace IndignaFwk.Business.Managers
                 UtilesBD.CerrarConexion(conexion);
             }
         }
-    }
+
+        public List<Contenido> ObtenerListadoPorTematica(int idTematica)
+        {
+            try
+            {
+                conexion = UtilesBD.ObtenerConexion(true);
+
+                return ContenidoADO.ObtenerListadoPorTematica(idTematica, conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                UtilesBD.CerrarConexion(conexion);
+            }
+        }
+       
+    }   
 }

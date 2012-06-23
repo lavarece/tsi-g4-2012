@@ -29,5 +29,7 @@ namespace IndignaFwk.Persistence.DataAccess
         List<Contenido> ObtenerListadoPorGrupo(SqlConnection conexion, int idGrupo);
 
         List<Contenido> ObtenerContenidoEliminadoPorUsuario(int id, SqlConnection conexion);
+
+        List<Contenido> ObtenerListadoPorTematica(int idTematica, SqlConnection conexion);
     }
 }

@@ -56,6 +56,7 @@
     <Content Include="AdministradorService.svc" />
     <Content Include="ContenidoService.svc" />
     <Content Include="ConvocatoriaService.svc" />
+    <Content Include="ExposeService.svc" />
     <Content Include="GrupoService.svc" />
     <Content Include="SistemaService.svc" />
     <Content Include="UsuarioService.svc" />
@@ -79,9 +80,13 @@
     <Compile Include="ConvocatoriaService.svc.cs">
       <DependentUpon>ConvocatoriaService.svc</DependentUpon>
     </Compile>
+    <Compile Include="ExposeService.svc.cs">
+      <DependentUpon>ExposeService.svc</DependentUpon>
+    </Compile>
     <Compile Include="GrupoService.svc.cs">
       <DependentUpon>GrupoService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IExposeService.cs" />
     <Compile Include="Interface\IAdministradorService.cs" />
     <Compile Include="Interface\IContenidoService.cs" />
     <Compile Include="Interface\IConvocatoriaService.cs" />
