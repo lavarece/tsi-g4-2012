@@ -12,6 +12,13 @@
 @using (Html.BeginForm(null, "Account", FormMethod.Post, new { @id = "formLogin" }))
 {
     <div class="areaFormulario">
+        <div id="conectar_facebook">
+            <a href="javascript:login(); return false;" onclick="login(); return false;">Conectarse por Facebook</a>
+        </div>
+        <div id="aceptar_facebook">
+          <a href="@Url.Action("LoginConFace", "Account")">Aceptar</a>
+        </div>
+
         <table>
             <tr>
                 <td>
@@ -75,9 +82,7 @@
         $("#formLogin")[0].submit();
     }
 
-</script>
-
-<script>
+    // Scripts facebook
     var fb = {
         config: {
             //SE INTRODUCE EL ID DE LA APLICACIÓN
@@ -180,6 +185,8 @@
     };
 
 </script>
+<<<<<<< .mine
+=======
 
 </head>
 <body>
@@ -189,4 +196,4 @@
   <br/><br/>
 </body>
 
-</html>
+</html>>>>>>>> .r353
