@@ -63,5 +63,10 @@ namespace IndignaFwk_WPF_BackOffice
             wDog.Show();
         }
 
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 	}
 }

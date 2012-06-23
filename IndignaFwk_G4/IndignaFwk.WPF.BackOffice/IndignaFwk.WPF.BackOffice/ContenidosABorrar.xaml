@@ -16,7 +16,7 @@
             <RowDefinition Height="400.84"/>
             <RowDefinition Height="Auto" MinHeight="39.16"/>
         </Grid.RowDefinitions>
-        <Label Content="Listado del contenido a borrar" Height="39" Margin="12,9,1,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="16" Grid.ColumnSpan="2">
+        <Label Content="Listado de contenidos" Height="39" Margin="12,9,1,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="16" Grid.ColumnSpan="2">
 
         </Label>
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_contenidoBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3">
@@ -39,7 +39,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Eliminar Contenidos Listados" Height="23" HorizontalAlignment="Right" Margin="0,0,121,88" Name="button1" VerticalAlignment="Bottom" Width="172" Grid.Column="2" Click="eliminar_Contenido">
+        <Button Content="Eliminar" Height="23" HorizontalAlignment="Right" Margin="0,0,118,87" Name="button1" VerticalAlignment="Bottom" Width="90" Grid.Column="2" Click="eliminar_Contenido">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FF00FFF9" Offset="0.8" />

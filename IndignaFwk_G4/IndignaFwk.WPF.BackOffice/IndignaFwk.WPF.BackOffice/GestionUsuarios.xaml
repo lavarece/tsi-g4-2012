@@ -4,7 +4,7 @@
 	x:Class="IndignaFwk_WPF_BackOffice.GestionUsuarios"
 	x:Name="Window"
 	Title="GestionUsuarios"
-	Width="524" Height="364">
+	Width="527" Height="360">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
 		<Grid.ColumnDefinitions>
@@ -14,9 +14,10 @@
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="400.84"/>
-			<RowDefinition Height="Auto" MinHeight="39.16"/>
+            <RowDefinition Height="29" />
+            <RowDefinition Height="Auto" MinHeight="39.16"/>
 		</Grid.RowDefinitions>
-		<Label Content="Gestión de Usuarios" Height="39" Margin="132.5,9,127.5,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.Column="1">
+        <Label Content="Listado de Usuarios" Height="39" Margin="132.5,9,127.5,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
@@ -50,5 +51,5 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-	</Grid>
+    </Grid>
 </Window>

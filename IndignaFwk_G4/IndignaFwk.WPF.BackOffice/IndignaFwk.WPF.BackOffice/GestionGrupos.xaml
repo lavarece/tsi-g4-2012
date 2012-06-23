@@ -28,15 +28,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Button x:Name="boton_nuevoGrupo" HorizontalAlignment="Right" Height="26" Margin="0,0,9,4" VerticalAlignment="Bottom" Width="127" Content="Nuevo Grupo" Click="boton_nuevoGrupo_Click">
-			<Button.Background>
-				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
-					<GradientStop Color="Black" Offset="1"/>
-				</LinearGradientBrush>
-			</Button.Background>
-		</Button>
-		<Button x:Name="boton_Salir" Margin="159.11,0,143.89,4.372" Content="Salir" Click="boton_Salir_Click" Height="26" VerticalAlignment="Bottom">
+        <Button x:Name="boton_Salir" Margin="321,0,12,11" Content="Salir" Click="boton_Salir_Click" Height="25" VerticalAlignment="Bottom">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>

@@ -4,23 +4,24 @@
 	x:Class="IndignaFwk_WPF_BackOffice.GestionReportes"
 	x:Name="Window"
 	Title="GestionReportes"
-	Width="426" Height="176">
+	Width="374" Height="176">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="131.999"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<Label Content="Gestión de Reportes" Height="39" Margin="87,2,-84,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
+        <Border Background="#969696" BorderBrush="#FF1B1B1B" BorderThickness="2" CornerRadius="0" Margin="0,76,0,0" Grid.RowSpan="2" />
+        <Label Content="Tipo de Reportes" Height="39" Margin="54,0,-51,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
 		<ListBox x:Name="listbox_tipoReporte" Margin="19,51,17,0" Height="37" VerticalAlignment="Top">
-			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Reporte de Registros en el Tiempo"/>
-			<ListBoxItem x:Name="listboxItem_contenidoInadecuado" Content="Reporte de Contenido Inadecuado"/>
+			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Registros en el Tiempo"/>
+			<ListBoxItem x:Name="listboxItem_contenidoInadecuado" Content="Contenido Inadecuado"/>
 		</ListBox>
-		<Button x:Name="boton_generarReporte" Content="Generar Reporte" HorizontalAlignment="Right" Height="25" Margin="0,0,15,5" VerticalAlignment="Bottom" Width="139" Click="boton_generarReporte_Click">
+		<Button x:Name="boton_generarReporte" Content="Generar" HorizontalAlignment="Right" Height="21" Margin="0,0,114,7" VerticalAlignment="Bottom" Width="91" Click="boton_generarReporte_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
@@ -28,7 +29,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_Salir" Height="26" Margin="122.11,0,160.89,4.355" VerticalAlignment="Bottom" Content="Salir" Click="boton_Salir_Click">
+		<Button x:Name="boton_Salir" Height="21" Margin="244,0,17,7" VerticalAlignment="Bottom" Content="Salir" Click="boton_Salir_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>

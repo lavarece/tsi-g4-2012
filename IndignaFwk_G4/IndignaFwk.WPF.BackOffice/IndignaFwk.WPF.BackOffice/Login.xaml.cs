@@ -37,7 +37,7 @@ namespace IndignaFwk_WPF_BackOffice
 
            /* if (admin != null)
             {*/
-                Home homeWindow = new Home(txt_usuario.Text);
+                Home1 homeWindow = new Home1(txt_usuario.Text);
 
                 homeWindow.Show();
 
@@ -48,6 +48,11 @@ namespace IndignaFwk_WPF_BackOffice
                 MensajeError mensaje = new MensajeError("Error! Email y Contraseña incorrectos");
                 mensaje.Show();
             }*/
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 	}
 }
