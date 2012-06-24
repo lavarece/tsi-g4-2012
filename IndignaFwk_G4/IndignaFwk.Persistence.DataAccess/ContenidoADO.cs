@@ -629,9 +629,9 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     contenido.FechaCreacion = UtilesBD.GetDateTimeFromReader("FechaCreacion", reader);
 
-                    contenido.CantidadMeGusta = UtilesBD.GetIntFromReader("cantidadMeGusta", reader);
+                    //contenido.CantidadMeGusta = UtilesBD.GetIntFromReader("cantidadMeGusta", reader);
 
-                    contenido.CantidadInadecuado = UtilesBD.GetIntFromReader("cantidadInadecuado", reader);
+                    //contenido.CantidadInadecuado = UtilesBD.GetIntFromReader("cantidadInadecuado", reader);
 
                     contenido.UsuarioCreacion = UsuarioADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_UsuarioCreacion", reader), conexion);
 
