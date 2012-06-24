@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
-using IndignaFwk_WP7_WindowsPhoneApplication.ServiceReference1;
+using IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario;
+using IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria;
 
 namespace IndignaFwk_WP7_WindowsPhoneApplication
 {
@@ -63,7 +64,7 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
         /// </summary>
         public void LoadData()
         {
-            ServiceReference1.ConvocatoriaServiceClient proxy = new ServiceReference1.ConvocatoriaServiceClient();
+            ServiceReferenceConvocatoria.ConvocatoriaServiceClient proxy = new ServiceReferenceConvocatoria.ConvocatoriaServiceClient();
 
             proxy.ObtenerListadoConvocatoriasPorGrupoAsync(4);
             proxy.ObtenerListadoConvocatoriasPorGrupoCompleted +=new EventHandler<ObtenerListadoConvocatoriasPorGrupoCompletedEventArgs>(proxy_ObtenerListadoConvocatoriasPorGrupoCompleted); 
@@ -85,9 +86,9 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
 
         private void proxy_ObtenerListadoConvocatoriasPorGrupoCompleted(object sender, ObtenerListadoConvocatoriasPorGrupoCompletedEventArgs e)
         {
-            Collection<Convocatoria> listaConvocatorias = e.Result;
+            Collection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> listaConvocatorias = e.Result;
 
-            foreach(Convocatoria convocatoria in listaConvocatorias)
+            foreach(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria convocatoria in listaConvocatorias)
             {
                 this.Grupo1.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = convocatoria.Descripcion});
                 this.Grupo2.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = "Descripcion: " + convocatoria.Descripcion, LineThree = "Fecha Inicio: " + convocatoria.FechaInicio,

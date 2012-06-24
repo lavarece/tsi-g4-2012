@@ -68,7 +68,12 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\ServiceReferenceConvocatoria\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReferenceUsuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -93,24 +98,44 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\ServiceReference1\ConvocatoriaService.wsdl" />
-    <None Include="Service References\ServiceReference1\ConvocatoriaService.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService.wsdl" />
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ConvocatoriaService1.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ConvocatoriaService2.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ConvocatoriaService3.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReference1.AsistenciaConvocatoria.datasource">
+    <None Include="Service References\ServiceReferenceConvocatoria\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReference1.Convocatoria.datasource">
+    <None Include="Service References\ServiceReferenceUsuario\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Notificacion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceUsuario\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService.wsdl" />
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService.disco" />
+    <None Include="Service References\ServiceReferenceConvocatoria\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferenceConvocatoria\configuration.svcinfo" />
+    <None Include="Service References\ServiceReferenceConvocatoria\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
@@ -121,10 +146,10 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServiceReference1\ConvocatoriaService.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService.disco" />
+    <None Include="Service References\ServiceReferenceUsuario\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferenceUsuario\configuration.svcinfo" />
+    <None Include="Service References\ServiceReferenceUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -134,7 +159,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\ServiceReferenceConvocatoria\" />
+    <WCFMetadataStorage Include="Service References\ServiceReferenceUsuario\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

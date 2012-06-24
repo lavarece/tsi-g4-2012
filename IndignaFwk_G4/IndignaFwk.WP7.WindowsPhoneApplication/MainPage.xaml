@@ -18,9 +18,22 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot" Background="Transparent">
 		<!--Pivot Control-->
-		<controls:Pivot Title="Grupo 1" >
+		<controls:Pivot Name="contenedor" Title="Grupo 1" >
 			<!--Pivot item one-->
-			<controls:PivotItem Header="Convocatorias">
+			
+			<controls:PivotItem Header="Login">
+				<!--Double line list with text wrapping-->
+				<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+					<TextBox x:Name="textBox_email" Height="76" Margin="21,79,21,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+					<TextBox x:Name="textBox_pass" Height="76" Margin="21,198,21,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+					<TextBlock HorizontalAlignment="Left" Height="32" Margin="33,51,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="153"/>
+					<TextBlock HorizontalAlignment="Left" Height="32" Margin="33,172,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="153"/>
+					<Button x:Name="boton_login" Content="Login" HorizontalAlignment="Right" Margin="0,291,21,237" Width="193" Click="boton_login_Click" />
+                    <Button x:Name="boton_salir" Content="Salir" HorizontalAlignment="Left" Margin="20,290,0,238" Width="193" Click="boton_cerrarSesion_Click"/>
+				</Grid>
+			</controls:PivotItem>
+			
+			<controls:PivotItem Name="pivotConvocatorias" Header="Convocatorias">
 				<!--Double line list with text wrapping-->
 				<ListBox x:Name="FirstListBox" ItemsSource="{Binding Grupo1}" Margin="0,0,-12,0" SelectionChanged="FirstListBox_SelectionChanged">
 					<ListBox.ItemTemplate>
@@ -35,7 +48,7 @@
 			</controls:PivotItem>
 
 			<!--Pivot item two-->
-			<controls:PivotItem Header="Detalle">
+            <controls:PivotItem Name="pivotDetalles" Header="Detalle">
 				<!--Triple line list no text wrapping-->
 				<ListBox x:Name="SecondListBox" ItemsSource="{Binding Grupo2}" Margin="0,0,-12,0">
 					<ListBox.ItemTemplate>
