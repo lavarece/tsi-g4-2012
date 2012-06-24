@@ -19,15 +19,15 @@
         <Label Content="Listado de contenidos" Height="39" Margin="12,9,1,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="16" Grid.ColumnSpan="2">
 
         </Label>
-        <DataGrid AutoGenerateColumns="False" x:Name="datagrid_contenidoBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3">
+        <DataGrid AutoGenerateColumns="False" x:Name="datagrid_contenidoBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=FK_Id_Sitio}" Header="Sitio"/>
                 <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id"/>
                 <DataGridTextColumn Binding="{Binding Path=Titulo}" Header="Titulo"/>
                 <DataGridTextColumn Binding="{Binding Path=Comentario}" Header="Comentario"/>
                 <DataGridTextColumn Binding="{Binding Path=Url}" Header="Url"/>
-                <DataGridTextColumn Binding="{Binding Path=FechaCreacion}" Header="Fecha Creación"/>
-                <DataGridTextColumn Binding="{Binding Path=FK_Id_UsuarioCreacion}" Header="Usuario Creación"/>
+                <DataGridTextColumn Binding="{Binding Path=FechaCreacion}" Header="Fecha Creacion"/>
+                <DataGridTextColumn Binding="{Binding Path=FK_Id_UsuarioCreacion}" Header="Usuario Creacion"/>
                 <DataGridTextColumn Binding="{Binding Path=CantidadInadecuado}" Header="Cantidad de Marcas Inadecuado"/>
             </DataGrid.Columns>
         </DataGrid>

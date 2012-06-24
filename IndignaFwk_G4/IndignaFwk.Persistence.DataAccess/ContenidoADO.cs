@@ -585,9 +585,7 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
 
-        // ************* REVISAR ESTE METODO, en la consulta no tiene las subquery para cantidad
-        // me gusta y cantidad inadecuado pero igual lo pide al armar el objeto al final del metodo
-        // ahi seguro explote
+    
         public List<Contenido> ObtenerContenidoEliminadoPorUsuario(int id, SqlConnection conexion)
         {
             SqlDataReader reader = null;
