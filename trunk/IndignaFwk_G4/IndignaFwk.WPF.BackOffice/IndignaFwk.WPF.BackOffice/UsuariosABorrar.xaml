@@ -21,14 +21,11 @@
         </Label>
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_usuariosBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=FK_Id_Usuario}" Header="IdUsuario"/>
-                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id"/>
-                <DataGridTextColumn Binding="{Binding Path=Titulo}" Header="Titulo"/>
-                <DataGridTextColumn Binding="{Binding Path=Comentario}" Header="Comentario"/>
-                <DataGridTextColumn Binding="{Binding Path=Url}" Header="Url"/>
-                <DataGridTextColumn Binding="{Binding Path=FechaCreacion}" Header="Fecha Creación"/>
-                <DataGridTextColumn Binding="{Binding Path=FK_Id_UsuarioCreacion}" Header="Usuario Creación"/>
-                <DataGridTextColumn Binding="{Binding Path=CantidadInadecuado}" Header="Cantidad de Marcas Inadecuado"/>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="IdUsuario"/>
+                <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
+                <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Apellidos"/>
+                <DataGridTextColumn Binding="{Binding Path=FK_Id_Sitio}" Header="Sitio"/>
+                <DataGridTextColumn Binding="{Binding Path=FechaRegistro}" Header="Fecha de Registro"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="boton_Salir" Height="23" Margin="0,0,12,87" VerticalAlignment="Bottom" Content="Salir" HorizontalAlignment="Right" Width="91" Grid.Column="2" Click="boton_Salir_Click">
