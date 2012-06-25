@@ -57,13 +57,15 @@
 
     function addMarkerConvocatoria(id, titulo, descripcion, latitud, longitud, quorum, asistencias, mapa) 
     {
+        var urlUbicarConvocatoria = "@Url.Action("UbicarConvocatoria", "Convocatoria")" + "?idConvocatoriaAUbicar=" + id;
+
         var markerLatLng = new google.maps.LatLng(latitud, longitud);
         var contentString = "<div style=\"color: #000000\">" + 
                             "<div style=\"font-weight: bold; text-decoration: underline;\">" + titulo + "</div>" +
                             "<div style=\"font-style: italic;\">Descripción: " + descripcion + "</div>" +
                             "<div style=\"font-style: italic;\">Quorum: " + quorum + "</div>" +
-                            "<div style=\"font-style: italic;\">Asistirán: " + asistencias + "</div>" +
-                            "<div style=\"margin-top: 5px;\"class=\"boton\"><a style=\"float: right;\" href=\"/Convocatoria/UbicarConvocatoria?idConvocatoriaAUbicar=" + id + "\">Ir a convocatoria</a></div>" +                             
+                            "<div style=\"font-style: italic;\">Asistirán: " + asistencias + "</div>" +                            
+                            "<div style=\"margin-top: 5px;\"class=\"boton\"><a style=\"float: right;\" href=\"" + urlUbicarConvocatoria + "\">Ir a convocatoria</a></div>" +                             
                             "</div>";
                             
 
