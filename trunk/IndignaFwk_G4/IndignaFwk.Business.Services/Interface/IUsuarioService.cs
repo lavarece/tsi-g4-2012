@@ -31,10 +31,10 @@ namespace IndignaFwk.Business.Services
         List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo);
 
         [OperationContract]
-        Usuario ObtenerUsuarioPorEmailYPass(string email, string pass);
+        Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo);
 
         [OperationContract]
-        Usuario ObtenerUsuarioPorEmail(string email);
+        Usuario ObtenerUsuarioPorEmailYGrupo(string email, int idGrupo);
 
         [OperationContract]
         List<Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo);

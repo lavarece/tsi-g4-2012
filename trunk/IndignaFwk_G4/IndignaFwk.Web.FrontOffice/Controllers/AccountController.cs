@@ -47,28 +47,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 //Encripto contraseña para compararla con la encriptada en la base.
                 String passEncriptado = UtilesSeguridad.Encriptar(model.Contraseña);
 
-                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmailYPass(model.Email, passEncriptado);
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmailPassYGrupo(model.Email, passEncriptado, site.Grupo.Id);
 
                 if (usuario != null && usuario.Grupo.Id.Equals(site.Grupo.Id))
                 {
-                    string idUsuario = usuario.Id.ToString();
-
-                    string nombreCompleto = usuario.NombreCompleto;
-
-                    FormsAuthentication.SetAuthCookie(nombreCompleto, true);
-
-                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(30), true, idUsuario);
-
-                    string encTicket = FormsAuthentication.Encrypt(ticket);
-
-                    HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
-
-                    HttpContext.Response.Cookies.Add(authCookie);
-
-                    // Seteo la propiedad conectado del usuario a true
-                    usuario.Conectado = true;
-
-                    usuarioUserProcess.EditarUsuario(usuario);
+                    loguearUsuario(usuario);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -81,28 +64,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             PopulateViewBag();
 
             return View(model);
-        }
-
-        [HttpGet]
-        public ActionResult LoginFacebook()
-        {
-            string ajaxReturn = "";
-
-            string emailParam = Request["emailFacebook"];
-
-            Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmail(emailParam);
-
-            // Si no existe el usuario del mail de facebook lo tengo que dar de alta
-            if (usuario == null)
-            {
-                ajaxReturn = "Registrar";
-            }
-            else
-            {
-                ajaxReturn = "Login";
-            }
-
-            return Content(ajaxReturn, "text/html");
         }
 
         public ActionResult LogOff()
@@ -138,27 +99,23 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         {
             if (ModelState.IsValid)
             {
-                Usuario usuario = new Usuario();
-                usuario.Nombre = model.Nombre;
-                usuario.Apellido = model.Apellido;
-                usuario.Descripcion = model.Descripcion;
-                usuario.Email = model.Email;
-
-                //Encripto contraseña para guardar en la base
-                usuario.Password = UtilesSeguridad.Encriptar(model.Contrasenia);
-                usuario.Pregunta = model.PreguntaSecreta;
-                usuario.Respuesta = model.RespuestaSecreta;
-                usuario.Coordenadas = model.Coordenadas;
-                usuario.Grupo = this.site.Grupo;
-                //controlar mail que no exista en la base para ese grupo
-
-                //Si el usuario existe te retorna a la web
-                if (usuarioUserProcess.ObtenerUsuarioPorEmail(model.Email) == null)
+                // Controlar mail que no exista en la base para ese grupo
+                if (usuarioUserProcess.ObtenerUsuarioPorEmailYGrupo(model.Email, site.Grupo.Id) == null)
                 {
-                    usuarioUserProcess.CrearNuevoUsuario(usuario);
+                    Usuario usuario = new Usuario();
+                    usuario.Nombre = model.Nombre;
+                    usuario.Apellido = model.Apellido;
+                    usuario.Descripcion = model.Descripcion;
+                    usuario.Email = model.Email;
 
-                    model.Nombre = "";
-                    model.Apellido = "";
+                    //Encripto contraseña para guardar en la base
+                    usuario.Password = UtilesSeguridad.Encriptar(model.Contrasenia);
+                    usuario.Pregunta = model.PreguntaSecreta;
+                    usuario.Respuesta = model.RespuestaSecreta;
+                    usuario.Coordenadas = model.Coordenadas;
+                    usuario.Grupo = this.site.Grupo;
+
+                    usuarioUserProcess.CrearNuevoUsuario(usuario);
 
                     AddControllerMessage("Usuario registrado correctamente." + 
                                          "<div style=\"float: right; margin-top: 20px;\">" + 
@@ -173,6 +130,51 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             PopulateViewBag();
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult LoginFacebook()
+        {
+            string ajaxReturn = "";
+
+            string emailParam = Request["emailFacebook"];
+
+            Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmailYGrupo(emailParam, site.Grupo.Id);
+
+            // Si no existe un usuario con el mail de facebook lo tengo que dar de alta
+            if (usuario == null)
+            {
+                ajaxReturn = "Registrar";
+            }
+
+            // Autentica correctamente y retorna a inicio
+            else
+            {
+                loguearUsuario(usuario);
+
+                ajaxReturn = "Ok";
+            }
+
+            return Content(ajaxReturn, "text/html");
+        }
+
+        [HttpGet]
+        public ActionResult RegistroFacebook()
+        {
+            Usuario usuario = new Usuario();
+            usuario.Nombre = Request["nombreFb"];
+            usuario.Apellido = Request["apellidoFb"];
+            usuario.Email = Request["emailFb"];
+            usuario.Password = "pass-fb"; // Cualquier cadena, nunca se lograra pone esta desde el front
+            usuario.Coordenadas = Request["coordFb"];
+            usuario.Grupo = this.site.Grupo;
+
+            usuarioUserProcess.CrearNuevoUsuario(usuario);
+
+            // Autentico el usuario
+            loguearUsuario(usuario);
+
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult EditarPerfil()
@@ -293,6 +295,28 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             }
             
             return Content("Debe autenticarse.", "text/html");
+        }
+
+        private void loguearUsuario(Usuario usuario)
+        {
+            string idUsuario = usuario.Id.ToString();
+
+            string nombreCompleto = usuario.NombreCompleto;
+
+            FormsAuthentication.SetAuthCookie(nombreCompleto, true);
+
+            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(30), true, idUsuario);
+
+            string encTicket = FormsAuthentication.Encrypt(ticket);
+
+            HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+
+            HttpContext.Response.Cookies.Add(authCookie);
+
+            // Seteo la propiedad conectado del usuario a true
+            usuario.Conectado = true;
+
+            usuarioUserProcess.EditarUsuario(usuario);
         }
     }
 }

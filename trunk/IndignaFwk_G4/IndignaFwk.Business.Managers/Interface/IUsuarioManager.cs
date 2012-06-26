@@ -18,12 +18,12 @@ namespace IndignaFwk.Business.Managers
 
         void EliminarUsuario(int idUsuario);
 
-        Usuario ObtenerUsuarioPorEmailYPass(string email, string pass);
+        Usuario ObtenerPorEmailYGrupo(string email, int idGrupo);
+
+        Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo);
 
         List<Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo);
-
-        Usuario ObtenerPorEmail(string email);
-
+       
         // Funciones con notificaciones
         List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario);
 

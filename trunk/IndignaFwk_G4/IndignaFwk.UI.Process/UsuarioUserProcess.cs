@@ -71,22 +71,22 @@ namespace IndignaFwk.UI.Process
             return usuarios;
         }
 
-        public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
+        public Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo)
         {
             UsuarioServiceClient proxy = new UsuarioServiceClient();
 
-            Usuario usuario = proxy.ObtenerUsuarioPorEmailYPass(email, pass);
+            Usuario usuario = proxy.ObtenerUsuarioPorEmailPassYGrupo(email, pass, idGrupo);
 
             proxy.Close();
 
             return usuario;
         }
 
-        public Usuario ObtenerUsuarioPorEmail(string email)
+        public Usuario ObtenerUsuarioPorEmailYGrupo(string email, int idGrupo)
         {
             UsuarioServiceClient proxy = new UsuarioServiceClient();
 
-            Usuario usuario = proxy.ObtenerUsuarioPorEmail(email);
+            Usuario usuario = proxy.ObtenerUsuarioPorEmailYGrupo(email, idGrupo);
 
             proxy.Close();
 

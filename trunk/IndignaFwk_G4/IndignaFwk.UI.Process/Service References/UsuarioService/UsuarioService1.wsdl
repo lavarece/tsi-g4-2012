@@ -43,17 +43,17 @@
   <wsdl:message name="IUsuarioService_ObtenerUsuariosPorIdGrupo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerUsuariosPorIdGrupoResponse" />
   </wsdl:message>
-  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailYPass_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailYPass" />
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailPassYGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailPassYGrupo" />
   </wsdl:message>
-  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailYPass_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailYPassResponse" />
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailPassYGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailPassYGrupoResponse" />
   </wsdl:message>
-  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmail" />
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailYGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailYGrupo" />
   </wsdl:message>
-  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailResponse" />
+  <wsdl:message name="IUsuarioService_ObtenerUsuarioPorEmailYGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioPorEmailYGrupoResponse" />
   </wsdl:message>
   <wsdl:message name="IUsuarioService_ObtenerUsuariosAgrupandoFechaRegistro_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerUsuariosAgrupandoFechaRegistro" />
@@ -110,13 +110,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupo" message="tns:IUsuarioService_ObtenerUsuariosPorIdGrupo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupoResponse" message="tns:IUsuarioService_ObtenerUsuariosPorIdGrupo_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerUsuarioPorEmailYPass">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPass" message="tns:IUsuarioService_ObtenerUsuarioPorEmailYPass_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPassResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmailYPass_OutputMessage" />
+    <wsdl:operation name="ObtenerUsuarioPorEmailPassYGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupo" message="tns:IUsuarioService_ObtenerUsuarioPorEmailPassYGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupoResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmailPassYGrupo_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerUsuarioPorEmail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail" message="tns:IUsuarioService_ObtenerUsuarioPorEmail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmail_OutputMessage" />
+    <wsdl:operation name="ObtenerUsuarioPorEmailYGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupo" message="tns:IUsuarioService_ObtenerUsuarioPorEmailYGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupoResponse" message="tns:IUsuarioService_ObtenerUsuarioPorEmailYGrupo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerUsuariosAgrupandoFechaRegistro">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosAgrupandoFechaRegistro" message="tns:IUsuarioService_ObtenerUsuariosAgrupandoFechaRegistro_InputMessage" />
@@ -195,8 +195,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerUsuarioPorEmailYPass">
-      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPass" style="document" />
+    <wsdl:operation name="ObtenerUsuarioPorEmailPassYGrupo">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -204,8 +204,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerUsuarioPorEmail">
-      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail" style="document" />
+    <wsdl:operation name="ObtenerUsuarioPorEmailYGrupo">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

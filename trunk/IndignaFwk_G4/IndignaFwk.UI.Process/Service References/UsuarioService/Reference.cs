@@ -33,11 +33,11 @@ namespace IndignaFwk.UI.Process.UsuarioService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupo", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuariosPorIdGrupoResponse")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.Usuario> ObtenerUsuariosPorIdGrupo(int idGrupo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPass", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPassResponse")]
-        IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmailYPass(string email, string pass);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupo", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupoResponse")]
+        IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailResponse")]
-        IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmail(string email);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupo", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupoResponse")]
+        IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmailYGrupo(string email, int idGrupo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosAgrupandoFechaRegistro", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuariosAgrupandoFechaRegistroResponse")]
         System.Collections.Generic.List<IndignaFwk.Common.Entities.Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo);
@@ -107,12 +107,12 @@ namespace IndignaFwk.UI.Process.UsuarioService {
             return base.Channel.ObtenerUsuariosPorIdGrupo(idGrupo);
         }
         
-        public IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmailYPass(string email, string pass) {
-            return base.Channel.ObtenerUsuarioPorEmailYPass(email, pass);
+        public IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo) {
+            return base.Channel.ObtenerUsuarioPorEmailPassYGrupo(email, pass, idGrupo);
         }
         
-        public IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmail(string email) {
-            return base.Channel.ObtenerUsuarioPorEmail(email);
+        public IndignaFwk.Common.Entities.Usuario ObtenerUsuarioPorEmailYGrupo(string email, int idGrupo) {
+            return base.Channel.ObtenerUsuarioPorEmailYGrupo(email, idGrupo);
         }
         
         public System.Collections.Generic.List<IndignaFwk.Common.Entities.Usuario> ObtenerUsuariosAgrupandoFechaRegistro(int idGrupo) {
