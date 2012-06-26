@@ -12,13 +12,6 @@
 @using (Html.BeginForm(null, "Account", FormMethod.Post, new { @id = "formLogin" }))
 {
     <div class="areaFormulario">
-        <div id="conectar_facebook">
-            <a href="javascript:login(); return false;" onclick="login(); return false;">Conectarse por Facebook</a>
-        </div>
-        <div id="aceptar_facebook">
-          <a href="@Url.Action("LoginConFace", "Account")">Aceptar</a>
-        </div>
-
         <table>
             <tr>
                 <td>
@@ -45,6 +38,16 @@
                 <td></td>
             </tr>  
             
+            <tr>
+                <td colspan="2">
+                    <div id="divConectarFacebook">
+                        <a href="javascript:facebookLogin(); return false;">
+                            <img alt="fb-login" src="@Url.Content("~/Content/shared/images/ico-facebook.png")" />
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
             <tr>
                 <td colspan="2">
                     <div class="fieldLabel">
@@ -74,6 +77,49 @@
     </div>
 }
 
+<!-- Div para modal de registro con facebook -->
+<div id="divRegistroFacebook" style="display: none;" title="Login con facebook">
+    <p>
+        Debe completar los siguientes datos para loguearse con facebook
+    </p>
+    <div class="areaFormulario">    
+        <table width="100%">
+            <tr>
+	            <td>
+	                <div class="fieldLabel" id="divNombreFb">Nombre:</div>
+	            </td>
+            </tr>
+            <tr>
+	            <td>
+	                <div class="fieldLabel" id="divApellidoFb">Apellido:</div>
+	            </td>
+            </tr>            
+            <tr>
+	            <td>
+	                <div class="fieldLabel" id="divEmailFb">E-mail:</div>
+	            </td>
+            </tr>
+            <tr>
+	            <td>
+	                <div class="fieldLabel">Descripción</div>
+	                <div class="fieldValue">
+                        <textarea rows="6" cols="15"></textarea>
+                    </div>
+	            </td>                
+            </tr>        
+            <tr>
+	            <td>
+	                <div class="fieldLabel">Coordenadas</div>    
+	                <div class="fieldValue">
+		                <input type="text" readonly="readonly" id="txtCoordenadasFacebook" 
+		                       style="cursor: pointer; width: 100%;" onclick="showMapaSelector('txtCoordenadasFacebook');" />
+	                </div>
+	            </td>
+            </tr>            
+        </table>   
+    </div>
+</div>
+
 <script type="text/javascript">
 
     function submitForm(method) 
@@ -82,107 +128,42 @@
         $("#formLogin")[0].submit();
     }
 
-    // Scripts facebook
-    var fb = {
-        config: {
-            //SE INTRODUCE EL ID DE LA APLICACIÓN
-            app_id: '140455639412027',
-            use_xfbml: true,
-            extendPermissions: 'publish_stream',
-            locale: 'es_ES'
-        },
-        perms: [],
-        hasPerm: function (perm) { for (var i = 0, l = fb.perms.length; i < l; i++) { if (fb.perms[i] == perm) { return true; } } return false; },
-        logged: false,
-        user: false,
-        login: function (callback) {
-            //FUNCIÓN QUE REALIZA EL LOGIN
-            FB.login(function (r) {
-                if (r.status == 'connected') {
-                    fb.logged = true;
-                    if (r.perms)
-                        fb.perms = r.perms.split(",");
-                    else
-                        fb.perms = [];
-                    fb.getUser(callback);
-                } else {
-                    fb.logged = false;
-                    fb.perms = [];
-                    callback();
-                }
-            }, { perms: fb.config.extendPermissions });
-            return false;
-        },
-        syncLogin: function (callback) {
-            if (!callback) callback = function () { };
-            FB.getLoginStatus(function (r) {
-                if (r.status == 'connected') {
-                    fb.logged = true;
-                    if (r.perms)
-                        fb.perms = r.perms.split(",");
-                    else
-                        fb.perms = [];
-                    fb.getUser(callback);
-                    return true;
-                } else {
-                    fb.logged = false;
-                    callback();
-                    return false;
-                }
-            });
-        },
-        logout: function (callback) { FB.logout(callback); },
-        getUser: function (callback) {
-            //SE OBTIENEN LOS DATOS DEL USUARIO CON ESTÁ FUNCIÓN
-            FB.api('/me', function (r) {
-                var user = r;
-                user.picture = "https://graph.facebook.com/" + user.id + "/picture";
-                fb.user = user; callback(user);
-            });
+    function facebookLogin() 
+    {
+        FB.login(function (response) {
+            if (response.authResponse) {
+                FB.api('/me', function (response) {
+                    $.ajax({
+                        url: '@Url.Action("LoginFacebook", "Account")' + "?emailFacebook=" + response.email,
+                        dataType: "html",
+                        method: "GET",
+                        success: function (data, textStatus, jqXHR) {
+                            if (data != null) {
+                                $("#divNombreFb").html("Nombre: " + response.first_name);
+                                $("#divApellidoFb").html("Apellido: " + response.last_name);
+                                $("#divEmailFb").html("Email: " + response.email);
 
-        },
-        readyFuncs: [],
-        ready: function (func) { fb.readyFuncs.push(func) },
-        launchReadyFuncs: function () { for (var i = 0, l = fb.readyFuncs.length; i < l; i++) { fb.readyFuncs[i](); }; }
-    }
-    window.fbAsyncInit = function () {
-        if (fb.config.app_id) FB.init({ appId: fb.config.app_id, status: true, cookie: true, xfbml: fb.config.use_xfbml });
-        fb.syncLogin(fb.launchReadyFuncs);
-    };
-    var oldload = window.onload;
-    //SE CARGA EL API DE JAVASCRIPT DE FACEBOOK CONNECT
-    window.onload = function () {
-        var d = document.createElement('div'); d.id = "fb-root"; document.getElementsByTagName('body')[0].appendChild(d);
-        var e = document.createElement('script'); e.async = true; e.src = document.location.protocol + '//connect.facebook.net/' + fb.config.locale + '/all.js';
-        document.getElementById('fb-root').appendChild(e);
-        if (typeof oldload == 'function') oldload();
-    };
-
-    fb.ready(function () {
-        // SE COMPRUEBA AL CARGAR LA PÁGINA SI HAY USUARIO LOGUEADO.
-        if (fb.logged) {
-            // CAMBIAMOS EL LINK DE IDENTIFICARSE POR LOS DATOS DEL USUARIO.
-            html = "<p>Email " + fb.user.email + "</p>";
-            html += '<p><img src="' + fb.user.picture + '"/></p>';
-            document.getElementById("conectar_facebook").innerHTML = html;
-
-        }
-    });
-
-    function login() {
-        //FUNCIÓN QUE HACE EL LOGIN DEL FACEBOOK
-        fb.login(function () {
-            if (fb.logged) {
-                // CAMBIAMOS EL LINK DE IDENTIFICARSE POR LOS DATOS DEL USUARIO.
-                html = "<p>Email " + fb.user.email + "</p>";
-                html += "<p><img src='" + fb.user.picture + "'/></p>";
-                document.getElementById("conectar_facebook").innerHTML = html;
-
+                                $("#divRegistroFacebook").dialog({
+                                    modal: true,
+                                    resizable: false,
+                                    show: "scale",
+                                    hide: "explode",
+                                    closeOnEscape: false,
+                                    buttons: {
+                                        "Aceptar": function () {
+                                            $(this).dialog("close");
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    });
+                });
             } else {
-                alert("No se ha identificado el usuario");
+                alert('Usuario incorrecto.');
             }
-        })
-    };
+        }, { scope: 'email' });
+    }
 
 </script>
 

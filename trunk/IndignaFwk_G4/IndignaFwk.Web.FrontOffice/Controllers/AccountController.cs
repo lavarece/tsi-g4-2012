@@ -83,6 +83,28 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult LoginFacebook()
+        {
+            string ajaxReturn = "";
+
+            string emailParam = Request["emailFacebook"];
+
+            Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorEmail(emailParam);
+
+            // Si no existe el usuario del mail de facebook lo tengo que dar de alta
+            if (usuario == null)
+            {
+                ajaxReturn = "Registrar";
+            }
+            else
+            {
+                ajaxReturn = "Login";
+            }
+
+            return Content(ajaxReturn, "text/html");
+        }
+
         public ActionResult LogOff()
         {
             if (User.Identity.IsAuthenticated)
