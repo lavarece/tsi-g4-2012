@@ -216,13 +216,13 @@ namespace IndignaFwk.Business.Managers
              }
          }
 
-         public Usuario ObtenerPorEmail(string email)
+         public Usuario ObtenerPorEmailYGrupo(string email, int idGrupo)
          {
              try
              {
                  conexion = UtilesBD.ObtenerConexion(true);
 
-                 return UsuarioADO.ObtenerPorEmail(email, conexion);
+                 return UsuarioADO.ObtenerPorEmailYGrupo(email, idGrupo, conexion);
              }
              catch (Exception ex)
              {
@@ -234,13 +234,13 @@ namespace IndignaFwk.Business.Managers
              }
          }
 
-         public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
+         public Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo)
          {
              try
              {
                  conexion = UtilesBD.ObtenerConexion(true);
 
-                 return UsuarioADO.ObtenerPorEmailYPass(email, pass, conexion);
+                 return UsuarioADO.ObtenerPorEmailPassYGrupo(email, pass, idGrupo, conexion);
              }
              catch (Exception ex)
              {

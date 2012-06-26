@@ -294,7 +294,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
 
 
-        public Usuario ObtenerPorEmail(string email, SqlConnection conexion)
+        public Usuario ObtenerPorEmailYGrupo(string email, int idGrupo, SqlConnection conexion)
         { 
             SqlDataReader reader = null;
 
@@ -304,9 +304,11 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Eliminado = 0";
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and FK_Id_Sitio = @idSitio and Eliminado = 0";
 
                 UtilesBD.SetParameter(command, "email", email);
+
+                UtilesBD.SetParameter(command, "idSitio", idGrupo);
 
                 reader = command.ExecuteReader();
 
@@ -352,9 +354,7 @@ namespace IndignaFwk.Persistence.DataAccess
             }
         }
         
-        
-
-        public Usuario ObtenerPorEmailYPass(string email, string pass, SqlConnection conexion)
+        public Usuario ObtenerPorEmailPassYGrupo(string email, string pass, int idGrupo, SqlConnection conexion)
         {
             SqlDataReader reader = null;
 
@@ -364,11 +364,13 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Password = @pass and Eliminado = 0";
+                command.CommandText = "SELECT * FROM Usuario WHERE Email = @email and Password = @pass and FK_Id_Sitio = @idSitio and Eliminado = 0";
 
                 UtilesBD.SetParameter(command, "email", email);
 
                 UtilesBD.SetParameter(command, "pass", pass);
+
+                UtilesBD.SetParameter(command, "idSitio", idGrupo);
 
                 reader = command.ExecuteReader();
 

@@ -44,14 +44,14 @@ namespace IndignaFwk.Business.Services
             usuarioManager.EliminarUsuario(idUsuario);
         }
 
-        public Usuario ObtenerUsuarioPorEmailYPass(string email, string pass)
+        public Usuario ObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo)
         {
-            return usuarioManager.ObtenerUsuarioPorEmailYPass(email, pass);
+            return usuarioManager.ObtenerUsuarioPorEmailPassYGrupo(email, pass, idGrupo);
         }
 
-        public Usuario ObtenerUsuarioPorEmail(string email)
+        public Usuario ObtenerUsuarioPorEmailYGrupo(string email, int idGrupo)
         { 
-            return usuarioManager.ObtenerPorEmail(email);
+            return usuarioManager.ObtenerPorEmailYGrupo(email, idGrupo);
         }
 
         public List<Notificacion> ObtenerListadoNotificacionesPorUsuario(int idUsuario)
