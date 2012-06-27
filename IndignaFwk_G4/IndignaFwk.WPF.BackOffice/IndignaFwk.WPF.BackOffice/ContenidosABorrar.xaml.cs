@@ -72,8 +72,9 @@ namespace IndignaFwk_WPF_BackOffice
             foreach (Contenido c in lContAux)
             {
                 contenidoUserProcess.EliminarListaContenido(c.Id);
+                MessageBox.Show("Se eliminaron los contenidos exitosamente");
             }
-            MessageBox.Show("Se eliminaron los contenidos exitosamente");
+            
             lContAux = null;
             datagrid_contenidoBorrar.ItemsSource = lContAux;
             

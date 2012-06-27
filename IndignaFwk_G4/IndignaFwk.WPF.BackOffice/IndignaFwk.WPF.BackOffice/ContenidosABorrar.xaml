@@ -21,13 +21,13 @@
         </Label>
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_contenidoBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=FK_Id_Sitio}" Header="Sitio"/>
+                <DataGridTextColumn Binding="{Binding Path=Grupo.Nombre}" Header="Sitio"/>
                 <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id"/>
                 <DataGridTextColumn Binding="{Binding Path=Titulo}" Header="Titulo"/>
                 <DataGridTextColumn Binding="{Binding Path=Comentario}" Header="Comentario"/>
                 <DataGridTextColumn Binding="{Binding Path=Url}" Header="Url"/>
                 <DataGridTextColumn Binding="{Binding Path=FechaCreacion}" Header="Fecha Creacion"/>
-                <DataGridTextColumn Binding="{Binding Path=FK_Id_UsuarioCreacion}" Header="Usuario Creacion"/>
+                <DataGridTextColumn Binding="{Binding Path=UsuarioCreacion.Email}" Header="Mail Usuario Creacion"/>
                 <DataGridTextColumn Binding="{Binding Path=CantidadInadecuado}" Header="Cantidad de Marcas Inadecuado"/>
             </DataGrid.Columns>
         </DataGrid>
