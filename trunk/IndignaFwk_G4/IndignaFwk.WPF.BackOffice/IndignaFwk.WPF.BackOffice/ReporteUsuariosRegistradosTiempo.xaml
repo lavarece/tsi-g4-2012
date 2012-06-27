@@ -28,6 +28,7 @@
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_usuariosR" IsReadOnly="True" Margin="14,113,11,130" Grid.Column="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
+                <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido"/>
                 <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
                 <DataGridTextColumn Binding="{Binding Path=FechaRegistro}" Header="Fecha Registro"/>
             </DataGrid.Columns>

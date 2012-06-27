@@ -21,10 +21,10 @@
         </Label>
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_usuariosBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Id}" Header="IdUsuario"/>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id Usuario"/>
                 <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
                 <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Apellidos"/>
-                <DataGridTextColumn Binding="{Binding Path=FK_Id_Sitio}" Header="Sitio"/>
+                <DataGridTextColumn Binding="{Binding Path=Grupo.Nombre}" Header="Sitio"/>
                 <DataGridTextColumn Binding="{Binding Path=FechaRegistro}" Header="Fecha de Registro"/>
             </DataGrid.Columns>
         </DataGrid>

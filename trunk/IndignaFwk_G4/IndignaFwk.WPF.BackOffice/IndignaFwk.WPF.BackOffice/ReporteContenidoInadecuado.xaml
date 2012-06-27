@@ -28,7 +28,9 @@
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_contenido" IsReadOnly="True" Margin="14,113,11,130" Grid.Column="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Titulo}" Header="Titulo"/>
-                <!--<DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>-->
+                <DataGridTextColumn Binding="{Binding Path=Comentario}" Header="Comentario"/>
+                <DataGridTextColumn Binding="{Binding Path=Url}" Header="Url"/>
+                <DataGridTextColumn Binding="{Binding Path=FechaCreacion}" Header="Fecha Creación"/>
                 <DataGridTextColumn Binding="{Binding Path=CantidadInadecuado}" Header="Cantidad de Marcas Inadecuado"/>
             </DataGrid.Columns>
         </DataGrid>
