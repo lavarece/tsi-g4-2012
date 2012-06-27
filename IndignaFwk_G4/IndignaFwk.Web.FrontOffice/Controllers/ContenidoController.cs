@@ -73,7 +73,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                     contenido.Grupo = site.Grupo;
 
-                    contenidoUserProcess.CrearNuevoContenido(contenido);
+                    contenido.Id = contenidoUserProcess.CrearNuevoContenido(contenido);
 
                     // Limpio el model         
                     AddControllerMessage("Contenido compartido correctamente.");
@@ -117,7 +117,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.ME_GUSTA.Valor;
 
-                contenidoUserProcess.CrearNuevaMarcaContenido(marcaContenido);
+                marcaContenido.Id = contenidoUserProcess.CrearNuevaMarcaContenido(marcaContenido);
             }
 
             AddControllerMessage("Gracias por su opinión.");
@@ -165,7 +165,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 marcaContenido.TipoMarca = TipoMarcaContenidoEnum.INADECUADO.Valor;
 
-                contenidoUserProcess.CrearNuevaMarcaContenido(marcaContenido);
+                marcaContenido.Id = contenidoUserProcess.CrearNuevaMarcaContenido(marcaContenido);
             }
 
             AddControllerMessage("Gracias por su opinión.");

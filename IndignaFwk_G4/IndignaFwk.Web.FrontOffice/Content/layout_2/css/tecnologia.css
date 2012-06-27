@@ -358,12 +358,12 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #5C7A40;
-    border: 2px inset #7BA331;
+    background-color: #043A74;
+    border: 1px inset #EBEBEB;
     color: #1D1D1D;
     font-size: 13px;    
     font-weight: bold;    
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 3px 3px 3px 3px;
     cursor: default;
 }
 

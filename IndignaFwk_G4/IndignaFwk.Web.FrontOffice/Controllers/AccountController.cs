@@ -115,7 +115,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                     usuario.Coordenadas = model.Coordenadas;
                     usuario.Grupo = this.site.Grupo;
 
-                    usuarioUserProcess.CrearNuevoUsuario(usuario);
+                    usuario.Id = usuarioUserProcess.CrearNuevoUsuario(usuario);
 
                     AddControllerMessage("Usuario registrado correctamente." + 
                                          "<div style=\"float: right; margin-top: 20px;\">" + 
@@ -169,12 +169,12 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             usuario.Coordenadas = Request["coordFb"];
             usuario.Grupo = this.site.Grupo;
 
-            usuarioUserProcess.CrearNuevoUsuario(usuario);
+            usuario.Id = usuarioUserProcess.CrearNuevoUsuario(usuario);
 
             // Autentico el usuario
             loguearUsuario(usuario);
 
-            return RedirectToAction("Index", "Home");
+            return Content("Ok", "text/html");
         }
 
         public ActionResult EditarPerfil()
@@ -196,6 +196,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 model.PreguntaSecreta = usuarioLogueado.Pregunta;
 
                 model.RespuestaSecreta = usuarioLogueado.Respuesta;
+
+                ViewBag.IsUsuarioFacebook = usuarioLogueado.Password.Equals("pass-fb") ? true : false;
             }
 
             PopulateViewBag();
