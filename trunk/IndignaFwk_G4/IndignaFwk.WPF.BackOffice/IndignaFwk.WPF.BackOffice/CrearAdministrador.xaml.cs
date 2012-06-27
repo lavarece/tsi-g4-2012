@@ -51,7 +51,7 @@ namespace IndignaFwk_WPF_BackOffice
                 mensaje = new MensajeError("Debe repetir la contraseña");
                 mensaje.Show();
             }
-            else if (passwordBox_repassAdmin.Password.Equals(passwordbox_passAdmin.Password))
+            else if (!passwordBox_repassAdmin.Password.Equals(passwordbox_passAdmin.Password))
             {
                 mensaje = new MensajeError("Debe repetir la contraseña correctamente");
                 mensaje.Show();
@@ -72,6 +72,11 @@ namespace IndignaFwk_WPF_BackOffice
 
                 this.Close();
             }
+        }
+
+        private void boton_cancelarRegistroAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 	}
 }
