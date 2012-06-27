@@ -32,7 +32,10 @@ INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (2, 'Recursos compartidos
 INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (3, 'Dar de baja contenido', '5')
 INSERT INTO VariableSistema (Id, Nombre, Valor) VALUES (4, 'Dar de baja usuario', '5')
 
-/*Administrador*/
+
+/*Atención: Las contraseñas encriptadas son: passowrd*/
+
+/*Administrador*/ 
 INSERT INTO Administrador (Nombre, Password, Pregunta, Respuesta, Email) VALUES ('Super Administrador', '5gPNqhmBNpf/o5q8UUfhug==', 'Es el administrador?', 'Esta es la respuesta', 'super@hotmail.com')
 
 insert into Usuario (Id, Descripcion, Email, FK_Id_Sitio, Nombre, Apellido, Password, Pregunta, Coordenadas, Respuesta, FechaRegistro) values (1, 'Descripcion del usuario 1', 'juan@hotmail.com', 1, 'Juan', 'Miraballes', '5gPNqhmBNpf/o5q8UUfhug==', 'Pregunta', '-31.831841,-57.195068', 'Respuesta', 22/05/2012);
