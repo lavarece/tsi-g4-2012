@@ -33,21 +33,21 @@ namespace IndignaFwk_WPF_BackOffice
             //Encriptando password para compararlo en la base de datos
             string passEncriptado = UtilesSeguridad.Encriptar(txt_password.Password);
 
-           // Administrador admin = adminUserProcess.ObtenerAdministradorPorEmailYPass(txt_usuario.Text, passEncriptado);
+            Administrador admin = adminUserProcess.ObtenerAdministradorPorEmailYPass(txt_usuario.Text, passEncriptado);
 
-           /* if (admin != null)
-            {*/
+           if (admin != null)
+           {
                 Home1 homeWindow = new Home1(txt_usuario.Text);
 
                 homeWindow.Show();
 
                 this.Close();
-         /*   }
-            else
-            {
-                MensajeError mensaje = new MensajeError("Error! Email y Contraseña incorrectos");
-                mensaje.Show();
-            }*/
+           }
+           else
+           {
+               MensajeError mensaje = new MensajeError("Error! Email y Contraseña incorrectos");
+               mensaje.Show();
+           }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

@@ -11,7 +11,6 @@
 			<RowDefinition Height="270.062"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-        <Border Background="#969696" BorderBrush="#FF1B1B1B" BorderThickness="2" CornerRadius="0" Margin="0,170,0,16" />
         <Label Content="Gestión de Variables" Height="39" Margin="90,7,89,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
 			<Label.Effect>
 				<DropShadowEffect/>

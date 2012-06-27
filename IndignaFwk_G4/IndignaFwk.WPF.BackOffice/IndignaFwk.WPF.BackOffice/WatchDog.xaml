@@ -15,7 +15,6 @@
             <RowDefinition Height="189.927"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="#969696" BorderBrush="#FF1B1B1B" BorderThickness="2" CornerRadius="0" Margin="-2,102,4,26" />
         <Label Content="WatchDog" FontFamily="Microsoft YaHei" FontSize="24" Foreground="#FF00FFF9" Height="49" Margin="104,0,102,136" VerticalAlignment="Bottom" VerticalContentAlignment="Center">
             <Label.Effect>
                 <DropShadowEffect />
