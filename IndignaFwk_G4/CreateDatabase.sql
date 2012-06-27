@@ -124,7 +124,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Imagen]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Imagen](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Referencia] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS
 ) ON [PRIMARY]
@@ -146,7 +146,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sitio]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Sitio](
-	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Nombre] [nvarchar](250) NOT NULL UNIQUE,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -174,7 +174,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FuenteExternaSitio]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].FuenteExternaSitio(
-	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[FuenteExterna] [nvarchar](250) NOT NULL,
 	[FK_Id_Sitio] [int] NOT NULL,
 	[QueryString] [nvarchar](250) NOT NULL,
@@ -199,7 +199,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Contenido]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Contenido](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Comentario] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
@@ -229,7 +229,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Usuario]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Usuario](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Conectado] [nvarchar](1) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
@@ -307,7 +307,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Convocatoria]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Convocatoria](
-	[Id] [int] IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Titulo] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[LogoUrl] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Descripcion] [nvarchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS,
@@ -338,7 +338,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AsistenciaConvocatoria]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[AsistenciaConvocatoria](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[FK_Id_Convocatoria] [int],
 	[FK_Id_Usuario] [int],
 CONSTRAINT FK_AsistenciaConvocatoria_FK_Id_Convocatoria FOREIGN KEY (FK_Id_Convocatoria) REFERENCES Convocatoria(Id),
@@ -362,7 +362,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Notificacion]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Notificacion](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Contenido] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Visto] [bit] DEFAULT 0,
 	[FK_Id_Convocatoria] [int],
@@ -389,7 +389,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MarcaContenido]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[MarcaContenido](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[FK_Id_Contenido] [int],
 	[TipoMarca] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[FK_Id_Usuario] [int]
@@ -414,7 +414,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UsuTematica]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[UsuTematica](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[FK_Id_Tematica] [int],
 	[FK_Id_Usuario] [int],
 CONSTRAINT FK_Contenido_FK_Id_Tematica FOREIGN KEY (FK_Id_Tematica) REFERENCES Tematica(Id),
@@ -461,7 +461,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Administrador]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[Administrador](
-	[Id] [int]  IDENTITY(4,1) NOT NULL PRIMARY KEY,
+	[Id] [int]  IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Email] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Nombre] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
 	[Password] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS,
