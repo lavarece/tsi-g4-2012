@@ -77,18 +77,10 @@
         		</LinearGradientBrush>
         	</Button.Background>
         </Button>
-        <Button x:Name="btn_refrescarCoordenadas" Content="Refrescar Coordenadas" HorizontalAlignment="Left" Margin="415,0,0,332" Width="134" Height="21" VerticalAlignment="Bottom" Click="btn_refrescarCoordenadas_Click" d:LayoutOverrides="HorizontalAlignment">
-        	<Button.Background>
-        		<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-        			<GradientStop Color="Black" Offset="1"/>
-        			<GradientStop Color="#FF00F9FF" Offset="0.8"/>
-        		</LinearGradientBrush>
-        	</Button.Background>
-        </Button>
-        <Label x:Name="coordenadas" Background="#00000000" Content="( , )" Foreground="#FF00FFF9" Margin="0,141,380,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Width="224" />
+        <Label x:Name="coordenadas" Background="#00000000" Content="( , )" Foreground="#FF00FFF9" Margin="0,141,174,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Width="430" />
         <Label x:Name="coord" Background="#00000000" Content="Coordenadas: " Foreground="#FF00FFF9" Margin="0,141,612,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
         <Label Background="#00000000" Content="Fuentes de datos externas" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,0,514,255" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="182" />
-        <TabControl Height="160" HorizontalAlignment="Left" Margin="43,249,0,0" Name="tabControl1" VerticalAlignment="Top" Width="458" Background="#FF1B1B1B">
+        <TabControl Height="160" HorizontalAlignment="Left" Margin="34,249,0,0" Name="tabControl1" VerticalAlignment="Top" Width="458" Background="#FF1B1B1B">
             <TabItem Header="YouTube" Name="tabItem1" Background="White" Margin="0">
                 <Grid Width="444">
                     <Grid.ColumnDefinitions>

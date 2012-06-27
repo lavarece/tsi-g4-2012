@@ -38,7 +38,7 @@ namespace IndignaFwk_WPF_BackOffice
 
         string longitud;
 
-        Window1 win = new Window1();
+        Window1 winGoogleMaps;
 
         public CrearGrupo()
         {
@@ -109,84 +109,7 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void btn_guardar_Click(object sender, RoutedEventArgs e)
         {
-            MensajeError mensaje;
-
-            if (String.IsNullOrEmpty(txt_nombre.Text))
-            {
-                mensaje= new MensajeError("El campo nombre es obligatorio");
-                mensaje.Show();
-            }
-            else if (String.IsNullOrEmpty(txt_url.Text))
-            {
-                mensaje = new MensajeError("El campo URL es obligatorio");
-                mensaje.Show();
-            }
-            else if (comboBox_layouts.SelectedItem == null)
-            {
-                mensaje = new MensajeError("El campo Layouts es obligatorio");
-                mensaje.Show();
-            }
-            else if (comboBox_temas.SelectedItem == null)
-            {
-                mensaje = new MensajeError("El campo Temas es obligatorio");
-                mensaje.Show();
-            }
-            else if (!editando && win.latitud == null)
-            {
-                mensaje = new MensajeError("La ubicación del grupo es obligatoria");
-                mensaje.Show();
-            }
-            else if (chk_fuente_youtube.IsChecked == true)
-            {
-                if (String.IsNullOrEmpty(txt_keywords_youtube.Text))
-                {
-                    mensaje = new MensajeError("El campo palabras claves you tube es obligatorio");
-                    mensaje.Show();
-                }
-                else if (String.IsNullOrEmpty(txt_resultados_youtube.Text))
-                {
-                    mensaje = new MensajeError("El campo resultados you tube es obligatorio");
-                    mensaje.Show();
-                }
-                else if(!String.IsNullOrEmpty(txt_resultados_youtube.Text))
-                {
-                    try
-                    {
-                        Int32.Parse(txt_resultados_youtube.Text);
-                    }
-                    catch(Exception e2)
-                    {
-                        mensaje = new MensajeError("El campo resultados you tube debe contener un número");
-                        mensaje.Show();
-                    }
-                }
-            }
-            else if (chk_fuente_wikipedia.IsChecked == true)
-            {
-                if (String.IsNullOrEmpty(txt_keywords_wikipedia.Text))
-                {
-                    mensaje = new MensajeError("El campo palabras claves wikipedia es obligatorio");
-                    mensaje.Show();
-                }
-                else if (String.IsNullOrEmpty(txt_resultados_wikipedia.Text))
-                {
-                    mensaje = new MensajeError("El campo resultados wikipedia es obligatorio");
-                    mensaje.Show();
-                }
-                else if (!String.IsNullOrEmpty(txt_resultados_wikipedia.Text))
-                {
-                    try
-                    {
-                        Int32.Parse(txt_resultados_wikipedia.Text);
-                    }
-                    catch (Exception e2)
-                    {
-                        mensaje = new MensajeError("El campo resultados wikipedia debe contener un número");
-                        mensaje.Show();
-                    }
-                }
-            }
-            else
+            if (validarCreacionGrupo())
             {
                 Grupo grupo = new Grupo();
 
@@ -210,22 +133,18 @@ namespace IndignaFwk_WPF_BackOffice
 
                     fuenteExternaGrupo.FuenteExterna = FuenteExternaEnum.YOU_TUBE.Valor;
 
-                    fuenteExternaGrupo.Grupo = grupo;
-
                     fuenteExternaGrupo.QueryString = txt_keywords_youtube.Text;
 
                     fuenteExternaGrupo.CantidadResultados = Int32.Parse(txt_resultados_youtube.Text);
 
                     grupo.FuentesExternas.Add(fuenteExternaGrupo);
                 }
-                
+
                 if (chk_fuente_wikipedia.IsChecked == true)
                 {
                     FuenteExternaGrupo fuenteExternaGrupo = new FuenteExternaGrupo();
 
                     fuenteExternaGrupo.FuenteExterna = FuenteExternaEnum.WIKIPEDIA.Valor;
-
-                    fuenteExternaGrupo.Grupo = grupo;
 
                     fuenteExternaGrupo.QueryString = txt_keywords_wikipedia.Text;
 
@@ -244,10 +163,90 @@ namespace IndignaFwk_WPF_BackOffice
                     grupoUserProcess.CrearNuevoGrupo(grupo);
                 }
 
-                mensaje = new MensajeError("Operacion completada exitosamente!");
-                mensaje.Show();
+                MessageBox.Show("Operación completada exitosamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
+            }            
+        }
+
+        private bool validarCreacionGrupo()
+        {            
+            if (String.IsNullOrEmpty(txt_nombre.Text))
+            {
+                MessageBox.Show("El campo nombre es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
+            if (String.IsNullOrEmpty(txt_url.Text))
+            {
+                MessageBox.Show("El campo URL es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (comboBox_layouts.SelectedItem == null)
+            {
+                MessageBox.Show("El campo Layouts es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (comboBox_temas.SelectedItem == null)
+            {
+                MessageBox.Show("El campo Temas es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (!editando && winGoogleMaps.latitud == null)
+            {
+                MessageBox.Show("La ubicación del grupo es obligatoria", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }            
+            if (chk_fuente_youtube.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(txt_keywords_youtube.Text))
+                {
+                    MessageBox.Show("El campo palabras claves you tube es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                if (String.IsNullOrEmpty(txt_resultados_youtube.Text))
+                {
+                    MessageBox.Show("El campo resultados you tube es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                if (!String.IsNullOrEmpty(txt_resultados_youtube.Text))
+                {
+                    try
+                    {
+                        Int32.Parse(txt_resultados_youtube.Text);
+                    }
+                    catch (Exception e2)
+                    {
+                        MessageBox.Show("El campo resultados you tube debe contener un número", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+            }
+            if (chk_fuente_wikipedia.IsChecked == true)
+            {
+                if (String.IsNullOrEmpty(txt_keywords_wikipedia.Text))
+                {
+                    MessageBox.Show("El campo palabras claves wikipedia es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                if (String.IsNullOrEmpty(txt_resultados_wikipedia.Text))
+                {
+                    MessageBox.Show("El campo resultados wikipedia es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+                }
+                if (!String.IsNullOrEmpty(txt_resultados_wikipedia.Text))
+                {
+                    try
+                    {
+                        Int32.Parse(txt_resultados_wikipedia.Text);
+                    }
+                    catch (Exception e2)
+                    {
+                        MessageBox.Show("El campo resultados wikipedia debe contener un número", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
@@ -262,19 +261,20 @@ namespace IndignaFwk_WPF_BackOffice
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Start();
 
-            win.Show();
+            winGoogleMaps = new Window1();
+            winGoogleMaps.Show();
         }
 
         private void btn_refrescarCoordenadas_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
+            coordenadas.Content = "(" + winGoogleMaps.longitud + "," + winGoogleMaps.latitud + ")";
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            coordenadas.Content = "(" + win.longitud + "," + win.latitud + ")";
-            latitud = win.latitud;
-            longitud = win.longitud;
+            coordenadas.Content = "(" + winGoogleMaps.longitud + "," + winGoogleMaps.latitud + ")";
+            latitud = winGoogleMaps.latitud;
+            longitud = winGoogleMaps.longitud;
         }        
     }
 }

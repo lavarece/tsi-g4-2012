@@ -16,7 +16,7 @@ namespace IndignaFwk.Business.Agents
     {
         private static readonly string DEVELOPER_KEY = "AI39si4YVTBLXrlE15S5N_t3Su_hQBXxkRWz3HmsgcQlJKRj3RRIVtrOU8-5t3MzOgIjcvDvPf4hHE7SyQpQ5n-Rqc6aSpNV7w";
         
-        public List<Contenido> ObtenerContenidosExternosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
+        public List<Contenido> ObtenerContenidosExternosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo, Grupo grupo)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace IndignaFwk.Business.Agents
 
                     contenido.TipoContenido = TipoContenidoEnum.VIDEO_YOU_TUBE.Valor;
 
-                    contenido.Grupo = fuenteExternaGrupo.Grupo;
+                    contenido.Grupo = grupo;
 
                     contenido.Url = "http://www.youtube.com/embed/" + video.VideoId + "?wmode=transparent";
 

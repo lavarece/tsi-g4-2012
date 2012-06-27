@@ -12,6 +12,8 @@ namespace IndignaFwk.Persistence.DataAccess
     {
         void Crear(FuenteExternaGrupo fuenteExternaGrupo, SqlConnection conexion, SqlTransaction transaccion);
 
+        void EliminarPorGrupo(int idGrupo, SqlConnection conexion, SqlTransaction transaccion);
+
         List<FuenteExternaGrupo> ObtenerListadoPorGrupo(int idGrupo, SqlConnection conexion);
     }
 }

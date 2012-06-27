@@ -23,10 +23,10 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.CommandText = " insert into FuenteExternaSitio(FuenteExterna, FK_Id_Sitio, QueryString, CantidadResultados) " +
                                   " values(@fuenteExterna, @idSitio, @queryString, @cantidadResultados); " +
-                                  " select @idGen = SCOPE_IDENTITY() FROM FuenteExternaGrupo; ";
+                                  " select @idGen = SCOPE_IDENTITY() FROM FuenteExternaSitio; ";
 
             UtilesBD.SetParameter(command, "fuenteExterna", fuenteExternaGrupo.FuenteExterna);
-            UtilesBD.SetParameter(command, "idSitio", fuenteExternaGrupo.Grupo.Id);
+            UtilesBD.SetParameter(command, "idSitio", fuenteExternaGrupo.IdGrupo);
             UtilesBD.SetParameter(command, "queryString", fuenteExternaGrupo.QueryString);
             UtilesBD.SetParameter(command, "cantidadResultados", fuenteExternaGrupo.CantidadResultados);
             
@@ -37,6 +37,21 @@ namespace IndignaFwk.Persistence.DataAccess
 
             // este es el identificador generado
             fuenteExternaGrupo.Id = (int)command.Parameters["@idGen"].Value;
+        }
+
+        public void EliminarPorGrupo(int idGrupo, SqlConnection conexion, SqlTransaction transaccion)
+        {
+            command = conexion.CreateCommand();
+
+            command.Transaction = transaccion;
+
+            command.Connection = conexion;
+
+            command.CommandText = "DELETE FROM FuenteExternaSitio WHERE FK_Id_Sitio = @idGrupo";
+
+            UtilesBD.SetParameter(command, "idGrupo", idGrupo);
+
+            command.ExecuteNonQuery();
         }
 
         public List<FuenteExternaGrupo> ObtenerListadoPorGrupo(int idGrupo, SqlConnection conexion)
@@ -69,7 +84,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     fuenteExternaGrupo.CantidadResultados = UtilesBD.GetIntFromReader("CantidadResultados", reader);
 
-                    fuenteExternaGrupo.Grupo = new Grupo { Id = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader) };
+                    fuenteExternaGrupo.IdGrupo = UtilesBD.GetIntFromReader("FK_Id_Sitio", reader);
 
                     listaFuentes.Add(fuenteExternaGrupo);
                 }

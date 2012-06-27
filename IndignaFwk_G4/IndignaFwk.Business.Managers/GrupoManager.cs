@@ -107,9 +107,12 @@ namespace IndignaFwk.Business.Managers
                {
                    foreach (FuenteExternaGrupo fuenteExternaGrupo in grupo.FuentesExternas)
                    {
+                       fuenteExternaGrupo.IdGrupo = grupo.Id;
+
                        FuenteExternaGrupoADO.Crear(fuenteExternaGrupo, conexion, transaccion);
                    }
                }
+
                UtilesBD.CommitTransaccion(transaccion);
 
                return grupo.Id;
@@ -204,6 +207,19 @@ namespace IndignaFwk.Business.Managers
                transaccion = UtilesBD.IniciarTransaccion(conexion);
 
                GrupoADO.Editar(grupo, conexion, transaccion);
+
+               // Edito las fuentes externas del grupo
+               FuenteExternaGrupoADO.EliminarPorGrupo(grupo.Id, conexion, transaccion);
+               if (grupo.FuentesExternas != null)
+               {
+                   foreach (FuenteExternaGrupo fuenteExternaGrupo in grupo.FuentesExternas)
+                   {
+                       fuenteExternaGrupo.IdGrupo = grupo.Id;
+
+                       FuenteExternaGrupoADO.Crear(fuenteExternaGrupo, conexion, transaccion);
+                   }
+               }
+
 
                UtilesBD.CommitTransaccion(transaccion);
            }
