@@ -30,31 +30,25 @@ namespace IndignaFwk_WPF_BackOffice
 
         private void boton_guardarRegistroAdmin_Click(object sender, RoutedEventArgs e)
         {
-            MensajeError mensaje;
             if (String.IsNullOrEmpty(textbox_nombreAdmin.Text))
             {
-                mensaje = new MensajeError("El campo nombre es obligatorio");
-                mensaje.Show();
+                MessageBox.Show("El campo nombre es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (String.IsNullOrEmpty(textbox_emailAdmin.Text))
             {
-                mensaje = new MensajeError("El campo email es obligatorio");
-                mensaje.Show();
+                MessageBox.Show("El campo email es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (String.IsNullOrEmpty(passwordbox_passAdmin.Password))
             {
-                mensaje = new MensajeError("El campo contraseña es obligatorio");
-                mensaje.Show();
+                MessageBox.Show("El campo contraseña es obligatorio", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (String.IsNullOrEmpty(passwordBox_repassAdmin.Password))
             {
-                mensaje = new MensajeError("Debe repetir la contraseña");
-                mensaje.Show();
+                MessageBox.Show("Debe repetir la contraseña", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (!passwordBox_repassAdmin.Password.Equals(passwordbox_passAdmin.Password))
             {
-                mensaje = new MensajeError("Debe repetir la contraseña correctamente");
-                mensaje.Show();
+                MessageBox.Show("Debe repetir la contraseña correctamente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -68,7 +62,7 @@ namespace IndignaFwk_WPF_BackOffice
 
                 adminUserProcess.CrearNuevoAdministrador(admin);
 
-                MessageBox.Show("Administrador agregado satisfactoriamente!");
+                MessageBox.Show("Administrador agregado satisfactoriamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 this.Close();
             }

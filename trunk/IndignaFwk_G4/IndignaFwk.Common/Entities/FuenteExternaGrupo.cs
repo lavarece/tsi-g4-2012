@@ -18,7 +18,7 @@ namespace IndignaFwk.Common.Entities
         public string FuenteExterna { get; set; }
 
         [DataMember]
-        public Grupo Grupo { get; set; }   
+        public int IdGrupo { get; set; }   
 
         [DataMember]
         public string QueryString { get; set; }

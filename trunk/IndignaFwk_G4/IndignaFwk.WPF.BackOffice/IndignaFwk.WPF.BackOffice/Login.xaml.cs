@@ -45,8 +45,7 @@ namespace IndignaFwk_WPF_BackOffice
            }
            else
            {
-               MensajeError mensaje = new MensajeError("Error! Email y Contraseña incorrectos");
-               mensaje.Show();
+               MessageBox.Show("Email y Contraseña incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);               
            }
         }
 

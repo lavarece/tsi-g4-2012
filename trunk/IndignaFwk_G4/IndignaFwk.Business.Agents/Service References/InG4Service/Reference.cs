@@ -16,10 +16,10 @@ namespace IndignaFwk.Business.Agents.InG4Service {
     public interface IExposeService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExposeService/ObtenerContenidosPorTematica", ReplyAction="http://tempuri.org/IExposeService/ObtenerContenidosPorTematicaResponse")]
-        IndignaFwk.Common.Entities.Contenido[] ObtenerContenidosPorTematica(int idTematica);
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerContenidosPorTematica(int idTematica);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExposeService/ObtenerConvocatoriasPorTematica", ReplyAction="http://tempuri.org/IExposeService/ObtenerConvocatoriasPorTematicaResponse")]
-        IndignaFwk.Common.Entities.Convocatoria[] ObtenerConvocatoriasPorTematica(int idTematica);
+        System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerConvocatoriasPorTematica(int idTematica);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,11 +49,11 @@ namespace IndignaFwk.Business.Agents.InG4Service {
                 base(binding, remoteAddress) {
         }
         
-        public IndignaFwk.Common.Entities.Contenido[] ObtenerContenidosPorTematica(int idTematica) {
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Contenido> ObtenerContenidosPorTematica(int idTematica) {
             return base.Channel.ObtenerContenidosPorTematica(idTematica);
         }
         
-        public IndignaFwk.Common.Entities.Convocatoria[] ObtenerConvocatoriasPorTematica(int idTematica) {
+        public System.Collections.Generic.List<IndignaFwk.Common.Entities.Convocatoria> ObtenerConvocatoriasPorTematica(int idTematica) {
             return base.Channel.ObtenerConvocatoriasPorTematica(idTematica);
         }
     }

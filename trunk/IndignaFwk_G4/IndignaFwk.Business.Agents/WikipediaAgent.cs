@@ -11,7 +11,7 @@ namespace IndignaFwk.Business.Agents
 {
     public class WikipediaAgent
     {
-        public List<Contenido> ObtenerContenidosExternosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo)
+        public List<Contenido> ObtenerContenidosExternosDeGrupo(FuenteExternaGrupo fuenteExternaGrupo, Grupo grupo)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace IndignaFwk.Business.Agents
 
                         contenido.TipoContenido = TipoContenidoEnum.LINK.Valor;
 
-                        contenido.Grupo = fuenteExternaGrupo.Grupo;
+                        contenido.Grupo = grupo;
 
                         contenido.Url = "http://en.wikipedia.org/wiki/" + tagWiki;
 
