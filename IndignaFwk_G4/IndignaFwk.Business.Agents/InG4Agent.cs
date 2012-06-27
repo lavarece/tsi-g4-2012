@@ -11,12 +11,42 @@ namespace IndignaFwk.Business.Agents
     {
         public List<Contenido> ObtenerContenidosIntegracionPorTematica(int idTematica)
         {
-            return new List<Contenido>();
+            List<Contenido> contenidosPorTematica;
+
+            try
+            {
+                ExposeServiceClient proxy = new ExposeServiceClient();
+
+                contenidosPorTematica = proxy.ObtenerContenidosPorTematica(idTematica);
+
+                proxy.Close();
+            }
+            catch (Exception e)
+            {
+                contenidosPorTematica = new List<Contenido>();
+            }
+            
+            return contenidosPorTematica;
         }
 
         public List<Convocatoria> ObtenerConvocatoriasIntegracionPorTematica(int idTematica)
         {
-            return new List<Convocatoria>();
+            List<Convocatoria> convocatoriasPorTematica;
+
+            try
+            {
+                ExposeServiceClient proxy = new ExposeServiceClient();
+
+                convocatoriasPorTematica = proxy.ObtenerConvocatoriasPorTematica(idTematica);
+
+                proxy.Close();
+            }
+            catch (Exception e)
+            {
+                convocatoriasPorTematica = new List<Convocatoria>();
+            }
+
+            return convocatoriasPorTematica;
         }
     }
 }

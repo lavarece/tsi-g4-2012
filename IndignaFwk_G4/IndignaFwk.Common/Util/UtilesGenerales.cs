@@ -7,6 +7,10 @@ namespace IndignaFwk.Common.Util
 {
     public class UtilesGenerales
     {
+        // Variable exclusivamente utilitaria para indicar si se integra o no con
+        // nosotros mismos, la segunda aplicacion la tendra en true
+        public static Boolean INTEGRAR_CON_G4 = false;
+
         public const double radioTierraKm = 6371;
         
         /*       

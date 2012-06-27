@@ -92,7 +92,5 @@ namespace IndignaFwk_WPF_BackOffice
             WatchDog w = new WatchDog();
             w.Show();
         }
-
-
     }
 }

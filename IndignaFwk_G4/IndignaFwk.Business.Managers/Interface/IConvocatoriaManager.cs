@@ -12,7 +12,7 @@ namespace IndignaFwk.Business.Managers
         // Operaciones convocatorias
         int CrearNuevaConvocatoria(Convocatoria convocatoria);
 
-        List<Convocatoria> ObtenerListadoConvocatorias();
+        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda);
 
         List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo);
 
@@ -34,7 +34,5 @@ namespace IndignaFwk.Business.Managers
         void EditarAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
 
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);
-
-        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda);
     }
 }

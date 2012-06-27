@@ -22,18 +22,6 @@ namespace IndignaFwk.UI.Process
             return id;
         }
 
-        public List<Convocatoria> ObtenerListadoConvocatorias()
-        {
-            ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
-
-            List<Convocatoria> listaConvocatorias = proxy.ObtenerListadoConvocatorias();
-
-            proxy.Close();
-
-            return listaConvocatorias;
-        }
-
-
         public List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda)
         {
             ConvocatoriaServiceClient proxy = new ConvocatoriaServiceClient();
@@ -44,7 +32,6 @@ namespace IndignaFwk.UI.Process
 
             return listaConvocatorias;
         }
-
 
         public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
         {

@@ -36,9 +36,7 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Exception\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Entities\Administrador.cs" />
     <Compile Include="Entities\AsistenciaConvocatoria.cs" />
