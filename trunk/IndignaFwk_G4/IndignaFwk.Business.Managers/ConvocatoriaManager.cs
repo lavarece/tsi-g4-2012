@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using IndignaFwk.Persistence.DataAccess;
 using IndignaFwk.Common.Util;
 using IndignaFwk.Common.Filter;
+using IndignaFwk.Business.Agents;
 
 namespace IndignaFwk.Business.Managers
 {
@@ -74,6 +75,36 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        private IGrupoADO _grupoADO;
+        protected IGrupoADO GrupoADO
+        {
+            get
+            {
+                if (_grupoADO == null)
+                {
+                    _grupoADO = new GrupoADO();
+                }
+
+                return _grupoADO;
+            }
+        }
+
+
+        // AGENTS
+        private InG4Agent _inG4Agent;
+        protected InG4Agent InG4Agent
+        {
+            get
+            {
+                if (_inG4Agent == null)
+                {
+                    _inG4Agent = new InG4Agent();
+                }
+
+                return _inG4Agent;
+            }
+        }
+
         /* OPERACIONES */
         public int CrearNuevaConvocatoria(Convocatoria convocatoria)
         {
@@ -130,13 +161,22 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-        public List<Convocatoria> ObtenerListadoConvocatorias()
+        public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
         {
             try
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                return ConvocatoriaADO.ObtenerListado(conexion);
+                List<Convocatoria> listadoConvocatorias = ConvocatoriaADO.ObtenerListadoPorGrupo(conexion, idGrupo);
+
+                // Datos integracion
+                Grupo grupo = GrupoADO.Obtener(idGrupo, conexion);
+                if (UtilesGenerales.INTEGRAR_CON_G4)
+                {
+                    listadoConvocatorias.AddRange(InG4Agent.ObtenerConvocatoriasIntegracionPorTematica(grupo.Tematica.Id));
+                }
+
+                return listadoConvocatorias;
             }
             catch (Exception ex)
             {
@@ -148,13 +188,22 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-        public List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo)
+        public List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda)
         {
             try
             {
                 conexion = UtilesBD.ObtenerConexion(true);
 
-                return ConvocatoriaADO.ObtenerListadoPorGrupo(conexion, idGrupo);
+                List<Convocatoria> listadoConvocatorias = ConvocatoriaADO.ObtenerConvocatoriasPorFiltro(filtroBusqueda, conexion);
+
+                // Datos integracion
+                Grupo grupo = GrupoADO.Obtener(filtroBusqueda.IdGrupo, conexion);
+                if (UtilesGenerales.INTEGRAR_CON_G4)
+                {
+                    listadoConvocatorias.AddRange(InG4Agent.ObtenerConvocatoriasIntegracionPorTematica(grupo.Tematica.Id));
+                }
+
+                return listadoConvocatorias;
             }
             catch (Exception ex)
             {
@@ -250,9 +299,6 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
-
-        
-
         public int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria)
         {
             try
@@ -295,24 +341,6 @@ namespace IndignaFwk.Business.Managers
             {
                 UtilesBD.CerrarConexion(conexion);
             }
-        }
-
-        public List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda)
-        {
-            try
-            {
-                conexion = UtilesBD.ObtenerConexion(true);
-
-                return ConvocatoriaADO.ObtenerConvocatoriasPorFiltro(filtroBusqueda, conexion);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                UtilesBD.CerrarConexion(conexion);
-            }            
         }
 
         public AsistenciaConvocatoria ObtenerAsistenciaConvocatoriaPorUsuarioYConvocatoria(int idUsuario, int idConvocatoria)

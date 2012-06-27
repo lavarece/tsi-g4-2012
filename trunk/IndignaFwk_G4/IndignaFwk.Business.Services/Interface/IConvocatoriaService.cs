@@ -17,7 +17,7 @@ namespace IndignaFwk.Business.Services
         int CrearNuevaConvocatoria(Convocatoria convocatoria);
 
         [OperationContract]
-        List<Convocatoria> ObtenerListadoConvocatorias();
+        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda);
         
         [OperationContract]
         List<Convocatoria> ObtenerListadoConvocatoriasPorGrupo(int idGrupo);
@@ -31,8 +31,6 @@ namespace IndignaFwk.Business.Services
         [OperationContract]
         void EliminarConvocatoria(int idConvocatoria);
         
-
-
         // Operaciones AsistenciaConvocatoria
         [OperationContract]
         int CrearNuevaAsistenciaConvocatoria(AsistenciaConvocatoria asistenciaConvocatoria);
@@ -45,9 +43,6 @@ namespace IndignaFwk.Business.Services
 
         [OperationContract]
         List<AsistenciaConvocatoria> ObtenerAsistenciaConvocatoriaPorIdUsuario(int idUsuario);
-
-        [OperationContract]
-        List<Convocatoria> ObtenerConvocatoriasPorFiltro(FiltroBusqueda filtroBusqueda);
 
         [OperationContract]
         void EliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria);

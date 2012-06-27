@@ -90,6 +90,19 @@ namespace IndignaFwk.Business.Managers
             }
         }
 
+        private InG4Agent _inG4Agent;
+        protected InG4Agent InG4Agent
+        {
+            get
+            {
+                if (_inG4Agent == null)
+                {
+                    _inG4Agent = new InG4Agent();
+                }
+
+                return _inG4Agent;
+            }
+        }
 
         public int CrearNuevoContenido(Contenido contenido)
         {
@@ -181,7 +194,13 @@ namespace IndignaFwk.Business.Managers
                         }
                     }
                 }
-                
+
+                // Agrego los contenidos de integracion con otros grupos
+                if (UtilesGenerales.INTEGRAR_CON_G4)
+                {
+                    listaContenidos.AddRange(InG4Agent.ObtenerContenidosIntegracionPorTematica(grupo.Tematica.Id));
+                }
+
                 return listaContenidos;                
             }
             catch (Exception ex)
