@@ -333,7 +333,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    border: 1px solid #2E6056;
+    border: 1px solid #043A74;
     background-color: #006ADC;
     color: #FFFFFF;
     font-size: 13px;    
@@ -355,7 +355,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #2F6358;
+    background-color: #043A74;
     border: 1px inset #EBEBEB;
     color: #FFFFFF;
     font-size: 13px;    

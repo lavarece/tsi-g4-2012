@@ -77,11 +77,14 @@
                                     
     <div class="areaBotones">
         <ul>
-            <li>
-                <div class="boton">
-                    <a href="#" onclick="showCambioContrasenia()">Cambiar contraseña</a>
-                </div>       
-            </li>
+            @if (ViewBag.IsUsuarioFacebook == false)
+            {
+                <li>
+                    <div class="boton">
+                        <a href="#" onclick="showCambioContrasenia()">Cambiar contraseña</a>
+                    </div>       
+                </li>
+            }
             <li>
                 <div class="boton">
                     <a href="#" onclick="submitForm('EditarPerfil');">Finalizar</a>

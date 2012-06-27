@@ -82,7 +82,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 convocatoria.UsuarioCreacion = new Usuario { Id = ci.Id };
 
-                convocatoriaUserProcess.CrearNuevaConvocatoria(convocatoria);
+                convocatoria.Id = convocatoriaUserProcess.CrearNuevaConvocatoria(convocatoria);
 
                 AddControllerMessage("Convocatoria creada correctamente");
             }
@@ -144,7 +144,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             asistenciaConvocatoria.Convocatoria = new Convocatoria { Id = idConvocatoriaSeleccionada };
 
-            convocatoriaUserProcess.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
+            asistenciaConvocatoria.Id = convocatoriaUserProcess.CrearNuevaAsistenciaConvocatoria(asistenciaConvocatoria);
 
             AddControllerMessage("Asistencia guardada");
 

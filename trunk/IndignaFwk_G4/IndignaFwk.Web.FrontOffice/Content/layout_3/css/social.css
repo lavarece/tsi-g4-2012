@@ -328,7 +328,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    border: 1px solid #2E6056;
+    border: 1px solid #BC7606;
     background-color: #F79F11;
     color: #000000;
     font-size: 13px;    
@@ -350,7 +350,7 @@ input, select, textarea
 {
     padding: 4px 15px;
     text-decoration: none;
-    background-color: #2F6358;
+    background-color: #BC7606;
     border: 1px inset #EBEBEB;
     color: #FFFFFF;
     font-size: 13px;    
