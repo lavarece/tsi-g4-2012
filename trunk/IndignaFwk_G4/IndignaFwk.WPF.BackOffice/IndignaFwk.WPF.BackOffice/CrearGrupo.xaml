@@ -10,7 +10,6 @@
             <RowDefinition Height="19" />
             <RowDefinition Height="126" />
         </Grid.RowDefinitions>
-        <Border Background="#969696" BorderBrush="#FF1B1B1B" BorderThickness="2" CornerRadius="0" Margin="-5,347,3,11" Grid.RowSpan="2" />
         <TextBox x:Name="txt_nombre" Margin="0,71,380,407" TextWrapping="Wrap" HorizontalAlignment="Right" Width="252">
 			<TextBox.Effect>
 				<DropShadowEffect/>

@@ -1,9 +1,9 @@
 ﻿<Window x:Class="IndignaFwk_WPF_BackOffice.Home1"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Back Office de Indigna Framework" Height="361" Width="438" Loaded="Window_Loaded" WindowState="Maximized">
+        Title="Back Office de Indigna Framework" Height="485" Width="669" Loaded="Window_Loaded" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Menu Background="#FF1B1B1B" >
+        <Menu Background="#FF1B1B1B" Padding="0,0,10,0">
             <MenuItem Foreground="#FF00FFF9" Header="_Inicio">
                 <MenuItem Background="#969696" Header="_Cerrar Sesion..." Click="Click_Cerrar_Sesion" />
                 <MenuItem Background="#969696" Header="_Salir" Click="Click_Salir"/>
@@ -23,11 +23,12 @@
                 <MenuItem Background="#969696" Header="_Watchdog" Click="Click_Watchdog" />
             </MenuItem>
         </Menu>
-        <Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework." VerticalAlignment="Bottom" Foreground="#FF00FFF9" FontSize="18" DataContext="{Binding}" Height="39" FontStretch="Normal" HorizontalAlignment="Right">
+        <Label x:Name="label_bienvenido" Content="Bienvenido a IndignadoFramework, " VerticalAlignment="Bottom" Foreground="#FF00FFF9" FontSize="18" DataContext="{Binding}" Height="39" FontStretch="Normal" HorizontalAlignment="Left" Padding="10,5,5,5" Width="307">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
+        <TextBlock Height="56" HorizontalAlignment="Right" Name="textBlock1" Text="&quot;Tendremos que arrepentirnos en esta generación, no tanto de las malas acciones de la gente perversa, sino del pasmoso silencio de la gente buena...&quot; Martin Luther King" VerticalAlignment="Bottom" Width="334" Foreground="#FF00FFF9" FontStyle="Italic" TextWrapping="Wrap" TextAlignment="Justify" Padding="0,0,10,0" />
     </Grid>
 </Window>
     
