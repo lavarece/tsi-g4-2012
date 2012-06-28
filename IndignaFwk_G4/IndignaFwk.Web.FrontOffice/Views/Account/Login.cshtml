@@ -38,15 +38,18 @@
                 <td></td>
             </tr>  
             
-            <tr>
-                <td colspan="2">
-                    <div id="divConectarFacebook">
-                        <a href="javascript:loginFacebook(); return false;">
-                            <img alt="fb-login" src="@Url.Content("~/Content/shared/images/ico-facebook.png")" />
-                        </a>
-                    </div>
-                </td>
-            </tr>
+            @if (ViewBag.GrupoSite.AppIDFacebook != 0)
+            {
+                <tr>
+                    <td colspan="2">
+                        <div id="divConectarFacebook">
+                            <a href="javascript:loginFacebook(); return false;">
+                                <img alt="fb-login" src="@Url.Content("~/Content/shared/images/ico-facebook.png")" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
 
             <tr>
                 <td colspan="2">

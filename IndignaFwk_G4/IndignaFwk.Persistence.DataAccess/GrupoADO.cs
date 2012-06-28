@@ -185,7 +185,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    grupo.AppIDFacebook = UtilesBD.GetIntFromReader("AppIDFacebook", reader);
+                    grupo.AppIDFacebook = UtilesBD.GetStringFromReader("AppIDFacebook", reader);
 
                     grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
@@ -239,7 +239,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    grupo.AppIDFacebook = UtilesBD.GetIntFromReader("AppIDFacebook", reader);
+                    grupo.AppIDFacebook = UtilesBD.GetStringFromReader("AppIDFacebook", reader);
 
                     grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
@@ -293,7 +293,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
-                    grupo.AppIDFacebook = UtilesBD.GetIntFromReader("AppIDFacebook", reader);
+                    grupo.AppIDFacebook = UtilesBD.GetStringFromReader("AppIDFacebook", reader);
 
                     grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
