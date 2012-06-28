@@ -50,22 +50,31 @@ namespace IndignaFwk_WPF_BackOffice
             {
                 MessageBox.Show("Debe repetir la contraseña correctamente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
+            else 
             {
-                Administrador admin = new Administrador();
+                Administrador adminAux = adminUserProcess.ObtenerAdministradorPorEmailYPass(textbox_emailAdmin.Text, null);
+                if (adminAux != null)
+                {
+                    MessageBox.Show("El email esta siendo usado por otro administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    Administrador admin = new Administrador();
 
-                admin.Nombre = textbox_nombreAdmin.Text;
+                    admin.Nombre = textbox_nombreAdmin.Text;
 
-                admin.Email = textbox_emailAdmin.Text;
-                
-                admin.Password = UtilesSeguridad.Encriptar(passwordbox_passAdmin.Password);
+                    admin.Email = textbox_emailAdmin.Text;
 
-                adminUserProcess.CrearNuevoAdministrador(admin);
+                    admin.Password = UtilesSeguridad.Encriptar(passwordbox_passAdmin.Password);
 
-                MessageBox.Show("Administrador agregado satisfactoriamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                    adminUserProcess.CrearNuevoAdministrador(admin);
 
-                this.Close();
+                    MessageBox.Show("Administrador agregado satisfactoriamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Close();
+                }
             }
+            
         }
 
         private void boton_cancelarRegistroAdmin_Click(object sender, RoutedEventArgs e)
