@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8049871e-c8ec-4d7f-bec7-a70ae7fef450" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/AppServer/ContenidoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContenidoService3.xsd" MetadataType="Schema" ID="50271738-14d5-4725-a896-781006a0c1e7" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContenidoService1.wsdl" MetadataType="Wsdl" ID="d445346c-1772-4ffd-a2ba-35760b00bd65" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?wsdl" />
+    <MetadataFile FileName="ContenidoService31.xsd" MetadataType="Schema" ID="862bf7f7-fe2f-408c-b4fa-36b533c04dad" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContenidoService32.xsd" MetadataType="Schema" ID="15a07d2c-4055-44c8-a1a7-56f36ebe378f" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContenidoService1.disco" MetadataType="Disco" ID="356e6466-36f7-493e-ae78-0300ce571477" SourceId="1" SourceUrl="http://localhost/AppServer/ContenidoService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
