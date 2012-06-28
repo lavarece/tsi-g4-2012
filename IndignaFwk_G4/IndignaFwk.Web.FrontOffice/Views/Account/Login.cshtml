@@ -38,7 +38,7 @@
                 <td></td>
             </tr>  
             
-            @if (ViewBag.GrupoSite.AppIDFacebook != 0)
+            @if (!String.IsNullOrEmpty(ViewBag.GrupoSite.AppIDFacebook))
             {
                 <tr>
                     <td colspan="2">
