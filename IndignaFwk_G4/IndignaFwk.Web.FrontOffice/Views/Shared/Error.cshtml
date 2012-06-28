@@ -22,8 +22,8 @@
 @if(ViewBag.ListadoGrupos != null)
 {    
     <h3>Grupos disponibles en el sistema</h3>
-    <div class="wrapperDataTable">
-        <table class="dataTable">
+    <div>
+        <table border="1">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -34,8 +34,7 @@
             <tbody>
                 @foreach(Grupo grupo in ViewBag.ListadoGrupos)
                 {
-                    string estiloTR = (ViewBag.ListadoGrupos.IndexOf(grupo) % 2 == 0 ? "odd" : "even");              
-                    <tr class="@estiloTR">
+                    <tr>
                         <td>@grupo.Nombre</td>
                         <td>@grupo.Descripcion</td>
                         <td>@grupo.Url</td>

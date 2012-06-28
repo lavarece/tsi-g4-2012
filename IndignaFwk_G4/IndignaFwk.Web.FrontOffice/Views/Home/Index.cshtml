@@ -9,7 +9,7 @@
 <div class="detalleGrupo">
     <h3>Bienvenido al grupo @ViewBag.GrupoSite.Nombre</h3>
     <div class="imagenGrupo">
-        <img src="@Url.Content("~/Content/shared/images/group_no_image.png")" alt="Imagen grupo"/>
+        <img src="@Url.Content("~/Content/shared/images/grupo_" + ViewBag.GrupoSite.Tematica.NombreCSS + ".png")" alt="Imagen grupo"/>
     </div>
     <div>
         @ViewBag.GrupoSite.Descripcion 

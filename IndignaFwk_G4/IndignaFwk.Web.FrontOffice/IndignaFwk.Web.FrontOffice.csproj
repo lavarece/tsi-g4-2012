@@ -126,6 +126,7 @@
     <Content Include="Content\layout_2\css\default.css" />
     <Content Include="Content\layout_2\images\default\bg_body.png" />
     <Content Include="Content\layout_2\images\default\ico_vineta.png" />
+    <Content Include="Content\layout_2\images\group_image.png" />
     <Content Include="Content\layout_2\images\naturaleza\bg_body.png" />
     <Content Include="Content\layout_2\images\naturaleza\header.png" />
     <Content Include="Content\layout_2\images\naturaleza\ico_vineta.png" />
@@ -155,6 +156,7 @@
     <Content Include="Content\layout_3\css\naturaleza.css" />
     <Content Include="Content\layout_3\css\default.css" />
     <Content Include="Content\layout_3\images\default\ico_vineta.png" />
+    <Content Include="Content\layout_3\images\group_image.png" />
     <Content Include="Content\layout_3\images\naturaleza\bg_body.png" />
     <Content Include="Content\layout_3\images\naturaleza\ico_vineta.png" />
     <Content Include="Content\layout_3\images\social\bg_body.png" />
@@ -176,13 +178,16 @@
     <Content Include="Content\layout_3\jquery-theme\images\ui-icons_999999_256x240.png" />
     <Content Include="Content\layout_3\jquery-theme\images\ui-icons_fbc856_256x240.png" />
     <Content Include="Content\layout_3\jquery-theme\jquery-ui-1.8.21.css" />
-    <Content Include="Content\shared\images\group_no_image.png" />
+    <Content Include="Content\shared\images\grupo_default.png" />
     <Content Include="Content\shared\images\ico-facebook.png" />
     <Content Include="Content\shared\images\ico_offline.png" />
     <Content Include="Content\shared\images\ico_online.png" />
     <Content Include="Content\shared\images\ico_posMapa.png" />
     <Content Include="Content\shared\images\ico_wikipedia.png" />
     <Content Include="Content\shared\images\ico_youtube.png" />
+    <Content Include="Content\shared\images\grupo_naturaleza.png" />
+    <Content Include="Content\shared\images\grupo_tecnologia.png" />
+    <Content Include="Content\shared\images\grupo_social.png" />
     <Content Include="Content\shared\images\user_no_image.png" />
     <Content Include="Global.asax" />
     <Content Include="MultiTenant\Library\StructureMap.dll" />

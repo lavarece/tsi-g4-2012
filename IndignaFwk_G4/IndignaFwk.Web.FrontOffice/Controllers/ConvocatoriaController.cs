@@ -70,8 +70,6 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 convocatoria.Coordenadas = model.Coordenadas;
 
-                convocatoria.LogoUrl = model.LogoUrl;
-
                 convocatoria.FechaInicio = model.FechaInicio;
 
                 convocatoria.FechaFin = model.FechaFin;

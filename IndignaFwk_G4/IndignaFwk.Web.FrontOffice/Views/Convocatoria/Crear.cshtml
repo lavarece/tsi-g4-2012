@@ -28,12 +28,12 @@
                 </td>
                 <td>
                     <div class="fieldLabel">
-                        @Html.LabelFor(m => m.LogoUrl)
-                    </div>
+                        @Html.LabelFor(m => m.Coordenadas)
+                    </div>    
                     <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.LogoUrl)
-                        @Html.ValidationMessageFor(m => m.LogoUrl)
-                    </div>
+                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasConvocatoria", @readonly = "readonly", @style = "cursor: pointer;" })
+                        @Html.ValidationMessageFor(m => m.Coordenadas)                        
+                    </div>                                        
                 </td>
             </tr>
             <tr>
@@ -75,20 +75,7 @@
                         @Html.ValidationMessageFor(m => m.FechaFin)
                     </div>
                 </td>                
-            </tr>
-            <tr>
-                <td>
-                    <div class="fieldLabel">
-                        @Html.LabelFor(m => m.Coordenadas)
-                    </div>    
-                    <div class="fieldValue">
-                        @Html.TextBoxFor(m => m.Coordenadas, new { @id = "txtCoordenadasConvocatoria", @readonly = "readonly", @style = "cursos: pointer;" })
-                        @Html.ValidationMessageFor(m => m.Coordenadas)                        
-                    </div>                                        
-                </td>
-                <td>
-                </td>
-            </tr>
+            </tr>            
         </table>   
     </div>
     
