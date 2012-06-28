@@ -4,7 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 	x:Class="IndignaFwk_WPF_BackOffice.GestionAdministradores"
 	x:Name="Window"
-	Title="GestionAdministradores"
+	Title="Gestión Administradores"
 	Width="599.5" Height="404">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">

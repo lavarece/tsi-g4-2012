@@ -3,8 +3,8 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	x:Class="IndignaFwk_WPF_BackOffice.GestionGrupos"
 	x:Name="Window"
-	Title="GestionGrupos"
-	Width="446" Height="395">
+	Title="Gestión Grupos"
+	Width="644" Height="395">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
 		<Grid.RowDefinitions>
@@ -21,6 +21,7 @@
                     </DataGridHyperlinkColumn.ElementStyle>
                 </DataGridHyperlinkColumn>
                 <DataGridTextColumn Binding="{Binding Path=Url}" Header="URL"/>
+                <DataGridTextColumn Binding="{Binding Path=Descripcion}" Header="Descripción"/>
 			</DataGrid.Columns>
 		</DataGrid>
 		<Label Content="Gestión de Grupos" Height="39" Margin="110,-3,-42,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
@@ -28,7 +29,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-        <Button x:Name="boton_Salir" Margin="321,0,12,11" Content="Salir" Click="boton_Salir_Click" Height="25" VerticalAlignment="Bottom">
+        <Button x:Name="boton_Salir" Margin="521,0,12,11" Content="Salir" Click="boton_Salir_Click" Height="25" VerticalAlignment="Bottom">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>

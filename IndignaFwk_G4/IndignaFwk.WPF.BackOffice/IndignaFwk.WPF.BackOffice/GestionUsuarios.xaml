@@ -3,7 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	x:Class="IndignaFwk_WPF_BackOffice.GestionUsuarios"
 	x:Name="Window"
-	Title="GestionUsuarios"
+	Title="Gestion Usuarios"
 	Width="527" Height="360">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
@@ -31,8 +31,9 @@
         <DataGrid AutoGenerateColumns="False" x:Name="datagrid_usuarios" IsReadOnly="True" Margin="14,113,11,130" Grid.Column="1" >
 			<DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Nombre"/>
+                <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido"/>
                 <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
-                <DataGridTextColumn Binding="{Binding Path=Descripcion}" Header="Descripcion"/>
+                <DataGridTextColumn Binding="{Binding Path=Descripcion}" Header="Descripción"/>
 			</DataGrid.Columns>
 		</DataGrid>
 		<Button Content="Dar de baja" HorizontalAlignment="Right" Height="23" Margin="0,0,13,86" VerticalAlignment="Bottom" Width="85" Grid.Column="1" Click="Button_Click">
