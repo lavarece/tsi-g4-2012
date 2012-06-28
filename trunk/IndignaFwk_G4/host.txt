@@ -1,23 +1,12 @@
-127.0.0.1 abuso_animal.com
-
-127.0.0.1 zonapanda.com
-
-127.0.0.1 no-a-la-contaminacion-luminica.com
-
-127.0.0.1 contra_monopolio_informatico.com
-
-127.0.0.1 noabuso.com
-
-127.0.0.1 noalamegamineria.com
-
-127.0.0.1 todos_iguales.com
-
-127.0.0.1 no_sopa.com
-
-127.0.0.1 no_pirateria.com
-
-127.0.0.1 no_agrotoxico.com
-
-127.0.0.1 no_discrimines.com
-
-127.0.0.1 no_basura_espacial.com
+127.0.0.1 abuso_animal
+127.0.0.1 zonapanda
+127.0.0.1 no-a-la-contaminacion-luminica
+127.0.0.1 contra_monopolio_informatico
+127.0.0.1 noabuso
+127.0.0.1 noalamegamineria
+127.0.0.1 todos_iguales
+127.0.0.1 no_sopa
+127.0.0.1 no_pirateria
+127.0.0.1 no_agrotoxico
+127.0.0.1 no_discrimines
+127.0.0.1 no_basura_espacial

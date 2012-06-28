@@ -14,9 +14,6 @@ namespace IndignaFwk.Web.FrontOffice.Models
         [Display(Name = "Titulo:")]
         public string Titulo { get; set; }
 
-        [Display(Name = "Link foto:")]
-        public string LogoUrl { get; set; }
-
         [Required(ErrorMessage="Campo obligatorio")]
         [Display(Name = "Descripcion:")]
         public string Descripcion { get; set; }
