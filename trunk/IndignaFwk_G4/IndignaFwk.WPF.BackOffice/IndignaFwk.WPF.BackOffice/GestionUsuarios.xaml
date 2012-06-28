@@ -36,7 +36,7 @@
                 <DataGridTextColumn Binding="{Binding Path=Descripcion}" Header="Descripción"/>
 			</DataGrid.Columns>
 		</DataGrid>
-		<Button Content="Dar de baja" HorizontalAlignment="Right" Height="23" Margin="0,0,13,86" VerticalAlignment="Bottom" Width="85" Grid.Column="1" Click="Button_Click">
+        <Button Content="Dar de baja" HorizontalAlignment="Right" Height="23" Margin="0,0,110.89,86.196" VerticalAlignment="Bottom" Width="85" Grid.Column="1" Click="Button_Click">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
@@ -44,7 +44,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Button x:Name="boton_Salir" Height="23" Margin="0,0,104.89,86.196" VerticalAlignment="Bottom" Content="Salir" HorizontalAlignment="Right" Width="91" Click="boton_Salir_Click" Grid.Column="1">
+        <Button x:Name="boton_Salir" Height="23" Margin="0,0,13,86" VerticalAlignment="Bottom" Content="Salir" HorizontalAlignment="Right" Width="91" Click="boton_Salir_Click" Grid.Column="1">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
