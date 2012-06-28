@@ -127,6 +127,8 @@ namespace IndignaFwk_WPF_BackOffice
                 }
             }
 
+            text_facebook.Text = grupo.AppIDFacebook.ToString();
+
             grupoEditando = grupo;
 
             editando = true;
@@ -177,6 +179,8 @@ namespace IndignaFwk_WPF_BackOffice
 
                     grupo.FuentesExternas.Add(fuenteExternaGrupo);
                 }
+                grupo.AppIDFacebook = text_facebook.Text;
+
 
                 if (editando)
                 {
