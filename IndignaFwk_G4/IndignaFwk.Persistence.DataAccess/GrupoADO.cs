@@ -78,8 +78,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, Coordenadas, FK_Id_Imagen, FK_Id_Layout, FK_Id_Tematica) " +
-                                  " values(@nombre, @descripcion, @url, @coordenadas, @idImagen, @idLayout, @idTematica); " + 
+            command.CommandText = " insert into Sitio(Nombre, Descripcion, Url, Coordenadas, AppIDFacebook, FK_Id_Imagen, FK_Id_Layout, FK_Id_Tematica) " +
+                                  " values(@nombre, @descripcion, @url, @coordenadas, @appIdFacebook, @idImagen, @idLayout, @idTematica); " + 
                                   " select @idGen = SCOPE_IDENTITY() FROM Sitio; ";
             
             UtilesBD.SetParameter(command, "nombre", grupo.Nombre);
@@ -88,6 +88,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "coordenadas", grupo.Coordenadas);
             UtilesBD.SetParameter(command, "idLayout", grupo.Layout.Id);
             UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
+            UtilesBD.SetParameter(command, "appIdFacebook", grupo.AppIDFacebook);
 
             if (grupo.Imagen != null)
                 UtilesBD.SetParameter(command, "idImagen", grupo.Imagen.Id);
@@ -115,7 +116,8 @@ namespace IndignaFwk.Persistence.DataAccess
                                   " Nombre = @nombre, " +                                    
                                   " Descripcion = @descripcion, " +
                                   " Url = @url, " +
-                                  " Coordenadas = @coordenadas, " +                                  
+                                  " Coordenadas = @coordenadas, " +
+                                  " AppIDFacebook = @appIdFacebook, " +
                                   " FK_Id_Layout = @idLayout, " +
                                   " FK_Id_Tematica = @idTematica, " +
                                   " FK_Id_Imagen = @idImagen " +
@@ -126,6 +128,7 @@ namespace IndignaFwk.Persistence.DataAccess
             UtilesBD.SetParameter(command, "descripcion", grupo.Descripcion);
             UtilesBD.SetParameter(command, "url", grupo.Url);
             UtilesBD.SetParameter(command, "coordenadas", grupo.Coordenadas);
+            UtilesBD.SetParameter(command, "appIdFacebook", grupo.AppIDFacebook);
             UtilesBD.SetParameter(command, "idLayout", grupo.Layout.Id);
             UtilesBD.SetParameter(command, "idTematica", grupo.Tematica.Id);
 
@@ -182,6 +185,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
+                    grupo.AppIDFacebook = UtilesBD.GetIntFromReader("AppIDFacebook", reader);
+
                     grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
                     grupo.Tematica = TematicaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Tematica", reader), conexion);
@@ -234,6 +239,8 @@ namespace IndignaFwk.Persistence.DataAccess
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
 
+                    grupo.AppIDFacebook = UtilesBD.GetIntFromReader("AppIDFacebook", reader);
+
                     grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 
                     grupo.Tematica = TematicaADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Tematica", reader), conexion);
@@ -285,6 +292,8 @@ namespace IndignaFwk.Persistence.DataAccess
                     grupo.Url = UtilesBD.GetStringFromReader("Url", reader);
 
                     grupo.Coordenadas = UtilesBD.GetStringFromReader("Coordenadas", reader);
+
+                    grupo.AppIDFacebook = UtilesBD.GetIntFromReader("AppIDFacebook", reader);
 
                     grupo.Layout = LayoutADO.Obtener(UtilesBD.GetIntFromReader("FK_Id_Layout", reader), conexion);
 

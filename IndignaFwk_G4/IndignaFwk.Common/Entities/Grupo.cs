@@ -27,6 +27,9 @@ namespace IndignaFwk.Common.Entities
         public string Url { get; set; }
 
         [DataMember]
+        public int AppIDFacebook { get; set; }
+
+        [DataMember]
         public Layout Layout { get; set; }
 
         [DataMember]
