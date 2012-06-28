@@ -109,7 +109,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
             command.Connection = conexion;
 
-            command.CommandText = "UPTADE Usuario Set Eliminado = 1 WHERE Id = @id";
+            command.CommandText = "UPDATE Usuario Set Eliminado = 1 WHERE Id = @id";
 
             UtilesBD.SetParameter(command, "id", id);
 
