@@ -54,7 +54,7 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-		<Label Content="Crear Administrador" Margin="111,12,19,38" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Grid.ColumnSpan="2">
+		<Label Content="Crear Administrador" Margin="15,25,68,25" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="22" Grid.ColumnSpan="3" Grid.Column="1">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
