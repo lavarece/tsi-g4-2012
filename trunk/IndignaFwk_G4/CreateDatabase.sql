@@ -152,7 +152,7 @@ CREATE TABLE [dbo].[Sitio](
 	[Url] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[Coordenadas] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[FK_Id_Imagen] [int] ,
-	[AppIDFacebook] [int] ,
+	[AppIDFacebook] [nvarchar](250) COLLATE SQL_Latin1_General_CP1_CI_AS ,
 	[FK_Id_Layout] [int] NOT NULL,
 	[FK_Id_Tematica] [int] NOT NULL
  CONSTRAINT FK_Sitio_FK_Imagen FOREIGN KEY (FK_Id_Imagen) REFERENCES Imagen(Id) 
