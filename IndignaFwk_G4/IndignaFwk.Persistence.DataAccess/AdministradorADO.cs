@@ -139,12 +139,23 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 command.Connection = conexion;
 
-                command.CommandText = "SELECT * FROM Administrador WHERE Email = @email and Password = @pass";
+                StringBuilder sbQuery = new StringBuilder();
+                sbQuery.Append(" SELECT * FROM Administrador WHERE Email = @email ");
+
+                if (pass != null)
+                {
+                    sbQuery.Append(" and Password = @pass ");
+                }
+
+                command.CommandText = sbQuery.ToString();
 
                 UtilesBD.SetParameter(command, "email", email);
 
-                UtilesBD.SetParameter(command, "pass", pass);
-
+                if (pass != null)
+                {
+                    UtilesBD.SetParameter(command, "pass", pass);
+                }
+                
                 reader = command.ExecuteReader();
 
                 if (reader.Read())
