@@ -21,8 +21,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{5F064A68-3309-4F03-882F-7E43C3147A27}"
 	ProjectSection(SolutionItems) = preProject
 		CreateDatabase.sql = CreateDatabase.sql
+		CreateDatabase_Int.sql = CreateDatabase_Int.sql
 		host.txt = host.txt
-		Insert2.sql = Insert2.sql
 		InsertBasico.sql = InsertBasico.sql
 	EndProjectSection
 EndProject
