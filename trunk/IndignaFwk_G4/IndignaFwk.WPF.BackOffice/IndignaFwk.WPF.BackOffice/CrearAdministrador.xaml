@@ -4,7 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 	x:Class="IndignaFwk_WPF_BackOffice.CrearAdministrador"
 	x:Name="Window"
-	Title="CrearAdministrador"
+	Title="Crear Administrador"
 	Width="469" Height="276">
 
 	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Height="282" Width="475">

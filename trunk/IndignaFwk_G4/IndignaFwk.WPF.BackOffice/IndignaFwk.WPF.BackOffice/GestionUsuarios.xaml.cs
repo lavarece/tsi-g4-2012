@@ -46,10 +46,20 @@ namespace IndignaFwk_WPF_BackOffice
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             e.Handled = true;
-            int i = ((Usuario)this.datagrid_usuarios.SelectedItem).Id;
-           
-            usuarioUserProcess.EliminarUsuario(i);
-            MessageBox.Show("Usuario eliminado correctamente");
+            if (this.datagrid_usuarios.SelectedItem != null)
+            {
+                int i = ((Usuario)this.datagrid_usuarios.SelectedItem).Id;
+
+                usuarioUserProcess.EliminarUsuario(i);
+                
+                MessageBox.Show("Usuario eliminado correctamente", "Confirmación", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("No ha seleccionado ningún usuario", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            
             
             if (comboBox_Sitios.SelectedItem != null)
             {

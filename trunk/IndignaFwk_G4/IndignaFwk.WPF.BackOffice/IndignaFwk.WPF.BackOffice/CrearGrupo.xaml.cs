@@ -60,7 +60,7 @@ namespace IndignaFwk_WPF_BackOffice
             this.InitializeComponent();
             txt_nombre.Text = grupo.Nombre;
             txt_url.Text = grupo.Url;
-            if(String.IsNullOrEmpty(grupo.Descripcion))
+            if(!String.IsNullOrEmpty(grupo.Descripcion))
             {
                 txt_descripcion.Text = grupo.Descripcion;
             }
@@ -101,6 +101,31 @@ namespace IndignaFwk_WPF_BackOffice
             latitud = arrayCoordenadas[1];
 
             coordenadas.Content = grupo.Coordenadas;
+            List<FuenteExternaGrupo> lf = grupo.FuentesExternas; 
+
+            foreach (FuenteExternaGrupo f in lf)
+            {
+                if (f.FuenteExterna == "YOU_TUBE")
+                {
+                    chk_fuente_youtube.IsChecked = true;
+
+                    txt_keywords_youtube.Text = f.QueryString;
+
+                    txt_resultados_youtube.Text = f.CantidadResultados.ToString();
+
+                }
+                else
+                {
+                    if (f.FuenteExterna == "WIKIPEDIA")
+                    {
+                        chk_fuente_wikipedia.IsChecked = true;
+
+                        txt_keywords_wikipedia.Text = f.QueryString;
+
+                        txt_resultados_wikipedia.Text = f.CantidadResultados.ToString();
+                    }
+                }
+            }
 
             grupoEditando = grupo;
 
