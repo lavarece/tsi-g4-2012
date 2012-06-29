@@ -1,0 +1,19 @@
+Juan:	
+	Terminar documento.
+	  Indicar como resolvimos el problema de facebook con los AppID y como se soluciono actualmente.
+	  A futuro:
+	  Implementar CU de windows phone.			
+	WPF instalador
+	
+Maxi:
+	Mejorar chat
+	Upload de imagen de usuario en front office
+	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
+	
+Vanessa:
+	Arreglar reporte Backoffice
+	Testear back y front y subir errores
+	Mejorar ventanas backoffice (setParent())
+	
+Gonzalo:
+	Obtener descripcion de las coordenadas de google maps

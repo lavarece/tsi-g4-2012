@@ -7,6 +7,7 @@ pass admin:  YLgsex}s
 --- URL repositorio que nos dieron ---
 
 https://www.fing.edu.uy/ens/svn/repos/tsi102
+https://www.fing.edu.uy/ens/svn/repos/tsinet102/
 
 
 --- Usuarios creados con el admin (nombre : pass) ---
