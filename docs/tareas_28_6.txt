@@ -9,6 +9,7 @@ Maxi:
 	Mejorar chat
 	Upload de imagen de usuario en front office
 	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
+	Login con twetter
 	
 Vanessa:
 	Arreglar reporte Backoffice
