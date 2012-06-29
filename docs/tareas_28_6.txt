@@ -6,10 +6,10 @@ Juan:
 	WPF instalador
 	
 Maxi:
+OK! ->	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
 	Mejorar chat
 	Upload de imagen de usuario en front office
-	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
-	Login con twetterdo 
+	Login con twetterd
 	Mejorar apariencia de la pantalla de error cuando el error es un tenantNotFound
 	Cambiar nombre del proyecto google maps del back office
 	
