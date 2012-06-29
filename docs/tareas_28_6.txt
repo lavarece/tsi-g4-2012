@@ -9,7 +9,9 @@ Maxi:
 	Mejorar chat
 	Upload de imagen de usuario en front office
 	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
-	Login con twetter
+	Login con twetterdo 
+	Mejorar apariencia de la pantalla de error cuando el error es un tenantNotFound
+	Cambiar nombre del proyecto google maps del back office
 	
 Vanessa:
 	Arreglar reporte Backoffice
