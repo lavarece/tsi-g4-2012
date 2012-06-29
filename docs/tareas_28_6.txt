@@ -8,7 +8,7 @@ Juan:
 Maxi:
 OK! ->	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
 	Mejorar chat
-	Upload de imagen de usuario en front office
+	Upload de imagen de usuario en front office, al registrar y obtener la de face cuando sea login con facebook
 	Login con twetterd
 	Mejorar apariencia de la pantalla de error cuando el error es un tenantNotFound
 	Cambiar nombre del proyecto google maps del back office
