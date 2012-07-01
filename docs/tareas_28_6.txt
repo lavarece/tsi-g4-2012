@@ -14,9 +14,9 @@ OK! ->	Arreglar script de DB (Dejar 4 1 por tematica con el mejor layout)
 	Cambiar nombre del proyecto google maps del back office
 	
 Vanessa:
-	Arreglar reporte Backoffice
+OK!	Arreglar reporte Backoffice
 	Testear back y front y subir errores
-	Mejorar ventanas backoffice (setParent())
+No he podido! Estuve investigando pero no me ha salido	Mejorar ventanas backoffice (setParent())
 	
 Gonzalo:
 	Obtener descripcion de las coordenadas de google maps
