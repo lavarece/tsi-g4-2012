@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Filter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="FiltroBusqueda">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Asistire" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicio" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdGrupo" type="xs:int" />
+      <xs:element minOccurs="0" name="IdUsuario" type="xs:int" />
+      <xs:element minOccurs="0" name="Quorum" type="xs:int" />
+      <xs:element minOccurs="0" name="Tematica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FiltroBusqueda" nillable="true" type="tns:FiltroBusqueda" />
+</xs:schema>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="IndignaFwk.Business.Services.ContenidoService" CodeBehind="ContenidoService.svc.cs" %>
