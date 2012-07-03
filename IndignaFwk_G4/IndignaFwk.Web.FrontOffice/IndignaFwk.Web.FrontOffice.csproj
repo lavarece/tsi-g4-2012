@@ -180,6 +180,7 @@
     <Content Include="Content\layout_3\jquery-theme\jquery-ui-1.8.21.css" />
     <Content Include="Content\shared\images\grupo_default.png" />
     <Content Include="Content\shared\images\ico-facebook.png" />
+    <Content Include="Content\shared\images\ico-navegar-sitio.png" />
     <Content Include="Content\shared\images\ico_offline.png" />
     <Content Include="Content\shared\images\ico_online.png" />
     <Content Include="Content\shared\images\ico_posMapa.png" />
