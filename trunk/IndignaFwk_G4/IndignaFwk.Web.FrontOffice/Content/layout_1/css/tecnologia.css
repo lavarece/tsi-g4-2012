@@ -349,6 +349,7 @@ input, select, textarea
     font-size: 13px;    
     font-weight: bold;    
     border-radius: 7px 7px 7px 7px;
+    box-shadow: 0px 0px 10px;
 }
 
 .boton a:hover
