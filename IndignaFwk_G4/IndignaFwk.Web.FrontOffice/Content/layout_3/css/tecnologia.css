@@ -340,6 +340,7 @@ input, select, textarea
     color: #FFFFFF;
     font-size: 13px;    
     font-weight: bold;    
+    box-shadow: 0px 0px 10px #000000;
 }
 
 .boton a:active
