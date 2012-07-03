@@ -4,43 +4,74 @@
     ViewBag.Title = "Error inesperado";
 }
 
-<h2 style="color: #FF0000;">Ha ocurrido un error inesperado del sistema:</h2><hr />
+<html>
+    <head>
+        <title>Error - Indignado Framework</title>
+    
+        <style type="text/css">
+            body
+            {
+                font-size: 12px;
+                font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+                color: #000000;
+                text-align: justify;        
+            } 
+            
+            td
+            {
+                font-size: 12px;
+                font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif !important;
+                color: #000000;
+                padding: 5px;
+            }
+        </style>
 
-<table border="1">
-    <tr>
-        <td style="width: 120px; vertical-align:top;">Tipo de error</td>
-        <td>@ViewBag.TipoError</td>
-    </tr>
-    <tr>
-        <td style="vertical-align: top;">Mensaje del error</td>
-        <td>@ViewBag.MensajeError</td>
-    </tr>
-</table>
+    </head>
+    <body>    
+        <h2 style="color: #FF0000;">Ha ocurrido un error inesperado del sistema:</h2>
 
-<br /><hr />
-
-@if(ViewBag.ListadoGrupos != null)
-{    
-    <h3>Grupos disponibles en el sistema</h3>
-    <div>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>URL</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(Grupo grupo in ViewBag.ListadoGrupos)
-                {
-                    <tr>
-                        <td>@grupo.Nombre</td>
-                        <td>@grupo.Descripcion</td>
-                        <td>@grupo.Url</td>
-                    </tr>
-                }  
-            </tbody>              
+        <table style="border: 1px solid #000000;">
+            <tr>
+                <td style="width: 120px; vertical-align:top; background-color: #3C3C3C; color: #FFFFFF; text-align: right; font-weight: bold;">Tipo de error</td>
+                <td style="background-color: #E5E5E5;">@ViewBag.TipoError</td>
+            </tr>
+            <tr>
+                <td style="width: 120px; vertical-align:top; background-color: #3C3C3C; color: #FFFFFF; text-align: right; font-weight: bold;">Mensaje del error</td>
+                <td style="background-color: #E5E5E5;">@ViewBag.MensajeError</td>
+            </tr>
         </table>
-    </div>
-}
+
+        <br /><hr />
+
+        @if(ViewBag.ListadoGrupos != null)
+        {    
+            <h3>Grupos disponibles en el sistema</h3>
+            <div>
+                <table style="border: 1px solid #000000; width: 100%;">
+                    <thead>
+                        <tr style="background-color: #3C3C3C;">
+                            <th style="color: #FFFFFF;">Nombre</th>
+                            <th style="color: #FFFFFF;">Descripción</th>                    
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(Grupo grupo in ViewBag.ListadoGrupos)
+                        {
+                            string linkGrupo = "http://" + grupo.Url + "/FrontOffice/";
+                            <tr style="background-color: #E5E5E5;">                                
+                                <td style="width: 200px;">@grupo.Nombre</td>
+                                <td>@grupo.Descripcion</td>
+                                <td style="width: 50px; text-align: center;">
+                                    <a href="@linkGrupo">
+                                        <img src="@Url.Content("~/Content/shared/images/ico-navegar-sitio.png")" alt="IR" />
+                                    </a>
+                                </td>                        
+                            </tr>
+                        }  
+                    </tbody>              
+                </table>
+            </div>
+        }
+    </body>
+</html>

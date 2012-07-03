@@ -34,7 +34,8 @@ input, select, textarea
 	border-left: 3px ridge #DD8B07;
 	border-right: 3px ridge #DD8B07;
 	border-bottom: 0px; 	
-    background-color: #3C3C3C;
+    background-color: #2C2020;
+    box-shadow: -7px 16px 25px #262626;
 }
 
 #header
@@ -169,7 +170,7 @@ input, select, textarea
 #footer
 {
     width: 920px;
-    background-color: #515151;
+    background-color: #1F1616;
     margin: auto;
     height: 30px;
     line-height: 30px;
@@ -179,6 +180,7 @@ input, select, textarea
 	border-right: 3px ridge #DD8B07;
 	border-bottom: 3px ridge #DD8B07;
 	border-radius: 0px 0px 10px 10px;
+	box-shadow: -7px 13px 25px #262626;
 }
 
 #footer p
@@ -312,7 +314,7 @@ input, select, textarea
 
 .areaBotones
 {
-    background-color: #777777;
+    background-color: #1F1616;
     width: 100%;
     height: 35px;
     line-height: 35px;
