@@ -5,16 +5,18 @@
 
 <script type="text/javascript">
 
-    var countConversaciones = 0;
+    var arrayConversaciones = [];
     function iniciarConversacion(idUsuario) 
     {
-        var dialogConversacion = $("#dialogConversacion_" + idUsuario);
+        // verifico si existe la conversacion antes de crearla
+        var conversacionUsuario = obtenerConversacionUsuario(idUsuario);
 
-        if (dialogConversacion[0]) {
-            dialogConversacion.parent().css("display", "block");
+        if (conversacionUsuario) {
             $("#txt_ingresoMsj_" + idUsuario).focus();
         }
         else {
+            var dialogConversacion = $("#dialogConversacion_" + idUsuario);
+
             $.ajax({
                 url: '@Url.Action("IniciarConversacionEmbed", "Chat")' + "?idUsuario=" + idUsuario,
                 dataType: "html",
@@ -31,34 +33,72 @@
                             closeOnEscape: false,
                             draggable: false,
                             close: function (event, ui) {
-                                countConversaciones--;
+                                eliminarConversacion(idUsuario);
+                                reacomodarConversaciones();
                             }
                         });
 
-                        var rightDialog = "0px";
-                        if (countConversaciones == 0) {
-                            rightDialog = 220 + "px";
-                        }
-                        else if (countConversaciones >= 2) {
-                            rightDialog = 220 + (308 * 2) + "px";                            
-                        }
-                        else {
-                            rightDialog = 220 + (308 * countConversaciones) + "px";
-                        }
+                        idInterval = setInterval('refrescarConversacion(' + idUsuario + ')', 5000);
 
-                        dialogConversacion.parent().css({ position: "fixed", bottom: "0px", right: rightDialog });
-                        dialogConversacion.dialog("open");
-                        dialogConversacion.parent()[0].style.removeProperty("top");
-                        dialogConversacion.parent()[0].style.removeProperty("left");
-                        countConversaciones++;
+                        arrayConversaciones.push({
+                            idUsuario: idUsuario,
+                            dialogConversacion: dialogConversacion,
+                            idInterval: idInterval
+                        });
+
+                        reacomodarConversaciones();
                     }
                 }
             });
-
-            setInterval('refrescarConversacion(' + idUsuario + ')', 5000);
         }
     }
 
+    function reacomodarConversaciones() {
+        for (i = 0; i < arrayConversaciones.length; i++) {
+            var dialogConversacion = arrayConversaciones[i].dialogConversacion;
+
+            var rightDialog = "0px";
+            if (i == 0) {
+                rightDialog = 220 + "px";
+            }
+            else if (i >= 2) {
+                rightDialog = 220 + (308 * 2) + "px";
+            }
+            else {
+                rightDialog = 220 + (308 * i) + "px";
+            }
+
+            dialogConversacion.parent().css({ position: "fixed", bottom: "0px", right: rightDialog });
+            dialogConversacion.dialog("open");
+            dialogConversacion.parent()[0].style.removeProperty("top");
+            dialogConversacion.parent()[0].style.removeProperty("left");
+        }
+    }
+
+    function eliminarConversacion(idUsuario) {
+        var conversacionUsuario = obtenerConversacionUsuario(idUsuario);
+
+        if (conversacionUsuario) {
+            clearInterval(conversacionUsuario.idInterval);
+
+            var newArray = [];
+            for (i = 0; i < arrayConversaciones.length; i++) {
+                if (arrayConversaciones[i].idUsuario != idUsuario) {
+                    newArray.push(arrayConversaciones[i]);
+                }
+            }
+            arrayConversaciones = newArray;
+        }
+    }
+
+    function obtenerConversacionUsuario(idUsuario) {
+        for (i = 0; i < arrayConversaciones.length; i++) {
+            if (arrayConversaciones[i].idUsuario == idUsuario) {
+                return arrayConversaciones[i];
+            }
+        }
+    }
+    
     function enviarMensaje(idUsuario)
     {
         var ingresoMsj = $("#txt_ingresoMsj_" + idUsuario)

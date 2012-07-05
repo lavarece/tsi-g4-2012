@@ -50,12 +50,19 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                     foreach (Usuario usuario in listadoUsuarios)
                     {
                         if (usuario.Id != ci.Id)
-                        {
+                        {                            
                             string claseDiv = "nombreUsuarioChat " + (usuario.Conectado ? "usuarioOnline" : "usuarioOffline");
                             sbContent.Append("<ul>")
                                      .Append("<li>")
-                                     .Append("<div class=\"" + claseDiv + "\">")
-                                     .Append("<a href=\"#\" onclick=\"iniciarConversacion(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")
+                                     .Append("<div class=\"" + claseDiv + "\">");
+
+                            int msjsNoLeidos = CantidadMsjsNoLeidosUsuario(ci.Id, usuario.Id);
+                            if(msjsNoLeidos > 0) 
+                            {
+                                sbContent.Append("<span class=\"msjsNoLeidos\">" + msjsNoLeidos + "</span>");
+                            }
+                                     
+                            sbContent.Append("<a href=\"#\" onclick=\"iniciarConversacion(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")                                     
                                      .Append("</div>")
                                      .Append("</li>")
                                      .Append("</ul>");
@@ -106,7 +113,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Obtengo la conversacion
                 CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
-                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB);
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB, true);
 
                 // Obtengo el usuario
                 Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(idUsuarioB);
@@ -169,7 +176,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Obtengo la conversacion
                 CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
-                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB);
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB, true);
 
                 Mensaje mensaje = new Mensaje();
 
@@ -178,6 +185,8 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 mensaje.IdRemitente = ci.Id;
 
                 mensaje.Contenido = msj;
+
+                mensaje.Leido = false;
 
                 conversacion.ListaMensajes.Add(mensaje);
 
@@ -202,11 +211,17 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Obtengo la conversacion
                 CustomIdentity ci = (CustomIdentity)ControllerContext.HttpContext.User.Identity;
 
-                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB);
+                Conversacion conversacion = ObtenerConversacion(ci.Id, idUsuarioB, true);
 
                 // Agrego los mensajes existentes
                 foreach (Mensaje mensaje in conversacion.ListaMensajes)
                 {
+                    // Si yo no fui el remitente se marca como leido el mensaje
+                    if (mensaje.IdRemitente != ci.Id)
+                    {
+                        mensaje.Leido = true; 
+                    }
+                    
                     sbContent.Append((mensaje.IdRemitente == ci.Id ? "<b>Yo: </b>" : "<b>El: </b>"))
                              .Append("<span>").Append(mensaje.Contenido).Append("</span><br/>");
                 }
@@ -215,7 +230,28 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             return Content(sbContent.ToString(), "text/html");
         }
 
-        private Conversacion ObtenerConversacion(int idUsuarioA, int idUsuarioB)
+        // Recupera los mensajes no leidos para la conversacion idUsuarioA:idUsuarioB
+        private int CantidadMsjsNoLeidosUsuario(int idUsuarioA, int idUsuarioB)
+        {
+            int count = 0;
+
+            Conversacion conversacion = ObtenerConversacion(idUsuarioA, idUsuarioB, false);
+
+            if (conversacion != null)
+            {
+                foreach (Mensaje msj in conversacion.ListaMensajes)
+                {
+                    if (msj.IdRemitente != idUsuarioA && msj.Leido == false)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            return count;
+        }
+
+        private Conversacion ObtenerConversacion(int idUsuarioA, int idUsuarioB, bool autoCrear)
         {
             List<Conversacion> listaConversaciones = null;
 
@@ -242,17 +278,26 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 }
             }
 
-            Conversacion nuevaConv = new Conversacion();
+            if (autoCrear)
+            {
+                // Si la conversacion no existe la creo
+                Conversacion nuevaConv = new Conversacion();
 
-            nuevaConv.IdGrupo = site.Grupo.Id;
+                nuevaConv.IdGrupo = site.Grupo.Id;
 
-            nuevaConv.IdUsuarioA = idUsuarioA;
+                nuevaConv.IdUsuarioA = idUsuarioA;
 
-            nuevaConv.IdUsuarioB = idUsuarioB;
+                nuevaConv.IdUsuarioB = idUsuarioB;
 
-            listaConversaciones.Add(nuevaConv);
+                listaConversaciones.Add(nuevaConv);
 
-            return nuevaConv;            
+                return nuevaConv;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         private int ObtenerSiguienteIdMensaje(Conversacion conversacion)
