@@ -7,10 +7,12 @@ namespace IndignaFwk.Common.Entities
 {
     public class Mensaje
     {
-        public int Id;
+        public int Id { get; set; }
 
-        public int IdRemitente;
+        public int IdRemitente { get; set; }
 
-        public string Contenido;
+        public string Contenido { get; set; }
+
+        public bool Leido { get; set; }
     }
 }
