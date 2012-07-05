@@ -413,7 +413,7 @@ namespace IndignaFwk.Persistence.DataAccess
 
                 sbQuery.Append(" SELECT c.*, ")
                        .Append(" (select COUNT(mc.id) from MarcaContenido mc where mc.FK_Id_Contenido = c.Id and mc.TipoMarca = '" + TipoMarcaContenidoEnum.INADECUADO.Valor + "') cantidadInadecuado ")
-                       .Append(" FROM Contenido c WHERE Id = @id and Eliminado = 1");
+                       .Append(" FROM Contenido c WHERE Id = @id and Eliminado = 0");
 
                 command.CommandText = sbQuery.ToString();
 
