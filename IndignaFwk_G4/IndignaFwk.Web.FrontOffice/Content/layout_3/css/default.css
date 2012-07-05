@@ -555,7 +555,7 @@ input, select, textarea
     text-decoration: none;  
     color: #000000;
     border-bottom: 1px solid #E3E3E3;
-    padding: 11px 100% 11px 25px;
+    padding: 10px 100% 9px 25px;
     text-align: left;  
 }
 
@@ -656,4 +656,19 @@ input, select, textarea
 {
     outline:0;
     outline:none;
+}
+
+.msjsNoLeidos
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #EB3B0F;
+    position: absolute;
+    left: 180px;
+    padding: 1px 3px;  
+    border: 1px outset #000000;
+    border-radius: 5px 5px 5px 5px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 7px;    
 }

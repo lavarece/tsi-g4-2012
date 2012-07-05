@@ -245,7 +245,7 @@ input, select, textarea
     background-color: #EB3B0F;
     position: relative;
     top: -12px;
-    right: 84px;
+    right: 161px;
     padding: 1px 3px;  
     border: 1px outset #000000;
     border-radius: 5px 5px 5px 5px;
@@ -560,7 +560,7 @@ input, select, textarea
     text-decoration: none;
     color: #DBDBD5;  
     border-bottom: 1px solid #686868;  
-    padding: 12px 100% 11px 25px;
+    padding: 12px 100% 10px 25px;
     text-align: left;    
 }
 
@@ -637,7 +637,7 @@ input, select, textarea
 .wrapperMensajeChat
 {
     margin-top: 12px;
-    margin-left: 10px;
+    margin-left: 8px;
     border: 1px solid #F79F11;
     background-color: #515151;
     width: 74%;
@@ -661,9 +661,25 @@ input, select, textarea
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
+    font-size: 13px;
 }
 
 .previewContenido iframe
 {
     width: 444px;
+}
+
+.msjsNoLeidos
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #EB3B0F;
+    position: absolute;
+    left: 320px;
+    padding: 1px 3px;  
+    border: 1px outset #000000;
+    border-radius: 5px 5px 5px 5px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 7px;    
 }

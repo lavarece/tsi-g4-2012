@@ -666,9 +666,25 @@ input, select, textarea
     resize: none;
     overflow-y: auto;
     overflow-x: hidden;
+    font-size: 13px;
 }
 
 .previewContenido iframe
 {
     width: 303px;
+}
+
+.msjsNoLeidos
+{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #EB3B0F;
+    position: absolute;
+    left: 415px;
+    padding: 1px 3px;  
+    border: 1px outset #000000;
+    border-radius: 5px 5px 5px 5px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 7px;    
 }
