@@ -57,11 +57,11 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                                      .Append("<div class=\"" + claseDiv + "\">");
 
                             int msjsNoLeidos = CantidadMsjsNoLeidosUsuario(ci.Id, usuario.Id);
-                            if(msjsNoLeidos > 0) 
+                            if (msjsNoLeidos > 0)
                             {
-                                sbContent.Append("<span class=\"msjsNoLeidos\">" + msjsNoLeidos + "</span>");
+                                sbContent.Append("<span id=\"notifNoLeidos_" + usuario.Id + "\" class=\"msjsNoLeidos\">" + msjsNoLeidos + "</span>");
                             }
-                                     
+
                             sbContent.Append("<a href=\"#\" onclick=\"iniciarConversacion(" + usuario.Id + ")\">" + usuario.NombreCompleto + "</a>")                                     
                                      .Append("</div>")
                                      .Append("</li>")
@@ -90,7 +90,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
         [HttpGet]
         public ActionResult IniciarConversacion()
-        {            
+        {
             return Content(GetConversacionContent(false), "text/html");
         }
 
@@ -118,7 +118,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Obtengo el usuario
                 Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(idUsuarioB);
 
-                // Si es embed agrego un div para el ui.dialog
+                // Si es embed agrego un div para el jQuery ui.dialog
                 if (isEmbed)
                 {
                     sbContent.Append("<div id='dialogConversacion_" + idUsuario + "' title='" + usuario.NombreCompleto + "' style='display:none; padding: 0px; overflow: hidden;'>");
@@ -126,6 +126,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
                 sbContent.Append("<div class=\"wrapperConversacionChat\">");
 
+                // Si no es embed agrego la ventana de conversacion unica
                 if (!isEmbed)
                 {
                     sbContent.Append("<div class=\"datosUsuarioConversacion\">Conversando con: ")
@@ -138,6 +139,14 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Agrego los mensajes existentes
                 foreach (Mensaje mensaje in conversacion.ListaMensajes)
                 {
+                    // Al igual que en refrescar conversacion los marco como leidos 
+                    // si el remitente fue el otro. Se hace aqui y en referscar para que en ningun 
+                    // momento se muestre la notificacion nuevamente
+                    if (mensaje.IdRemitente == idUsuarioB)
+                    {
+                        mensaje.Leido = true;
+                    }
+
                     sbContent.Append((mensaje.IdRemitente == ci.Id ? "<b>Yo: </b>" : "<b>El: </b>"))
                              .Append("<span>").Append(mensaje.Contenido).Append("</span><br/>");
                 }
@@ -216,8 +225,10 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                 // Agrego los mensajes existentes
                 foreach (Mensaje mensaje in conversacion.ListaMensajes)
                 {
-                    // Si yo no fui el remitente se marca como leido el mensaje
-                    if (mensaje.IdRemitente != ci.Id)
+                    // Si el remitente fue el otro se marca como leido el mensaje,  
+                    // se hace aqui tambien ya que si estoy en la conversacion no quiero
+                    // se muestre la notificacion nuevamente
+                    if (mensaje.IdRemitente == idUsuarioB)
                     {
                         mensaje.Leido = true; 
                     }
@@ -231,6 +242,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
         }
 
         // Recupera los mensajes no leidos para la conversacion idUsuarioA:idUsuarioB
+        // donde el remitente sea el usuario B
         private int CantidadMsjsNoLeidosUsuario(int idUsuarioA, int idUsuarioB)
         {
             int count = 0;
@@ -241,7 +253,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             {
                 foreach (Mensaje msj in conversacion.ListaMensajes)
                 {
-                    if (msj.IdRemitente != idUsuarioA && msj.Leido == false)
+                    if (msj.IdRemitente == idUsuarioB && msj.Leido == false)
                     {
                         count++;
                     }
