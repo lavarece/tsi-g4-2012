@@ -26,12 +26,12 @@
             method: "POST",
             success: function (data, textStatus, jqXHR) {
                 if (data != null) {
-                    $("#divContainerChat").html(data);                    
+                    $("#notifNoLeidos_" + idUsuario).remove();
+                    $("#divContainerChat").html(data);
+                    idIntervalConversacion = setInterval('refrescarConversacion(' + idUsuario + ')', 2500);
                 }
             }
         });
-
-        idIntervalChat = setInterval('refrescarConversacion(' + idUsuario + ')', 5000);
     }
 
     function enviarMensaje(idUsuario) 
