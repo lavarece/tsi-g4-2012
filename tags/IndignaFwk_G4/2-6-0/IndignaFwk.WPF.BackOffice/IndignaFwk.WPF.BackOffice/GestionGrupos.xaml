@@ -1,0 +1,41 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="IndignaFwk_WPF_BackOffice.GestionGrupos"
+	x:Name="Window"
+	Title="Gestión Grupos"
+	Width="644" Height="395">
+
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="355.016"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" DockPanel.Dock="Top" Name="dataGrid_listaGrupos" Margin="6,42,8,42">
+			<DataGrid.Columns>
+                <DataGridHyperlinkColumn Binding="{Binding Path=Nombre}" Header="Nombre">
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <EventSetter Event="Hyperlink.Click" Handler="OnHyperlinkClick" />
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
+                <DataGridTextColumn Binding="{Binding Path=Url}" Header="URL"/>
+                <DataGridTextColumn Binding="{Binding Path=Descripcion}" Header="Descripción"/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<Label Content="Gestión de Grupos" Height="39" Margin="110,-3,-42,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+        <Button x:Name="boton_Salir" Margin="521,0,12,11" Content="Salir" Click="boton_Salir_Click" Height="25" VerticalAlignment="Bottom">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+	</Grid>
+</Window>

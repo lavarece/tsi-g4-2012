@@ -1,0 +1,272 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.FiltroConvocatoriaModel
+@using IndignaFwk.Common.Entities;          
+
+@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Convocatorias";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<div>
+    <h3>Listado de convocatorias activas</h3>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{   
+    <div class="areaBotones">
+        <ul>
+            <li>
+                <div class="boton">
+                    <a href="@Url.Action("Crear", "Convocatoria")">Crear convocatoria</a>
+                </div>
+            </li>
+            <li>            
+                <div class="boton" id="botonVerFiltro">
+                    <a href="javascript:mostrarOcultarFiltroConvocatorias(1);">Ver filtro</a>
+                </div>
+                <div class="boton" id="botonOcultarFiltro" style="display: none;">
+                    <a href="javascript:mostrarOcultarFiltroConvocatorias(0);">Ocultar filtro</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    using (Html.BeginForm(null, "Convocatoria", FormMethod.Post, new { @id = "formListadoConvocatoria" }))
+    {
+        <!-- Filtro de convocatorias -->
+        <div class="areaFormulario" id="divFiltroConvocatorias" style="display: none">    
+            <fieldset><legend>Filtro de convocatorias</legend>
+                <table>
+                    <tr>    
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Titulo)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Titulo)
+                                @Html.ValidationMessageFor(m => m.Titulo)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Descripcion)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Descripcion)
+                                @Html.ValidationMessageFor(m => m.Descripcion)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Quorum)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Quorum)
+                                @Html.ValidationMessageFor(m => m.Quorum)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.Tematica)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.Tematica)
+                                @Html.ValidationMessageFor(m => m.Tematica)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.FechaInicio)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.FechaInicio, new { id = "filtroFechaInicio" })
+                                @Html.ValidationMessageFor(m => m.FechaInicio)
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fieldLabel">
+                                @Html.LabelFor(m => m.FechaFin)
+                            </div>
+                            <div class="fieldValue">
+                                @Html.TextBoxFor(m => m.FechaFin, new { id = "filtroFechaFin" })
+                                @Html.ValidationMessageFor(m => m.FechaFin)
+                            </div>
+                        </td>
+                    </tr>     
+                    <tr>
+                        <td colspan="2">
+                            <div class="fieldLabel">
+                                @Html.CheckBoxFor(m => m.Asistire)
+                                @Html.LabelFor(m => m.Asistire)                
+                            </div>
+                        </td>
+                    </tr>           
+                </table>
+                <div style="text-align: right; margin: 5px 0px;">
+                    <div class="boton">
+                        <a href="#" onclick="clickFiltrarConvocatoria();">Buscar</a>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    
+    
+    
+        <!-- Listado de convocatorias -->  
+        if (ViewBag.ListadoConvocatoriasGrupo != null && ViewBag.ListadoConvocatoriasGrupo.Count > 0)
+        {
+            <div class="wrapperDataTable">                              
+                <table class="dataTable">
+                    <thead>
+                        <tr>            
+                            <th>Título</th>              
+                            <th style="width: 160px;">Comienza</th>
+                            <th style="width: 160px;">Finaliza</th>
+                            <th style="width: 100px;">Asistencias</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (Convocatoria convocatoria in ViewBag.ListadoConvocatoriasGrupo)
+                    {
+                        string claseTR = ViewBag.ListadoConvocatoriasGrupo.IndexOf(convocatoria) % 2 == 0 ? "odd" : "even";
+                        <tbody>        
+                            <tr class="@claseTR">
+                                <td>@convocatoria.Titulo</td>
+                                <td>@convocatoria.FechaInicio.ToString()</td>     
+                                <td>@convocatoria.FechaFin.ToString()</td>
+                                <td>@convocatoria.CantidadAsistencias / @convocatoria.Quorum</td>
+                                <td class="fieldIcono">                                
+                                    <a href="@Url.Action("UbicarConvocatoria", "Convocatoria", new { idConvocatoriaAUbicar = convocatoria.Id })" title="Ubicar en mapa">
+                                        <img src="@Url.Content("~/Content/shared/images/ico_posMapa.png")" alt="Ubicar en mapa" />
+                                    </a>
+                                </td>       
+                            </tr>            
+                        </tbody>
+                    }
+                </table>
+            </div>  
+        }
+        else
+        {
+            <div class="mensajeListadoVacio">
+                El grupo no tiene convocatorias.            
+            </div>     
+        }
+    } 
+
+    <!-- Mapa de convocatorias -->
+    if (ViewBag.ConvocatoriaSeleccionada != null)
+    {
+        Convocatoria convocatoriaSel = ViewBag.ConvocatoriaSeleccionada;
+    
+        <div>
+            <h3>Ubicación y detalle de la convocatoria</h3>
+        </div>
+        <div id="mapaConvocatorias">                
+            <div class="mapa" id="divMapaConvocatoria"></div>
+            <input type="hidden" id="latitudConvocatoriaSel" value="@convocatoriaSel.GetLatitud()" />
+            <input type="hidden" id="longitudConvocatoriaSel" value="@convocatoriaSel.GetLongitud()" />
+
+            <script type="text/javascript">
+                $(function () {
+                    initializeMapaConvocatoria();
+                });
+
+                function initializeMapaConvocatoria() 
+                {
+                    var latitud = $("#latitudConvocatoriaSel").val();
+                    var longitud = $("#longitudConvocatoriaSel").val();
+
+                    var myOptions = {
+                        center: new google.maps.LatLng(latitud, longitud),
+                        zoom: 10,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+
+                    var mapaConvocatoria = new google.maps.Map(document.getElementById("divMapaConvocatoria"), myOptions);
+
+                    var marker = new google.maps.Marker({
+                        position: mapaConvocatoria.getCenter(),
+                        map: mapaConvocatoria
+                    });
+                }
+            </script>
+
+            <div class="detalleConvocatoria">
+                <div class="fieldLabel">Titulo: <span class="fieldValue">@convocatoriaSel.Titulo</span></div>
+                <div class="fieldLabel">Descripción: <span class="fieldValue">@convocatoriaSel.Descripcion</span></div>
+                <div class="fieldLabel">Comienzo: <span class="fieldValue">@convocatoriaSel.FechaInicio.ToString()</span></div>
+                <div class="fieldLabel">Fin: <span class="fieldValue">@convocatoriaSel.FechaFin.ToString()</span></div>
+                <div class="fieldLabel">Quorum: <span class="fieldValue">@convocatoriaSel.Quorum</span></div>
+                <div class="fieldLabel">Asistirán: <span class="fieldValue">@convocatoriaSel.CantidadAsistencias</span></div>
+                <div class="areaBotones">
+                    <ul>
+                        <li>
+                            @if (convocatoriaSel.ExisteAsistenciaUsuario == false)
+                            {                            
+                                <div class="boton">       
+                                    <a href="@Url.Action("AsistirConvocatoria", "Convocatoria", new { idConvocatoriaSeleccionada = convocatoriaSel.Id })">Asistiré</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="boton">       
+                                    <a href="@Url.Action("NoAsistirConvocatoria", "Convocatoria", new { idConvocatoriaSeleccionada = convocatoriaSel.Id })">No Asistiré</a>
+                                </div>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+    }
+}
+else
+{
+    <div class="mensajeListadoVacio">
+        Debe autenticarse para visualizar y gestionar las convocatorias.
+    </div>     
+} 
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#filtroFechaInicio").datepicker({ dateFormat: "dd/mm/yy" });
+        $("#filtroFechaFin").datepicker({ dateFormat: "dd/mm/yy" });
+    });
+
+    function mostrarOcultarFiltroConvocatorias(mostrar)
+    {
+        var botonVerFiltro = $("#botonVerFiltro");
+        var botonOcultarFiltro = $("#botonOcultarFiltro");
+        var divFiltroConvocatorias = $("#divFiltroConvocatorias");
+
+        if (mostrar == 0) 
+        {
+            botonVerFiltro.css("display", "block");
+            botonOcultarFiltro.css("display", "none");
+            divFiltroConvocatorias.css("display", "none");
+
+        }
+        else if (mostrar == 1) 
+        {
+            botonVerFiltro.css("display", "none");
+            botonOcultarFiltro.css("display", "block");
+            divFiltroConvocatorias.css("display", "block");
+        }
+    }
+        
+    function clickFiltrarConvocatoria()
+    {
+        submitForm("Filtrar");
+    }
+
+    function submitForm(method) {
+        $("#formListadoConvocatoria")[0].action = '' + method;
+        $("#formListadoConvocatoria")[0].submit();
+    }
+
+</script>

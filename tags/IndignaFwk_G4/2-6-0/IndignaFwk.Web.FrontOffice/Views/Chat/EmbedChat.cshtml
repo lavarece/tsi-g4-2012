@@ -1,0 +1,167 @@
+﻿@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+<div id="divContainerChat">
+</div>
+
+<script type="text/javascript">
+
+    var arrayConversaciones = [];
+    function iniciarConversacion(idUsuario) 
+    {
+        // verifico si existe la conversacion antes de crearla
+        var conversacionUsuario = obtenerConversacionUsuario(idUsuario);
+
+        if (conversacionUsuario) {
+            $("#txt_ingresoMsj_" + idUsuario).focus();
+        }
+        else {
+            $.ajax({
+                url: '@Url.Action("IniciarConversacionEmbed", "Chat")' + "?idUsuario=" + idUsuario,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        $("#notifNoLeidos_" + idUsuario).remove();
+                        $("#divContainerChat").html(data);
+
+                        var dialogConversacion = $("#dialogConversacion_" + idUsuario);
+
+                        dialogConversacion.dialog({
+                            autoOpen: false,
+                            resizable: false,
+                            closeOnEscape: false,
+                            draggable: false,
+                            close: function (event, ui) {
+                                eliminarConversacion(idUsuario);
+                                reacomodarConversaciones();
+                            }
+                        });
+
+                        idInterval = setInterval('refrescarConversacion(' + idUsuario + ')', 2500);
+
+                        arrayConversaciones.push({
+                            idUsuario: idUsuario,
+                            dialogConversacion: dialogConversacion,
+                            idInterval: idInterval
+                        });
+
+                        reacomodarConversaciones();
+
+                        // Posiciono la ventana de mensajes al final
+                        $(function () {                            
+                            var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                            txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    function reacomodarConversaciones() {
+        for (i = 0; i < arrayConversaciones.length; i++) {
+            var dialogConversacion = arrayConversaciones[i].dialogConversacion;
+
+            var rightDialog = "0px";
+            if (i == 0) {
+                rightDialog = 220 + "px";
+            }
+            else if (i >= 2) {
+                rightDialog = 220 + (308 * 2) + "px";
+            }
+            else {
+                rightDialog = 220 + (308 * i) + "px";
+            }
+
+            dialogConversacion.parent().css({ position: "fixed", bottom: "0px"});
+            dialogConversacion.dialog("open");
+            dialogConversacion.parent()[0].style.removeProperty("top");
+            dialogConversacion.parent()[0].style.removeProperty("left");
+
+            // Animacion para desplazamiento horizontal
+            dialogConversacion.parent().animate({
+                right: rightDialog
+            }, 250);
+        }
+    }
+
+    function eliminarConversacion(idUsuario) {
+        var conversacionUsuario = obtenerConversacionUsuario(idUsuario);
+
+        if (conversacionUsuario) {            
+            // Detengo el interval
+            clearInterval(conversacionUsuario.idInterval);
+
+            // Remuevo el html del dialog
+            conversacionUsuario.dialogConversacion.remove();
+
+            // Limpio el array para no agregar el elemento
+            var newArray = [];
+            for (i = 0; i < arrayConversaciones.length; i++) {
+                if (arrayConversaciones[i].idUsuario != idUsuario) {
+                    newArray.push(arrayConversaciones[i]);
+                }
+            }
+            arrayConversaciones = newArray;
+        }
+    }
+
+    function obtenerConversacionUsuario(idUsuario) {
+        for (i = 0; i < arrayConversaciones.length; i++) {
+            if (arrayConversaciones[i].idUsuario == idUsuario) {
+                return arrayConversaciones[i];
+            }
+        }
+    }
+    
+    function enviarMensaje(idUsuario)
+    {
+        var ingresoMsj = $("#txt_ingresoMsj_" + idUsuario)
+
+        if (ingresoMsj.val() == null || ingresoMsj.val() == '') 
+        {
+            alert("Debe ingresar el mensaje a enviar");
+        }
+        else 
+        {
+            $.ajax({
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj.val(),
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        // Agrego los mensajes
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion.append(data);
+                        $(function () {
+                            txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                        });
+
+                        // Limpio el campo de ingreso
+                        $("#txt_ingresoMsj_" + idUsuario).val("");
+                        $("#txt_ingresoMsj_" + idUsuario).focus();
+                    }
+                }
+            });
+        }
+    }
+
+    // Utilizada por el set interval
+    function refrescarConversacion(idUsuario) {
+        $.ajax({
+            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                    txtConversacion.html(data);
+                    $(function () {
+                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                    });
+                }
+            }
+        });
+    }
+
+</script>
