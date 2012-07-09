@@ -65,7 +65,7 @@ namespace IndignaFwk_WPF_BackOffice
             if (String.IsNullOrEmpty(Recursos_mas_rankeados.Text) || String.IsNullOrEmpty(Recursos_compartidos.Text) ||
                 String.IsNullOrEmpty(Dar_de_baja_contenido.Text) || String.IsNullOrEmpty(Dar_de_baja_usuario.Text))
             {
-                MessageBox.Show("Debe completar todos los campos");
+                MessageBox.Show("Debe completar todos los campos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             { 
@@ -74,7 +74,7 @@ namespace IndignaFwk_WPF_BackOffice
                 if (!int.TryParse(Recursos_mas_rankeados.Text, out Value) || !int.TryParse(Recursos_compartidos.Text, out Value)
                     || !int.TryParse(Dar_de_baja_contenido.Text, out Value) || !int.TryParse(Dar_de_baja_usuario.Text, out Value))
                 {
-                    MessageBox.Show("Los campos deben ser enteros");
+                    MessageBox.Show("Los campos deben ser enteros","Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     Recursos_mas_rankeados.Focus();
                     return;
                 }
@@ -93,8 +93,8 @@ namespace IndignaFwk_WPF_BackOffice
                     vsistema4.Valor = Dar_de_baja_usuario.Text;
                     EditarVariables(vsistema4);
 
-                    MessageBox.Show("Los nuevos valores han sido guardados satisfactoriamente");
-
+                    MessageBox.Show("Los valores han sido guardados satisfactoriamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
                     this.Close();
                 
                 }

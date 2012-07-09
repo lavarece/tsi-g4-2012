@@ -17,7 +17,7 @@
 			</Label.Effect>
 		</Label>
 		<ListBox x:Name="listbox_tipoReporte" Margin="19,51,17,0" Height="37" VerticalAlignment="Top">
-			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Registros en el Tiempo"/>
+			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Usuarios Registrados en el Tiempo"/>
 			<ListBoxItem x:Name="listboxItem_contenidoInadecuado" Content="Contenido Inadecuado"/>
 		</ListBox>
 		<Button x:Name="boton_generarReporte" Content="Generar" HorizontalAlignment="Right" Height="21" Margin="0,0,114,7" VerticalAlignment="Bottom" Width="91" Click="boton_generarReporte_Click">

@@ -41,17 +41,17 @@
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-        <TextBox x:Name="Dar_de_baja_contenido" Margin="184,0,0,106" TextWrapping="Wrap" HorizontalAlignment="Left" Width="33" Height="25" VerticalAlignment="Bottom">
+        <TextBox x:Name="Dar_de_baja_contenido" Margin="177,0,0,109" TextWrapping="Wrap" HorizontalAlignment="Left" Width="33" Height="25" VerticalAlignment="Bottom">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
 		</TextBox>
-		<Label Content="Dar de baja un usuario después de que se dió de baja            contenidos." Margin="12,0,39,69" Height="31" VerticalAlignment="Bottom" Foreground="#FF00FFF9">
+		<Label Content="Dar de baja un usuario después de que se dió de baja               contenidos." Margin="12,0,15,69" Height="31" VerticalAlignment="Bottom" Foreground="#FF00FFF9">
 			<Label.Effect>
 				<DropShadowEffect/>
 			</Label.Effect>
 		</Label>
-        <TextBox x:Name="Dar_de_baja_usuario" Margin="0,0,104,69" TextWrapping="Wrap" HorizontalAlignment="Right" Width="33" Height="25" VerticalAlignment="Bottom">
+        <TextBox x:Name="Dar_de_baja_usuario" Margin="0,0,105,75" TextWrapping="Wrap" HorizontalAlignment="Right" Width="33" Height="25" VerticalAlignment="Bottom">
 			<TextBox.Effect>
 				<DropShadowEffect/>
 			</TextBox.Effect>
