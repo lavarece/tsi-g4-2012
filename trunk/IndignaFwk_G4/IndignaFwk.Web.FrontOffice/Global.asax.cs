@@ -29,42 +29,39 @@ namespace IndignaFwk.Web.FrontOffice
         }
 
         protected void Application_PostAuthenticateRequest()
+        {            
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                CustomIdentity identity = new CustomIdentity(authTicket.Name, authTicket.UserData);
+
+                GenericPrincipal newUser = new GenericPrincipal(identity, new string[] { });
+
+                Context.User = newUser;
+            }
+        }
+
+        protected void Session_Start()
         {
-            if (Request.Browser.Cookies)
-            {
-                HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-
-                if (authCookie != null)
-                {
-                    FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-
-                    CustomIdentity identity = new CustomIdentity(authTicket.Name, authTicket.UserData);
-
-                    GenericPrincipal newUser = new GenericPrincipal(identity, new string[] { });
-
-                    Context.User = newUser;
-                }
-            }
-            else
-            {
-                
-            }
+            Console.Write("Inicio session");
         }
 
         protected void Session_End()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                // Seteo la propiedad conectado del usuario a false
-                CustomIdentity ci = (CustomIdentity)User.Identity;
+            object oIdUsuario =  Session["KEY_ID_USUARIO_LOGUEADO"];
 
-                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(ci.Id);
+            if (oIdUsuario != null)
+            {
+                int idUsuario = (int) oIdUsuario;
+
+                Usuario usuario = usuarioUserProcess.ObtenerUsuarioPorId(idUsuario);
 
                 usuario.Conectado = false;
 
                 usuarioUserProcess.EditarUsuario(usuario);
-
-                FormsAuthentication.SignOut();
             }
         }
 

@@ -307,7 +307,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             FormsAuthentication.SetAuthCookie(nombreCompleto, true);
 
-            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(30), true, idUsuario);
+            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(1), true, idUsuario);
 
             string encTicket = FormsAuthentication.Encrypt(ticket);
 
@@ -319,6 +319,9 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
             usuario.Conectado = true;
 
             usuarioUserProcess.EditarUsuario(usuario);
+
+            // Seteo el usuario logueado a la session
+            Session["KEY_ID_USUARIO_LOGUEADO"] = usuario.Id;
         }
     }
 }
