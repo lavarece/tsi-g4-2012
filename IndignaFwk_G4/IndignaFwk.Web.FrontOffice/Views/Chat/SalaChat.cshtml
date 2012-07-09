@@ -29,6 +29,12 @@
                     $("#notifNoLeidos_" + idUsuario).remove();
                     $("#divContainerChat").html(data);
                     idIntervalConversacion = setInterval('refrescarConversacion(' + idUsuario + ')', 2500);
+
+                    // Posiciono la ventana de mensajes al final
+                    $(function () {
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                    });
                 }
             }
         });
@@ -50,9 +56,16 @@
                 method: "POST",
                 success: function (data, textStatus, jqXHR) {
                     if (data != null) {
-                        $("#txt_conversacion_" + idUsuario).append(data);
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion.append(data);
+
                         $("#txt_ingresoMsj_" + idUsuario).val("");
                         $("#txt_ingresoMsj_" + idUsuario).focus();
+
+                        // Posiciono la ventana de mensajes al final
+                        $(function () {
+                            txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                        });
                     }
                 }
             });
@@ -68,7 +81,13 @@
             method: "POST",
             success: function (data, textStatus, jqXHR) {
                 if (data != null) {
-                    $("#txt_conversacion_" + idUsuario).html(data);
+                    var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                    txtConversacion.html(data);
+
+                    // Posiciono la ventana de mensajes al final
+                    $(function () {
+                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                    });
                 }
             }
         });
