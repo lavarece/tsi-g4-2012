@@ -1,0 +1,48 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="IndignaFwk_WPF_BackOffice.UsuariosABorrar"
+	x:Name="Window"
+	Title="Usuarios A Borrar"
+	Width="637" Height="364">
+
+    <Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition Width="308" MinWidth="90"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400.84"/>
+            <RowDefinition Height="Auto" MinHeight="39.16"/>
+        </Grid.RowDefinitions>
+        <Label Content="Listado de usuarios a borrar" Height="39" Margin="12,9,1,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="16" Grid.ColumnSpan="2">
+
+        </Label>
+        <DataGrid AutoGenerateColumns="False" x:Name="datagrid_usuariosBorrar" IsReadOnly="True" Margin="14,54,12,130" Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id Usuario"/>
+                <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
+                <DataGridTextColumn Binding="{Binding Path=Nombre}" Header="Apellidos"/>
+                <DataGridTextColumn Binding="{Binding Path=Grupo.Nombre}" Header="Sitio"/>
+                <DataGridTextColumn Binding="{Binding Path=FechaRegistro}" Header="Fecha de Registro"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="boton_Salir" Height="23" Margin="0,0,12,87" VerticalAlignment="Bottom" Content="Salir" HorizontalAlignment="Right" Width="91" Grid.Column="2" Click="boton_Salir_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FF00FFF9" Offset="0.8"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Eliminar Usuarios Listados" Height="23" HorizontalAlignment="Right" Margin="0,0,121,88" Name="button1" VerticalAlignment="Bottom" Width="172" Grid.Column="2" Click="eliminar_Usuario">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FF00FFF9" Offset="0.8" />
+                    <GradientStop Color="Black" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

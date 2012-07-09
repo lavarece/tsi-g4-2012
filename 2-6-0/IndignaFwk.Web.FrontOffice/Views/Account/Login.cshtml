@@ -1,0 +1,210 @@
+﻿@model IndignaFwk.Web.FrontOffice.Models.LoginModel 
+
+@{
+    ViewBag.Title = @ViewBag.GrupoSite.Nombre + " - Login";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+@Html.ValidationSummary(true, "Datos incorrectos, intente nuevamente.")
+
+<h3>Inicio de sesión</h3>
+
+@using (Html.BeginForm(null, "Account", FormMethod.Post, new { @id = "formLogin" }))
+{
+    <div class="areaFormulario">
+        <table>
+            <tr>
+                <td>
+                    <div id="fieldLabel">
+                        @Html.LabelFor(m => m.Email)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </td>                
+                <td></td>
+            </tr>   
+            <tr>
+                <td>
+                    <div class="fieldLabel">
+                        @Html.LabelFor(m => m.Contraseña)
+                    </div>
+                    <div class="fieldValue">
+                        @Html.PasswordFor(m => m.Contraseña)
+                        @Html.ValidationMessageFor(m => m.Contraseña)
+                    </div>
+                </td>
+                <td></td>
+            </tr>  
+            
+            @if (!String.IsNullOrEmpty(ViewBag.GrupoSite.AppIDFacebook))
+            {
+                <tr>
+                    <td colspan="2">
+                        <div id="divConectarFacebook">
+                            <a href="javascript:loginFacebook(); return false;">
+                                <img alt="fb-login" src="@Url.Content("~/Content/shared/images/ico-facebook.png")" />
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="2">
+                    <div class="fieldLabel">
+                        <p> 
+                            * Debe habilitar el uso de Cookies en el navegador 
+                            para poder autenticarse correctamente.
+                        </p>
+                    </div> 
+                </td>
+            </tr>       
+        </table>        
+    </div>
+    
+    <div class="areaBotones">
+        <ul>    
+            <li>
+                <div class="boton">
+                    <a href="#" onclick="submitForm('Login');">Acceder</a>
+                </div>       
+            </li>
+            <li>
+                <div class="boton">
+                    <a href="@Url.Action("Registro", "Account")">Registrarme</a>
+                </div>
+            </li>
+        </ul>     
+    </div>
+}
+
+<!-- Div para modal de registro con facebook -->
+<div id="divRegistroFacebook" style="display: none;" title="Login con facebook">   
+    <div class="areaFormulario">    
+        <table width="100%">
+            <tr>
+                <td style="border-bottom: 1px solid #9F9F9F; padding-bottom:5px;">
+                    <img src="" alt="imgUsuario" id="imgUsuarioFb" />
+                    <span style="float: right; font-style: italic; font-size: 11px;width: 200px;">
+                        Debe completar los siguientes datos para loguearse con facebook.
+                    </span>
+                </td>
+            </tr>
+            <tr>
+	            <td>
+	                <div class="fieldLabel">Nombre:</div>
+                    <div class="fieldLabel"><input type="text" style="width: 100%;" id="txtNombreFb" disabled="disabled"/></div>
+	            </td>
+            </tr>
+            <tr>
+	            <td>
+	                <div class="fieldLabel">Apellido:</div>
+                    <div class="fieldLabel"><input type="text" style="width: 100%;" id="txtApellidoFb" disabled="disabled"/></div>
+	            </td>
+            </tr>            
+            <tr>
+	            <td>
+	                <div class="fieldLabel">E-mail:</div>
+                    <div class="fieldLabel"><input type="text" style="width: 100%;" id="txtEmailFb" disabled="disabled"/></div>
+	            </td>
+            </tr>        
+            <tr>
+	            <td>
+	                <div class="fieldLabel">Coordenadas</div>    
+	                <div class="fieldValue">
+		                <input type="text" readonly="readonly" id="txtCoordenadasFb" 
+		                       style="cursor: pointer; width: 100%;" onclick="showMapaSelector('txtCoordenadasFb');" />
+	                </div>
+	            </td>
+            </tr>            
+        </table>   
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function submitForm(method) 
+    {
+        $("#formLogin")[0].action = '' + method;
+        $("#formLogin")[0].submit();
+    }
+
+    function loginFacebook() 
+    {
+        FB.login(function (response) {
+            if (response.authResponse) {
+                FB.api('/me', function (response) {
+                    $.ajax({
+                        url: '@Url.Action("LoginFacebook", "Account")' + "?emailFacebook=" + response.email,
+                        dataType: "html",
+                        method: "GET",
+                        success: function (data, textStatus, jqXHR) {
+                            if (data != null) {
+                                if (data == "Registrar") {
+                                    $("#imgUsuarioFb").attr("src", "https://graph.facebook.com/" + response.id + "/picture");
+                                    $("#txtNombreFb").val(response.first_name);
+                                    $("#txtApellidoFb").val(response.last_name);
+                                    $("#txtEmailFb").val(response.email);
+
+                                    $("#divRegistroFacebook").dialog({
+                                        modal: true,
+                                        resizable: false,
+                                        show: "scale",
+                                        hide: "explode",
+                                        closeOnEscape: false,
+                                        buttons: {
+                                            "Aceptar": function () {
+                                                var coordFacebook = $("#txtCoordenadasFb").val();
+                                                if (coordFacebook == '') {
+                                                    alertDialog("Debe ingresar las coordenadas.");
+                                                }
+                                                else {
+                                                    registroFacebook();
+                                                }
+                                            },
+                                            "Cancelar": function () {
+                                                $(this).dialog("close");
+                                            }
+                                        }
+                                    });
+                                }
+                                else if (data = "Ok") {
+                                    document.location.href = '@Url.Action("Index", "Home")';
+                                }
+                            }
+                        }
+                    });
+                });
+            } else {
+                alertDialog("Usuario incorrecto.");
+            }
+        }, { scope: 'email' });
+    }
+
+    function registroFacebook() {
+        var nombreFb = $("#txtNombreFb").val();
+        var apellidoFb = $("#txtApellidoFb").val();
+        var emailFb = $("#txtEmailFb").val();
+        var coordFb = $("#txtCoordenadasFb").val();
+
+        var params = "?nombreFb=" + nombreFb + 
+                     "&apellidoFb=" + apellidoFb + 
+                     "&emailFb=" + emailFb + 
+                     "&coordFb=" + coordFb;
+        $.ajax({
+            url: '@Url.Action("RegistroFacebook", "Account")' + params,
+            dataType: "html",
+            method: "GET",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    document.location.href = '@Url.Action("Index", "Home")';
+                }
+            }
+        });
+
+    }
+
+</script>
+

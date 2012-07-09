@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fc37b5a2-1acd-4d91-89a6-564c718d77ba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1281/ConvocatoriaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ConvocatoriaService.disco" MetadataType="Disco" ID="3b49bedf-aba0-4c54-885f-09121269cbee" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?disco" />
+    <MetadataFile FileName="ConvocatoriaService.xsd" MetadataType="Schema" ID="2a897033-0af8-4336-a2c9-690aecb52a29" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ConvocatoriaService1.xsd" MetadataType="Schema" ID="739b0dcc-419e-45e1-8c0f-baa63ada3262" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ConvocatoriaService2.xsd" MetadataType="Schema" ID="e9c0d87b-1047-4f27-970e-2f8f3d8a538b" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ConvocatoriaService3.xsd" MetadataType="Schema" ID="f554b4c3-0ed5-4155-ac7b-4e7d467fdffb" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ConvocatoriaService.wsdl" MetadataType="Wsdl" ID="b88f3468-90e2-4c62-a97b-a33b43624153" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
