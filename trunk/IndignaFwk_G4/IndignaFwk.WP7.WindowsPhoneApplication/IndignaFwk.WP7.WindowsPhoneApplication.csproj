@@ -100,17 +100,17 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService.wsdl" />
-    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService1.wsdl" />
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService1.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService2.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService3.xsd">
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService43.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReferenceConvocatoria\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria.datasource">
@@ -122,24 +122,25 @@
     <None Include="Service References\ServiceReferenceUsuario\IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReferenceUsuario\UsuarioService.wsdl" />
-    <None Include="Service References\ServiceReferenceUsuario\UsuarioService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReferenceUsuario\UsuarioService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReferenceUsuario\UsuarioService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService.disco" />
     <None Include="Service References\ServiceReferenceConvocatoria\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceConvocatoria\configuration.svcinfo" />
     <None Include="Service References\ServiceReferenceConvocatoria\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\ServiceReferenceConvocatoria\ConvocatoriaService1.disco" />
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService1.disco" />
     <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService1.wsdl" />
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReferenceUsuario\UsuarioService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -148,7 +149,6 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServiceReferenceUsuario\UsuarioService.disco" />
     <None Include="Service References\ServiceReferenceUsuario\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceUsuario\configuration.svcinfo" />
     <None Include="Service References\ServiceReferenceUsuario\Reference.svcmap">

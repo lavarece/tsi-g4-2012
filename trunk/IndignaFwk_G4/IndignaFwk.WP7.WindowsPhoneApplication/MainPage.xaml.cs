@@ -70,7 +70,7 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
             contenedor.Items.Remove(pivotMapa);
 
             ServiceReferenceConvocatoria.ConvocatoriaServiceClient proxy = new ServiceReferenceConvocatoria.ConvocatoriaServiceClient();
-            proxy.ObtenerListadoConvocatoriasPorGrupoAsync(4);
+            proxy.ObtenerListadoConvocatoriasPorGrupoAsync(1);
             proxy.ObtenerListadoConvocatoriasPorGrupoCompleted += new EventHandler<ObtenerListadoConvocatoriasPorGrupoCompletedEventArgs>(proxy_ObtenerListadoConvocatoriasPorGrupoCompleted); 
 
         }
@@ -116,9 +116,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
                     array = cleanCoord.Split(',');
 
                     longitud = array[1];
-
-                    ppLoc.Latitude = long.Parse(longitud);
-                    ppLoc.Longitude = long.Parse(latitud);
 
                     var mapLayer = new MapLayer();
                     var youPushpin = new Pushpin
