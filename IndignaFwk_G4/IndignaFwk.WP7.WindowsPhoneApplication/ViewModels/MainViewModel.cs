@@ -70,7 +70,7 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
         {
             ServiceReferenceConvocatoria.ConvocatoriaServiceClient proxy = new ServiceReferenceConvocatoria.ConvocatoriaServiceClient();
 
-            proxy.ObtenerListadoConvocatoriasPorGrupoAsync(4);
+            proxy.ObtenerListadoConvocatoriasPorGrupoAsync(1);
             proxy.ObtenerListadoConvocatoriasPorGrupoCompleted +=new EventHandler<ObtenerListadoConvocatoriasPorGrupoCompletedEventArgs>(proxy_ObtenerListadoConvocatoriasPorGrupoCompleted); 
 
             // Sample data; replace with real data

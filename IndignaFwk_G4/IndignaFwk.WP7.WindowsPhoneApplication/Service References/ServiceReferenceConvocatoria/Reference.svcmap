@@ -20,15 +20,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1281/ConvocatoriaService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.137.75:80/AppServer/ConvocatoriaService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ConvocatoriaService.disco" MetadataType="Disco" ID="3b49bedf-aba0-4c54-885f-09121269cbee" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?disco" />
-    <MetadataFile FileName="ConvocatoriaService.xsd" MetadataType="Schema" ID="2a897033-0af8-4336-a2c9-690aecb52a29" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ConvocatoriaService1.xsd" MetadataType="Schema" ID="739b0dcc-419e-45e1-8c0f-baa63ada3262" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ConvocatoriaService2.xsd" MetadataType="Schema" ID="e9c0d87b-1047-4f27-970e-2f8f3d8a538b" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ConvocatoriaService3.xsd" MetadataType="Schema" ID="f554b4c3-0ed5-4155-ac7b-4e7d467fdffb" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ConvocatoriaService.wsdl" MetadataType="Wsdl" ID="b88f3468-90e2-4c62-a97b-a33b43624153" SourceId="1" SourceUrl="http://localhost:1281/ConvocatoriaService.svc?wsdl" />
+    <MetadataFile FileName="ConvocatoriaService4.xsd" MetadataType="Schema" ID="1ee61881-ef23-44a4-be1c-f7bb0a5f9233" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/ConvocatoriaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ConvocatoriaService41.xsd" MetadataType="Schema" ID="bbc817c4-baa4-407b-8309-93e9f55c16d6" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/ConvocatoriaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ConvocatoriaService42.xsd" MetadataType="Schema" ID="7578fdc6-5160-4491-be97-4bd8b12a3c60" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/ConvocatoriaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ConvocatoriaService1.disco" MetadataType="Disco" ID="a5e62590-c03f-4cca-a6e0-5e2fe7ecbb83" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/ConvocatoriaService.svc?disco" />
+    <MetadataFile FileName="ConvocatoriaService1.wsdl" MetadataType="Wsdl" ID="ed676e94-0078-4d7d-8e16-e2691612aa7b" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/ConvocatoriaService.svc?wsdl" />
+    <MetadataFile FileName="ConvocatoriaService43.xsd" MetadataType="Schema" ID="c6d50c20-c5eb-4501-a941-f7dc8de8a75b" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/ConvocatoriaService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

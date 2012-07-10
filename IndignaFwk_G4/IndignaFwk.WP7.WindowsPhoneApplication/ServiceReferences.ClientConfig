@@ -13,13 +13,13 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:1281/UsuarioService.svc"
-                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsuarioService"
-                contract="ServiceReferenceUsuario.IUsuarioService" name="BasicHttpBinding_IUsuarioService" />
-            <endpoint address="http://localhost:1281/ConvocatoriaService.svc"
+            <endpoint address="http://192.168.137.75/AppServer/ConvocatoriaService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IConvocatoriaService"
                 contract="ServiceReferenceConvocatoria.IConvocatoriaService"
                 name="BasicHttpBinding_IConvocatoriaService" />
+            <endpoint address="http://192.168.137.75/AppServer/UsuarioService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsuarioService"
+                contract="ServiceReferenceUsuario.IUsuarioService" name="BasicHttpBinding_IUsuarioService" />
         </client>
     </system.serviceModel>
 </configuration>
