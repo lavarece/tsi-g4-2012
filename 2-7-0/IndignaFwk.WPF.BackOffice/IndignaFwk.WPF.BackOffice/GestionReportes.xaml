@@ -1,0 +1,40 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="IndignaFwk_WPF_BackOffice.GestionReportes"
+	x:Name="Window"
+	Title="GestionReportes"
+	Width="374" Height="176">
+
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="131.999"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+        <Label Content="Tipo de Reportes" Height="39" Margin="54,0,-51,0" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<ListBox x:Name="listbox_tipoReporte" Margin="19,51,17,0" Height="37" VerticalAlignment="Top">
+			<ListBoxItem x:Name="listboxItem_registroTiempo" Content="Usuarios Registrados en el Tiempo"/>
+			<ListBoxItem x:Name="listboxItem_contenidoInadecuado" Content="Contenido Inadecuado"/>
+		</ListBox>
+		<Button x:Name="boton_generarReporte" Content="Generar" HorizontalAlignment="Right" Height="21" Margin="0,0,114,7" VerticalAlignment="Bottom" Width="91" Click="boton_generarReporte_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="boton_Salir" Height="21" Margin="244,0,17,7" VerticalAlignment="Bottom" Content="Salir" Click="boton_Salir_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="#FF00FFF9" Offset="0.8"/>
+					<GradientStop Color="Black" Offset="1"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+    </Grid>
+</Window>

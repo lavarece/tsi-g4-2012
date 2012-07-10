@@ -1,0 +1,25 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IUsuarioService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IConvocatoriaService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://192.168.137.75/AppServer/ConvocatoriaService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IConvocatoriaService"
+                contract="ServiceReferenceConvocatoria.IConvocatoriaService"
+                name="BasicHttpBinding_IConvocatoriaService" />
+            <endpoint address="http://192.168.137.75/AppServer/UsuarioService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsuarioService"
+                contract="ServiceReferenceUsuario.IUsuarioService" name="BasicHttpBinding_IUsuarioService" />
+        </client>
+    </system.serviceModel>
+</configuration>

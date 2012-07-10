@@ -1,0 +1,122 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="IndignaFwk_WPF_BackOffice.CrearGrupo"
+	x:Name="Window"
+	Title="Datos del grupo"
+	Width="739" Height="562">
+	<Grid x:Name="LayoutRoot" Background="#FF1B1B1B" Margin="-5.5,-3,-6.5,-8" Height="494">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="498"/>
+            <RowDefinition Height="29" />
+            <RowDefinition Height="19" />
+            <RowDefinition Height="126" />
+        </Grid.RowDefinitions>
+        <TextBox x:Name="txt_nombre" Margin="0,71,380,407" TextWrapping="Wrap" HorizontalAlignment="Right" Width="252">
+			
+		</TextBox>
+		<Label Content="Nombre:" Height="30" Margin="31,67,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="#FF00FFF9" HorizontalAlignment="Left" VerticalContentAlignment="Center" d:LayoutOverrides="VerticalAlignment" />
+        <Label Content="Datos del Grupo" Margin="275,0,0,453" FontFamily="Microsoft YaHei" Foreground="#FF00FFF9" FontSize="24" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="337" VerticalContentAlignment="Center">
+			<Label.Effect>
+				<DropShadowEffect/>
+			</Label.Effect>
+		</Label>
+		<Button x:Name="btn_guardar" Content="Guardar" Margin="528,0,110,16" Height="21" VerticalAlignment="Bottom" Click="btn_guardar_Click">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00F9FF" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Right" Margin="0,0,12,16" Width="92" Height="21" VerticalAlignment="Bottom" Click="btn_cancelar_Click" d:LayoutOverrides="HorizontalAlignment">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					<GradientStop Color="Black" Offset="1"/>
+					<GradientStop Color="#FF00F9FF" Offset="0.8"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>       
+        <Label Background="#00000000" Content="Descripción:" Foreground="#FF00FFF9" Margin="0,177,622,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
+        <Label Background="#00000000" Content="URL:" Foreground="#FF00FFF9" Margin="0,0,326,401" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
+        <TextBox Height="20" Margin="415,72,0,0" Name="txt_url" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="252" d:LayoutOverrides="HorizontalAlignment">
+        </TextBox>
+        <TextBox HorizontalAlignment="Right" Margin="0,181,62,279" Name="txt_descripcion" TextWrapping="Wrap" Width="548" VerticalScrollBarVisibility="Auto">
+            
+        </TextBox>
+        <ComboBox Name="comboBox_layouts" HorizontalAlignment="Right" Height="21" Margin="0,109,380,0" VerticalAlignment="Top" Width="253">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Nombre}" Width="80"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="comboBox_temas" HorizontalAlignment="Left" Height="21" Margin="415,109,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Nombre}" Width="80"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Background="#00000000" Content="Layouts:" Foreground="#FF00FFF9" Margin="0,0,644,363" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
+        <Label Background="#00000000" Content="Temas:" Foreground="#FF00FFF9" Margin="367,0,0,365" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
+        <Button x:Name="btn_abrirMapa" Content="Elegir Ubicación" HorizontalAlignment="Right" Margin="0,0,62,332" Width="106" Height="21" VerticalAlignment="Bottom" Click="btn_abrirMapa_Click" d:LayoutOverrides="HorizontalAlignment">
+        	<Button.Background>
+        		<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+        			<GradientStop Color="Black" Offset="1"/>
+        			<GradientStop Color="#FF00F9FF" Offset="0.8"/>
+        		</LinearGradientBrush>
+        	</Button.Background>
+        </Button>
+        <Label x:Name="coordenadas" Background="#00000000" Content="( , )" Foreground="#FF00FFF9" Margin="0,141,174,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Width="430" />
+        <Label x:Name="coord" Background="#00000000" Content="Coordenadas: " Foreground="#FF00FFF9" Margin="0,141,612,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" VerticalContentAlignment="Center" d:LayoutOverrides="HorizontalAlignment" />
+        <Label Background="#00000000" Content="Fuentes de datos externas" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,0,516,213" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="182" />
+        <TabControl Height="160" HorizontalAlignment="Left" Margin="34,287,0,0" Name="tabControl1" VerticalAlignment="Top" Width="458" Background="#FF1B1B1B">
+            <TabItem Header="YouTube" Name="tabItem1" Background="White" Margin="0">
+                <Grid Width="444">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="336*" />
+                        <ColumnDefinition Width="70*" />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Content="Habilitar fuente YouTube" Height="16" HorizontalAlignment="Left" Margin="16,16,0,0" Name="chk_fuente_youtube" VerticalAlignment="Top" Foreground="#FF00FFF9" Width="166" Grid.ColumnSpan="2" />
+                    <Label Background="#00000000" Content="Palabras claves:" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,38,263,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="104" Grid.ColumnSpan="2" />
+                    <Label Background="#00000000" Content="Cantidad resultados:" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,79,242,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="126" Grid.ColumnSpan="2" />
+                    <TextBox HorizontalAlignment="Right" Margin="0,42,53,66" Name="txt_keywords_youtube" TextWrapping="Wrap" Width="252" Grid.Column="1" Grid.ColumnSpan="2">
+                        <TextBox.Effect>
+                            <DropShadowEffect />
+                        </TextBox.Effect>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Right" Margin="0,79,53,29" Name="txt_resultados_youtube" TextWrapping="Wrap" Width="252" Grid.Column="1" Grid.ColumnSpan="2">
+                        <TextBox.Effect>
+                            <DropShadowEffect />
+                        </TextBox.Effect>
+                    </TextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wikipedia" Background="White">
+                <Grid Width="444">
+                    <CheckBox Content="Habilitar fuente Wikipedia" Foreground="#FF00FFF9" Height="16" HorizontalAlignment="Left" Margin="16,16,0,0" Name="chk_fuente_wikipedia" VerticalAlignment="Top" Width="166" />
+                    <Label Background="#00000000" Content="Palabras claves:" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,38,333,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="104" />
+                    <Label Background="#00000000" Content="Cantidad resultados:" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Right" Margin="0,79,311,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="126" />
+                    <TextBox HorizontalAlignment="Right" Margin="0,46,53,60" Name="txt_keywords_wikipedia" TextWrapping="Wrap" Width="252">
+                        <TextBox.Effect>
+                            <DropShadowEffect />
+                        </TextBox.Effect>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Right" Margin="0,79,165,28" Name="txt_resultados_wikipedia" TextWrapping="Wrap" Width="140">
+                        <TextBox.Effect>
+                            <DropShadowEffect />
+                        </TextBox.Effect>
+                    </TextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBox HorizontalAlignment="Right" Margin="0,229,368,249" Name="text_facebook" TextWrapping="Wrap" Width="252">
+            
+        </TextBox>
+        <Label Background="#00000000" Content="App ID Facebook" Foreground="#FF00FFF9" Height="30" HorizontalAlignment="Left" Margin="9,225,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+    </Grid>
+</Window>
