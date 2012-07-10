@@ -84,10 +84,10 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
         {
             ServiceReferenceUsuario.UsuarioServiceClient proxy = new ServiceReferenceUsuario.UsuarioServiceClient();
 
-            proxy.ObtenerUsuarioPorEmailYPassAsync(textBox_email.Text, textBox_pass.Text);
-            proxy.ObtenerUsuarioPorEmailYPassCompleted += new EventHandler<ObtenerUsuarioPorEmailYPassCompletedEventArgs>(proxy_ObtenerUsuarioPorEmailYPassCompleted);
+            proxy.ObtenerUsuarioPorEmailPassYGrupoAsync(textBox_email.Text, textBox_pass.Text, 4);
+            proxy.ObtenerUsuarioPorEmailPassYGrupoCompleted += new EventHandler<ObtenerUsuarioPorEmailPassYGrupoCompletedEventArgs>(proxy_ObtenerUsuarioPorEmailYPassCompleted);
         }
-        private void proxy_ObtenerUsuarioPorEmailYPassCompleted(object sender, ObtenerUsuarioPorEmailYPassCompletedEventArgs e)
+        private void proxy_ObtenerUsuarioPorEmailYPassCompleted(object sender, ObtenerUsuarioPorEmailPassYGrupoCompletedEventArgs e)
         {
             user = e.Result;
             if (user == null)
@@ -104,13 +104,18 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
                     // Update the map to show the current location
                     Location ppLoc = new Location();
                     MapLayer mapL = new MapLayer();
-                    
-                    char[] delimiterChars = { ',' };
 
-                    string[] arrayCoordenadas = convocatoria.Coordenadas.Split(delimiterChars);
+                    string cleanCoord = convocatoria.Coordenadas.Replace("(", "").Replace(")", "");
 
-                    longitud = arrayCoordenadas[0];
-                    latitud = arrayCoordenadas[1];
+                    string[] array = cleanCoord.Split(',');
+
+                    latitud = array[0];
+
+                    cleanCoord = convocatoria.Coordenadas.Replace("(", "").Replace(")", "");
+
+                    array = cleanCoord.Split(',');
+
+                    longitud = array[1];
 
                     ppLoc.Latitude = long.Parse(longitud);
                     ppLoc.Longitude = long.Parse(latitud);

@@ -260,6 +260,8 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
     [System.Runtime.Serialization.DataContractAttribute(Name="Grupo", Namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities")]
     public partial class Grupo : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private string AppIDFacebookField;
+        
         private string CoordenadasField;
         
         private string DescripcionField;
@@ -277,6 +279,19 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Tematica TematicaField;
         
         private string UrlField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AppIDFacebook {
+            get {
+                return this.AppIDFacebookField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AppIDFacebookField, value) != true)) {
+                    this.AppIDFacebookField = value;
+                    this.RaisePropertyChanged("AppIDFacebook");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Coordenadas {
@@ -594,9 +609,9 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         
         private string FuenteExternaField;
         
-        private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Grupo GrupoField;
-        
         private int IdField;
+        
+        private int IdGrupoField;
         
         private string QueryStringField;
         
@@ -627,19 +642,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Grupo Grupo {
-            get {
-                return this.GrupoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GrupoField, value) != true)) {
-                    this.GrupoField = value;
-                    this.RaisePropertyChanged("Grupo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -648,6 +650,19 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdGrupo {
+            get {
+                return this.IdGrupoField;
+            }
+            set {
+                if ((this.IdGrupoField.Equals(value) != true)) {
+                    this.IdGrupoField = value;
+                    this.RaisePropertyChanged("IdGrupo");
                 }
             }
         }
@@ -994,15 +1009,15 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         
         System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario> EndObtenerUsuariosPorIdGrupo(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPass", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYPassResponse")]
-        System.IAsyncResult BeginObtenerUsuarioPorEmailYPass(string email, string pass, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupo", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailPassYGrupoResponse")]
+        System.IAsyncResult BeginObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo, System.AsyncCallback callback, object asyncState);
         
-        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmailYPass(System.IAsyncResult result);
+        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmailPassYGrupo(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmail", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailResponse")]
-        System.IAsyncResult BeginObtenerUsuarioPorEmail(string email, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupo", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuarioPorEmailYGrupoResponse")]
+        System.IAsyncResult BeginObtenerUsuarioPorEmailYGrupo(string email, int idGrupo, System.AsyncCallback callback, object asyncState);
         
-        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmail(System.IAsyncResult result);
+        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmailYGrupo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IUsuarioService/ObtenerUsuariosAgrupandoFechaRegistro", ReplyAction="http://tempuri.org/IUsuarioService/ObtenerUsuariosAgrupandoFechaRegistroResponse")]
         System.IAsyncResult BeginObtenerUsuariosAgrupandoFechaRegistro(int idGrupo, System.AsyncCallback callback, object asyncState);
@@ -1113,11 +1128,11 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ObtenerUsuarioPorEmailYPassCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ObtenerUsuarioPorEmailPassYGrupoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public ObtenerUsuarioPorEmailYPassCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public ObtenerUsuarioPorEmailPassYGrupoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1132,11 +1147,11 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ObtenerUsuarioPorEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ObtenerUsuarioPorEmailYGrupoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public ObtenerUsuarioPorEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public ObtenerUsuarioPorEmailYGrupoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1246,17 +1261,17 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         
         private System.Threading.SendOrPostCallback onObtenerUsuariosPorIdGrupoCompletedDelegate;
         
-        private BeginOperationDelegate onBeginObtenerUsuarioPorEmailYPassDelegate;
+        private BeginOperationDelegate onBeginObtenerUsuarioPorEmailPassYGrupoDelegate;
         
-        private EndOperationDelegate onEndObtenerUsuarioPorEmailYPassDelegate;
+        private EndOperationDelegate onEndObtenerUsuarioPorEmailPassYGrupoDelegate;
         
-        private System.Threading.SendOrPostCallback onObtenerUsuarioPorEmailYPassCompletedDelegate;
+        private System.Threading.SendOrPostCallback onObtenerUsuarioPorEmailPassYGrupoCompletedDelegate;
         
-        private BeginOperationDelegate onBeginObtenerUsuarioPorEmailDelegate;
+        private BeginOperationDelegate onBeginObtenerUsuarioPorEmailYGrupoDelegate;
         
-        private EndOperationDelegate onEndObtenerUsuarioPorEmailDelegate;
+        private EndOperationDelegate onEndObtenerUsuarioPorEmailYGrupoDelegate;
         
-        private System.Threading.SendOrPostCallback onObtenerUsuarioPorEmailCompletedDelegate;
+        private System.Threading.SendOrPostCallback onObtenerUsuarioPorEmailYGrupoCompletedDelegate;
         
         private BeginOperationDelegate onBeginObtenerUsuariosAgrupandoFechaRegistroDelegate;
         
@@ -1353,9 +1368,9 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         
         public event System.EventHandler<ObtenerUsuariosPorIdGrupoCompletedEventArgs> ObtenerUsuariosPorIdGrupoCompleted;
         
-        public event System.EventHandler<ObtenerUsuarioPorEmailYPassCompletedEventArgs> ObtenerUsuarioPorEmailYPassCompleted;
+        public event System.EventHandler<ObtenerUsuarioPorEmailPassYGrupoCompletedEventArgs> ObtenerUsuarioPorEmailPassYGrupoCompleted;
         
-        public event System.EventHandler<ObtenerUsuarioPorEmailCompletedEventArgs> ObtenerUsuarioPorEmailCompleted;
+        public event System.EventHandler<ObtenerUsuarioPorEmailYGrupoCompletedEventArgs> ObtenerUsuarioPorEmailYGrupoCompleted;
         
         public event System.EventHandler<ObtenerUsuariosAgrupandoFechaRegistroCompletedEventArgs> ObtenerUsuariosAgrupandoFechaRegistroCompleted;
         
@@ -1644,97 +1659,101 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.BeginObtenerUsuarioPorEmailYPass(string email, string pass, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginObtenerUsuarioPorEmailYPass(email, pass, callback, asyncState);
+        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.BeginObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginObtenerUsuarioPorEmailPassYGrupo(email, pass, idGrupo, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.EndObtenerUsuarioPorEmailYPass(System.IAsyncResult result) {
-            return base.Channel.EndObtenerUsuarioPorEmailYPass(result);
+        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.EndObtenerUsuarioPorEmailPassYGrupo(System.IAsyncResult result) {
+            return base.Channel.EndObtenerUsuarioPorEmailPassYGrupo(result);
         }
         
-        private System.IAsyncResult OnBeginObtenerUsuarioPorEmailYPass(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginObtenerUsuarioPorEmailPassYGrupo(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string email = ((string)(inValues[0]));
             string pass = ((string)(inValues[1]));
-            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).BeginObtenerUsuarioPorEmailYPass(email, pass, callback, asyncState);
+            int idGrupo = ((int)(inValues[2]));
+            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).BeginObtenerUsuarioPorEmailPassYGrupo(email, pass, idGrupo, callback, asyncState);
         }
         
-        private object[] OnEndObtenerUsuarioPorEmailYPass(System.IAsyncResult result) {
-            IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).EndObtenerUsuarioPorEmailYPass(result);
+        private object[] OnEndObtenerUsuarioPorEmailPassYGrupo(System.IAsyncResult result) {
+            IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).EndObtenerUsuarioPorEmailPassYGrupo(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnObtenerUsuarioPorEmailYPassCompleted(object state) {
-            if ((this.ObtenerUsuarioPorEmailYPassCompleted != null)) {
+        private void OnObtenerUsuarioPorEmailPassYGrupoCompleted(object state) {
+            if ((this.ObtenerUsuarioPorEmailPassYGrupoCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ObtenerUsuarioPorEmailYPassCompleted(this, new ObtenerUsuarioPorEmailYPassCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.ObtenerUsuarioPorEmailPassYGrupoCompleted(this, new ObtenerUsuarioPorEmailPassYGrupoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void ObtenerUsuarioPorEmailYPassAsync(string email, string pass) {
-            this.ObtenerUsuarioPorEmailYPassAsync(email, pass, null);
+        public void ObtenerUsuarioPorEmailPassYGrupoAsync(string email, string pass, int idGrupo) {
+            this.ObtenerUsuarioPorEmailPassYGrupoAsync(email, pass, idGrupo, null);
         }
         
-        public void ObtenerUsuarioPorEmailYPassAsync(string email, string pass, object userState) {
-            if ((this.onBeginObtenerUsuarioPorEmailYPassDelegate == null)) {
-                this.onBeginObtenerUsuarioPorEmailYPassDelegate = new BeginOperationDelegate(this.OnBeginObtenerUsuarioPorEmailYPass);
+        public void ObtenerUsuarioPorEmailPassYGrupoAsync(string email, string pass, int idGrupo, object userState) {
+            if ((this.onBeginObtenerUsuarioPorEmailPassYGrupoDelegate == null)) {
+                this.onBeginObtenerUsuarioPorEmailPassYGrupoDelegate = new BeginOperationDelegate(this.OnBeginObtenerUsuarioPorEmailPassYGrupo);
             }
-            if ((this.onEndObtenerUsuarioPorEmailYPassDelegate == null)) {
-                this.onEndObtenerUsuarioPorEmailYPassDelegate = new EndOperationDelegate(this.OnEndObtenerUsuarioPorEmailYPass);
+            if ((this.onEndObtenerUsuarioPorEmailPassYGrupoDelegate == null)) {
+                this.onEndObtenerUsuarioPorEmailPassYGrupoDelegate = new EndOperationDelegate(this.OnEndObtenerUsuarioPorEmailPassYGrupo);
             }
-            if ((this.onObtenerUsuarioPorEmailYPassCompletedDelegate == null)) {
-                this.onObtenerUsuarioPorEmailYPassCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerUsuarioPorEmailYPassCompleted);
+            if ((this.onObtenerUsuarioPorEmailPassYGrupoCompletedDelegate == null)) {
+                this.onObtenerUsuarioPorEmailPassYGrupoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerUsuarioPorEmailPassYGrupoCompleted);
             }
-            base.InvokeAsync(this.onBeginObtenerUsuarioPorEmailYPassDelegate, new object[] {
+            base.InvokeAsync(this.onBeginObtenerUsuarioPorEmailPassYGrupoDelegate, new object[] {
                         email,
-                        pass}, this.onEndObtenerUsuarioPorEmailYPassDelegate, this.onObtenerUsuarioPorEmailYPassCompletedDelegate, userState);
+                        pass,
+                        idGrupo}, this.onEndObtenerUsuarioPorEmailPassYGrupoDelegate, this.onObtenerUsuarioPorEmailPassYGrupoCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.BeginObtenerUsuarioPorEmail(string email, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginObtenerUsuarioPorEmail(email, callback, asyncState);
+        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.BeginObtenerUsuarioPorEmailYGrupo(string email, int idGrupo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginObtenerUsuarioPorEmailYGrupo(email, idGrupo, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.EndObtenerUsuarioPorEmail(System.IAsyncResult result) {
-            return base.Channel.EndObtenerUsuarioPorEmail(result);
+        IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService.EndObtenerUsuarioPorEmailYGrupo(System.IAsyncResult result) {
+            return base.Channel.EndObtenerUsuarioPorEmailYGrupo(result);
         }
         
-        private System.IAsyncResult OnBeginObtenerUsuarioPorEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginObtenerUsuarioPorEmailYGrupo(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string email = ((string)(inValues[0]));
-            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).BeginObtenerUsuarioPorEmail(email, callback, asyncState);
+            int idGrupo = ((int)(inValues[1]));
+            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).BeginObtenerUsuarioPorEmailYGrupo(email, idGrupo, callback, asyncState);
         }
         
-        private object[] OnEndObtenerUsuarioPorEmail(System.IAsyncResult result) {
-            IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).EndObtenerUsuarioPorEmail(result);
+        private object[] OnEndObtenerUsuarioPorEmailYGrupo(System.IAsyncResult result) {
+            IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.IUsuarioService)(this)).EndObtenerUsuarioPorEmailYGrupo(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnObtenerUsuarioPorEmailCompleted(object state) {
-            if ((this.ObtenerUsuarioPorEmailCompleted != null)) {
+        private void OnObtenerUsuarioPorEmailYGrupoCompleted(object state) {
+            if ((this.ObtenerUsuarioPorEmailYGrupoCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ObtenerUsuarioPorEmailCompleted(this, new ObtenerUsuarioPorEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.ObtenerUsuarioPorEmailYGrupoCompleted(this, new ObtenerUsuarioPorEmailYGrupoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void ObtenerUsuarioPorEmailAsync(string email) {
-            this.ObtenerUsuarioPorEmailAsync(email, null);
+        public void ObtenerUsuarioPorEmailYGrupoAsync(string email, int idGrupo) {
+            this.ObtenerUsuarioPorEmailYGrupoAsync(email, idGrupo, null);
         }
         
-        public void ObtenerUsuarioPorEmailAsync(string email, object userState) {
-            if ((this.onBeginObtenerUsuarioPorEmailDelegate == null)) {
-                this.onBeginObtenerUsuarioPorEmailDelegate = new BeginOperationDelegate(this.OnBeginObtenerUsuarioPorEmail);
+        public void ObtenerUsuarioPorEmailYGrupoAsync(string email, int idGrupo, object userState) {
+            if ((this.onBeginObtenerUsuarioPorEmailYGrupoDelegate == null)) {
+                this.onBeginObtenerUsuarioPorEmailYGrupoDelegate = new BeginOperationDelegate(this.OnBeginObtenerUsuarioPorEmailYGrupo);
             }
-            if ((this.onEndObtenerUsuarioPorEmailDelegate == null)) {
-                this.onEndObtenerUsuarioPorEmailDelegate = new EndOperationDelegate(this.OnEndObtenerUsuarioPorEmail);
+            if ((this.onEndObtenerUsuarioPorEmailYGrupoDelegate == null)) {
+                this.onEndObtenerUsuarioPorEmailYGrupoDelegate = new EndOperationDelegate(this.OnEndObtenerUsuarioPorEmailYGrupo);
             }
-            if ((this.onObtenerUsuarioPorEmailCompletedDelegate == null)) {
-                this.onObtenerUsuarioPorEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerUsuarioPorEmailCompleted);
+            if ((this.onObtenerUsuarioPorEmailYGrupoCompletedDelegate == null)) {
+                this.onObtenerUsuarioPorEmailYGrupoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerUsuarioPorEmailYGrupoCompleted);
             }
-            base.InvokeAsync(this.onBeginObtenerUsuarioPorEmailDelegate, new object[] {
-                        email}, this.onEndObtenerUsuarioPorEmailDelegate, this.onObtenerUsuarioPorEmailCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginObtenerUsuarioPorEmailYGrupoDelegate, new object[] {
+                        email,
+                        idGrupo}, this.onEndObtenerUsuarioPorEmailYGrupoDelegate, this.onObtenerUsuarioPorEmailYGrupoCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2116,30 +2135,32 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario {
                 return _result;
             }
             
-            public System.IAsyncResult BeginObtenerUsuarioPorEmailYPass(string email, string pass, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
+            public System.IAsyncResult BeginObtenerUsuarioPorEmailPassYGrupo(string email, string pass, int idGrupo, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[3];
                 _args[0] = email;
                 _args[1] = pass;
-                System.IAsyncResult _result = base.BeginInvoke("ObtenerUsuarioPorEmailYPass", _args, callback, asyncState);
+                _args[2] = idGrupo;
+                System.IAsyncResult _result = base.BeginInvoke("ObtenerUsuarioPorEmailPassYGrupo", _args, callback, asyncState);
                 return _result;
             }
             
-            public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmailYPass(System.IAsyncResult result) {
+            public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmailPassYGrupo(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario _result = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario)(base.EndInvoke("ObtenerUsuarioPorEmailYPass", _args, result)));
+                IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario _result = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario)(base.EndInvoke("ObtenerUsuarioPorEmailPassYGrupo", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginObtenerUsuarioPorEmail(string email, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
+            public System.IAsyncResult BeginObtenerUsuarioPorEmailYGrupo(string email, int idGrupo, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
                 _args[0] = email;
-                System.IAsyncResult _result = base.BeginInvoke("ObtenerUsuarioPorEmail", _args, callback, asyncState);
+                _args[1] = idGrupo;
+                System.IAsyncResult _result = base.BeginInvoke("ObtenerUsuarioPorEmailYGrupo", _args, callback, asyncState);
                 return _result;
             }
             
-            public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmail(System.IAsyncResult result) {
+            public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario EndObtenerUsuarioPorEmailYGrupo(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario _result = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario)(base.EndInvoke("ObtenerUsuarioPorEmail", _args, result)));
+                IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario _result = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario.Usuario)(base.EndInvoke("ObtenerUsuarioPorEmailYGrupo", _args, result)));
                 return _result;
             }
             
