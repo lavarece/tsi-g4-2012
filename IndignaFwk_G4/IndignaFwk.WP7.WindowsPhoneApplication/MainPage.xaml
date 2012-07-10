@@ -13,15 +13,16 @@
 	FontSize="{StaticResource PhoneFontSizeNormal}"
 	Foreground="{StaticResource PhoneForegroundBrush}"
 	SupportedOrientations="Portrait" Orientation="Portrait"
-	shell:SystemTray.IsVisible="True">
+	shell:SystemTray.IsVisible="True" xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps">
 
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot" Background="Transparent">
-		<!--Pivot Control-->
+		
+        <!--Pivot Control-->
 		<controls:Pivot Name="contenedor" Title="Grupo 1" >
 			<!--Pivot item one-->
 			
-			<controls:PivotItem Header="Login">
+			<controls:PivotItem Name="pivotLogin" Header="Login">
 				<!--Double line list with text wrapping-->
 				<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 					<TextBox x:Name="textBox_email" Height="76" Margin="21,79,21,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
@@ -50,20 +51,34 @@
 			<!--Pivot item two-->
             <controls:PivotItem Name="pivotDetalles" Header="Detalle">
 				<!--Triple line list no text wrapping-->
-				<ListBox x:Name="SecondListBox" ItemsSource="{Binding Grupo2}" Margin="0,0,-12,0">
-					<ListBox.ItemTemplate>
+                    <ListBox x:Name="SecondListBox" ItemsSource="{Binding Grupo2}" Margin="0,0,-12,0">
+				    <ListBox.ItemTemplate>
 						<DataTemplate>
 							<StackPanel Margin="0,0,0,17" Width="432">
 								<TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                                 <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 <TextBlock Text="{Binding LineThree}" TextWrapping="Wrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle }"/>
                                 <TextBlock Text="{Binding LineFour}" TextWrapping="Wrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                <TextBlock Text="{Binding LineFive}" TextWrapping="Wrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <TextBlock Name="coorde" Text="{Binding LineFive}" TextWrapping="Wrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                
                             </StackPanel>
 						</DataTemplate>
 					</ListBox.ItemTemplate>
 				</ListBox>
 			</controls:PivotItem>
+            <controls:PivotItem Name="pivotMapa" Header="Mapa">
+                <!--Double line list with text wrapping-->
+                <Grid x:Name="ContentPanel2" Grid.Row="1" Margin="12,0,12,0">
+                    <my:Map Mode="AerialWithLabels" HorizontalAlignment="Left" Margin="10,10,0,0" 
+                                        CredentialsProvider="AmgEWSGFNvNWMySKnX4aFPP4Kofpj60nS8t9wlwjhirajkWNHE5x6x12kXXsld7o" Name="map1" VerticalAlignment="Top" Height="600" Width="410">
+                        <!--<my:MapLayer Name="lMain">
+                            <my:MapItemsControl Name="Pushpinsss" ItemsSource="{Binding push}" >
+                            </my:MapItemsControl>                            
+                        </my:MapLayer>-->
+                        
+                    </my:Map>
+                </Grid>
+            </controls:PivotItem>
 		</controls:Pivot>
-	</Grid>
+    </Grid>
 </phone:PhoneApplicationPage>

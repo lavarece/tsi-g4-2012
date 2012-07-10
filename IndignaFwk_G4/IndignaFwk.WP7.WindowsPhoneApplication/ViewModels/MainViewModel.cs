@@ -14,6 +14,10 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceUsuario;
 using IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria;
+using Microsoft.Phone.Controls.Maps;
+using System.Device.Location;
+using Microsoft.Phone.Controls.Maps.Platform;
+
 
 namespace IndignaFwk_WP7_WindowsPhoneApplication
 {
@@ -90,9 +94,20 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
 
             foreach(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria convocatoria in listaConvocatorias)
             {
+
+                Map mapMain = new Map();
+                // Update the map to show the current location
+                Location ppLoc = new Location();
+                ppLoc.Latitude = 7.62;
+                ppLoc.Longitude = 19.68;
+                mapMain.SetView(ppLoc, 10);          
+
                 this.Grupo1.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = convocatoria.Descripcion});
                 this.Grupo2.Add(new ItemViewModel() { LineOne = convocatoria.Titulo, LineTwo = "Descripcion: " + convocatoria.Descripcion, LineThree = "Fecha Inicio: " + convocatoria.FechaInicio,
-                                                      LineFour = "Fecha Fin: " + convocatoria.FechaInicio, LineFive = "Localización: " + convocatoria.Coordenadas});
+                                                      LineFour = "Fecha Fin: " + convocatoria.FechaInicio, LineFive = "Localización: " + convocatoria.Coordenadas,
+                                                      LineSix = mapMain});
+
+            
             }
         }
     }

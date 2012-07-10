@@ -334,8 +334,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
