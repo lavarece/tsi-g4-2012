@@ -200,6 +200,8 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
     [System.Runtime.Serialization.DataContractAttribute(Name="Grupo", Namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities")]
     public partial class Grupo : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private string AppIDFacebookField;
+        
         private string CoordenadasField;
         
         private string DescripcionField;
@@ -217,6 +219,19 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Tematica TematicaField;
         
         private string UrlField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AppIDFacebook {
+            get {
+                return this.AppIDFacebookField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AppIDFacebookField, value) != true)) {
+                    this.AppIDFacebookField = value;
+                    this.RaisePropertyChanged("AppIDFacebook");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Coordenadas {
@@ -774,9 +789,9 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         
         private string FuenteExternaField;
         
-        private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Grupo GrupoField;
-        
         private int IdField;
+        
+        private int IdGrupoField;
         
         private string QueryStringField;
         
@@ -807,19 +822,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Grupo Grupo {
-            get {
-                return this.GrupoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GrupoField, value) != true)) {
-                    this.GrupoField = value;
-                    this.RaisePropertyChanged("Grupo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -828,6 +830,19 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdGrupo {
+            get {
+                return this.IdGrupoField;
+            }
+            set {
+                if ((this.IdGrupoField.Equals(value) != true)) {
+                    this.IdGrupoField = value;
+                    this.RaisePropertyChanged("IdGrupo");
                 }
             }
         }
@@ -841,66 +856,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
                 if ((object.ReferenceEquals(this.QueryStringField, value) != true)) {
                     this.QueryStringField = value;
                     this.RaisePropertyChanged("QueryString");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AsistenciaConvocatoria", Namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities")]
-    public partial class AsistenciaConvocatoria : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria ConvocatoriaField;
-        
-        private int IdField;
-        
-        private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Usuario UsuarioField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria Convocatoria {
-            get {
-                return this.ConvocatoriaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ConvocatoriaField, value) != true)) {
-                    this.ConvocatoriaField = value;
-                    this.RaisePropertyChanged("Convocatoria");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Usuario Usuario {
-            get {
-                return this.UsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
-                    this.UsuarioField = value;
-                    this.RaisePropertyChanged("Usuario");
                 }
             }
         }
@@ -1065,6 +1020,66 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AsistenciaConvocatoria", Namespace="http://schemas.datacontract.org/2004/07/IndignaFwk.Common.Entities")]
+    public partial class AsistenciaConvocatoria : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria ConvocatoriaField;
+        
+        private int IdField;
+        
+        private IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Usuario UsuarioField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria Convocatoria {
+            get {
+                return this.ConvocatoriaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConvocatoriaField, value) != true)) {
+                    this.ConvocatoriaField = value;
+                    this.RaisePropertyChanged("Convocatoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Usuario Usuario {
+            get {
+                return this.UsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
+                    this.UsuarioField = value;
+                    this.RaisePropertyChanged("Usuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceConvocatoria.IConvocatoriaService")]
     public interface IConvocatoriaService {
@@ -1074,10 +1089,10 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         
         int EndCrearNuevaConvocatoria(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatorias", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasResponse")]
-        System.IAsyncResult BeginObtenerListadoConvocatorias(System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltro", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltroResponse")]
+        System.IAsyncResult BeginObtenerConvocatoriasPorFiltro(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> EndObtenerListadoConvocatorias(System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> EndObtenerConvocatoriasPorFiltro(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupo", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerListadoConvocatoriasPorGrupoRespon" +
             "se")]
@@ -1124,11 +1139,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         
         System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.AsistenciaConvocatoria> EndObtenerAsistenciaConvocatoriaPorIdUsuario(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltro", ReplyAction="http://tempuri.org/IConvocatoriaService/ObtenerConvocatoriasPorFiltroResponse")]
-        System.IAsyncResult BeginObtenerConvocatoriasPorFiltro(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> EndObtenerConvocatoriasPorFiltro(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoria", ReplyAction="http://tempuri.org/IConvocatoriaService/EliminarAsistenciaConvocatoriaResponse")]
         System.IAsyncResult BeginEliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria, System.AsyncCallback callback, object asyncState);
         
@@ -1160,11 +1170,11 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ObtenerListadoConvocatoriasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ObtenerConvocatoriasPorFiltroCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public ObtenerListadoConvocatoriasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public ObtenerConvocatoriasPorFiltroCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1274,25 +1284,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ObtenerConvocatoriasPorFiltroCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ObtenerConvocatoriasPorFiltroCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ConvocatoriaServiceClient : System.ServiceModel.ClientBase<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService>, IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService {
         
         private BeginOperationDelegate onBeginCrearNuevaConvocatoriaDelegate;
@@ -1301,11 +1292,11 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         
         private System.Threading.SendOrPostCallback onCrearNuevaConvocatoriaCompletedDelegate;
         
-        private BeginOperationDelegate onBeginObtenerListadoConvocatoriasDelegate;
+        private BeginOperationDelegate onBeginObtenerConvocatoriasPorFiltroDelegate;
         
-        private EndOperationDelegate onEndObtenerListadoConvocatoriasDelegate;
+        private EndOperationDelegate onEndObtenerConvocatoriasPorFiltroDelegate;
         
-        private System.Threading.SendOrPostCallback onObtenerListadoConvocatoriasCompletedDelegate;
+        private System.Threading.SendOrPostCallback onObtenerConvocatoriasPorFiltroCompletedDelegate;
         
         private BeginOperationDelegate onBeginObtenerListadoConvocatoriasPorGrupoDelegate;
         
@@ -1354,12 +1345,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         private EndOperationDelegate onEndObtenerAsistenciaConvocatoriaPorIdUsuarioDelegate;
         
         private System.Threading.SendOrPostCallback onObtenerAsistenciaConvocatoriaPorIdUsuarioCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginObtenerConvocatoriasPorFiltroDelegate;
-        
-        private EndOperationDelegate onEndObtenerConvocatoriasPorFiltroDelegate;
-        
-        private System.Threading.SendOrPostCallback onObtenerConvocatoriasPorFiltroCompletedDelegate;
         
         private BeginOperationDelegate onBeginEliminarAsistenciaConvocatoriaDelegate;
         
@@ -1422,7 +1407,7 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         
         public event System.EventHandler<CrearNuevaConvocatoriaCompletedEventArgs> CrearNuevaConvocatoriaCompleted;
         
-        public event System.EventHandler<ObtenerListadoConvocatoriasCompletedEventArgs> ObtenerListadoConvocatoriasCompleted;
+        public event System.EventHandler<ObtenerConvocatoriasPorFiltroCompletedEventArgs> ObtenerConvocatoriasPorFiltroCompleted;
         
         public event System.EventHandler<ObtenerListadoConvocatoriasPorGrupoCompletedEventArgs> ObtenerListadoConvocatoriasPorGrupoCompleted;
         
@@ -1439,8 +1424,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EditarAsistenciaConvocatoriaCompleted;
         
         public event System.EventHandler<ObtenerAsistenciaConvocatoriaPorIdUsuarioCompletedEventArgs> ObtenerAsistenciaConvocatoriaPorIdUsuarioCompleted;
-        
-        public event System.EventHandler<ObtenerConvocatoriasPorFiltroCompletedEventArgs> ObtenerConvocatoriasPorFiltroCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EliminarAsistenciaConvocatoriaCompleted;
         
@@ -1495,47 +1478,49 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.BeginObtenerListadoConvocatorias(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginObtenerListadoConvocatorias(callback, asyncState);
+        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.BeginObtenerConvocatoriasPorFiltro(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginObtenerConvocatoriasPorFiltro(filtroBusqueda, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.EndObtenerListadoConvocatorias(System.IAsyncResult result) {
-            return base.Channel.EndObtenerListadoConvocatorias(result);
+        System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.EndObtenerConvocatoriasPorFiltro(System.IAsyncResult result) {
+            return base.Channel.EndObtenerConvocatoriasPorFiltro(result);
         }
         
-        private System.IAsyncResult OnBeginObtenerListadoConvocatorias(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService)(this)).BeginObtenerListadoConvocatorias(callback, asyncState);
+        private System.IAsyncResult OnBeginObtenerConvocatoriasPorFiltro(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda)(inValues[0]));
+            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService)(this)).BeginObtenerConvocatoriasPorFiltro(filtroBusqueda, callback, asyncState);
         }
         
-        private object[] OnEndObtenerListadoConvocatorias(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService)(this)).EndObtenerListadoConvocatorias(result);
+        private object[] OnEndObtenerConvocatoriasPorFiltro(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService)(this)).EndObtenerConvocatoriasPorFiltro(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnObtenerListadoConvocatoriasCompleted(object state) {
-            if ((this.ObtenerListadoConvocatoriasCompleted != null)) {
+        private void OnObtenerConvocatoriasPorFiltroCompleted(object state) {
+            if ((this.ObtenerConvocatoriasPorFiltroCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ObtenerListadoConvocatoriasCompleted(this, new ObtenerListadoConvocatoriasCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.ObtenerConvocatoriasPorFiltroCompleted(this, new ObtenerConvocatoriasPorFiltroCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void ObtenerListadoConvocatoriasAsync() {
-            this.ObtenerListadoConvocatoriasAsync(null);
+        public void ObtenerConvocatoriasPorFiltroAsync(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda) {
+            this.ObtenerConvocatoriasPorFiltroAsync(filtroBusqueda, null);
         }
         
-        public void ObtenerListadoConvocatoriasAsync(object userState) {
-            if ((this.onBeginObtenerListadoConvocatoriasDelegate == null)) {
-                this.onBeginObtenerListadoConvocatoriasDelegate = new BeginOperationDelegate(this.OnBeginObtenerListadoConvocatorias);
+        public void ObtenerConvocatoriasPorFiltroAsync(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, object userState) {
+            if ((this.onBeginObtenerConvocatoriasPorFiltroDelegate == null)) {
+                this.onBeginObtenerConvocatoriasPorFiltroDelegate = new BeginOperationDelegate(this.OnBeginObtenerConvocatoriasPorFiltro);
             }
-            if ((this.onEndObtenerListadoConvocatoriasDelegate == null)) {
-                this.onEndObtenerListadoConvocatoriasDelegate = new EndOperationDelegate(this.OnEndObtenerListadoConvocatorias);
+            if ((this.onEndObtenerConvocatoriasPorFiltroDelegate == null)) {
+                this.onEndObtenerConvocatoriasPorFiltroDelegate = new EndOperationDelegate(this.OnEndObtenerConvocatoriasPorFiltro);
             }
-            if ((this.onObtenerListadoConvocatoriasCompletedDelegate == null)) {
-                this.onObtenerListadoConvocatoriasCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerListadoConvocatoriasCompleted);
+            if ((this.onObtenerConvocatoriasPorFiltroCompletedDelegate == null)) {
+                this.onObtenerConvocatoriasPorFiltroCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerConvocatoriasPorFiltroCompleted);
             }
-            base.InvokeAsync(this.onBeginObtenerListadoConvocatoriasDelegate, null, this.onEndObtenerListadoConvocatoriasDelegate, this.onObtenerListadoConvocatoriasCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginObtenerConvocatoriasPorFiltroDelegate, new object[] {
+                        filtroBusqueda}, this.onEndObtenerConvocatoriasPorFiltroDelegate, this.onObtenerConvocatoriasPorFiltroCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1906,52 +1891,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.BeginObtenerConvocatoriasPorFiltro(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginObtenerConvocatoriasPorFiltro(filtroBusqueda, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.EndObtenerConvocatoriasPorFiltro(System.IAsyncResult result) {
-            return base.Channel.EndObtenerConvocatoriasPorFiltro(result);
-        }
-        
-        private System.IAsyncResult OnBeginObtenerConvocatoriasPorFiltro(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda)(inValues[0]));
-            return ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService)(this)).BeginObtenerConvocatoriasPorFiltro(filtroBusqueda, callback, asyncState);
-        }
-        
-        private object[] OnEndObtenerConvocatoriasPorFiltro(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> retVal = ((IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService)(this)).EndObtenerConvocatoriasPorFiltro(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnObtenerConvocatoriasPorFiltroCompleted(object state) {
-            if ((this.ObtenerConvocatoriasPorFiltroCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ObtenerConvocatoriasPorFiltroCompleted(this, new ObtenerConvocatoriasPorFiltroCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ObtenerConvocatoriasPorFiltroAsync(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda) {
-            this.ObtenerConvocatoriasPorFiltroAsync(filtroBusqueda, null);
-        }
-        
-        public void ObtenerConvocatoriasPorFiltroAsync(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, object userState) {
-            if ((this.onBeginObtenerConvocatoriasPorFiltroDelegate == null)) {
-                this.onBeginObtenerConvocatoriasPorFiltroDelegate = new BeginOperationDelegate(this.OnBeginObtenerConvocatoriasPorFiltro);
-            }
-            if ((this.onEndObtenerConvocatoriasPorFiltroDelegate == null)) {
-                this.onEndObtenerConvocatoriasPorFiltroDelegate = new EndOperationDelegate(this.OnEndObtenerConvocatoriasPorFiltro);
-            }
-            if ((this.onObtenerConvocatoriasPorFiltroCompletedDelegate == null)) {
-                this.onObtenerConvocatoriasPorFiltroCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnObtenerConvocatoriasPorFiltroCompleted);
-            }
-            base.InvokeAsync(this.onBeginObtenerConvocatoriasPorFiltroDelegate, new object[] {
-                        filtroBusqueda}, this.onEndObtenerConvocatoriasPorFiltroDelegate, this.onObtenerConvocatoriasPorFiltroCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.IConvocatoriaService.BeginEliminarAsistenciaConvocatoria(int idAsistenciaConvocatoria, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginEliminarAsistenciaConvocatoria(idAsistenciaConvocatoria, callback, asyncState);
         }
@@ -2085,15 +2024,16 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
                 return _result;
             }
             
-            public System.IAsyncResult BeginObtenerListadoConvocatorias(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("ObtenerListadoConvocatorias", _args, callback, asyncState);
+            public System.IAsyncResult BeginObtenerConvocatoriasPorFiltro(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = filtroBusqueda;
+                System.IAsyncResult _result = base.BeginInvoke("ObtenerConvocatoriasPorFiltro", _args, callback, asyncState);
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> EndObtenerListadoConvocatorias(System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> EndObtenerConvocatoriasPorFiltro(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> _result = ((System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria>)(base.EndInvoke("ObtenerListadoConvocatorias", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> _result = ((System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria>)(base.EndInvoke("ObtenerConvocatoriasPorFiltro", _args, result)));
                 return _result;
             }
             
@@ -2196,19 +2136,6 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria {
             public System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.AsistenciaConvocatoria> EndObtenerAsistenciaConvocatoriaPorIdUsuario(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.AsistenciaConvocatoria> _result = ((System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.AsistenciaConvocatoria>)(base.EndInvoke("ObtenerAsistenciaConvocatoriaPorIdUsuario", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginObtenerConvocatoriasPorFiltro(IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.FiltroBusqueda filtroBusqueda, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = filtroBusqueda;
-                System.IAsyncResult _result = base.BeginInvoke("ObtenerConvocatoriasPorFiltro", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> EndObtenerConvocatoriasPorFiltro(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria> _result = ((System.Collections.ObjectModel.ObservableCollection<IndignaFwk_WP7_WindowsPhoneApplication.ServiceReferenceConvocatoria.Convocatoria>)(base.EndInvoke("ObtenerConvocatoriasPorFiltro", _args, result)));
                 return _result;
             }
             

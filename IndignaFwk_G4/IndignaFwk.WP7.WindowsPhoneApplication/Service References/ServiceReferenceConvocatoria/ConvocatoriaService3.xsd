@@ -18,6 +18,7 @@
   <xs:element name="Convocatoria" nillable="true" type="tns:Convocatoria" />
   <xs:complexType name="Grupo">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AppIDFacebook" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Coordenadas" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FuentesExternas" nillable="true" type="tns:ArrayOfFuenteExternaGrupo" />
@@ -40,8 +41,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="CantidadResultados" type="xs:int" />
       <xs:element minOccurs="0" name="FuenteExterna" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:Grupo" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdGrupo" type="xs:int" />
       <xs:element minOccurs="0" name="QueryString" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
