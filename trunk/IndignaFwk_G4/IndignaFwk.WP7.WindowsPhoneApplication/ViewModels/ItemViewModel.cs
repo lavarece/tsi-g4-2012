@@ -10,6 +10,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Microsoft.Phone.Controls.Maps;
+using System.Device.Location;
+using Microsoft.Phone.Controls.Maps.Platform;
 
 namespace IndignaFwk_WP7_WindowsPhoneApplication
 {
@@ -102,6 +105,20 @@ namespace IndignaFwk_WP7_WindowsPhoneApplication
             {
                 _lineFive = value;
                 NotifyPropertyChanged("LineFive");
+            }
+        }
+
+        private Map _lineSix;
+
+        public Map LineSix
+        {
+            get
+            {
+                return _lineSix;
+            }
+            set
+            {
+                _lineSix = value;
             }
         }
 
