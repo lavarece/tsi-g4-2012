@@ -15,8 +15,6 @@
             $("#divControllerMessages").dialog({
                 modal: true,
                 resizable: false,
-                show: "scale",
-			    hide: "explode",
                 buttons: {
                     "Aceptar": function () {
                         $(this).dialog("close");
@@ -38,9 +36,7 @@
         alertDialog.dialog({
             modal: true,
             resizable: false,
-            closeOnEscape: false,
-            show: "scale",
-            hide: "explode",
+            closeOnEscape: false,            
             buttons: { 
                 "Aceptar": function () {
                     $(this).dialog("close");
@@ -57,9 +53,7 @@
         confirmDialog.dialog({
             modal: true,
             resizable: false,
-            closeOnEscape: false,
-            show: "scale",
-            hide: "explode",
+            closeOnEscape: false,           
             buttons: {
                 "Aceptar": function () {
                     callbackOk();
