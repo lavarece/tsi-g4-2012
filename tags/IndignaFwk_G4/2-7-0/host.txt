@@ -1,0 +1,4 @@
+127.0.0.1 abuso.animal
+127.0.0.1 zona.panda
+127.0.0.1 contaminacion.luminica
+127.0.0.1 contra.monopolio.informatico

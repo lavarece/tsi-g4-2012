@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7CB92AC-8983-43B1-A679-20467B2EE5DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IndignaFwk.Business.Managers</RootNamespace>
+    <AssemblyName>IndignaFwk.Business.Managers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AdministradorManager.cs" />
+    <Compile Include="ContenidoManager.cs" />
+    <Compile Include="ConvocatoriaManager.cs" />
+    <Compile Include="GrupoManager.cs" />
+    <Compile Include="Interface\IAdministradorManager.cs" />
+    <Compile Include="Interface\IContenidoManager.cs" />
+    <Compile Include="Interface\IConvocatoriaManager.cs" />
+    <Compile Include="Interface\IGrupoManager.cs" />
+    <Compile Include="Interface\ISistemaManager.cs" />
+    <Compile Include="Interface\IUsuarioManager.cs" />
+    <Compile Include="ManagerFactory.cs" />
+    <Compile Include="SistemaManager.cs" />
+    <Compile Include="UsuarioManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IndignaFwk.Business.Agents\IndignaFwk.Business.Agents.csproj">
+      <Project>{8CCF2996-2876-4B4A-8CCC-62E224F4CAEC}</Project>
+      <Name>IndignaFwk.Business.Agents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IndignaFwk.Common\IndignaFwk.Common.csproj">
+      <Project>{86CD1C13-DE8F-4CEE-B5A9-7D280C8DC380}</Project>
+      <Name>IndignaFwk.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IndignaFwk.Persistence.DataAccess\IndignaFwk.Persistence.DataAccess.csproj">
+      <Project>{939458C8-1768-48C3-BB7F-CCAAEF6327CC}</Project>
+      <Name>IndignaFwk.Persistence.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

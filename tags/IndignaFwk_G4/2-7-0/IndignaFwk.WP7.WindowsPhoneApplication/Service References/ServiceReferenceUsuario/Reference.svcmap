@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3564ee7c-1f91-4cd1-80b5-bf4a585f276b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.137.75:80/AppServer/UsuarioService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UsuarioService3.xsd" MetadataType="Schema" ID="c1879c54-ae90-4f45-8fb7-eaebf3855c9c" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/UsuarioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UsuarioService31.xsd" MetadataType="Schema" ID="a0fad0bb-0d14-4404-bbfb-4df81ab8882c" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/UsuarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UsuarioService1.disco" MetadataType="Disco" ID="8844c43e-4599-429b-9781-ac974e75da38" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/UsuarioService.svc?disco" />
+    <MetadataFile FileName="UsuarioService32.xsd" MetadataType="Schema" ID="6704c89c-95b8-49f6-81fe-74c665090bc9" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/UsuarioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UsuarioService1.wsdl" MetadataType="Wsdl" ID="7c637745-a4ca-409e-80a8-be37b026a397" SourceId="1" SourceUrl="http://192.168.137.75/AppServer/UsuarioService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

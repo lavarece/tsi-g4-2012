@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = ViewBag.GrupoSite.Nombre + " - Chat";
+    Layout = "~/Content/" + ViewBag.GrupoSite.Layout.NombreLayout + "/layout.cshtml";
+}
+
+<h2>Chat del grupo</h2>
+
+@RenderPage(Url.Content("~/Views/Chat/ListaUsuariosChat.cshtml"))
+
+<div id="divContainerChat"></div>
+
+<script type="text/javascript">
+
+    var idIntervalConversacion;
+
+    function iniciarConversacion(idUsuario) 
+    {
+        if (idIntervalConversacion != null)
+        {
+            clearInterval(idIntervalConversacion);
+        }
+
+        $.ajax({
+            url: '@Url.Action("IniciarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    $("#notifNoLeidos_" + idUsuario).remove();
+                    $("#divContainerChat").html(data);
+                    idIntervalConversacion = setInterval('refrescarConversacion(' + idUsuario + ')', 2500);
+
+                    // Posiciono la ventana de mensajes al final
+                    $(function () {
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                    });
+                }
+            }
+        });
+    }
+
+    function enviarMensaje(idUsuario) 
+    {
+        var ingresoMsj = $("#txt_ingresoMsj_" + idUsuario)
+
+        if (ingresoMsj.val() == null || ingresoMsj.val() == '') 
+        {
+            alert("Debe ingresar el mensaje a enviar");
+        }
+        else
+        {
+            $.ajax({
+                url: '@Url.Action("EnviarMensaje", "Chat")' + "?idUsuario=" + idUsuario + "&msj=" + ingresoMsj.val(),
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion.append(data);
+
+                        $("#txt_ingresoMsj_" + idUsuario).val("");
+                        $("#txt_ingresoMsj_" + idUsuario).focus();
+
+                        // Posiciono la ventana de mensajes al final
+                        $(function () {
+                            txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    // Utilizada por el set interval
+    function refrescarConversacion(idUsuario)
+    {
+        $.ajax({
+            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+            dataType: "html",
+            method: "POST",
+            success: function (data, textStatus, jqXHR) {
+                if (data != null) {
+                    var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                    txtConversacion.html(data);
+
+                    // Posiciono la ventana de mensajes al final
+                    $(function () {
+                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                    });
+                }
+            }
+        });
+    }
+
+</script>
