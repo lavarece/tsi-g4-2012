@@ -147,21 +147,24 @@
     }
 
     // Utilizada por el set interval
-    function refrescarConversacion(idUsuario) {
-        $.ajax({
-            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
-            dataType: "html",
-            method: "POST",
-            success: function (data, textStatus, jqXHR) {
-                if (data != null) {
-                    var txtConversacion = $("#txt_conversacion_" + idUsuario);
-                    txtConversacion.html(data);
-                    $(function () {
-                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
-                    });
+    function refrescarConversacion(idUsuario) 
+    {
+        if (window.isActive) {
+            $.ajax({
+                url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion.html(data);
+                        $(function () {
+                            txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
 </script>

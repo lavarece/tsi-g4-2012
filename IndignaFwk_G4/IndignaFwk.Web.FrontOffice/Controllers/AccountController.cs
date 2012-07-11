@@ -233,7 +233,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
                     // Edito la cookie de login y el custom identity
                     FormsAuthentication.SetAuthCookie(usuarioLogueado.NombreCompleto, true);
 
-                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, usuarioLogueado.NombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(30), true, usuarioLogueado.Id.ToString());
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, usuarioLogueado.NombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(20), true, usuarioLogueado.Id.ToString());
 
                     string encTicket = FormsAuthentication.Encrypt(ticket);
 
@@ -307,7 +307,7 @@ namespace IndignaFwk.Web.FrontOffice.Controllers
 
             FormsAuthentication.SetAuthCookie(nombreCompleto, true);
 
-            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(1), true, idUsuario);
+            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, nombreCompleto, DateTime.Now, DateTime.Now.AddMinutes(20), true, idUsuario);
 
             string encTicket = FormsAuthentication.Encrypt(ticket);
 

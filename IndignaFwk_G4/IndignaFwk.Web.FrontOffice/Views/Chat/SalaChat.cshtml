@@ -73,24 +73,26 @@
     }
 
     // Utilizada por el set interval
-    function refrescarConversacion(idUsuario)
+    function refrescarConversacion(idUsuario) 
     {
-        $.ajax({
-            url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
-            dataType: "html",
-            method: "POST",
-            success: function (data, textStatus, jqXHR) {
-                if (data != null) {
-                    var txtConversacion = $("#txt_conversacion_" + idUsuario);
-                    txtConversacion.html(data);
+        if (window.isActive) {
+            $.ajax({
+                url: '@Url.Action("RefrescarConversacion", "Chat")' + "?idUsuario=" + idUsuario,
+                dataType: "html",
+                method: "POST",
+                success: function (data, textStatus, jqXHR) {
+                    if (data != null) {
+                        var txtConversacion = $("#txt_conversacion_" + idUsuario);
+                        txtConversacion.html(data);
 
-                    // Posiciono la ventana de mensajes al final
-                    $(function () {
-                        txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
-                    });
+                        // Posiciono la ventana de mensajes al final
+                        $(function () {
+                            txtConversacion[0].scrollTop = txtConversacion[0].scrollHeight;
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
 </script>
